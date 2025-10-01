@@ -83,17 +83,17 @@
 
   <!-- Cajas de texto con botones -->
   <div class="row">
-    <label>Base: <input type="text" id="Base" class="sensor-box" readonly></label>
+    <label>Base: <input type="number" id="Base" class="sensor-box" readonly></label>
     <button class="btn" onclick="sendData('Base+')">+</button>
     <button class="btn" onclick="sendData('Base-')">-</button>
   </div>
   <div class="row">
-    <label>Brazo: <input type="text" id="Brazo" class="sensor-box" readonly></label>
+    <label>Brazo: <input type="number" id="Brazo" class="sensor-box" readonly></label>
     <button class="btn" onclick="sendData('Brazo+')">+</button>
     <button class="btn" onclick="sendData('Brazo-')">-</button>
   </div>
   <div class="row">
-    <label>Codo: <input type="text" id="Codo" class="sensor-box" readonly></label>
+    <label>Codo: <input type="number" id="Codo" class="sensor-box" readonly></label>
     <button class="btn" onclick="sendData('Codo+')">+</button>
     <button class="btn" onclick="sendData('Codo-')">-</button>
   </div>
@@ -151,35 +151,31 @@
       sendData(`SET,${base},${brazo},${codo}`);
     }
 
-    async function readLoop() {
-      const decoder = new TextDecoder();
-      let buffer = "";
-      while (true) {
-        try {
-          const { value, done } = await reader.read();
-          if (done) break;
-          if (value) {
-            buffer += decoder.decode(value, { stream: true });
-            let lines = buffer.split("\n");
-            buffer = lines.pop();
-            for (let line of lines) {
-              const parts = line.trim().split(",");
-              if (parts.length === 6) {
-                document.getElementById("Base").value = parts[0];
-                document.getElementById("Brazo").value = parts[1];
-                document.getElementById("Codo").value = parts[2];
-                document.getElementById("X_CD_FIN").value = parts[3];
-                document.getElementById("Y_CD_FIN").value = parts[4];
-                document.getElementById("Z_CD_FIN").value = parts[5];
-              }
-            }
-          }
-        } catch (error) {
-          console.error("Error en la lectura:", error);
-          break;
+    let buffer = "";
+async function readLoop() {
+  const decoder = new TextDecoder();
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    if (value) {
+      buffer += decoder.decode(value, { stream: true });
+      let lines = buffer.split(/\r?\n/);
+      buffer = lines.pop();
+      for (let line of lines) {
+        console.log("Linea completa:", line);
+        const parts = line.trim().split(",");
+        if (parts.length === 6) {
+          document.getElementById("Base").value = parts[0];
+          document.getElementById("Brazo").value = parts[1];
+          document.getElementById("Codo").value = parts[2];
+          document.getElementById("X_CD_FIN").value = parts[3];
+          document.getElementById("Y_CD_FIN").value = parts[4];
+          document.getElementById("Z_CD_FIN").value = parts[5];
         }
       }
     }
+  }
+}
 
     // Evento del interruptor
     modeSwitch.addEventListener("change", (e) => {
