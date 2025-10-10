@@ -103,6 +103,7 @@
     <label>Posicion Z con Cinematica Directa: <input type="text" id="Z_CD_FIN" class="sensor-box" readonly></label>
   </div>
 
+
   <!-- Sección manual -->
   <div class="manual-input">
     <h3>Enviar ángulos cinematica inversa</h3>
@@ -150,6 +151,8 @@
       const codo = document.getElementById("manualCodo").value;
       sendData(`SET,${base},${brazo},${codo}`);
     }
+
+    
 
     let buffer = "";
 async function readLoop() {
