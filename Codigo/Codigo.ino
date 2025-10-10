@@ -33,6 +33,10 @@ float d1 = 0.03;
 float d2 = 0.07;
 float d3 = 0.10;
 
+// --- Resultados de la cinemática inversa ---
+float theta1, theta2, theta3;
+
+
 // Paso de incremento por pulsación
 const int step = 5;
 
@@ -65,6 +69,31 @@ void inicializar_matriz(){
   Matriz_DH_CD[2][3] = 0.0;
 
 }
+
+bool ik_RRR(float x, float y, float z) {
+  // 1. Rotación base (theta1)
+  theta1 = atan2(y, x);
+
+  // 2. Calcular distancia en el plano XY
+  float r = sqrt(x*x + y*y);  
+  float s = z - d1;          
+
+  // 3. Ley del coseno para theta3
+  float D = (r*r + s*s - d2*d2 - d3*d3) / (2 * d2 * d3);
+  if (fabs(D) > 1.0) {
+    return false; // No existe solución
+  }
+
+  theta3 = atan2(sqrt(1 - D*D), D);  // codo arriba
+  // theta3 = atan2(-sqrt(1 - D*D), D); // codo abajo (alternativa)
+
+  // 4. Calcular theta2
+  theta2 = atan2(s, r) - atan2(d3*sin(theta3), d2 + d3*cos(theta3));
+
+  return true;
+}
+
+
 
 void dh_to_T(float DH[4][4],float alpha,float a,float d,float theta){
   float ca = cos(alpha);
@@ -172,15 +201,14 @@ void loop() {
 
         //Activar funcion - Cinematica Inversa
 
-        /*
-        baseAngle = constrain(b, 0, 180);
-        brazoAngle = constrain(r, 0, 180);
-        codoAngle = constrain(c, 0, 180);
+        bool func = ik_RRR(b,r,c);
+        if (func == true){
+          moverServo(SERVO_BASE, theta1);
+          moverServo(SERVO_BRAZO, theta2);
+          moverServo(SERVO_CODO, theta3);
+        }
 
-        moverServo(SERVO_BASE, baseAngle);
-        moverServo(SERVO_BRAZO, brazoAngle);
-        moverServo(SERVO_CODO, codoAngle);
-        */
+        
       }
     }
     else if (cmd == "Base+" && modo == 0) {
