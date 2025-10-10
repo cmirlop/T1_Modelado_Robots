@@ -105,13 +105,14 @@
 
 
   <!-- Sección manual -->
-  <div class="manual-input">
-    <h3>Enviar ángulos cinematica inversa</h3>
-    <label>Base: <input type="number" id="X" min="0" max="180" value="90"></label>
-    <label>Brazo: <input type="number" id="Y" min="0" max="180" value="90"></label>
-    <label>Codo: <input type="number" id="Z" min="0" max="180" value="90"></label>
+<div class="manual-input">
+    <h3>Enviar ángulos cinemática inversa</h3>
+    <label>X: <input type="number" id="X" min="0" max="180" step="any" value="0"></label>
+    <label>Y: <input type="number" id="Y" min="0" max="180" step="any" value="0"></label>
+    <label>Z: <input type="number" id="Z" min="0" max="180" step="any" value="0"></label>
     <button class="btn" onclick="sendManualAngles()">Enviar</button>
-  </div>
+</div>
+
 
   <script>
     let port, writer, reader;
@@ -146,9 +147,9 @@
     }
 
     async function sendManualAngles() {
-      const base = document.getElementById("manualBase").value;
-      const brazo = document.getElementById("manualBrazo").value;
-      const codo = document.getElementById("manualCodo").value;
+      const base = document.getElementById("X").value;
+      const brazo = document.getElementById("Y").value;
+      const codo = document.getElementById("Z").value;
       sendData(`SET,${base},${brazo},${codo}`);
     }
 

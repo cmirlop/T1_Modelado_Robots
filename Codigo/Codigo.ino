@@ -72,7 +72,8 @@ void inicializar_matriz(){
 
 bool ik_RRR(float x, float y, float z) {
   // 1. Rotación base (theta1)
-  theta1 = atan2(y, x);
+  float theta12, theta22, theta32;
+  theta12 = atan2(y, x);
 
   // 2. Calcular distancia en el plano XY
   float r = sqrt(x*x + y*y);  
@@ -84,11 +85,19 @@ bool ik_RRR(float x, float y, float z) {
     return false; // No existe solución
   }
 
-  theta3 = atan2(sqrt(1 - D*D), D);  // codo arriba
+  theta32 = atan2(sqrt(1 - D*D), D);  // codo arriba
   // theta3 = atan2(-sqrt(1 - D*D), D); // codo abajo (alternativa)
 
   // 4. Calcular theta2
-  theta2 = atan2(s, r) - atan2(d3*sin(theta3), d2 + d3*cos(theta3));
+  theta22 = atan2(s, r) - atan2(d3*sin(theta3), d2 + d3*cos(theta3));
+   theta1 = theta12 * 180.0 / PI;
+  theta2 = theta22 * 180.0 / PI;
+  theta3 = theta32 * 180.0 / PI;
+  Serial.println("aaaa");
+  Serial.println(theta1);
+  Serial.println(theta2);
+  Serial.println(theta3);
+  
 
   return true;
 }
@@ -189,19 +198,26 @@ void loop() {
       modo = 1;
     } 
     else if (cmd.startsWith("SET,") && modo == 1) {
+      Serial.print("Hola\n");
       // Parsear los 3 valores recibidos
       cmd.remove(0, 4); // eliminar "SET,"
       int coma1 = cmd.indexOf(',');
       int coma2 = cmd.lastIndexOf(',');
 
+
       if (coma1 > 0 && coma2 > coma1) {
-        int b = cmd.substring(0, coma1).toInt();
-        int r = cmd.substring(coma1 + 1, coma2).toInt();
-        int c = cmd.substring(coma2 + 1).toInt();
+        float b = cmd.substring(0, coma1).toFloat();
+        float r = cmd.substring(coma1 + 1, coma2).toFloat();
+        float c = cmd.substring(coma2 + 1).toFloat();
+        Serial.println(b);
+        Serial.println(r);
+        Serial.println(c);
+        
 
         //Activar funcion - Cinematica Inversa
 
         bool func = ik_RRR(b,r,c);
+        Serial.println(func);
         if (func == true){
           moverServo(SERVO_BASE, theta1);
           moverServo(SERVO_BRAZO, theta2);
