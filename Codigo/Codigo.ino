@@ -371,11 +371,11 @@ void loop() {
   Serial.print(",");
   Serial.print(codoAngle);
   Serial.print(",");
-  Serial.print(baseAngle);
+  Serial.print(res_CN[0][3]);
   Serial.print(",");
-  Serial.print(brazoAngle);
+  Serial.print(res_CN[1][3]);
   Serial.print(",");
-  Serial.print(codoAngle);
+  Serial.print(res_CN[2][3]);
   Serial.print("\n");
   
 
