@@ -29,9 +29,9 @@ int codoAngle = 0;
 
 //Distancia entre ejes, modificar a los reales
 // de los brazos
-float d1 = 0.03;
-float d2 = 0.07;
-float d3 = 0.10;
+float d1 = 0.065;
+float d2 = 0.095;
+float d3 = 0.055;
 
 // --- Resultados de la cinemática inversa ---
 float theta1, theta2, theta3;
@@ -48,6 +48,121 @@ int angleToPulse(int ang) {
   int pulsoMin = 150;  // 0°
   int pulsoMax = 600;  // 180°
   return map(ang, 0, 180, pulsoMin, pulsoMax);
+}
+
+/*
+bool ik_RRR(float x, float y, float z) {
+  // Variables locales temporales (en radianes)
+  float theta12, theta22, theta32;
+
+  // --- 1. Rotación base ---
+  theta12 = atan2(y, x);
+
+  // --- 2. Distancias en el plano XY y vertical ---
+  float r = sqrt(x * x + y * y);
+  float s = z - d1;
+
+  // --- 3. Ley del coseno para el codo (theta3) ---
+  // Forzamos rango [-π/2, +π/2]
+  float D = (r * r + s * s - d2 * d2 - d3 * d3) / (2 * d2 * d3);
+  if (fabs(D) > 1.0) {
+    return false; // No hay solución geométrica
+  }
+
+  // Codo arriba
+  theta32 = atan2(sqrt(1 - D * D), D)- (PI / 2.0);
+
+  // --- 4. Calcular el hombro (theta2) ---
+  theta22 = atan2(s, r) - atan2(d3 * sin(theta32), d2 + d3 * cos(theta32));
+
+  // --- 5. Convertir a grados ---
+  float t1 = theta12 * 180.0 / PI;
+  float t2 = theta22 * 180.0 / PI;
+  float t3 = theta32 * 180.0 / PI;
+
+  // --- 6. Ajustes según tu mecánica ---
+
+  // BASE: derecha=0°, izquierda=180°
+  // atan2 da [-180,180]; convertimos a [0,180]
+  if (t1 < 0) t1 = 360 + t1;   // ahora está en [0,360)
+  if (t1 > 180) t1 = 360 - t1; // reflejamos para coincidir con tu montaje
+
+  // BRAZO: 0° = horizontal, 100° = arriba
+  // t2=0° significa brazo apuntando hacia el frente en horizontal
+  // Si tu servo 0° es horizontal, lo dejamos así.
+  if (t2 < 0) t2 = 0;
+  if (t2 > 100) t2 = 100;  // limitamos al máximo físico
+
+  // CODO: 0° = arriba, 90° = medio, 180° = abajo
+  // Cinemáticamente, t3=0° = codo extendido
+  // Pero tu servo está invertido → lo invertimos:
+  //t3 = 180 - t3;
+  //if (t3 < 0) t3 = 0;
+  //if (t3 > 180) t3 = 180;
+  t3 = (t3 + 90.0);
+  // --- 7. Asignar resultados globales (ya en grados) ---
+  theta1 = t1;
+  theta2 = t2;
+  theta3 = t3;
+
+  return true;
+}
+*/
+
+bool ik_RRR(float x, float y, float z) {
+  // longitudes (asegúrate están definidas globalmente)
+  // float d1 = 0.065, d2 = 0.095, d3 = 0.055;
+
+  // 1) Base
+  float theta12 = atan2(y, x); // radianes
+
+  // 2) Geometría
+  float r = sqrt(x * x + y * y);
+  float s = z - d1;
+
+  // 3) Ley del coseno (D)
+  float D = (r * r + s * s - d2 * d2 - d3 * d3) / (2.0f * d2 * d3);
+
+  // Clamp numérico (evita rechazar por errores flotantes)
+  if (D > 1.0f) D = 1.0f;
+  if (D < -1.0f) D = -1.0f;
+
+  // 4) Ángulo completo del codo (theta3_full) en [0, pi]
+  float theta3_full = atan2( sqrt( fmaxf(0.0f, 1.0f - D*D) ), D ); // rad
+
+  // Si deseas centrar en [-pi/2, +pi/2] para mapeo posterior:
+  float theta32 = theta3_full - (PI / 2.0f); // rad, estará ~[-pi/2, +pi/2]
+
+  // 5) Hombro: usar theta3_full (NO theta32 directamente)
+  float num = d3 * sin(theta3_full);
+  float den = d2 + d3 * cos(theta3_full);
+  float theta22 = atan2(s, r) - atan2(num, den); // rad
+
+  // 6) Convertir a grados
+  float t1 = (theta12 * 180.0f / PI) + 90.0f;   // base
+  float t2 = theta22 * 180.0f / PI;   // hombro (geométrico)
+  float t3 = theta32 * 180.0f / PI;   // codo en [-90, +90]
+
+  // 7) Ajustes mecánicos
+  // BASE: atan2 -> [-180,180] -> queremos [0,180] con 0=derecha, 180=izquierda
+  if (t1 < 0.0f) t1 = 360.0f + t1;   // -> [0,360)
+  if (t1 > 180.0f) t1 = 360.0f - t1; // espejo para tu montaje
+
+  // HOMBRO: limitar a [0,100]
+  if (t2 < 0.0f) t2 = 0.0f;
+  if (t2 > 100.0f) t2 = 100.0f;
+
+  // CODO: mapear [-90,+90] -> [0,180], y limitar
+  t3 = t3 + 90.0f;
+  if (t3 < 0.0f) t3 = 0.0f;
+  if (t3 > 180.0f) t3 = 180.0f;
+
+  // 8) Guardar/usar
+  theta1 = t1;
+  theta2 = t2;
+  theta3 = t3;
+
+  return true;
 }
 
 
@@ -70,37 +185,7 @@ void inicializar_matriz(){
 
 }
 
-bool ik_RRR(float x, float y, float z) {
-  // 1. Rotación base (theta1)
-  float theta12, theta22, theta32;
-  theta12 = atan2(y, x);
 
-  // 2. Calcular distancia en el plano XY
-  float r = sqrt(x*x + y*y);  
-  float s = z - d1;          
-
-  // 3. Ley del coseno para theta3
-  float D = (r*r + s*s - d2*d2 - d3*d3) / (2 * d2 * d3);
-  if (fabs(D) > 1.0) {
-    return false; // No existe solución
-  }
-
-  theta32 = atan2(sqrt(1 - D*D), D);  // codo arriba
-  // theta3 = atan2(-sqrt(1 - D*D), D); // codo abajo (alternativa)
-
-  // 4. Calcular theta2
-  theta22 = atan2(s, r) - atan2(d3*sin(theta3), d2 + d3*cos(theta3));
-   theta1 = theta12 * 180.0 / PI;
-  theta2 = theta22 * 180.0 / PI;
-  theta3 = theta32 * 180.0 / PI;
-  Serial.println("aaaa");
-  Serial.println(theta1);
-  Serial.println(theta2);
-  Serial.println(theta3);
-  
-
-  return true;
-}
 
 
 
@@ -216,13 +301,24 @@ void loop() {
 
         //Activar funcion - Cinematica Inversa
 
-        bool func = ik_RRR(b,r,c);
-        Serial.println(func);
+        bool func = ik_RRR(b/1000.0,r/1000.0,c/1000.0);
+          Serial.print("Angulos para cada motor:");
+          Serial.print(",");
+          Serial.print(theta1);
+          Serial.print(",");
+          Serial.print(theta2);
+          Serial.print(",");
+          Serial.print(theta3);
+          Serial.print(",");
+          Serial.println(func);
         if (func == true){
           moverServo(SERVO_BASE, theta1);
           moverServo(SERVO_BRAZO, theta2);
           moverServo(SERVO_CODO, theta3);
         }
+        baseAngle = theta1;
+        brazoAngle = theta2;
+        codoAngle = theta3;
 
         
       }

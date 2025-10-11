@@ -107,11 +107,18 @@
   <!-- Sección manual -->
 <div class="manual-input">
     <h3>Enviar ángulos cinemática inversa</h3>
-    <label>X: <input type="number" id="X" min="0" max="180" step="any" value="0"></label>
-    <label>Y: <input type="number" id="Y" min="0" max="180" step="any" value="0"></label>
-    <label>Z: <input type="number" id="Z" min="0" max="180" step="any" value="0"></label>
+    <label>X en mm: <input type="number" id="X" min="0" max="180" step="any" value="0"></label>
+    <label>Y en mm: <input type="number" id="Y" min="0" max="180" step="any" value="0"></label>
+    <label>Z en mm: <input type="number" id="Z" min="0" max="180" step="any" value="0"></label>
     <button class="btn" onclick="sendManualAngles()">Enviar</button>
 </div>
+  <div class="row">
+    <h3>Ángulos para la posición en cinemática inversa</h3>
+    <label>Base: <input type="text" id="BA_CI_FIN" class="sensor-box" readonly></label>
+    <label>Brazo: <input type="text" id="BR_CI_FIN" class="sensor-box" readonly></label>
+    <label>Codo: <input type="text" id="CO_CI_FIN" class="sensor-box" readonly></label>
+    <label>Resultado: <input type="text" id="status_CI" class="sensor-box" readonly></label>
+  </div>
 
 
   <script>
@@ -176,6 +183,18 @@ async function readLoop() {
           document.getElementById("Y_CD_FIN").value = parts[4];
           document.getElementById("Z_CD_FIN").value = parts[5];
         }
+          if (parts.length === 5) {
+          document.getElementById("BA_CI_FIN").value = parts[1];
+          document.getElementById("BR_CI_FIN").value = parts[2];
+          document.getElementById("CO_CI_FIN").value = parts[3];
+          if(parts[4]==1){
+            document.getElementById("status_CI").value = "Correcto";
+          }else{
+            document.getElementById("status_CI").value = "Incorrecto";
+          }
+
+        }
+
       }
     }
   }
