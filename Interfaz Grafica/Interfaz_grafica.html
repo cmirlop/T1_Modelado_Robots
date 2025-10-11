@@ -50,6 +50,10 @@
     .row { margin: 8px 0; }
     .btn {
       padding: 5px 10px;
+      border-radius: 50%;
+      display: inline-flex; 
+      border: none;
+      background-color: #00d0ff;
       margin: 0 3px;
       font-size: 16px;
       cursor: pointer;
@@ -68,19 +72,21 @@
 </head>
 <body>
   <h1>Control y Lectura desde Arduino para el robot </h1>
-  
+  <h3> Conectar con Arduino </h3>
   <button id="connect">Conectar</button>
   <span>Estado: <span id="status-led"></span></span>
   <br><br>
 
+  <h3> Selección de Cinemática </h3>
   <!-- Interruptor -->
   <label class="switch">
     <input type="checkbox" id="modeSwitch">
     <span class="slider"></span>
   </label>
-  <span id="modeLabel">Cinematica directa</span>
+  <span id="modeLabel">Cinemática directa</span>
   <br><br>
 
+  
   <!-- Cajas de texto con botones -->
   <div class="row">
     <label>Base: <input type="number" id="Base" class="sensor-box" readonly></label>
@@ -98,9 +104,9 @@
     <button class="btn" onclick="sendData('Codo-')">-</button>
   </div>
   <div class="row">
-    <label>Posicion X con Cinematica Directa: <input type="text" id="X_CD_FIN" class="sensor-box" readonly></label>
-    <label>Posicion Y con Cinematica Directa: <input type="text" id="Y_CD_FIN" class="sensor-box" readonly></label>
-    <label>Posicion Z con Cinematica Directa: <input type="text" id="Z_CD_FIN" class="sensor-box" readonly></label>
+    <label>Posición X con Cinemática Directa: <input type="text" id="X_CD_FIN" class="sensor-box" readonly></label>
+    <label>Posición Y con Cinemática Directa: <input type="text" id="Y_CD_FIN" class="sensor-box" readonly></label>
+    <label>Posición Z con Cinemática Directa: <input type="text" id="Z_CD_FIN" class="sensor-box" readonly></label>
   </div>
 
 
