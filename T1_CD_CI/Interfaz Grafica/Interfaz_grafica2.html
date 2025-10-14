@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Arduino Web API</title>
+  <style>
+    /* LED indicador */
+    #status-led {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: red;
+      display: inline-block;
+      margin-left: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    /* Estilos del interruptor */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute; cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #ccc; transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute; content: "";
+      height: 26px; width: 26px;
+      left: 4px; bottom: 4px;
+      background-color: white;
+      transition: .4s; border-radius: 50%;
+    }
+    input:checked + .slider { background-color: #4CAF50; }
+    input:checked + .slider:before { transform: translateX(26px); }
+
+    .sensor-box {
+      width: 100px;
+      margin: 5px;
+      padding: 5px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .row { margin: 8px 0; }
+    .btn {
+      padding: 5px 10px;
+      border-radius: 50%;
+      display: inline-flex; 
+      border: none;
+      background-color: #00d0ff;
+      margin: 0 3px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .manual-input {
+      margin-top: 20px;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+    }
+    .manual-input input {
+      width: 60px;
+      margin: 0 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Control y Lectura desde Arduino para el robot </h1>
+  <h3> Conectar con Arduino </h3>
+  <button id="connect">Conectar</button>
+  <span>Estado: <span id="status-led"></span></span>
+  <br><br>
+
+  <h3> Selección de Cinemática </h3>
+  <!-- Interruptor -->
+  <label class="switch">
+    <input type="checkbox" id="modeSwitch">
+    <span class="slider"></span>
+  </label>
+  <span id="modeLabel">Cinemática directa</span>
+  <br><br>
+
+  
+  <!-- Cajas de texto con botones -->
+  <div class="row">
+    <label>Base: <input type="number" id="Base" class="sensor-box" readonly></label>
+    <button class="btn" onclick="sendData('Base+')">+</button>
+    <button class="btn" onclick="sendData('Base-')">-</button>
+  </div>
+  <div class="row">
+    <label>Brazo: <input type="number" id="Brazo" class="sensor-box" readonly></label>
+    <button class="btn" onclick="sendData('Brazo+')">+</button>
+    <button class="btn" onclick="sendData('Brazo-')">-</button>
+  </div>
+  <div class="row">
+    <label>Codo: <input type="number" id="Codo" class="sensor-box" readonly></label>
+    <button class="btn" onclick="sendData('Codo+')">+</button>
+    <button class="btn" onclick="sendData('Codo-')">-</button>
+  </div>
+  <div class="row">
+    <label>Posición X con Cinemática Directa: <input type="text" id="X_CD_FIN" class="sensor-box" readonly></label>
+    <label>Posición Y con Cinemática Directa: <input type="text" id="Y_CD_FIN" class="sensor-box" readonly></label>
+    <label>Posición Z con Cinemática Directa: <input type="text" id="Z_CD_FIN" class="sensor-box" readonly></label>
+  </div>
+
+
+  <!-- Sección manual -->
+<div class="manual-input">
+    <h3>Enviar ángulos cinemática inversa</h3>
+    <label>X en mm: <input type="number" id="X" min="0" max="180" step="any" value="0"></label>
+    <label>Y en mm: <input type="number" id="Y" min="0" max="180" step="any" value="0"></label>
+    <label>Z en mm: <input type="number" id="Z" min="0" max="180" step="any" value="0"></label>
+    <button class="btn" onclick="sendManualAngles()">Enviar</button>
+</div>
+  <div class="row">
+    <h3>Ángulos para la posición en cinemática inversa</h3>
+    <label>Base: <input type="text" id="BA_CI_FIN" class="sensor-box" readonly></label>
+    <label>Brazo: <input type="text" id="BR_CI_FIN" class="sensor-box" readonly></label>
+    <label>Codo: <input type="text" id="CO_CI_FIN" class="sensor-box" readonly></label>
+    <label>Resultado: <input type="text" id="status_CI" class="sensor-box" readonly></label>
+  </div>
+
+
+  <script>
+    let port, writer, reader;
+    const statusLed = document.getElementById("status-led");
+    const modeSwitch = document.getElementById("modeSwitch");
+    const modeLabel = document.getElementById("modeLabel");
+
+    async function connectArduino() {
+      try {
+        port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 9600 });
+
+        writer = port.writable.getWriter();
+        reader = port.readable.getReader();
+
+        // Cambiar LED a verde
+        statusLed.style.backgroundColor = "green";
+
+        // Iniciar lectura continua
+        readLoop();
+      } catch (error) {
+        console.error("Error al conectar:", error);
+        statusLed.style.backgroundColor = "red";
+      }
+    }
+
+    async function sendData(data) {
+      if (writer) {
+        const encoder = new TextEncoder();
+        await writer.write(encoder.encode(data + "\n"));
+      }
+    }
+
+    async function sendManualAngles() {
+      const base = document.getElementById("X").value;
+      const brazo = document.getElementById("Y").value;
+      const codo = document.getElementById("Z").value;
+      sendData(`SET,${base},${brazo},${codo}`);
+    }
+
+    
+
+    let buffer = "";
+async function readLoop() {
+  const decoder = new TextDecoder();
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+    if (value) {
+      buffer += decoder.decode(value, { stream: true });
+      let lines = buffer.split(/\r?\n/);
+      buffer = lines.pop();
+      for (let line of lines) {
+        console.log("Linea completa:", line);
+        const parts = line.trim().split(",");
+        if (parts.length === 6) {
+          document.getElementById("Base").value = parts[0];
+          document.getElementById("Brazo").value = parts[1];
+          document.getElementById("Codo").value = parts[2];
+          document.getElementById("X_CD_FIN").value = parts[3];
+          document.getElementById("Y_CD_FIN").value = parts[4];
+          document.getElementById("Z_CD_FIN").value = parts[5];
+        }
+          if (parts.length === 5) {
+          document.getElementById("BA_CI_FIN").value = parts[1];
+          document.getElementById("BR_CI_FIN").value = parts[2];
+          document.getElementById("CO_CI_FIN").value = parts[3];
+          if(parts[4]==1){
+            document.getElementById("status_CI").value = "Correcto";
+          }else{
+            document.getElementById("status_CI").value = "Incorrecto";
+          }
+
+        }
+
+      }
+    }
+  }
+}
+
+    // Evento del interruptor
+    modeSwitch.addEventListener("change", (e) => {
+      if (e.target.checked) {
+        sendData("1");
+        modeLabel.textContent = "Cinematica inversa";
+      } else {
+        sendData("0");
+        modeLabel.textContent = "Cinematica directa";
+      }
+    });
+
+    document.getElementById("connect").addEventListener("click", connectArduino);
+  </script>
+</body>
+</html>
