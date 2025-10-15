@@ -109,6 +109,7 @@ bool ik_RRR(float x, float y, float z) {
 }
 */
 
+/*
 bool ik_RRR(float x, float y, float z) {
   // longitudes (asegúrate están definidas globalmente)
   // float d1 = 0.065, d2 = 0.095, d3 = 0.055;
@@ -139,7 +140,7 @@ bool ik_RRR(float x, float y, float z) {
   float theta22 = atan2(s, r) - atan2(num, den); // rad
 
   // 6) Convertir a grados
-  float t1 = (theta12 * 180.0f / PI) + 90.0f;   // base
+  float t1 = (theta12 * 180.0f / PI);   // base
   float t2 = theta22 * 180.0f / PI;   // hombro (geométrico)
   float t3 = theta32 * 180.0f / PI;   // codo en [-90, +90]
 
@@ -150,7 +151,7 @@ bool ik_RRR(float x, float y, float z) {
 
   // HOMBRO: limitar a [0,100]
   if (t2 < 0.0f) t2 = 0.0f;
-  if (t2 > 100.0f) t2 = 100.0f;
+  if (t2 > 180.0f) t2 = 180.0f;
 
   // CODO: mapear [-90,+90] -> [0,180], y limitar
   t3 = t3 + 90.0f;
@@ -164,6 +165,96 @@ bool ik_RRR(float x, float y, float z) {
 
   return true;
 }
+*/
+#include <math.h>
+
+// Función para calcular la cinemática inversa de un 3R
+// X, Y, Z: posición del efector final
+// sol1 y sol2: structs donde se almacenan las dos soluciones (codo abajo y codo arriba)
+bool ik_RRR(float X, float Y, float Z) {
+    // Longitudes del brazo
+    float a2 = 0.095;
+    float a3 = 0.055;
+    float d1 = 0.065;
+
+    // Rotación de base
+    float theta11 = atan2(Y, X);
+
+    // Coordenadas en el plano del brazo
+    float r = sqrt(X*X + Y*Y);
+    float z = Z - d1;
+
+    // Coseno de theta3
+    float cos_t3 = (X*X+Y*Y+z*z - a2*a2 - a3*a3) / (2.0 * a2 * a3);
+    Serial.println("5");
+    Serial.println(cos_t3);
+    if (fabs(cos_t3) > 1.0) {
+        // Posición fuera del alcance
+       // return false;
+    }
+
+    // Dos soluciones: codo arriba y codo abajo
+    float sin_t3 = sqrt(1.0 - cos_t3*cos_t3);
+    //float sin_t3_alt = -sin_t3;
+    Serial.println("4");
+    Serial.println(sin_t3);
+
+    float theta3_1 = atan2(sin_t3,cos_t3);
+    //float theta3_2 = atan2(sin_t3_alt, cos_t3);
+
+    float theta2_1 = atan2(z,r) - atan2(a3 * sin_t3,a2 + a3 * cos_t3);
+    //float theta2_2 = atan2(z, r) - atan2(a3 * sin_t3_alt, a2 + a3 * cos_t3);
+
+    // Guardar resultados
+    float deg1 = theta11 * 180.0 / PI;
+    float deg2 = theta2_1 * 180.0 / PI;
+    float deg3 = theta3_1 * 180.0 / PI;
+    Serial.println("3");
+    Serial.println(deg1);
+    Serial.println(deg2);
+    Serial.println(deg3);
+     theta1 = constrain(deg1, 0, 180);
+   theta2 = constrain(deg2, 0, 180);
+    theta3 = constrain(deg3, 0, 180);
+
+
+    return true; // cálculo exitoso
+}
+
+
+/*bool ik_RRR(float x, float y, float z) {
+  float theta11, theta21, theta31;
+
+  // Cálculo del ángulo de la base
+  theta11 = atan2(y, x);
+
+  // Plano r-z
+  float r = sqrt(x * x + y * y);
+  float z_ = z - d1;
+
+  // Ley del coseno para theta3
+  float cos_t3 = (r * r + z_ * z_ - d2 * d2 - d3 * d3) / (2 * d2 * d3);
+  cos_t3 = constrain(cos_t3, -1.0, 1.0); // Evita errores numéricos
+  float sin_t3 = sqrt(1 - cos_t3 * cos_t3);
+  theta31 = atan2(sin_t3, cos_t3);
+
+  // Theta2
+  theta21 = atan2(z_, r) - atan2(d3 * sin_t3, d2 + d3 * cos_t3);
+
+  // Conversión a grados
+  float deg1 = theta11 * 180.0 / PI;
+  float deg2 = theta21 * 180.0 / PI;
+  float deg3 = theta31 * 180.0 / PI;
+
+  // Ajustar al rango del servo (0-180)
+  theta1 = constrain(deg1, 0, 180);
+  theta2 = constrain(deg2, 0, 180);
+  theta3 = constrain(deg3, 0, 180);
+
+  return true;
+
+  
+}*/
 
 
 void inicializar_matriz(){
@@ -178,7 +269,7 @@ void inicializar_matriz(){
   Matriz_DH_CD[1][2] = 0.0;
   Matriz_DH_CD[1][3] = 0.0;
   //Eje 3 [alpha, a, d, theta]
-  Matriz_DH_CD[2][0] = -M_PI/2;
+  Matriz_DH_CD[2][0] = M_PI/2;
   Matriz_DH_CD[2][1] = d3;
   Matriz_DH_CD[2][2] = 0.0;
   Matriz_DH_CD[2][3] = 0.0;
@@ -235,7 +326,7 @@ void calcular_directa(){
     //Convertimos de angulos radianes y se lo agregamos a cada 
     //motor para calcular la posicon del angulo final
     theta[0] += baseAngle * M_PI / 180.0; 
-    theta[1] += brazoAngle * M_PI / 180.0;
+    theta[1] += -brazoAngle * M_PI / 180.0;
     theta[2] += codoAngle * M_PI / 180.0;
 
     //Calculamos la matriz de cada eje
@@ -301,7 +392,7 @@ void loop() {
 
         //Activar funcion - Cinematica Inversa
 
-        bool func = ik_RRR(b/1000.0,r/1000.0,c/1000.0);
+        bool func = ik_RRR(b,r,c);
           Serial.print("Angulos para cada motor:");
           Serial.print(",");
           Serial.print(theta1);
