@@ -1,0 +1,49 @@
+\input{./configuraciones/referencias_cruzadas}
+
+% Per a les ecuacions en una línia
+\abovedisplayshortskip = -1.0ex plus 0ex minus 0.25ex
+\belowdisplayshortskip = 2.0ex plus 1ex minus 0.0ex
+
+% Per a les equacions en varies línies
+\abovedisplayskip = -1.0ex plus 0ex minus 0.25ex
+\belowdisplayskip = 2.0ex plus 1ex minus 0.0ex
+
+\begin{titlepage}
+    \maketitle
+    \thispagestyle{empty}
+\end{titlepage}
+
+\renewcommand{\thepage}{\Roman{page}}
+\fancyfoot[R]{\sffamily\footnotesize\thepage}
+\fancyhead{} 
+
+\renewcommand{\headrulewidth}{0.0pt}
+
+\setcounter{page}{1}
+
+{
+\footnotesize
+\parskip=1ex
+
+\tableofcontents
+
+\clearpage
+
+\listoffigures
+
+\bigskip
+
+\listoftables
+
+}
+
+\clearpage
+
+\renewcommand{\thepage}{\arabic{page}}
+\fancyfoot[R]{\sffamily\footnotesize\thepage/\pageref*{LastPage}}
+\setcounter{page}{1}
+
+\fancyhead[L]{\footnotesize \sffamily \titolcap}
+\fancyhead[R]{\footnotesize \sffamily \nouppercase \leftmark}
+
+\renewcommand{\headrulewidth}{0.4pt}

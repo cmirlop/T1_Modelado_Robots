@@ -1,0 +1,162 @@
+
+\usepackage[spanish,es-tabla,es-nosectiondot,es-sloppy,es-noshorthands]{babel} 
+
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{graphicx,xcolor}
+\usepackage{tabularx,booktabs}
+
+\usepackage{float}
+
+\floatstyle{plaintop}
+%\floatstyle{ruled}
+\newfloat{listado}{htbp}{lol}
+\floatname{listado}{Listado}
+
+\usepackage[tableposition=top]{caption}
+\renewcommand{\captionlabelfont}{\bfseries\small}
+\renewcommand{\captionfont}{\small\itshape}
+%\captionsetup[table]{position=above}
+
+\usepackage{enumitem}
+\setlist{leftmargin=1.25cm}
+
+\renewcommand{\labelenumi}{\arabic{enumi})}
+\renewcommand{\labelenumii}{\alph{enumii})}
+
+% ---------------------------------------------------------------------
+% Document electrònic
+
+\usepackage[ 
+    colorlinks,
+    linkcolor = blue,
+    urlcolor = blue,
+    citecolor = blue,
+    ]{hyperref}
+
+% ---------------------------------------------------------------------
+% Configuració de pàgina
+
+\usepackage{geometry}
+\geometry{
+    a4paper, 
+    twoside = false,
+    hmargin = {2.5cm,2.5cm},
+    vmargin = {1cm,1cm},
+    headsep = 1.0cm,
+    footskip = 1.5cm,
+    includehead, includefoot
+    }
+        
+% ---------------------------------------------------------------------
+% Unitats del sistema internacional
+
+\usepackage{siunitx}
+\sisetup{
+    output-decimal-marker = {,},
+    % per-mode = symbol,
+    }
+    
+% ---------------------------------------------------------------------
+% Capçaleres i peus de pàgina
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{lastpage}
+
+\fancyhead{} 
+% \fancyhead[L]{\footnotesize \sffamily \titolcap}
+% \fancyhead[R]{\footnotesize \sffamily \nouppercase \leftmark}
+\fancyfoot{} 
+% \fancyfoot[R]{\sffamily\footnotesize\thepage/\pageref*{LastPage}}
+\ifundef{\AlumnosPie}
+	{
+		\fancyfoot[L]{\sffamily\footnotesize Se debe configurar el nombre de los alumnos que aparece en el pie}
+	}
+	{
+		\fancyfoot[L]{\sffamily\footnotesize\AlumnosPie}
+	}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ---------------------------------------------------------------------
+% Confiuració de la bibliografia
+
+\usepackage[
+	url = false,
+	style = apa,
+	%style = ieee,
+	hyperref = true,
+	backref = true,
+	]{biblatex}
+
+\usepackage{csquotes}
+
+% ---------------------------------------------------------------------
+% On estan les figures? 
+
+\graphicspath{
+    {./figuras/}
+    {./logos/}
+    }
+
+% ---------------------------------------------------------------------
+% Informació de portada
+
+\usepackage{xifthen}
+
+\newboolean{LogoUPV}
+\newboolean{LogoAlcoi}
+
+\ifundef{\AlumnoB}{\newcommand{\AlumnoB}{}}{}
+\ifundef{\AlumnoC}{\newcommand{\AlumnoC}{}}{}
+
+\title{\Huge\bfseries%
+	\vspace*{-1cm}
+    \ifLogoAlcoi
+	   \includegraphics[width=5cm]{UPV_Campus_Alcoi}\\
+    \else
+        \includegraphics[width=5cm]{UPV_horitzontal_color}\\
+    \fi
+    \vspace*{6cm}
+    \titol
+    \vspace*{3.5cm}
+    ~
+    }
+    
+\author{
+    \AlumnoA\\[1ex]
+    \AlumnoB\\[1ex]
+	\AlumnoC\\[3.5cm]
+  	\textbf{\Asignatura}\\[2ex]
+  	\textbf{\CursoTitulacion}
+    }
+    
+\date{\Data}
+
+% ---------------------------------------------------------------------
+% Format de paràgraf
+
+\parindent = 0cm
+\parskip = 2ex
+\partopsep = -1ex
+
+% ---------------------------------------------------------------------
+% Control de línies orfes i vídues
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% ---------------------------------------------------------------------
+% Comandaments personalitzats
+
+\usepackage{xspace}
+
+\newcommand{\matlab}{{\textsc{Matlab}}\xspace}
+\newcommand{\simulink}{\textit{Simulink}\xspace}
+
+
+% ---------------------------------------------------------------------
+% Fi
