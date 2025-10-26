@@ -7,4 +7,4 @@
 \contentsline {section}{\numberline {4}Código e interfaz}{1}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Código implementado en Arduino}{1}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Interfaz de usuario}{1}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Pruebas y demostración}{1}{section.5}%
+\contentsline {section}{\numberline {5}Pruebas y demostración}{2}{section.5}%

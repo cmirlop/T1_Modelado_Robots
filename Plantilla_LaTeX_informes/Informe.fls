@@ -1,6 +1,6 @@
-PWD c:\Users\vitto\Downloads\T1_Modelado_Robots\Plantilla_LaTeX_informes
+PWD c:\Users\vitto\Downloads\Plantilla_LaTeX_informes
 INPUT C:\Users\vitto\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\vitto\Downloads\T1_Modelado_Robots\Plantilla_LaTeX_informes\Informe.tex
+INPUT c:\Users\vitto\Downloads\Plantilla_LaTeX_informes\Informe.tex
 OUTPUT Informe.log
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -72,6 +72,14 @@ INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\tools\array.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\media9\media9.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\media9\media9.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\media9\pdfbase.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\media9\pdfbase.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\ocgx2\ocgbase.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\caption\caption.sty
@@ -185,8 +193,6 @@ INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\biblatex.c
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\biblatex.cfg
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3kernel\expl3.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3kernel\expl3.sty
-INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
-INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-expl3.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\biblatex\blx-case-expl3.sty
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\l3packages\xparse\xparse.sty
@@ -310,6 +316,15 @@ INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cme
 OUTPUT Informe.toc
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss10.tfm
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmss9.tfm
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT .\figuras\interfaz.jpeg
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbxti10.tfm
 INPUT Informe.aux
 INPUT .\Informe.out
 INPUT .\Informe.out
@@ -319,6 +334,8 @@ INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx9.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx9.pfb
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbxti10.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
