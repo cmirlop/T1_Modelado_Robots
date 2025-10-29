@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.15)  26 OCT 2025 19:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.15)  29 OCT 2025 11:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/vitto/Downloads/Plantilla_LaTeX_informes/Informe.tex
-(c:/Users/vitto/Downloads/Plantilla_LaTeX_informes/Informe.tex
+**c:/Users/vitto/Music/Plantilla_LaTeX_informes/Informe.tex
+(c:/Users/vitto/Music/Plantilla_LaTeX_informes/Informe.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-09-02>
 (C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -896,26 +896,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--78
 
  []
 
-<figuras/interfaz.jpeg, id=72, 1042.64531pt x 490.08093pt>
+<figuras/interfaz.jpeg, id=72, 964.35281pt x 610.53094pt>
 File: figuras/interfaz.jpeg Graphic file (type jpg)
 <use figuras/interfaz.jpeg>
 Package pdftex.def Info: figuras/interfaz.jpeg  used on input line 108.
-(pdftex.def)             Requested size: 295.90588pt x 139.08376pt.
+(pdftex.def)             Requested size: 364.19667pt x 230.5695pt.
 
 
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 125.
+(babel)             Reported on input line 111.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.125 \end{document}
-                     [1
+l.111 
+       [1
 
 
- <./figuras/interfaz.jpeg>]
+]
 
-[2] 
+[2 <./figuras/interfaz.jpeg>]
+
+[3] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Informe.aux)
  ***********
@@ -929,17 +931,17 @@ Package logreq Info: Writing requests to 'Informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28975 strings out of 468081
- 571777 string characters out of 5425788
- 1498392 words of memory out of 5000000
+ 28976 strings out of 468081
+ 571719 string characters out of 5425788
+ 1497392 words of memory out of 5000000
  57317 multiletter control sequences out of 15000+600000
  636236 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,82p,1250b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Informe.pdf (4 pages, 467190 bytes).
+ 80i,13n,82p,1246b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Informe.pdf (5 pages, 491311 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 16 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

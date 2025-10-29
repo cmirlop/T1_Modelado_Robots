@@ -1,6 +1,6 @@
-PWD c:\Users\vitto\Downloads\Plantilla_LaTeX_informes
+PWD c:\Users\vitto\Music\Plantilla_LaTeX_informes
 INPUT C:\Users\vitto\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\vitto\Downloads\Plantilla_LaTeX_informes\Informe.tex
+INPUT c:\Users\vitto\Music\Plantilla_LaTeX_informes\Informe.tex
 OUTPUT Informe.log
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -348,3 +348,5 @@ INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmss9.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
+INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb

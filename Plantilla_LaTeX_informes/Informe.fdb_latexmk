@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber Informe"] 1760521301.96374 "Informe.bcf" "Informe.bbl" "Informe" 1761503302.18846 0
-  "Informe.bcf" 1761503301 133546 9d6b34bf703ebe4ac3fa633f5d5a9c32 "pdflatex"
+["biber Informe"] 1760521301.96374 "Informe.bcf" "Informe.bbl" "Informe" 1761735303.3047 0
+  "Informe.bcf" 1761735302 133546 9d6b34bf703ebe4ac3fa633f5d5a9c32 "pdflatex"
   (generated)
   "Informe.bbl"
   "Informe.blg"
   (rewritten before read)
-["pdflatex"] 1761503298.94062 "c:/Users/vitto/Downloads/Plantilla_LaTeX_informes/Informe.tex" "Informe.pdf" "Informe" 1761503302.19014 0
+["pdflatex"] 1761735300.09222 "c:/Users/vitto/Music/Plantilla_LaTeX_informes/Informe.tex" "Informe.pdf" "Informe" 1761735303.30639 0
   "C:/Users/vitto/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1761501647 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/vitto/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1760514718 13321623 9026f17ad5596cd493dd9dd7d62501d9 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -41,6 +41,7 @@
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb" 1247593066 33993 9b89b85fd2d9df0482bd47194d1d3bf3 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb" 1247593066 24373 a91d375736817a75026663adcb2190c1 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247593067 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
+  "C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247593067 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1759330261 146665 1d1535884f6fcab33ff7bf336b21bae5 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/generic/babel/locale/es/babel-es.ini" 1759330262 4345 33a8cc6f0a7c6afcb84895b2c963a4e5 ""
@@ -144,18 +145,18 @@
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729261622 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
-  "Informe.aux" 1761503301 2219 7a0d8d6f350d342edc67749f930446ea "pdflatex"
+  "Informe.aux" 1761735302 2231 861bd01a92756924700a686835baa6ae "pdflatex"
   "Informe.bbl" 1760517705 486 76d65a242ec496c9b4361af646ff12cb "biber Informe"
-  "Informe.out" 1761503301 1517 94b4932b15b23f1a0d2287143625f835 "pdflatex"
-  "Informe.run.xml" 1761503301 2399 a132eb9689667ce247da9ee0c78849bd "pdflatex"
-  "Informe.tex" 1761503298 5103 aa789f0c90554c78efe837cb1ac34c6c ""
-  "Informe.toc" 1761503301 783 4e7b295c4200bda082d9e48880eef52f "pdflatex"
-  "c:/Users/vitto/Downloads/Plantilla_LaTeX_informes/Informe.tex" 1761503298 5103 aa789f0c90554c78efe837cb1ac34c6c ""
+  "Informe.out" 1761735302 1517 94b4932b15b23f1a0d2287143625f835 "pdflatex"
+  "Informe.run.xml" 1761735302 2399 a132eb9689667ce247da9ee0c78849bd "pdflatex"
+  "Informe.tex" 1761735295 6604 d8ed174a1488336801654552352f76b2 ""
+  "Informe.toc" 1761735302 783 6d3d8d8d23ca6dee97aa343351bed01f "pdflatex"
+  "c:/Users/vitto/Music/Plantilla_LaTeX_informes/Informe.tex" 1761735295 6604 d8ed174a1488336801654552352f76b2 ""
   "configuraciones/post_begin_document.tex" 1760517602 959 c319f063d052bdaea4729f05886d86e0 ""
   "configuraciones/preambulo.tex" 1761501632 3862 65adc343cd14f5082bf71f536f970b24 ""
   "configuraciones/preambulo_listings.tex" 1760514068 2304 3e3a49ebe91a69614bdca30d4b314304 ""
   "configuraciones/referencias_cruzadas.tex" 1760514068 542 8a9cf1530ca65e25cfd8c20dca0900d4 ""
-  "figuras/interfaz.jpeg" 1761501806 84170 e0210a31225f39166d9eb972c3998845 ""
+  "figuras/interfaz.jpeg" 1761730397 91504 66a64e9ca0dbd097030ec79c432c9388 ""
   "logos/UPV_Campus_Alcoi.png" 1760514068 343484 5a578fc0f7a4129e8a2a47c4c1c2210a ""
   (generated)
   "Informe.aux"
