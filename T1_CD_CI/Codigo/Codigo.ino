@@ -29,9 +29,9 @@ int codoAngle = 0;
 
 //Distancia entre ejes, modificar a los reales
 // de los brazos
-float d1 = 0.065;
-float d2 = 0.095;
-float d3 = 0.055;
+float d1 = 0.075;
+float d2 = 0.082;
+float d3 = 0.050;
 
 // --- Resultados de la cinemática inversa ---
 float theta1, theta2, theta3;
@@ -165,7 +165,7 @@ bool ik_RRR(float x, float y, float z) {
 
   return true;
 }
-*/
+
 #include <math.h>
 
 // Función para calcular la cinemática inversa de un 3R
@@ -173,9 +173,10 @@ bool ik_RRR(float x, float y, float z) {
 // sol1 y sol2: structs donde se almacenan las dos soluciones (codo abajo y codo arriba)
 bool ik_RRR(float X, float Y, float Z) {
     // Longitudes del brazo
-    float a2 = 0.095;
-    float a3 = 0.055;
-    float d1 = 0.065;
+    float a2 = 0.082;
+    float a3 = 0.050;
+    float d1 = 0.075;
+
 
     // Rotación de base
     float theta11 = atan2(Y, X);
@@ -220,6 +221,64 @@ bool ik_RRR(float X, float Y, float Z) {
 
     return true; // cálculo exitoso
 }
+*/
+bool ik_RRR(float X, float Y, float Z) {
+    const float a2 = d2;    // 0.082
+    const float a3 = d3;    // 0.050
+    const float h  = d1;    // 0.075
+
+    // Base
+    float th1 = atan2f(Y, X);
+
+    // Plano del brazo
+    float r = sqrtf(X*X + Y*Y);
+    float z = Z - h;
+
+    // Ley del coseno
+    float D = (r*r + z*z - a2*a2 - a3*a3) / (2.0f * a2 * a3);
+    // Clamp numérico
+    if (D > 1.0f) D = 1.0f;
+    if (D < -1.0f) D = -1.0f;
+
+    // Si está realmente fuera (p. ej. por ruido puede dar NaN si no clamped)
+    if (isnan(D)) return false;
+
+    // Dos ramas: elegimos una (p.ej. codo abajo). Si quieres la otra, cambia el signo.
+    float s3  = sqrtf(fmaxf(0.0f, 1.0f - D*D));
+    float th3_geom = atan2f(-s3, D);   // rama "codo abajo" (elige la que te convenga)
+
+    // Hombro (usa th3_geom, NO la centrada)
+    float num = a3 * sinf(th3_geom);
+    float den = a2 + a3 * cosf(th3_geom);
+    float th2_geom = atan2f(z, r) - atan2f(num, den);
+
+    // Geométricos → grados
+    const float RAD2DEG = 180.0f / PI;
+    float g1 = th1       * RAD2DEG;    // base geom
+    float g2 = th2_geom  * RAD2DEG;    // hombro geom
+    float g3 = th3_geom  * RAD2DEG;    // codo geom
+
+    // Mapea geométricos a "ángulo de SERVO" (coherente con la FK de arriba):
+    // Base: limita a [0,180] porque tu servo sólo puede esto.
+    if (g1 < 0.0f) g1 += 360.0f;
+    if (g1 > 180.0f) g1 = 360.0f - g1;   // si tu montaje sólo cubre media vuelta
+
+    float servo_base  = g1;
+    float servo_brazo = g2;
+    float servo_codo  = -g3;             //  <<--- INVERTIR codo para igualar la FK
+
+    // Limita a los rangos del servo
+    servo_base  = constrain(servo_base,  0.0f, 180.0f);
+    servo_brazo = constrain(servo_brazo, 0.0f, 180.0f);
+    servo_codo  = constrain(servo_codo,  0.0f, 180.0f);
+
+    // Guarda resultados
+    theta1 = servo_base;
+    theta2 = servo_brazo;
+    theta3 = servo_codo;
+
+    return true;
+}
 
 
 /*bool ik_RRR(float x, float y, float z) {
@@ -256,7 +315,7 @@ bool ik_RRR(float X, float Y, float Z) {
   
 }*/
 
-
+/*
 void inicializar_matriz(){
   //Eje 1 [alpha, a, d, theta]
   Matriz_DH_CD[0][0] = -M_PI/2;
@@ -276,7 +335,26 @@ void inicializar_matriz(){
 
 }
 
+*/
+void inicializar_matriz(){
+  // Eje 1 [alpha, a, d, theta]
+  Matriz_DH_CD[0][0] =  M_PI/2; // <-- antes -M_PI/2
+  Matriz_DH_CD[0][1] =  0.0;
+  Matriz_DH_CD[0][2] =  d1;
+  Matriz_DH_CD[0][3] =  0.0;
 
+  // Eje 2
+  Matriz_DH_CD[1][0] =  0.0;
+  Matriz_DH_CD[1][1] =  d2;     // <-- usa a2 (longitud del 1er eslabón)
+  Matriz_DH_CD[1][2] =  0.0;
+  Matriz_DH_CD[1][3] =  0.0;
+
+  // Eje 3
+  Matriz_DH_CD[2][0] =  0.0;    // <-- antes +M_PI/2
+  Matriz_DH_CD[2][1] =  d3;     // <-- usa a3 (longitud del 2º eslabón)
+  Matriz_DH_CD[2][2] =  0.0;
+  Matriz_DH_CD[2][3] =  0.0;
+}
 
 
 
@@ -326,8 +404,9 @@ void calcular_directa(){
     //Convertimos de angulos radianes y se lo agregamos a cada 
     //motor para calcular la posicon del angulo final
     theta[0] += baseAngle * M_PI / 180.0; 
-    theta[1] += -brazoAngle * M_PI / 180.0;
-    theta[2] += codoAngle * M_PI / 180.0;
+    //theta[1] += -brazoAngle * M_PI / 180.0;
+    theta[1] += brazoAngle * M_PI / 180.0;
+    theta[2] += -codoAngle * M_PI / 180.0;
 
     //Calculamos la matriz de cada eje
     dh_to_T(A1,alpha[0], a[0], d[0], theta[0]);
