@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.15)  29 OCT 2025 11:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.15)  29 OCT 2025 19:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -892,32 +892,42 @@ Package pdftex.def Info: ./logos/UPV_Campus_Alcoi.png  used on input line 13.
 
 
 [1])
-Underfull \hbox (badness 10000) in paragraph at lines 75--78
-
- []
-
-<figuras/interfaz.jpeg, id=72, 964.35281pt x 610.53094pt>
-File: figuras/interfaz.jpeg Graphic file (type jpg)
-<use figuras/interfaz.jpeg>
-Package pdftex.def Info: figuras/interfaz.jpeg  used on input line 108.
-(pdftex.def)             Requested size: 364.19667pt x 230.5695pt.
+<figuras/imagen_diseño.jpeg, id=72, 1204.5pt x 1606.0pt>
+File: figuras/imagen_diseño.jpeg Graphic file (type jpg)
+<use figuras/imagen_diseño.jpeg>
+Package pdftex.def Info: figuras/imagen_diseño.jpeg  used on input line 83.
+(pdftex.def)             Requested size: 273.14923pt x 364.20157pt.
 
 
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 111.
+(babel)             Reported on input line 90.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.111 
-       [1
+l.90 
+      [1
 
 
-]
+ <./figuras/imagen_diseño.jpeg>]
+<figuras/imagen_ejes.jpeg, id=81, 963.6pt x 722.7pt>
+File: figuras/imagen_ejes.jpeg Graphic file (type jpg)
+<use figuras/imagen_ejes.jpeg>
+Package pdftex.def Info: figuras/imagen_ejes.jpeg  used on input line 97.
+(pdftex.def)             Requested size: 364.19667pt x 273.14014pt.
 
-[2 <./figuras/interfaz.jpeg>]
 
-[3] 
+[2 <./figuras/imagen_ejes.jpeg>]
+<figuras/interfaz.jpeg, id=92, 964.35281pt x 610.53094pt>
+File: figuras/interfaz.jpeg Graphic file (type jpg)
+<use figuras/interfaz.jpeg>
+Package pdftex.def Info: figuras/interfaz.jpeg  used on input line 156.
+(pdftex.def)             Requested size: 364.19667pt x 230.5695pt.
+
+
+[3 <./figuras/interfaz.jpeg>]
+
+[4] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Informe.aux)
  ***********
@@ -931,17 +941,17 @@ Package logreq Info: Writing requests to 'Informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28976 strings out of 468081
- 571719 string characters out of 5425788
- 1497392 words of memory out of 5000000
- 57317 multiletter control sequences out of 15000+600000
- 636236 words of font info for 69 fonts, out of 8000000 for 9000
+ 29882 strings out of 468081
+ 581284 string characters out of 5425788
+ 1499335 words of memory out of 5000000
+ 58215 multiletter control sequences out of 15000+600000
+ 637752 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,13n,82p,1246b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Informe.pdf (5 pages, 491311 bytes).
+ 80i,12n,82p,1246b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\vitto\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on Informe.pdf (6 pages, 1015359 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 16 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 
