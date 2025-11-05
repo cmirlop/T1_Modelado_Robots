@@ -35,7 +35,7 @@ uint8_t idxAvg = 0;
 bool bufLleno = false;
 
 // Filtro exponencial sobre fuerza ya escalada a kg
-const float ALPHA_KG = 0.15f; // 0..1 (↓ responde más lento, ↑ menos suavizado)
+const float ALPHA_KG = 0.20f; // 0..1 (↓ responde más lento, ↑ menos suavizado)
 float kg_filt = 0.0f;
 
 // ---------- Control (solo RETROCEDE > 0,5 kg) ----------
@@ -43,7 +43,7 @@ const float KG_TARGET        = 0.5f;   // umbral de fuerza (kg)
 const float KG_DEADBAND      = 0.06f;  // banda muerta alrededor del objetivo
 
 // Impedancia al RETROCEDER (cuando F > 0,5 kg):
-const float K_STIFF_RET      = 6.0f;   // [deg/kg]
+const float K_STIFF_RET      = 4.0f;   // [deg/kg]
 const float B_DAMP_RET       = 1.0f;   // [deg/(kg/s)]
 
 // Vuelta suave a HOME cuando F ≤ 0,5 kg:
@@ -52,10 +52,10 @@ const float STEP_HOME_MAX    = 1.0f;   // límite de paso por ciclo a HOME [deg]
 const float HOME_DEADBAND_DEG= 1.0f;   // banda muerta de posición en HOME
 
 // Límites y timing
-const int   BRAZO_MIN        = 10;
+const int   BRAZO_MIN        = 10;      
 const int   BRAZO_MAX        = 170;
 const float STEP_LIMIT_DEG   = 1.5f;   // límite general de paso por ciclo
-const uint16_t UPDATE_MS     = 30;     // periodo de control
+const uint16_t UPDATE_MS     = 40;     // periodo de control
 const bool  INVERT_BRAZO_DIR = true;   // invierte sentido de “retroceder” si tu montaje lo requiere
 
 unsigned long tPrevCtrl = 0;
