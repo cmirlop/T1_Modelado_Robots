@@ -18,9 +18,11 @@ int baseAngle = 0;
 int brazoAngle = 90;
 int codoAngle = 90;
 
+// Guardaremos la posición inicial de brazo como "home"
+int BRAZO_HOME = 90;
+
 // ---------- Escalado a kg (DIRECTO) ----------
-// 0 puntos -> 0,2 kg
-// 960 puntos -> 3,0 kg
+// 100 puntos -> ~0,2 kg   |  960 puntos -> 3,0 kg
 const int   ADC_MIN = 100;
 const int   ADC_MAX = 960;
 const float KG_MIN  = 0.2f;
@@ -33,20 +35,28 @@ uint8_t idxAvg = 0;
 bool bufLleno = false;
 
 // Filtro exponencial sobre fuerza ya escalada a kg
-const float ALPHA_KG = 0.15f; // 0..1 (↑ suprime ruido, ↓ responde más rápido) 0.25
+const float ALPHA_KG = 0.15f; // 0..1 (↓ responde más lento, ↑ menos suavizado)
 float kg_filt = 0.0f;
 
-// ---------- Control de impedancia (sobre SERVO_BRAZO) ----------
-const float KG_TARGET      = 0.5f;   // objetivo de fuerza (kg)
-const float K_STIFF        = 6.0f;  // rigidez virtual [deg / kg] 12.0
-const float B_DAMP         = 1.0f;   // amortiguación [deg / (kg/s)] 4.0
-const float KG_DEADBAND    = 0.06f;  // banda muerta alrededor del objetivo 0.05
+// ---------- Control (solo RETROCEDE > 0,5 kg) ----------
+const float KG_TARGET        = 0.5f;   // umbral de fuerza (kg)
+const float KG_DEADBAND      = 0.06f;  // banda muerta alrededor del objetivo
 
-const int   BRAZO_MIN      = 10;     // límites mecánicos (ajusta a tu montaje)
-const int   BRAZO_MAX      = 170;
-const float STEP_LIMIT_DEG = 1.5f;   // límite de variación angular por actualización 3.0
-const uint16_t UPDATE_MS   = 30;     // periodo de control
-const bool  INVERT_BRAZO_DIR = false;// invierte si tu montaje va al revés
+// Impedancia al RETROCEDER (cuando F > 0,5 kg):
+const float K_STIFF_RET      = 6.0f;   // [deg/kg]
+const float B_DAMP_RET       = 1.0f;   // [deg/(kg/s)]
+
+// Vuelta suave a HOME cuando F ≤ 0,5 kg:
+const float KP_HOME          = 0.8f;   // ↑ un poco para que sí avance a HOME
+const float STEP_HOME_MAX    = 1.0f;   // límite de paso por ciclo a HOME [deg]
+const float HOME_DEADBAND_DEG= 1.0f;   // banda muerta de posición en HOME
+
+// Límites y timing
+const int   BRAZO_MIN        = 10;
+const int   BRAZO_MAX        = 170;
+const float STEP_LIMIT_DEG   = 1.5f;   // límite general de paso por ciclo
+const uint16_t UPDATE_MS     = 30;     // periodo de control
+const bool  INVERT_BRAZO_DIR = true;   // invierte sentido de “retroceder” si tu montaje lo requiere
 
 unsigned long tPrevCtrl = 0;
 float kg_prev = 0.0f; // para derivada
@@ -76,47 +86,72 @@ void moverServo(int canal, int angulo) {
   pwm.setPWM(canal, 0, pulso);
 }
 
-// ----------- Bucle de control de impedancia -----------
-void controlImpedanciaBrazo(float kg_meas) {
+// ----------- Bucle de control -----------
+void controlBrazoSoloRetroceso(float kg_meas) {
   unsigned long now = millis();
-  if (now - tPrevCtrl < UPDATE_MS) return;
+  if ((now - tPrevCtrl) < UPDATE_MS) return;
 
   float dt = (now - tPrevCtrl) / 1000.0f; // [s]
   tPrevCtrl = now;
 
-  // Filtro exponencial sobre la fuerza (en kg)
+  // Filtrado exponencial de fuerza
   kg_filt = ALPHA_KG * kg_meas + (1.0f - ALPHA_KG) * kg_filt;
 
-  // Error respecto a 1 kg
-  float e = (KG_TARGET - kg_filt);
-
-  // Banda muerta para evitar temblores alrededor del objetivo
-  if (fabs(e) < KG_DEADBAND) e = 0.0f;
-
-  // Derivada (dF/dt) estimada y suavizada ligeramente
-  float dkg = (kg_filt - kg_prev) / max(dt, 1e-3f); // [kg/s]
-  // (opcional) peina algo de ruido en la derivada:
+  // Derivada de fuerza (suavizada)
+  float dkg = (kg_filt - kg_prev) / (dt > 1e-3f ? dt : 1e-3f); // [kg/s]
   const float ALPHA_D = 0.3f;
   static float dkg_filt = 0.0f;
   dkg_filt = ALPHA_D * dkg + (1.0f - ALPHA_D) * dkg_filt;
-
   kg_prev = kg_filt;
 
-  // Ley de control de impedancia: Δθ = K*e - B*dF/dt
-  float dtheta = K_STIFF * e - B_DAMP * dkg_filt;
+  float dtheta = 0.0f;
 
-  if (INVERT_BRAZO_DIR) dtheta = -dtheta;
+  // ¿Se supera el umbral?
+  if (kg_filt > (KG_TARGET + KG_DEADBAND)) {
+    // Error de fuerza solo cuando supera el umbral
+    float eF = kg_filt - KG_TARGET; // >0
 
-  // Limita paso y aplica
-  if (dtheta >  STEP_LIMIT_DEG) dtheta =  -STEP_LIMIT_DEG;
-  if (dtheta < -STEP_LIMIT_DEG) dtheta = STEP_LIMIT_DEG;
+    // Solo amortiguamos cuando la fuerza va en aumento
+    float dkg_pos = (dkg_filt > 0.0f) ? dkg_filt : 0.0f;
 
-  // Actualiza ángulo y envía al servo
+    // Impedancia de RETROCESO
+    float dtheta_mag = K_STIFF_RET * eF + B_DAMP_RET * dkg_pos; // magnitud positiva
+    if (dtheta_mag > STEP_LIMIT_DEG) dtheta_mag = STEP_LIMIT_DEG;
+
+    // Signo de retroceder
+    float retractSign = INVERT_BRAZO_DIR ? +1.0f : -1.0f;
+    dtheta = retractSign * dtheta_mag;
+
+  } else {
+    // Mantener / volver a HOME
+    float posErr = (float)BRAZO_HOME - (float)brazoAngle; // >0 si hay que ir hacia delante
+
+    // Si ya estamos cerca de HOME, no hagas nada (evita temblores)
+    if (fabs(posErr) < HOME_DEADBAND_DEG) {
+      dtheta = 0.0f;
+    } else {
+      float step = KP_HOME * posErr;
+
+      // Limita el paso de vuelta a home (¡corrección de signos!)
+      if (step >  STEP_HOME_MAX) step =  STEP_HOME_MAX;
+      if (step < -STEP_HOME_MAX) step = -STEP_HOME_MAX;
+
+      // No avanzar por delante de HOME (solo regresar hacia él)
+      if ((posErr <= 0.0f) && (step > 0.0f)) step = 0.0f;
+
+      dtheta = step;
+    }
+  }
+
+  // Clamp general de paso (¡corrección de signos!)
+  if (dtheta >  STEP_LIMIT_DEG) dtheta =  STEP_LIMIT_DEG;
+  if (dtheta < -STEP_LIMIT_DEG) dtheta = -STEP_LIMIT_DEG;
+
+  // Aplica
   float nuevo = (float)brazoAngle + dtheta;
   if (nuevo < BRAZO_MIN) nuevo = BRAZO_MIN;
   if (nuevo > BRAZO_MAX) nuevo = BRAZO_MAX;
 
-  // Sólo manda pulso si cambia en al menos 0.5° para evitar tráfico/ruido
   if (fabs(nuevo - brazoAngle) >= 0.5f) {
     brazoAngle = (int)roundf(nuevo);
     moverServo(SERVO_BRAZO, brazoAngle);
@@ -134,6 +169,9 @@ void setup() {
   moverServo(SERVO_BASE, baseAngle);
   moverServo(SERVO_BRAZO, brazoAngle);
   moverServo(SERVO_CODO, codoAngle);
+
+  // Fijamos HOME en la posición inicial del brazo
+  BRAZO_HOME = brazoAngle;
 
   // Inicializa filtros
   int raw = analogRead(pinFSR);
@@ -156,11 +194,11 @@ void loop() {
   for (uint8_t i = 0; i < n; i++) suma += bufAvg[i];
   int rawFiltrado = (int)(suma / n);
 
-  // Escala a kg (0->0,2 ; 960->3,0)
+  // Escala a kg
   float kg = rawToKg(rawFiltrado);
 
-  // Control de impedancia
-  controlImpedanciaBrazo(kg);
+  // Control “solo retrocede > 0,5 kg”
+  controlBrazoSoloRetroceso(kg);
 
   // Telemetría
   Serial.print("raw="); Serial.print(raw);
