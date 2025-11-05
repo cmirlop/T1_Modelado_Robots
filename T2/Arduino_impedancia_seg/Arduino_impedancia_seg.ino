@@ -181,9 +181,6 @@ void setup() {
   kg_filt = rawToKg(raw); // arranque estable
   kg_prev = kg_filt;
   tPrevCtrl = millis();
-
-  // Cabecera para la telemetría que leerá Python
-  Serial.println(F("t_ms,kg_filt,kg_target,brazo_deg"));
 }
 
 void loop() {
@@ -204,14 +201,10 @@ void loop() {
   controlBrazoSoloRetroceso(kg);
 
   // Telemetría
-  unsigned long tSampleMs = millis();
-  Serial.print(tSampleMs);
-  Serial.print(',');
-  Serial.print(kg_filt, 3);
-  Serial.print(',');
-  Serial.print(KG_TARGET, 3);
-  Serial.print(',');
-  Serial.println(brazoAngle);
+  Serial.print("raw="); Serial.print(raw);
+  Serial.print("  raw_filt="); Serial.print(rawFiltrado);
+  Serial.print("  kg_filt="); Serial.print(kg_filt, 3);
+  Serial.print("  brazoAngle="); Serial.println(brazoAngle);
 
   delay(3);
 }
