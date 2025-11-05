@@ -59,6 +59,7 @@ const uint16_t UPDATE_MS     = 30;     // periodo de control
 const bool  INVERT_BRAZO_DIR = true;   // invierte sentido de “retroceder” si tu montaje lo requiere
 
 unsigned long tPrevCtrl = 0;
+unsigned long tLastSampleMs = 0;
 float kg_prev = 0.0f; // para derivada
 
 // ---------------- Utilidades ----------------
@@ -86,10 +87,33 @@ void moverServo(int canal, int angulo) {
   pwm.setPWM(canal, 0, pulso);
 }
 
+void sendTelemetry(unsigned long timestampMs,
+                   int raw,
+                   int rawFiltrado,
+                   float kgEscalado,
+                   float kgFiltrado,
+                   float kgReferencia,
+                   int brazoPosDeg) {
+  Serial.print("DATA,");
+  Serial.print(timestampMs);
+  Serial.print(',');
+  Serial.print(raw);
+  Serial.print(',');
+  Serial.print(rawFiltrado);
+  Serial.print(',');
+  Serial.print(kgEscalado, 4);
+  Serial.print(',');
+  Serial.print(kgFiltrado, 4);
+  Serial.print(',');
+  Serial.print(kgReferencia, 4);
+  Serial.print(',');
+  Serial.println(brazoPosDeg);
+}
+
 // ----------- Bucle de control -----------
-void controlBrazoSoloRetroceso(float kg_meas) {
+bool controlBrazoSoloRetroceso(float kg_meas) {
   unsigned long now = millis();
-  if ((now - tPrevCtrl) < UPDATE_MS) return;
+  if ((now - tPrevCtrl) < UPDATE_MS) return false;
 
   float dt = (now - tPrevCtrl) / 1000.0f; // [s]
   tPrevCtrl = now;
@@ -156,11 +180,16 @@ void controlBrazoSoloRetroceso(float kg_meas) {
     brazoAngle = (int)roundf(nuevo);
     moverServo(SERVO_BRAZO, brazoAngle);
   }
+
+  tLastSampleMs = now;
+  return true;
 }
 
 // ---------------- Setup / Loop ----------------
 void setup() {
   Serial.begin(9600);
+  Serial.println("# Force control telemetry v1");
+  Serial.println("# DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>");
 
   pwm.begin();
   pwm.setPWMFreq(60);
@@ -181,9 +210,6 @@ void setup() {
   kg_filt = rawToKg(raw); // arranque estable
   kg_prev = kg_filt;
   tPrevCtrl = millis();
-
-  // Cabecera para la telemetría que leerá Python
-  Serial.println(F("t_ms,kg_filt,kg_target,brazo_deg"));
 }
 
 void loop() {
@@ -200,18 +226,16 @@ void loop() {
   // Escala a kg
   float kg = rawToKg(rawFiltrado);
 
-  // Control “solo retrocede > 0,5 kg”
-  controlBrazoSoloRetroceso(kg);
-
-  // Telemetría
-  unsigned long tSampleMs = millis();
-  Serial.print(tSampleMs);
-  Serial.print(',');
-  Serial.print(kg_filt, 3);
-  Serial.print(',');
-  Serial.print(KG_TARGET, 3);
-  Serial.print(',');
-  Serial.println(brazoAngle);
+  // Control “solo retrocede > 0,5 kg” y envío de telemetría estructurada
+  if (controlBrazoSoloRetroceso(kg)) {
+    sendTelemetry(tLastSampleMs,
+                  raw,
+                  rawFiltrado,
+                  kg,
+                  kg_filt,
+                  KG_TARGET,
+                  brazoAngle);
+  }
 
   delay(3);
 }
