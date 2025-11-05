@@ -74,7 +74,7 @@ def main() -> None:
         help="Serial port (example: COM6 on Windows, /dev/ttyUSB0 on Linux)",
         required=True,
     )
-    parser.add_argument("--baud", type=int, default=9600, help="Serial baud rate")
+    parser.add_argument("--baud", type=int, default=115200, help="Serial baud rate")
     parser.add_argument(
         "--window",
         type=float,

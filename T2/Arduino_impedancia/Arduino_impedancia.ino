@@ -187,7 +187,7 @@ bool controlBrazoSoloRetroceso(float kg_meas) {
 
 // ---------------- Setup / Loop ----------------
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("# Force control telemetry v1");
   Serial.println("# DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>");
 
