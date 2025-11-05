@@ -1,6 +1,6 @@
-PWD c:\Users\vitto\Music\Plantilla_LaTeX_informes
+PWD c:\Users\vitto\OneDrive\Documentos\GitHub\T1_Modelado_Robots\Plantilla_LaTeX_informes
 INPUT C:\Users\vitto\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\vitto\Music\Plantilla_LaTeX_informes\Informe.tex
+INPUT c:\Users\vitto\OneDrive\Documentos\GitHub\T1_Modelado_Robots\Plantilla_LaTeX_informes\Informe.tex
 OUTPUT Informe.log
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
