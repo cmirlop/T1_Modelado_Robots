@@ -8,65 +8,59 @@ const int pinFSR = A0;
 // ---------- PCA9685 ----------
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();  // I2C por defecto 0x40
 
-// Canales en PCA9685
+// Canales para cada servo en el PCA9685
 #define SERVO_BASE  0
 #define SERVO_BRAZO 1
 #define SERVO_CODO  2
 
-// Ángulos actuales / referencia
-int   baseAngle  = 0;
-int   brazoAngle = 90;
-int   codoAngle  = 90;
-float brazoRef   = 90.0f;
+// Ángulos actuales
+int baseAngle = 0;
+int brazoAngle = 90;
+int codoAngle = 90;
 
-// HOME del brazo
+// Guardaremos la posición inicial de brazo como "home"
 int BRAZO_HOME = 90;
 
-// ---------- Escalado a kg ----------
+// ---------- Escalado a kg (DIRECTO) ----------
+// 100 puntos -> ~0,2 kg   |  960 puntos -> 3,0 kg
 const int   ADC_MIN = 100;
 const int   ADC_MAX = 960;
 const float KG_MIN  = 0.2f;
 const float KG_MAX  = 3.0f;
 
 // ---------- Filtros ----------
-const uint8_t N_AVG = 6;
-int     bufAvg[N_AVG] = {0};
+const uint8_t N_AVG = 6;      // media móvil corta para suavizar ADC
+int bufAvg[N_AVG] = {0};
 uint8_t idxAvg = 0;
-bool    bufLleno = false;
+bool bufLleno = false;
 
-const float ALPHA_KG = 0.15f; // más bajo → más suave
+// Filtro exponencial sobre fuerza ya escalada a kg
+const float ALPHA_KG = 0.20f; // 0..1 (↓ responde más lento, ↑ menos suavizado)
 float kg_filt = 0.0f;
 
-// ---------- Control ----------
-const float KG_TARGET   = 0.5f;
-const float KG_DEADBAND = 0.10f; // histéresis: entra >0.6, sale <0.4 aprox.
+// ---------- Control (solo RETROCEDE > 0,5 kg) ----------
+const float KG_TARGET        = 0.5f;   // umbral de fuerza (kg)
+const float KG_DEADBAND      = 0.06f;  // banda muerta alrededor del objetivo
 
-// Impedancia al ceder
-const float K_STIFF_RET      = 2.0f;   // [deg/kg]
-const float B_DAMP_RET       = 0.5f;   // [deg/(kg/s)]
+// Impedancia al RETROCEDER (cuando F > 0,5 kg):
+const float K_STIFF_RET      = 4.0f;   // [deg/kg]
+const float B_DAMP_RET       = 1.0f;   // [deg/(kg/s)]
 
-// Vuelta a HOME
-const float KP_HOME          = 0.5f;
-const float STEP_HOME_MAX    = 0.7f;
-const float HOME_DEADBAND_DEG= 1.0f;
+// Vuelta suave a HOME cuando F ≤ 0,5 kg:
+const float KP_HOME          = 0.8f;   // ↑ un poco para que sí avance a HOME
+const float STEP_HOME_MAX    = 1.0f;   // límite de paso por ciclo a HOME [deg]
+const float HOME_DEADBAND_DEG= 1.0f;   // banda muerta de posición en HOME
 
 // Límites y timing
-const int   BRAZO_MIN        = 10;
+const int   BRAZO_MIN        = 10;      
 const int   BRAZO_MAX        = 170;
-const float STEP_LIMIT_DEG   = 1.0f;
-const float MAX_RETRACT_DEG  = 200.0f;
-const uint16_t UPDATE_MS     = 40;
-const bool  INVERT_BRAZO_DIR = true;
+const float STEP_LIMIT_DEG   = 1.5f;   // límite general de paso por ciclo
+const uint16_t UPDATE_MS     = 40;     // periodo de control
+const bool  INVERT_BRAZO_DIR = true;   // invierte sentido de “retroceder” si tu montaje lo requiere
 
-unsigned long tPrevCtrl      = 0;
-unsigned long tLastSampleMs  = 0;
-float         kg_prev        = 0.0f;
-
-// Máquina de estados del brazo
-enum BrazoMode { MODE_HOME = 0, MODE_COMPLIANT = 1 };
-BrazoMode modoBrazo = MODE_HOME;
-
-unsigned long lastHighForceMs = 0;
+unsigned long tPrevCtrl = 0;
+unsigned long tLastSampleMs = 0;
+float kg_prev = 0.0f; // para derivada
 
 // ---------------- Utilidades ----------------
 int angleToPulse(int ang) {
@@ -99,8 +93,7 @@ void sendTelemetry(unsigned long timestampMs,
                    float kgEscalado,
                    float kgFiltrado,
                    float kgReferencia,
-                   int brazoPosDeg,
-                   int modo) {
+                   int brazoPosDeg) {
   Serial.print("DATA,");
   Serial.print(timestampMs);
   Serial.print(',');
@@ -114,108 +107,77 @@ void sendTelemetry(unsigned long timestampMs,
   Serial.print(',');
   Serial.print(kgReferencia, 4);
   Serial.print(',');
-  Serial.print(brazoPosDeg);
-  Serial.print(',');
-  Serial.println(modo);
+  Serial.println(brazoPosDeg);
 }
 
 // ----------- Bucle de control -----------
-bool controlBrazoImpedancia(float kg_meas) {
+bool controlBrazoSoloRetroceso(float kg_meas) {
   unsigned long now = millis();
   if ((now - tPrevCtrl) < UPDATE_MS) return false;
 
-  float dt = (now - tPrevCtrl) / 1000.0f;
-  if (dt <= 0.0f) dt = 1e-3f;
+  float dt = (now - tPrevCtrl) / 1000.0f; // [s]
   tPrevCtrl = now;
 
-  // Filtrado de fuerza
+  // Filtrado exponencial de fuerza
   kg_filt = ALPHA_KG * kg_meas + (1.0f - ALPHA_KG) * kg_filt;
 
-  // Derivada de fuerza
-  float dkg = (kg_filt - kg_prev) / dt;
+  // Derivada de fuerza (suavizada)
+  float dkg = (kg_filt - kg_prev) / (dt > 1e-3f ? dt : 1e-3f); // [kg/s]
   const float ALPHA_D = 0.3f;
   static float dkg_filt = 0.0f;
   dkg_filt = ALPHA_D * dkg + (1.0f - ALPHA_D) * dkg_filt;
   kg_prev = kg_filt;
 
-  // Registrar si hay fuerza alta (para mantener COMPLIANT un rato)
-  if (kg_filt > (KG_TARGET + 0.5f * KG_DEADBAND)) {
-    lastHighForceMs = now;
-  }
-
-  // -------- Máquina de estados --------
-  if (modoBrazo == MODE_HOME) {
-    // Estamos en HOME / volviendo a HOME
-    if (kg_filt > (KG_TARGET + KG_DEADBAND)) {
-      // Entramos en modo “cede” sólo si claramente por encima
-      modoBrazo = MODE_COMPLIANT;
-    }
-  } else { // MODE_COMPLIANT
-    // Salimos cuando fuerza baja bastante y se mantiene baja un rato
-    if ((kg_filt < (KG_TARGET - KG_DEADBAND)) &&
-        (now - lastHighForceMs > 250)) { // 250 ms con fuerza baja
-      modoBrazo = MODE_HOME;
-    }
-  }
-
   float dtheta = 0.0f;
 
-  if (modoBrazo == MODE_COMPLIANT) {
-    // -------- Modo COMPLIANT: cede ante la fuerza --------
-    float eF = kg_filt - KG_TARGET;
-    if (eF < 0.0f) eF = 0.0f;
+  // ¿Se supera el umbral?
+  if (kg_filt > (KG_TARGET + KG_DEADBAND)) {
+    // Error de fuerza solo cuando supera el umbral
+    float eF = kg_filt - KG_TARGET; // >0
 
+    // Solo amortiguamos cuando la fuerza va en aumento
     float dkg_pos = (dkg_filt > 0.0f) ? dkg_filt : 0.0f;
 
-    float dtheta_mag = K_STIFF_RET * eF + B_DAMP_RET * dkg_pos;
+    // Impedancia de RETROCESO
+    float dtheta_mag = K_STIFF_RET * eF + B_DAMP_RET * dkg_pos; // magnitud positiva
     if (dtheta_mag > STEP_LIMIT_DEG) dtheta_mag = STEP_LIMIT_DEG;
 
+    // Signo de retroceder
     float retractSign = INVERT_BRAZO_DIR ? +1.0f : -1.0f;
     dtheta = retractSign * dtheta_mag;
 
   } else {
-    // -------- Modo HOME: volver despacio a la posición inicial --------
-    float posErr = (float)BRAZO_HOME - brazoRef;
+    // Mantener / volver a HOME
+    float posErr = (float)BRAZO_HOME - (float)brazoAngle; // >0 si hay que ir hacia delante
 
+    // Si ya estamos cerca de HOME, no hagas nada (evita temblores)
     if (fabs(posErr) < HOME_DEADBAND_DEG) {
       dtheta = 0.0f;
     } else {
       float step = KP_HOME * posErr;
 
+      // Limita el paso de vuelta a home (¡corrección de signos!)
       if (step >  STEP_HOME_MAX) step =  STEP_HOME_MAX;
       if (step < -STEP_HOME_MAX) step = -STEP_HOME_MAX;
 
-      // No avanzar por delante de HOME
+      // No avanzar por delante de HOME (solo regresar hacia él)
       if ((posErr <= 0.0f) && (step > 0.0f)) step = 0.0f;
 
       dtheta = step;
     }
   }
 
-  // Clamp de paso por ciclo
+  // Clamp general de paso (¡corrección de signos!)
   if (dtheta >  STEP_LIMIT_DEG) dtheta =  STEP_LIMIT_DEG;
   if (dtheta < -STEP_LIMIT_DEG) dtheta = -STEP_LIMIT_DEG;
 
-  // Aplica sobre referencia flotante
-  brazoRef += dtheta;
-  float nuevo = brazoRef;
-
-  // Limita rango respecto a HOME para evitar viajes grandes
-  float homeMin = (float)BRAZO_HOME - MAX_RETRACT_DEG;
-  float homeMax = (float)BRAZO_HOME + MAX_RETRACT_DEG;
-  if (nuevo < homeMin) nuevo = homeMin;
-  if (nuevo > homeMax) nuevo = homeMax;
-
-  // Limita mecánico
+  // Aplica
+  float nuevo = (float)brazoAngle + dtheta;
   if (nuevo < BRAZO_MIN) nuevo = BRAZO_MIN;
   if (nuevo > BRAZO_MAX) nuevo = BRAZO_MAX;
 
-  // Actualiza
-  brazoRef = nuevo;
-  int nuevoInt = (int)roundf(nuevo);
-
-  if (nuevoInt != brazoAngle) {
-    brazoAngle = nuevoInt;
+  if (fabs(nuevo - brazoAngle) >= 0.5f) {
+    brazoAngle = (int)roundf(nuevo);
     moverServo(SERVO_BRAZO, brazoAngle);
   }
 
@@ -226,8 +188,8 @@ bool controlBrazoImpedancia(float kg_meas) {
 // ---------------- Setup / Loop ----------------
 void setup() {
   Serial.begin(115200);
-  Serial.println("# Force control telemetry v2");
-  Serial.println("# DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>,<modo>");
+  Serial.println("# Force control telemetry v1");
+  Serial.println("# DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>");
 
   pwm.begin();
   pwm.setPWMFreq(60);
@@ -237,21 +199,21 @@ void setup() {
   moverServo(SERVO_BRAZO, brazoAngle);
   moverServo(SERVO_CODO, codoAngle);
 
+  // Fijamos HOME en la posición inicial del brazo
   BRAZO_HOME = brazoAngle;
-  brazoRef   = (float)brazoAngle;
 
+  // Inicializa filtros
   int raw = analogRead(pinFSR);
   for (uint8_t i = 0; i < N_AVG; i++) bufAvg[i] = raw;
   bufLleno = true;
 
-  kg_filt = rawToKg(raw);
+  kg_filt = rawToKg(raw); // arranque estable
   kg_prev = kg_filt;
   tPrevCtrl = millis();
-  lastHighForceMs = millis();
 }
 
 void loop() {
-  // Media móvil del ADC
+  // Media móvil corta del ADC
   int raw = analogRead(pinFSR);
   bufAvg[idxAvg++] = raw;
   if (idxAvg >= N_AVG) { idxAvg = 0; bufLleno = true; }
@@ -261,23 +223,23 @@ void loop() {
   for (uint8_t i = 0; i < n; i++) suma += bufAvg[i];
   int rawFiltrado = (int)(suma / n);
 
+  // Escala a kg
   float kg = rawToKg(rawFiltrado);
 
-  if (controlBrazoImpedancia(kg)) {
+  // Control “solo retrocede > 0,5 kg” y envío de telemetría estructurada
+  if (controlBrazoSoloRetroceso(kg)) {
     sendTelemetry(tLastSampleMs,
                   raw,
                   rawFiltrado,
                   kg,
                   kg_filt,
                   KG_TARGET,
-                  brazoAngle,
-                  (int)modoBrazo);
+                  brazoAngle);
   }
-
-  // Para monitorizar rápido la fuerza en kg
-  Serial.print("SETA,");
-  Serial.print(kg);
+  Serial.print("SETA");
+  Serial.print(",");
+  Serial.print(kg_filt);
   Serial.print("\n");
 
-  delay(3);
+  delay(1);
 }
