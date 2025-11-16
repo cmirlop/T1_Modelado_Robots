@@ -1,0 +1,58 @@
+{
+  "active_space": "HSV",
+  "HSV": {
+    "H": {
+      "min": 103,
+      "max": 161
+    },
+    "S": {
+      "min": 73,
+      "max": 192
+    },
+    "V": {
+      "min": 95,
+      "max": 255
+    }
+  },
+  "LAB": {
+    "L": {
+      "min": 0,
+      "max": 255
+    },
+    "A": {
+      "min": 100,
+      "max": 180
+    },
+    "B": {
+      "min": 120,
+      "max": 200
+    }
+  },
+  "CMYK": {
+    "C": {
+      "min": 0,
+      "max": 255
+    },
+    "M": {
+      "min": 0,
+      "max": 255
+    },
+    "Y": {
+      "min": 0,
+      "max": 255
+    },
+    "K": {
+      "min": 40,
+      "max": 255
+    }
+  },
+  "morphology": {
+    "kernel_idx": 2,
+    "open_iterations": 0,
+    "close_iterations": 1
+  },
+  "blur": {
+    "ksize_idx": 0,
+    "sigma": 0
+  }
+}
