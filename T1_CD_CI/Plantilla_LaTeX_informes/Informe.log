@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.4)  19 NOV 2025 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.4)  19 NOV 2025 11:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -954,16 +954,24 @@ Overfull \hbox (61.71439pt too wide) in paragraph at lines 311--312
 [5]
 
 [6]
-<figuras/interfaz.jpeg, id=322, 964.35281pt x 610.53094pt>
-File: figuras/interfaz.jpeg Graphic file (type jpg)
-<use figuras/interfaz.jpeg>
-Package pdftex.def Info: figuras/interfaz.jpeg  used on input line 462.
-(pdftex.def)             Requested size: 364.19667pt x 230.5695pt.
+<figuras/Diagrama_funcionamiento_T1.drawio.png, id=322, 121.45375pt x 382.42876pt>
+File: figuras/Diagrama_funcionamiento_T1.drawio.png Graphic file (type png)
+<use figuras/Diagrama_funcionamiento_T1.drawio.png>
+Package pdftex.def Info: figuras/Diagrama_funcionamiento_T1.drawio.png  used on input line 461.
+(pdftex.def)             Requested size: 68.28383pt x 215.00476pt.
 
 
 [7]
+<figuras/interfaz.jpeg, id=387, 964.35281pt x 610.53094pt>
+File: figuras/interfaz.jpeg Graphic file (type jpg)
+<use figuras/interfaz.jpeg>
+Package pdftex.def Info: figuras/interfaz.jpeg  used on input line 469.
+(pdftex.def)             Requested size: 364.19667pt x 230.5695pt.
 
-[8 <./figuras/interfaz.jpeg>] 
+
+[8 <./figuras/Diagrama_funcionamiento_T1.drawio.png> <./figuras/interfaz.jpeg>]
+
+[9] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Informe.aux)
  ***********
@@ -977,17 +985,17 @@ Package logreq Info: Writing requests to 'Informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30577 strings out of 468081
- 590744 string characters out of 5425789
+ 30586 strings out of 468081
+ 591129 string characters out of 5425789
  1591689 words of memory out of 5000000
- 58635 multiletter control sequences out of 15000+600000
+ 58642 multiletter control sequences out of 15000+600000
  637752 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,13n,82p,1295b,3258s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\vitto\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Informe.pdf (10 pages, 1092864 bytes).
+Output written on Informe.pdf (11 pages, 1099028 bytes).
 PDF statistics:
- 520 PDF objects out of 1000 (max. 8388607)
- 290 named destinations out of 1000 (max. 500000)
- 99 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 528 PDF objects out of 1000 (max. 8388607)
+ 292 named destinations out of 1000 (max. 500000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 

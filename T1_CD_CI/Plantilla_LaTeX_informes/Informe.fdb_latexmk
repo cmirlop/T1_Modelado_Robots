@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Informe"] 0 "Informe.bcf" "Informe.bbl" "Informe" 1763546927.72697 -1
+["biber Informe"] 0 "Informe.bcf" "Informe.bbl" "Informe" 1763547813.75437 -1
   "./configuraciones/referencias.bib" 1760514068 1376 1ddfa30c7ab16acdd0d1046f00dd7da7 ""
-  "Informe.bcf" 1763546927 133546 9d6b34bf703ebe4ac3fa633f5d5a9c32 "pdflatex"
+  "Informe.bcf" 1763547813 133546 9d6b34bf703ebe4ac3fa633f5d5a9c32 "pdflatex"
   (generated)
   "Informe.bbl"
   "Informe.blg"
   (rewritten before read)
-["pdflatex"] 1763546923.10465 "c:/Users/vitto/OneDrive/Documentos/GitHub/T1_Modelado_Robots/T1_CD_CI/Plantilla_LaTeX_informes/Informe.tex" "Informe.pdf" "Informe" 1763546927.72918 0
+["pdflatex"] 1763547809.30903 "c:/Users/vitto/OneDrive/Documentos/GitHub/T1_Modelado_Robots/T1_CD_CI/Plantilla_LaTeX_informes/Informe.tex" "Informe.pdf" "Informe" 1763547813.75713 0
   "C:/Users/vitto/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1762451863 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/vitto/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1760516066 12668 b953eb8e69b623a3ffdb5d2725f9f820 ""
   "C:/Users/vitto/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1762277849 13321622 e8360b1628425bb2a63a1245d3754435 ""
@@ -155,17 +155,18 @@
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729261622 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/vitto/AppData/Local/Programs/MiKTeX/tex/latex/xifthen/xifthen.sty" 1448274436 5689 1bfa68243e89a54479e7d0580773c57e ""
-  "Informe.aux" 1763546927 3741 aaeca11b7b406d018838b2642be37f3a "pdflatex"
+  "Informe.aux" 1763547813 3886 5ed0023b161beb1e67fba74319c27cbc "pdflatex"
   "Informe.bbl" 1760517705 486 76d65a242ec496c9b4361af646ff12cb "biber Informe"
-  "Informe.out" 1763546927 1517 94b4932b15b23f1a0d2287143625f835 "pdflatex"
-  "Informe.run.xml" 1763546927 2399 a132eb9689667ce247da9ee0c78849bd "pdflatex"
-  "Informe.tex" 1763546917 17569 743459f1d69321536e4877a0d0b0ef4a ""
-  "Informe.toc" 1763546927 783 7d8e663f5b5fd94ecb6c33164927a1db "pdflatex"
-  "c:/Users/vitto/OneDrive/Documentos/GitHub/T1_Modelado_Robots/T1_CD_CI/Plantilla_LaTeX_informes/Informe.tex" 1763546917 17569 743459f1d69321536e4877a0d0b0ef4a ""
+  "Informe.out" 1763547813 1517 94b4932b15b23f1a0d2287143625f835 "pdflatex"
+  "Informe.run.xml" 1763547813 2399 a132eb9689667ce247da9ee0c78849bd "pdflatex"
+  "Informe.tex" 1763547803 17755 e753765b8bf89f7f79ceff9af7fc8b58 ""
+  "Informe.toc" 1763547813 783 e65f982e5315781f1ec6dbcede8204f1 "pdflatex"
+  "c:/Users/vitto/OneDrive/Documentos/GitHub/T1_Modelado_Robots/T1_CD_CI/Plantilla_LaTeX_informes/Informe.tex" 1763547803 17755 e753765b8bf89f7f79ceff9af7fc8b58 ""
   "configuraciones/post_begin_document.tex" 1760517602 959 c319f063d052bdaea4729f05886d86e0 ""
   "configuraciones/preambulo.tex" 1761501632 3862 65adc343cd14f5082bf71f536f970b24 ""
   "configuraciones/preambulo_listings.tex" 1760514068 2304 3e3a49ebe91a69614bdca30d4b314304 ""
   "configuraciones/referencias_cruzadas.tex" 1760514068 542 8a9cf1530ca65e25cfd8c20dca0900d4 ""
+  "figuras/Diagrama_funcionamiento_T1.drawio.png" 1763547564 19373 b75cb3a65a6eca9ed5ea949bfc7f4db2 ""
   "figuras/imagen_diseño.jpeg" 1761757568 158450 2b2161cf93c894803c87d16ff61cb44f ""
   "figuras/imagen_ejes.jpeg" 1761759697 317508 e4e91efc6031dffa42b5aa8e955ed550 ""
   "figuras/interfaz.jpeg" 1761730397 91504 66a64e9ca0dbd097030ec79c432c9388 ""
