@@ -1,13 +1,13 @@
 """Real-time force telemetry visualizer for the Arduino impedance controller.
 
 Usage example:
-    python serial_force_plot.py --port COM6 --baud 9600 --window 60 --save resultados.csv
+    python serial_force_plot.py --port COM6 --baud 115200 --window 60 --save resultados.csv
 
 Requirements:
     pip install pyserial matplotlib
 
 The Arduino sketch must emit lines in the format:
-    DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>
+    DATA,<ms>,<raw>,<raw_avg>,<kg>,<kg_filt>,<kg_ref>,<brazo_deg>,<modo>
 """
 
 from __future__ import annotations
@@ -43,14 +43,16 @@ class TelemetrySample:
     kg_filt: float
     kg_ref: float
     brazo_deg: int
+    modo: int
 
 
-def parse_data_line(line: str) -> Optional[Tuple[int, int, int, float, float, float, int]]:
+def parse_data_line(line: str) -> Optional[Tuple[int, int, int, float, float, float, int, int]]:
     if not line.startswith("DATA"):
         return None
 
     parts = line.split(',')
-    if len(parts) != 8:
+    # DATA + 8 campos numéricos: ms, raw, raw_avg, kg, kg_filt, kg_ref, brazo_deg, modo
+    if len(parts) != 9:
         return None
 
     try:
@@ -61,10 +63,11 @@ def parse_data_line(line: str) -> Optional[Tuple[int, int, int, float, float, fl
         kg_filt = float(parts[5])
         kg_ref = float(parts[6])
         brazo_deg = int(float(parts[7]))
+        modo = int(parts[8])
     except ValueError:
         return None
 
-    return timestamp_ms, raw, raw_avg, kg, kg_filt, kg_ref, brazo_deg
+    return timestamp_ms, raw, raw_avg, kg, kg_filt, kg_ref, brazo_deg, modo
 
 
 def main() -> None:
@@ -111,7 +114,8 @@ def main() -> None:
     ser.reset_input_buffer()
 
     print(
-        "Recibiendo telemetría desde {port} a {baud} baudios. Cierra la ventana del gráfico para detener.".format(
+        "Recibiendo telemetría desde {port} a {baud} baudios. "
+        "Cierra la ventana del gráfico para detener.".format(
             port=args.port, baud=args.baud
         )
     )
@@ -137,6 +141,7 @@ def main() -> None:
     legend = ax.legend(loc="upper right")
 
     text_brazo = ax.text(0.02, 0.95, "", transform=ax.transAxes, va="top")
+    text_modo = ax.text(0.02, 0.90, "", transform=ax.transAxes, va="top")
 
     def pump_serial() -> bool:
         nonlocal origin_ms, last_timestamp_ms, rollover_offset
@@ -153,7 +158,16 @@ def main() -> None:
                     print(raw_line)
                 continue
 
-            timestamp_ms, raw, raw_avg, kg, kg_filt, kg_ref, brazo_deg = parsed
+            (
+                timestamp_ms,
+                raw,
+                raw_avg,
+                kg,
+                kg_filt,
+                kg_ref,
+                brazo_deg,
+                modo,
+            ) = parsed
 
             # Handle millis() rollover explicitly.
             if last_timestamp_ms is not None and timestamp_ms < last_timestamp_ms:
@@ -179,6 +193,7 @@ def main() -> None:
                     kg_filt=kg_filt,
                     kg_ref=kg_ref,
                     brazo_deg=brazo_deg,
+                    modo=modo,
                 )
             )
 
@@ -193,6 +208,17 @@ def main() -> None:
                     kg_ref_vals.popleft()
 
             text_brazo.set_text(f"Ángulo brazo: {brazo_deg:.0f}°")
+
+            # Mostrar modo de forma amigable
+            if modo == 0:
+                modo_str = "HOME"
+            elif modo == 1:
+                modo_str = "COMPLIANT"
+            else:
+                modo_str = str(modo)
+
+            text_modo.set_text(f"Modo: {modo_str}")
+
             updated = True
 
         return updated
@@ -200,7 +226,7 @@ def main() -> None:
     def update_plot(_frame: int):
         pump_serial()
         if not times:
-            return line_meas, line_filt, line_ref, legend, text_brazo
+            return line_meas, line_filt, line_ref, legend, text_brazo, text_modo
 
         x = list(times)
         y_meas = list(kg_vals)
@@ -224,7 +250,7 @@ def main() -> None:
         margin = span * 0.1
         ax.set_ylim(y_min - margin, y_max + margin)
 
-        return line_meas, line_filt, line_ref, legend, text_brazo
+        return line_meas, line_filt, line_ref, legend, text_brazo, text_modo
 
     ani = FuncAnimation(fig, update_plot, interval=100, blit=False)
 
@@ -245,6 +271,7 @@ def main() -> None:
                     "kg_filtered",
                     "kg_reference",
                     "brazo_deg",
+                    "modo",
                 ]
             )
             for sample in samples_log:
@@ -257,6 +284,7 @@ def main() -> None:
                         f"{sample.kg_filt:.4f}",
                         f"{sample.kg_ref:.4f}",
                         sample.brazo_deg,
+                        sample.modo,
                     ]
                 )
 
@@ -268,4 +296,3 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         sys.exit(0)
-
