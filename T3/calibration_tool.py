@@ -12,9 +12,10 @@ def ensure_odd(n: int) -> int:
 
 def default_config() -> Dict[str, Any]:
     return {
-        "active_space": "HSV",  # HSV | LAB | CMYK
+        "active_space": "HSV",  # HSV | LAB | CMYK | YCrCb
         "HSV": {"H": {"min": 100, "max": 140}, "S": {"min": 120, "max": 255}, "V": {"min": 70, "max": 255}},
         "LAB": {"L": {"min": 0, "max": 255}, "A": {"min": 100, "max": 180}, "B": {"min": 120, "max": 200}},
+        "YCrCb": {"Y": {"min": 0, "max": 255}, "Cr": {"min": 0, "max": 255}, "Cb": {"min": 0, "max": 255}},
         "CMYK": {
             "C": {"min": 0, "max": 255},
             "M": {"min": 0, "max": 255},
@@ -79,8 +80,8 @@ def _noop(_: int) -> None:
 def create_controls_panel(panel: str, cfg: Dict[str, Any]) -> None:
     cv.namedWindow(panel, cv.WINDOW_NORMAL)
     cv.resizeWindow(panel, 360, 300)
-    active_map = {"HSV": 0, "LAB": 1, "CMYK": 2}
-    cv.createTrackbar("Active (0=HSV 1=LAB 2=CMYK)", panel, active_map.get(cfg["active_space"], 0), 2, _noop)
+    active_map = {"HSV": 0, "LAB": 1, "CMYK": 2, "YCrCb": 3}
+    cv.createTrackbar("Active (0=HSV 1=LAB 2=CMYK 3=YCrCb)", panel, active_map.get(cfg["active_space"], 0), 3, _noop)
     cv.createTrackbar("Save (toggle 1)", panel, 0, 1, _noop)
     cv.createTrackbar("Reload (toggle 1)", panel, 0, 1, _noop)
     cv.createTrackbar("Morph Kernel idx (0-15)", panel, int(cfg["morphology"]["kernel_idx"]), 15, _noop)
@@ -126,6 +127,18 @@ def create_cmyk_panel(panel: str, cfg: Dict[str, Any]) -> None:
     cv.createTrackbar("CMYK Y max", panel, int(cmyk["Y"]["max"]), 255, _noop)
     cv.createTrackbar("CMYK K min", panel, int(cmyk["K"]["min"]), 255, _noop)
     cv.createTrackbar("CMYK K max", panel, int(cmyk["K"]["max"]), 255, _noop)
+
+
+def create_ycrcb_panel(panel: str, cfg: Dict[str, Any]) -> None:
+    cv.namedWindow(panel, cv.WINDOW_NORMAL)
+    cv.resizeWindow(panel, 360, 200)
+    ycrcb = cfg.get("YCrCb", {"Y": {"min": 0, "max": 255}, "Cr": {"min": 0, "max": 255}, "Cb": {"min": 0, "max": 255}})
+    cv.createTrackbar("YCrCb Y min", panel, int(ycrcb["Y"]["min"]), 255, _noop)
+    cv.createTrackbar("YCrCb Y max", panel, int(ycrcb["Y"]["max"]), 255, _noop)
+    cv.createTrackbar("YCrCb Cr min", panel, int(ycrcb["Cr"]["min"]), 255, _noop)
+    cv.createTrackbar("YCrCb Cr max", panel, int(ycrcb["Cr"]["max"]), 255, _noop)
+    cv.createTrackbar("YCrCb Cb min", panel, int(ycrcb["Cb"]["min"]), 255, _noop)
+    cv.createTrackbar("YCrCb Cb max", panel, int(ycrcb["Cb"]["max"]), 255, _noop)
 
 
 def create_lsd_panel(panel: str, cfg: Dict[str, Any]) -> None:
@@ -222,9 +235,9 @@ def detect_lsd_overlay(frame_bgr: np.ndarray, mask: np.ndarray, cfg: Dict[str, A
     return overlay
 
 
-def read_config_from_panels(controls_panel: str, hsv_panel: str, lab_panel: str, cmyk_panel: str, lsd_panel: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
-    idx_map = {0: "HSV", 1: "LAB", 2: "CMYK"}
-    active_idx = cv.getTrackbarPos("Active (0=HSV 1=LAB 2=CMYK)", controls_panel)
+def read_config_from_panels(controls_panel: str, hsv_panel: str, lab_panel: str, cmyk_panel: str, ycrcb_panel: str, lsd_panel: str, cfg: Dict[str, Any]) -> Dict[str, Any]:
+    idx_map = {0: "HSV", 1: "LAB", 2: "CMYK", 3: "YCrCb"}
+    active_idx = cv.getTrackbarPos("Active (0=HSV 1=LAB 2=CMYK 3=YCrCb)", controls_panel)
     cfg["active_space"] = idx_map.get(active_idx, "HSV")
 
     cfg["morphology"]["kernel_idx"] = cv.getTrackbarPos("Morph Kernel idx (0-15)", controls_panel)
@@ -243,16 +256,22 @@ def read_config_from_panels(controls_panel: str, hsv_panel: str, lab_panel: str,
             out[k] = {"min": int(mn), "max": int(mx)}
         return out
 
-    cfg["HSV"] = read_range(hsv_panel, "HSV", ("H", "S", "V"))
-    cfg["LAB"] = read_range(lab_panel, "LAB", ("L", "A", "B"))
-    cfg["CMYK"] = read_range(cmyk_panel, "CMYK", ("C", "M", "Y", "K"))
+    if cfg["active_space"] == "HSV":
+        cfg["HSV"] = read_range(hsv_panel, "HSV", ("H", "S", "V"))
+    elif cfg["active_space"] == "LAB":
+        cfg["LAB"] = read_range(lab_panel, "LAB", ("L", "A", "B"))
+    elif cfg["active_space"] == "CMYK":
+        cfg["CMYK"] = read_range(cmyk_panel, "CMYK", ("C", "M", "Y", "K"))
+    elif cfg["active_space"] == "YCrCb":
+        cfg["YCrCb"] = read_range(ycrcb_panel, "YCrCb", ("Y", "Cr", "Cb"))
+
     cfg = read_lsd_from_panel(lsd_panel, cfg)
     return cfg
 
 
-def apply_config_to_panels(controls_panel: str, hsv_panel: str, lab_panel: str, cmyk_panel: str, lsd_panel: str, cfg: Dict[str, Any]) -> None:
-    space_to_idx = {"HSV": 0, "LAB": 1, "CMYK": 2}
-    cv.setTrackbarPos("Active (0=HSV 1=LAB 2=CMYK)", controls_panel, space_to_idx.get(cfg["active_space"], 0))
+def apply_config_to_panels(controls_panel: str, hsv_panel: str, lab_panel: str, cmyk_panel: str, ycrcb_panel: str, lsd_panel: str, cfg: Dict[str, Any]) -> None:
+    space_to_idx = {"HSV": 0, "LAB": 1, "CMYK": 2, "YCrCb": 3}
+    cv.setTrackbarPos("Active (0=HSV 1=LAB 2=CMYK 3=YCrCb)", controls_panel, space_to_idx.get(cfg["active_space"], 0))
     cv.setTrackbarPos("Morph Kernel idx (0-15)", controls_panel, int(cfg["morphology"]["kernel_idx"]))
     cv.setTrackbarPos("Open iterations", controls_panel, int(cfg["morphology"]["open_iterations"]))
     cv.setTrackbarPos("Close iterations", controls_panel, int(cfg["morphology"]["close_iterations"]))
@@ -264,9 +283,15 @@ def apply_config_to_panels(controls_panel: str, hsv_panel: str, lab_panel: str, 
             cv.setTrackbarPos(f"{prefix} {ch} min", win, int(d[ch]["min"]))
             cv.setTrackbarPos(f"{prefix} {ch} max", win, int(d[ch]["max"]))
 
-    set_range(hsv_panel, "HSV", cfg["HSV"])
-    set_range(lab_panel, "LAB", cfg["LAB"])
-    set_range(cmyk_panel, "CMYK", cfg["CMYK"])
+    if cfg["active_space"] == "HSV":
+        set_range(hsv_panel, "HSV", cfg["HSV"])
+    elif cfg["active_space"] == "LAB":
+        set_range(lab_panel, "LAB", cfg["LAB"])
+    elif cfg["active_space"] == "CMYK":
+        set_range(cmyk_panel, "CMYK", cfg["CMYK"])
+    elif cfg["active_space"] == "YCrCb":
+        set_range(ycrcb_panel, "YCrCb", cfg.get("YCrCb", {"Y": {"min": 0, "max": 255}, "Cr": {"min": 0, "max": 255}, "Cb": {"min": 0, "max": 255}}))
+
     apply_lsd_to_panel(lsd_panel, cfg)
 
 
@@ -300,6 +325,12 @@ def mask_from_space(frame_bgr: np.ndarray, cfg: Dict[str, Any]) -> np.ndarray:
         low = np.array([cfg["LAB"]["L"]["min"], cfg["LAB"]["A"]["min"], cfg["LAB"]["B"]["min"]], dtype=np.uint8)
         up = np.array([cfg["LAB"]["L"]["max"], cfg["LAB"]["A"]["max"], cfg["LAB"]["B"]["max"]], dtype=np.uint8)
         mask = cv.inRange(lab, low, up)
+        return mask
+    elif space == "YCrCb":
+        ycrcb = cv.cvtColor(frame_bgr, cv.COLOR_BGR2YCrCb)
+        low = np.array([cfg["YCrCb"]["Y"]["min"], cfg["YCrCb"]["Cr"]["min"], cfg["YCrCb"]["Cb"]["min"]], dtype=np.uint8)
+        up = np.array([cfg["YCrCb"]["Y"]["max"], cfg["YCrCb"]["Cr"]["max"], cfg["YCrCb"]["Cb"]["max"]], dtype=np.uint8)
+        mask = cv.inRange(ycrcb, low, up)
         return mask
     else:
         cmyk = bgr_to_cmyk(frame_bgr)
@@ -361,18 +392,49 @@ def main() -> None:
     hsv_panel = "HSV Panel"
     lab_panel = "LAB Panel"
     cmyk_panel = "CMYK Panel"
+    ycrcb_panel = "YCrCb Panel"
     lsd_panel = "LSD Panel"
+
     create_controls_panel(controls, cfg)
-    create_hsv_panel(hsv_panel, cfg)
-    create_lab_panel(lab_panel, cfg)
-    create_cmyk_panel(cmyk_panel, cfg)
     create_lsd_panel(lsd_panel, cfg)
-    apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, lsd_panel, cfg)
+
+    def ensure_active_panel(target_space: str, current_space: str) -> None:
+        if target_space == current_space:
+            return
+        # Destroy old
+        old_panel = None
+        if current_space == "HSV": old_panel = hsv_panel
+        elif current_space == "LAB": old_panel = lab_panel
+        elif current_space == "CMYK": old_panel = cmyk_panel
+        elif current_space == "YCrCb": old_panel = ycrcb_panel
+        
+        if old_panel:
+            try:
+                cv.destroyWindow(old_panel)
+            except Exception:
+                pass
+        
+        # Create new
+        if target_space == "HSV": create_hsv_panel(hsv_panel, cfg)
+        elif target_space == "LAB": create_lab_panel(lab_panel, cfg)
+        elif target_space == "CMYK": create_cmyk_panel(cmyk_panel, cfg)
+        elif target_space == "YCrCb": create_ycrcb_panel(ycrcb_panel, cfg)
+    
+    # Initial creation
+    current_space = cfg["active_space"]
+    if current_space == "HSV": create_hsv_panel(hsv_panel, cfg)
+    elif current_space == "LAB": create_lab_panel(lab_panel, cfg)
+    elif current_space == "CMYK": create_cmyk_panel(cmyk_panel, cfg)
+    elif current_space == "YCrCb": create_ycrcb_panel(ycrcb_panel, cfg)
+    
+    apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, ycrcb_panel, lsd_panel, cfg)
     apply_lsd_to_panel(lsd_panel, cfg)
 
     cv.namedWindow("Frame", cv.WINDOW_NORMAL)
     cv.namedWindow("Mask", cv.WINDOW_NORMAL)
     cv.namedWindow("LSD", cv.WINDOW_NORMAL)
+
+    idx_map = {0: "HSV", 1: "LAB", 2: "CMYK", 3: "YCrCb"}
 
     while True:
         ok, frame = cap.read()
@@ -380,9 +442,19 @@ def main() -> None:
             print("Camera feed lost.")
             break
 
-        cfg = read_config_from_panels(controls, hsv_panel, lab_panel, cmyk_panel, lsd_panel, cfg)
+        # Check if active space changed via Controls panel
+        active_idx = cv.getTrackbarPos("Active (0=HSV 1=LAB 2=CMYK 3=YCrCb)", controls)
+        target_space = idx_map.get(active_idx, "HSV")
+        
+        if target_space != cfg["active_space"]:
+            ensure_active_panel(target_space, cfg["active_space"])
+            cfg["active_space"] = target_space
+        
+        cfg = read_config_from_panels(controls, hsv_panel, lab_panel, cmyk_panel, ycrcb_panel, lsd_panel, cfg)
         mask = mask_from_space(frame, cfg)
         mask = postprocess_mask(mask, cfg)
+
+        cv.putText(frame, f"Active: {cfg['active_space']}", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         cv.imshow("Frame", frame)
         cv.imshow("Mask", mask)
@@ -395,8 +467,11 @@ def main() -> None:
             save_config(json_path, cfg)
             cv.setTrackbarPos("Save (toggle 1)", controls, 0)
         if cv.getTrackbarPos("Reload (toggle 1)", controls) == 1:
+            old_space = cfg["active_space"]
             cfg = load_config(json_path)
-            apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, lsd_panel, cfg)
+            new_space = cfg["active_space"]
+            ensure_active_panel(new_space, old_space)
+            apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, ycrcb_panel, lsd_panel, cfg)
             cv.setTrackbarPos("Reload (toggle 1)", controls, 0)
 
         key = cv.waitKey(1) & 0xFF
@@ -405,8 +480,11 @@ def main() -> None:
         elif key == ord("s"):
             save_config(json_path, cfg)
         elif key == ord("l"):
+            old_space = cfg["active_space"]
             cfg = load_config(json_path)
-            apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, lsd_panel, cfg)
+            new_space = cfg["active_space"]
+            ensure_active_panel(new_space, old_space)
+            apply_config_to_panels(controls, hsv_panel, lab_panel, cmyk_panel, ycrcb_panel, lsd_panel, cfg)
 
     cap.release()
     cv.destroyAllWindows()
