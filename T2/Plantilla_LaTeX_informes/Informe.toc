@@ -1,0 +1,6 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Integración del sensor RP-C10-LT}{1}{section.2}%
+\contentsline {section}{\numberline {3}Algoritmo de control}{1}{section.3}%
+\contentsline {section}{\numberline {4}Resultados experimentales}{1}{section.4}%
+\contentsline {section}{\numberline {5}limitaciones y posibles mejoras}{1}{section.5}%
