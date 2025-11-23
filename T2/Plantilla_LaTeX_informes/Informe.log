@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.4)  17 NOV 2025 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.11.4)  19 NOV 2025 12:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -891,19 +891,52 @@ Package pdftex.def Info: ./logos/UPV_Campus_Alcoi.png  used on input line 13.
 
 
 
-[1])
+[1]) (C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+) (C:\Users\vitto\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 102.
+
 
 Package babel Info: 'spanish' activates 'spanish' shorthands.
-(babel)             Reported on input line 115.
+(babel)             Reported on input line 133.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.115 \end{document}
-                     [1
+l.133 %% 
+         ---------- Filtros ---------- [1
 
 
-] 
+]
+Overfull \hbox (10.68454pt too wide) in paragraph at lines 183--184
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (16.35452pt too wide) in paragraph at lines 191--193
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+[2]
+
+[3]
+Overfull \hbox (44.70444pt too wide) in paragraph at lines 260--261
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+[4]
+
+[5]
+
+[6] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (Informe.aux)
  ***********
@@ -917,17 +950,17 @@ Package logreq Info: Writing requests to 'Informe.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 28935 strings out of 468081
- 571743 string characters out of 5425789
- 1493309 words of memory out of 5000000
- 57288 multiletter control sequences out of 15000+600000
- 634466 words of font info for 63 fonts, out of 8000000 for 9000
+ 30177 strings out of 468081
+ 585891 string characters out of 5425789
+ 1595649 words of memory out of 5000000
+ 58228 multiletter control sequences out of 15000+600000
+ 635506 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,82p,1289b,2811s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Informe.pdf (3 pages, 335234 bytes).
+ 80i,13n,82p,1289b,2844s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/vitto/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on Informe.pdf (8 pages, 476182 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 301 named destinations out of 1000 (max. 500000)
  52 words of extra memory for PDF output out of 10000 (max. 10000000)
 
