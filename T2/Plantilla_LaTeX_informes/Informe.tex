@@ -76,7 +76,7 @@ función de la fuerza medida. Finalmente, se validará experimentalmente el dese
 %------------------------------------------------------------------
 
 \section{Integración del sensor RP-C10-LT}
-\label{sec:diseño}
+\label{sec:integración}
 El sensor RP-C10-LT se acopla mecánicamente al efector final del robot, 
 de forma que pueda medir la fuerza normal ejercida sobre la superficie 
 de contacto. Su señal analógica se conecta directamente a una de las 
@@ -97,7 +97,7 @@ realizada previamente.
 %------------------------------------------------------------------
 
 \section{Algoritmo de control}
-\label{sec:modelo}
+\label{sec:algoritmo}
 
 \begin{lstlisting}[caption={Parámetros de impedancia y configuración global.}, label=lst:imp_config, language=C++]
 #include <Wire.h>
@@ -409,11 +409,11 @@ void loop() {
 
 %------------------------------------------------------------------
 \section{Resultados experimentales}
-
+\label{sec:resultados}
 
 
 \section{limitaciones y posibles mejoras}
-\label{sec:pruebas}
+\label{sec:limitaciones}
 Aunque el sistema cumple con los requisitos, presenta algunas limitaciones. 
 El uso de servomotores 9G introduce cierta holgura mecánica y ruido en la 
 medida, lo que afecta a la precisión del control. El control proporcional 

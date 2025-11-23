@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Integración hardware de la cámara}{1}{section.2}%
+\contentsline {section}{\numberline {3}Algoritmo de procesamiento de imágenes}{1}{section.3}%
+\contentsline {section}{\numberline {4}Esquema de control visual}{1}{section.4}%
+\contentsline {section}{\numberline {5}Resultados experimentales}{1}{section.5}%
+\contentsline {section}{\numberline {6}Limitaciones y mejoras}{1}{section.6}%
+\contentsline {section}{\numberline {7}Demostración práctica}{1}{section.7}%

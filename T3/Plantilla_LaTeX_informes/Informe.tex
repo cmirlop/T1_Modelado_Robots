@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+% Informació de l'informe
+
+\newcommand{\titol}{
+	 Control por realimentación visual
+	 }
+
+\newcommand{\titolcap}{Control por realimentación visual}
+
+\newcommand{\AlumnoA}{Carlos Mira López}
+\newcommand{\AlumnoB}{Nicolás Miró Mira}
+\newcommand{\AlumnoC}{Vittorio Alessandro Esposito Ceballos}
+
+\newcommand{\AlumnosPie}{\AlumnoA\ -- \AlumnoB\ -- \AlumnoC}
+\newcommand{\Asignatura}{Modelado y Control de Robots}
+\newcommand{\CursoTitulacion}{4$.\!^\circ$ curso - Grado en Ingeniería ...}
+%https://www.rae.es/dpd/ordinales
+
+\newcommand{\Data}{Diciembre de 2025}
+
+%------------------------------------------------------------------
+% Configuració de formats i bibliografia
+
+\input{./configuraciones/preambulo}
+\input{./configuraciones/preambulo_listings}
+
+% Si vols utilitzar un tipus de lletra semblant a Arial, descomenta les dos línies següents:
+% \usepackage{cmbright}
+% \usepackage[OT1]{fontenc}
+
+\bibliography{./configuraciones/referencias}
+
+%------------------------------------------------------------------
+% Logo:
+
+\setboolean{LogoUPV}{false}
+\setboolean{LogoAlcoi}{true}
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\begin{document}
+
+% -------------------------------------
+% -------------------------------------
+
+\input{./configuraciones/post_begin_document} % No eliminar!!!
+
+% -------------------------------------
+% -------------------------------------
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+% Resumen
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\section{Introducción}
+\label{sec:introduccion}
+En este trabajo se desarrolla un sistema de control visual para el robot manipulador de 3 
+GDL construido en el Trabajo 1. El propósito es que el robot pueda percibir la posición de 
+un objeto mediante la cámara OV7670 y ajustar su movimiento en función de esa información. 
+Para ello, se integra la cámara en el hardware del robot, se calibra para obtener coordenadas 
+fiables y se implementa un algoritmo capaz de detectar y seguir un objeto de referencia dentro 
+de la imagen. A partir de esta detección, se calcula el error visual entre la posición actual 
+del objeto y la deseada, y dicho error se utiliza como señal de control para modificar la postura 
+del robot en tiempo real. Con todo ello, se pretende demostrar que el manipulador es capaz de mantener 
+la alineación respecto al objetivo y reaccionar de forma autónoma ante cambios en su posición dentro 
+del campo de visión.
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\section{Integración hardware de la cámara}
+\label{sec:integracion}
+
+
+
+
+
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+
+\section{Algoritmo de procesamiento de imágenes}
+\label{sec:algoritmo}
+
+
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\section{Esquema de control visual}
+\label{sec:control}
+
+
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+\section{Resultados experimentales}
+\label{sec:resultados}
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+
+\section{Limitaciones y mejoras}
+\label{sec:limitaciones}
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\section{Demostración práctica}
+\label{sec:demostración}
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+
+\bibitemsep = 2ex
+\bibhang = 2em
+
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
+\end{document}
+
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+%------------------------------------------------------------------
+
