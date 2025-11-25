@@ -12,6 +12,33 @@ HSV_PARAMS = {}
 ## VARIABLES DE AJUSTE
 MIN_AREA = 1000
 MAX_AREA = 50000 # Increased max area (cube is close to camera)
+Kp = 1 # TODO ajustar
+
+h = None
+w = None
+
+REFERENCE_POINT = {
+    'X': w,
+    'Y': h
+}
+
+
+error_x = None
+error_y = None
+# Motores Robot
+MOTORS_ANGLES = {
+    'Pan': error_x,
+    'Tilt': error_y
+}
+
+angle_current_pan = None
+angle_current_tilt = None
+MOTORS_CURRENT_ANGLES = {
+    'Pan': angle_current_pan,
+    'Tilt': angle_current_tilt
+}
+
+
 
 def open_camera(camera_index: int) -> cv.VideoCapture:
     capture = cv.VideoCapture(camera_index, cv.CAP_DSHOW)
@@ -77,6 +104,44 @@ def get_centroid(mask):
             
     return center, best_c
 
+def frame_dimensions(frame):
+    global REFERENCE_POINT
+    print(frame.shape)
+    h, w = frame.shape[:2]
+    REFERENCE_POINT['X'] = w/2
+    REFERENCE_POINT['Y'] = h/2
+
+def error_calculation(center_point):
+    error = []
+    error_x  = REFERENCE_POINT['X'] - center_point[0]
+    error_y  = REFERENCE_POINT['Y'] - center_point[1]
+
+    error.append(error_x)
+    error.append(error_y)
+    return error
+
+def correction_calculation(error):
+    motor_corrections = []
+    if error[0] > 0:
+        angle_pan = MOTORS_CURRENT_ANGLES['Pan'] - (Kp * error[0])
+        MOTORS_ANGLES['Pan'] = angle_pan
+        motor_corrections.append(angle_pan)
+
+    if error[1] > 0:
+        angle_tilt = MOTORS_CURRENT_ANGLES['Tilt'] - (Kp * error[1])
+        MOTORS_ANGLES['Tilt'] = angle_tilt
+        motor_corrections.append(angle_tilt)
+
+    for angle in motor_corrections:
+        if angle > 180:
+            print("Angle correction is bigger than 180 ")
+            angle = 180
+        if angle < 0:
+            print("Angle correction is negative")
+            angle = 0
+
+
+
 def main() -> None:
     importing_params()
     
@@ -91,6 +156,10 @@ def main() -> None:
     capture = open_camera(camera_index)
     if not capture.isOpened():
         sys.exit(1)
+    grabbed, frame = capture.read()
+    if not grabbed:
+        return
+    dimensions = frame_dimensions(frame)
 
     window_title = "Tracking"
     cv.namedWindow(window_title, cv.WINDOW_NORMAL)
@@ -99,7 +168,7 @@ def main() -> None:
         grabbed, frame = capture.read()
         if not grabbed:
             break
-
+        
         # 1. Detect Object
         mask = Object_detection(frame)
         
@@ -117,6 +186,8 @@ def main() -> None:
             # Draw the center point
             cv.circle(frame, center_point, 8, (0, 255, 0), -1)
             cv.putText(frame, "Tracking", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            error = error_calculation(center_point)
+            correction_calculation(error)
         else:
             cv.putText(frame, "Lost", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
