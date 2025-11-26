@@ -3,6 +3,8 @@ import numpy as np
 import cv2 as cv
 import os
 import json
+import serial
+import time
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 CALIBRATION_PATH = os.path.join(SCRIPT_DIR, 'calibration.json')
@@ -12,7 +14,7 @@ HSV_PARAMS = {}
 ## VARIABLES DE AJUSTE
 MIN_AREA = 1000
 MAX_AREA = 50000 # Increased max area (cube is close to camera)
-Kp = 1 # TODO ajustar
+Kp = 2 # TODO ajustar
 
 h = None
 w = None
@@ -23,6 +25,7 @@ REFERENCE_POINT = {
 }
 
 
+
 error_x = None
 error_y = None
 # Motores Robot
@@ -31,8 +34,8 @@ MOTORS_ANGLES = {
     'Tilt': error_y
 }
 
-angle_current_pan = None
-angle_current_tilt = None
+angle_current_pan = 90
+angle_current_tilt = 90
 MOTORS_CURRENT_ANGLES = {
     'Pan': angle_current_pan,
     'Tilt': angle_current_tilt
@@ -120,27 +123,66 @@ def error_calculation(center_point):
     error.append(error_y)
     return error
 
-def correction_calculation(error):
-    motor_corrections = []
-    if error[0] > 0:
-        angle_pan = MOTORS_CURRENT_ANGLES['Pan'] - (Kp * error[0])
-        MOTORS_ANGLES['Pan'] = angle_pan
-        motor_corrections.append(angle_pan)
+def correction_calculation(error, arduino):
+    # --- 1. PAN (Horizontal) TUNING ---
+    # If the robot turns AWAY from the object and hits 0/180,
+    # CHANGE THIS SIGN: (Try '+' first, if it fails, change to '-')
+    pan_correction = (Kp * error[0]) 
+    new_pan = MOTORS_CURRENT_ANGLES['Pan'] - pan_correction  # <--- CHECK THIS SIGN (+ or -)
 
-    if error[1] > 0:
-        angle_tilt = MOTORS_CURRENT_ANGLES['Tilt'] - (Kp * error[1])
-        MOTORS_ANGLES['Tilt'] = angle_tilt
-        motor_corrections.append(angle_tilt)
+    # Safety Clamp Pan
+    if new_pan > 180: new_pan = 180
+    if new_pan < 0: new_pan = 0
+    
+    MOTORS_CURRENT_ANGLES['Pan'] = new_pan
 
-    for angle in motor_corrections:
-        if angle > 180:
-            print("Angle correction is bigger than 180 ")
-            angle = 180
-        if angle < 0:
-            print("Angle correction is negative")
-            angle = 0
+    # --- 2. TILT (Vertical) - DISABLED FOR NOW ---
+    # We keep it fixed at 90 until Pan works perfectly
+    # Safety Clamp Pan
+    
+    tilt_correction = (Kp * error[0])
+    new_tilt = MOTORS_CURRENT_ANGLES['Tilt'] - tilt_correction # Reset memory to 90
+
+    if new_tilt > 180: new_tilt = 180
+    if new_tilt < 0: new_tilt = 0
+
+    # --- Send Command ---
+    command = f"TRACK,{int(new_pan)},{int(new_tilt)}\n"
+    arduino.write(command.encode())
+
+    # --- DEBUG PRINT (Crucial!) ---
+    # Watch this in the terminal. 
+    # If 'Error' is POSITIVE, does 'Pan' INCREASE or DECREASE?
+    print(f"Error: {int(error[0])} | Pan Angle: {int(new_pan)} | Tilt Angle: {int(new_tilt)}")
 
 
+def drawing_diff_err_ref(centroid_point, frame, contour):
+    # 1. Create the tuple locally using simple parentheses (x, y)
+    # We cast to int() here because OpenCV requires integers
+    ref_tuple = (int(REFERENCE_POINT['X']), int(REFERENCE_POINT['Y']))
+    
+    # 2. Draw using this local tuple
+    cv.drawContours(frame, [contour], -1, (255, 0, 0), 2)
+    cv.circle(frame, centroid_point, 8, (255, 100, 0), -1)
+    
+    # Draw the reference (center) point
+    cv.circle(frame, ref_tuple, 8, (0, 255, 0), -1)
+    
+    # Draw the line connecting them
+    cv.line(frame, ref_tuple, centroid_point, (0, 255, 0), 2)
+
+def read_arduino_data(arduino):
+    # While there is data waiting in the serial buffer...
+    while arduino.in_waiting > 0:
+        try:
+            # Read the line, decode from bytes to string, remove whitespace
+            line = arduino.readline().decode('utf-8', errors='ignore').strip()
+            
+            # Print it to the terminal so you can see it
+            if line:
+                print(f"[Arduino] -> {line}")
+        except Exception as e:
+            print(f"Serial Read Error: {e}")
 
 def main() -> None:
     importing_params()
@@ -159,11 +201,14 @@ def main() -> None:
     grabbed, frame = capture.read()
     if not grabbed:
         return
-    dimensions = frame_dimensions(frame)
+    frame_dimensions(frame)
+    print(f"Dimensions --> [{REFERENCE_POINT['X'],{REFERENCE_POINT['Y']}}]")
 
     window_title = "Tracking"
     cv.namedWindow(window_title, cv.WINDOW_NORMAL)
 
+    arduino = serial.Serial(port='COM3', baudrate=115200, timeout=0.1)
+    time.sleep(2) # Give Arduino time to reboot after connection
     while True:
         grabbed, frame = capture.read()
         if not grabbed:
@@ -177,20 +222,19 @@ def main() -> None:
         cv.imshow("Mask Debug", mask) 
 
         # 3. Calculate Centroid
-        center_point, contour = get_centroid(mask)
+        centroid_point, contour = get_centroid(mask)
 
         # 4. Draw Result
-        if center_point is not None:
-            # Draw the contour outline
-            cv.drawContours(frame, [contour], -1, (255, 0, 0), 2)
-            # Draw the center point
-            cv.circle(frame, center_point, 8, (0, 255, 0), -1)
+        if centroid_point is not None:
             cv.putText(frame, "Tracking", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-            error = error_calculation(center_point)
-            correction_calculation(error)
+            error = error_calculation(centroid_point)
+            correction_calculation(error, arduino)
+            drawing_diff_err_ref(centroid_point, frame, contour)
+
         else:
             cv.putText(frame, "Lost", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 
+        read_arduino_data(arduino)
         cv.imshow(window_title, frame)
         
         key = cv.waitKey(1) & 0xFF

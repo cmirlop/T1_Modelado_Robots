@@ -428,7 +428,7 @@ void calcular_directa(){
 }
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   pwm.begin();
   pwm.setPWMFreq(60); // Frecuencia típica para servos
 
@@ -452,33 +452,27 @@ void loop() {
     else if (cmd == "1") {
       modo = 1;
     }
-    else if (cmd.startsWith("TRACK,")) { // if (cmd.startsWith("TRACK,") && modo == 1)
+    else if (cmd.startsWith("SET,") && modo == 1) {
       Serial.print("Hola\n");
       // Parsear los 3 valores recibidos
-      cmd.remove(0, 6); // eliminar "SET,"
+      cmd.remove(0, 4); // eliminar "SET,"
       int coma1 = cmd.indexOf(',');
+      int coma2 = cmd.lastIndexOf(',');
 
 
-      if (coma1 > 0) { // if (coma1 > 0 && coma2 > coma1) {
+      if (coma1 > 0 && coma2 > coma1) {
         float b = cmd.substring(0, coma1).toFloat();
-        float r = cmd.substring(coma1 + 1).toFloat();
-        float c = 90; //cmd.substring(coma2 + 1).toFloat();
-        Serial.println("Ángulo Base:");
+        float r = cmd.substring(coma1 + 1, coma2).toFloat();
+        float c = cmd.substring(coma2 + 1).toFloat();
         Serial.println(b);
-        Serial.println("Ángulo Codo:");
         Serial.println(r);
-        //Serial.println(c);
-
-        moverServo(SERVO_BASE, b);
-        moverServo(SERVO_BRAZO, r);
-        moverServo(SERVO_CODO, c);
-
+        Serial.println(c);
         
 
         //Activar funcion - Cinematica Inversa
-        /*
-        bool func = ik_RRR(b,r,c); // ik_RRR(b,r,c);
-          Serial.print("Ángulos para cada motor:");
+
+        bool func = ik_RRR(b,r,c);
+          Serial.print("Angulos para cada motor:");
           Serial.print(",");
           Serial.print(theta1);
           Serial.print(",");
@@ -492,11 +486,9 @@ void loop() {
           moverServo(SERVO_BRAZO, theta2);
           moverServo(SERVO_CODO, theta3);
         }
-        baseAngle = b;
-        brazoAngle = r;
-        codoAngle = c;
-        */
-        
+        baseAngle = theta1;
+        brazoAngle = theta2;
+        codoAngle = theta3;
 
         
       }
