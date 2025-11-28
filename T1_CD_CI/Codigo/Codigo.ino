@@ -441,123 +441,33 @@ void setup() {
 }
 
 void loop() {
-  // Leer comandos desde el navegador
   if (Serial.available()) {
     String cmd = Serial.readStringUntil('\n');
     cmd.trim();
 
-    if (cmd == "0") {
-      modo = 0;
-    } 
-    else if (cmd == "1") {
-      modo = 1;
-    }
-    else if (cmd.startsWith("TRACK,")) { // if (cmd.startsWith("TRACK,") && modo == 1)
-      Serial.print("Hola\n");
-      // Parsear los 3 valores recibidos
-      cmd.remove(0, 6); // eliminar "SET,"
+    if (cmd.startsWith("TRACK,")) {
+      cmd.remove(0, 6); 
       int coma1 = cmd.indexOf(',');
 
-
-      if (coma1 > 0) { // if (coma1 > 0 && coma2 > coma1) {
+      if (coma1 > 0) {
         float b = cmd.substring(0, coma1).toFloat();
         float r = cmd.substring(coma1 + 1).toFloat();
-        float c = 90; //cmd.substring(coma2 + 1).toFloat();
-        Serial.println("Ángulo Base:");
-        Serial.println(b);
-        Serial.println("Ángulo Codo:");
-        Serial.println(r);
-        //Serial.println(c);
+        float c = 90; 
 
         moverServo(SERVO_BASE, b);
         moverServo(SERVO_BRAZO, r);
         moverServo(SERVO_CODO, c);
-
         
-
-        //Activar funcion - Cinematica Inversa
-        /*
-        bool func = ik_RRR(b,r,c); // ik_RRR(b,r,c);
-          Serial.print("Ángulos para cada motor:");
-          Serial.print(",");
-          Serial.print(theta1);
-          Serial.print(",");
-          Serial.print(theta2);
-          Serial.print(",");
-          Serial.print(theta3);
-          Serial.print(",");
-          Serial.println(func);
-        if (func == true){
-          moverServo(SERVO_BASE, theta1);
-          moverServo(SERVO_BRAZO, theta2);
-          moverServo(SERVO_CODO, theta3);
-        }
-        baseAngle = b;
-        brazoAngle = r;
-        codoAngle = c;
-        */
-        
-
-        
+        // --- FEEDBACK ONLY HERE ---
+        // We only print when we actually move!
+        Serial.print("Moved to: ");
+        Serial.print(b);
+        Serial.print(",");
+        Serial.println(r);
       }
     }
-    else if (cmd == "Base+" && modo == 0) {
-      baseAngle = constrain(baseAngle + step, 0, 180);
-      moverServo(SERVO_BASE, baseAngle);
-    } 
-    else if (cmd == "Base-" && modo == 0) {
-      baseAngle = constrain(baseAngle - step, 0, 180);
-      moverServo(SERVO_BASE, baseAngle);
-    } 
-    else if (cmd == "Brazo+" && modo == 0) {
-      brazoAngle = constrain(brazoAngle + step, 0, 180);
-      moverServo(SERVO_BRAZO, brazoAngle);
-    } 
-    else if (cmd == "Brazo-" && modo == 0) {
-      brazoAngle = constrain(brazoAngle - step, 0, 180);
-      moverServo(SERVO_BRAZO, brazoAngle);
-    } 
-    else if (cmd == "Codo+" && modo == 0) {
-      codoAngle = constrain(codoAngle + step, 0, 180);
-      moverServo(SERVO_CODO, codoAngle);
-    } 
-    else if (cmd == "Codo-" && modo == 0) {
-      codoAngle = constrain(codoAngle - step, 0, 180);
-      moverServo(SERVO_CODO, codoAngle);
-    }
   }
-
-  calcular_directa();
-/*
-  if (modo == 0){
-    
-    //Falta enviar el estado actual del eje de coordenadas en base a CN
-    Serial.print(res_CN[0][3]); //X
-    Serial.print(",");
-    Serial.print(res_CN[1][3]); //Y
-    Serial.print(",");
-    Serial.println(res_CN[2][3]); //Z
-  }else{
-
-  }
-  */
-
-  // Enviar estado actual al navegador
-  Serial.print(baseAngle);
-  Serial.print(",");
-  Serial.print(brazoAngle);
-  Serial.print(",");
-  Serial.print(codoAngle);
-  Serial.print(",");
-  Serial.print(res_CN[0][3]);
-  Serial.print(",");
-  Serial.print(res_CN[1][3]);
-  Serial.print(",");
-  Serial.print(res_CN[2][3]);
-  Serial.print("\n");
   
-
-  delay(500); // refresco cada medio segundo
 }
 
 // Función para mover un servo

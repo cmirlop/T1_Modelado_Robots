@@ -14,7 +14,20 @@ HSV_PARAMS = {}
 ## VARIABLES DE AJUSTE
 MIN_AREA = 1000
 MAX_AREA = 50000 # Increased max area (cube is close to camera)
-Kp = 2 # TODO ajustar
+FOV_H = 60.0        
+RES_W = 240.0       
+DEG_PER_PIXEL = FOV_H / RES_W 
+MAX_STEP = 1.5      
+KP_GAIN = 0.5
+# PID Globals
+prev_error_x = 0
+prev_error_y = 0
+prev_time = time.time()
+
+# Tuning
+Kp = 2   # Reaction strength
+Kd = 2   # Damping (Braking) strength
+DEADBAND = 10 # Pixels (Ignore small errors)      
 
 h = None
 w = None
@@ -42,6 +55,11 @@ MOTORS_CURRENT_ANGLES = {
 }
 
 
+
+
+def angle_px_scale(w):
+    angle_scale = 60/w
+    return angle_scale
 
 def open_camera(camera_index: int) -> cv.VideoCapture:
     capture = cv.VideoCapture(camera_index, cv.CAP_DSHOW)
@@ -113,47 +131,96 @@ def frame_dimensions(frame):
     h, w = frame.shape[:2]
     REFERENCE_POINT['X'] = w/2
     REFERENCE_POINT['Y'] = h/2
+    return w
 
-def error_calculation(center_point):
+def error_calculation(center_point, angle_scale):
     error = []
-    error_x  = REFERENCE_POINT['X'] - center_point[0]
-    error_y  = REFERENCE_POINT['Y'] - center_point[1]
+    error_x  = (REFERENCE_POINT['X'] - center_point[0]) * angle_scale
+    error_y  = (REFERENCE_POINT['Y'] - center_point[1]) * angle_scale
 
     error.append(error_x)
     error.append(error_y)
     return error
 
 def correction_calculation(error, arduino):
-    # --- 1. PAN (Horizontal) TUNING ---
-    # If the robot turns AWAY from the object and hits 0/180,
-    # CHANGE THIS SIGN: (Try '+' first, if it fails, change to '-')
-    pan_correction = (Kp * error[0]) 
-    new_pan = MOTORS_CURRENT_ANGLES['Pan'] - pan_correction  # <--- CHECK THIS SIGN (+ or -)
+    global prev_error_x, prev_error_y, prev_time
+    
+    # --- 1. TIME CALCULATION (Do this ONCE per frame) ---
+    current_time = time.time()
+    dt = current_time - prev_time
+    prev_time = current_time
+    
+    # Avoid divide by zero
+    if dt == 0: dt = 0.001
 
-    # Safety Clamp Pan
+    # =================================================
+    #                 PAN (Horizontal)
+    # =================================================
+    current_error_x = error[0]
+    
+    # DEADBAND
+    if abs(current_error_x) < DEADBAND:
+        current_error_x = 0
+        
+    # PD CALC
+    delta_error_x = current_error_x - prev_error_x
+    derivative_x = delta_error_x / dt
+    
+    # Calculate Step
+    pan_step = (Kp * current_error_x * DEG_PER_PIXEL) + (Kd * derivative_x * DEG_PER_PIXEL)
+    
+    # Smoothing Clamp
+    if pan_step > MAX_STEP: pan_step = MAX_STEP
+    elif pan_step < -MAX_STEP: pan_step = -MAX_STEP
+
+    # Apply to Motor (Remember to flip this '-' to '+' if it runs away!)
+    new_pan = MOTORS_CURRENT_ANGLES['Pan'] - pan_step
+    
+    # Safety Limits
     if new_pan > 180: new_pan = 180
     if new_pan < 0: new_pan = 0
     
+    # Update Memory
     MOTORS_CURRENT_ANGLES['Pan'] = new_pan
+    prev_error_x = current_error_x
 
-    # --- 2. TILT (Vertical) - DISABLED FOR NOW ---
-    # We keep it fixed at 90 until Pan works perfectly
-    # Safety Clamp Pan
+    # =================================================
+    #                 TILT (Vertical)
+    # =================================================
+    current_error_y = error[1]
     
-    tilt_correction = (Kp * error[0])
-    new_tilt = MOTORS_CURRENT_ANGLES['Tilt'] - tilt_correction # Reset memory to 90
+    # DEADBAND
+    if abs(current_error_y) < DEADBAND:
+        current_error_y = 0
+        
+    # PD CALC
+    delta_error_y = current_error_y - prev_error_y
+    derivative_y = delta_error_y / dt
+    
+    # Calculate Step
+    tilt_step = (Kp * current_error_y * DEG_PER_PIXEL) + (Kd * derivative_y * DEG_PER_PIXEL)
+    
+    # Smoothing Clamp
+    if tilt_step > MAX_STEP: tilt_step = MAX_STEP
+    elif tilt_step < -MAX_STEP: tilt_step = -MAX_STEP
 
+    # Apply to Motor (FIXED: Now using 'Tilt' memory)
+    # Check this sign (+/-) separately from Pan!
+    new_tilt = MOTORS_CURRENT_ANGLES['Tilt'] + tilt_step
+    
+    # Safety Limits
     if new_tilt > 180: new_tilt = 180
     if new_tilt < 0: new_tilt = 0
+    
+    # Update Memory (FIXED: Now saving to 'Tilt')
+    MOTORS_CURRENT_ANGLES['Tilt'] = new_tilt
+    prev_error_y = current_error_y
 
     # --- Send Command ---
     command = f"TRACK,{int(new_pan)},{int(new_tilt)}\n"
     arduino.write(command.encode())
 
-    # --- DEBUG PRINT (Crucial!) ---
-    # Watch this in the terminal. 
-    # If 'Error' is POSITIVE, does 'Pan' INCREASE or DECREASE?
-    print(f"Error: {int(error[0])} | Pan Angle: {int(new_pan)} | Tilt Angle: {int(new_tilt)}")
+    print(f"Pan:{int(new_pan)} | Tilt:{int(new_tilt)}")
 
 
 def drawing_diff_err_ref(centroid_point, frame, contour):
@@ -201,8 +268,9 @@ def main() -> None:
     grabbed, frame = capture.read()
     if not grabbed:
         return
-    frame_dimensions(frame)
+    w = frame_dimensions(frame)
     print(f"Dimensions --> [{REFERENCE_POINT['X'],{REFERENCE_POINT['Y']}}]")
+    angle_scale = angle_px_scale(w)
 
     window_title = "Tracking"
     cv.namedWindow(window_title, cv.WINDOW_NORMAL)
@@ -227,7 +295,7 @@ def main() -> None:
         # 4. Draw Result
         if centroid_point is not None:
             cv.putText(frame, "Tracking", (10, 30), cv.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-            error = error_calculation(centroid_point)
+            error = error_calculation(centroid_point, angle_scale)
             correction_calculation(error, arduino)
             drawing_diff_err_ref(centroid_point, frame, contour)
 
@@ -236,7 +304,8 @@ def main() -> None:
 
         read_arduino_data(arduino)
         cv.imshow(window_title, frame)
-        
+
+        #time.sleep(0.05)
         key = cv.waitKey(1) & 0xFF
         if key == ord("q") or key == 27:
             break
