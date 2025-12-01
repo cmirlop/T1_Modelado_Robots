@@ -1,0 +1,30 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{Resumen}{\es@scroman {i}}{section*.1}%
+\contentsline {chapter}{Índice general}{\es@scroman {ii}}{section*.3}%
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iv}}{section*.5}%
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.7}%
+\contentsline {chapter}{\numberline {1}Introducción, objetivos y estructura del documento}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Objetivo general y objetivos específicos}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Estructura del documento}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Antecedentes y estado del arte}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Fundamentos teóricos relevantes}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Estado del arte en robótica y control}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Herramientas y entornos de simulación}{4}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Trabajos y resultados previos}{4}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Relación con el proyecto}{4}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Materiales y métodos}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modelado cinemático/dinámico del robot + tool (si aplica)}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{5}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{6}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{6}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Programación}{6}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{7}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparación de controladores}{7}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{8}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discusión crítica}{8}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{9}{section.5.2}%

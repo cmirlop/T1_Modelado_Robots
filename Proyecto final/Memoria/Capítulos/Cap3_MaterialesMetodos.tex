@@ -1,0 +1,42 @@
+% ----------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------
+\chapter{Materiales y métodos}\label{cap:Sol}
+
+\begin{Resumen}
+
+La sección Materials and Methods (también llamada Methodology o Experimental Section, según la disciplina) es una parte esencial de artículos y memorias de ámbito académico/docente. Su objetivo principal es que otro estudiante, profesor, investigador, ingeniero, etc., pueda reproducir el trabajo siguiendo las descripciones dadas.
+
+\end{Resumen}
+
+\section{Modelado cinemático/dinámico del robot + tool (si aplica)}
+Descripción de los pasos seguidos para modelar el robot dentro del entorno de simulación. Si se ha realizado un modelado teórico, incorporar: Formulación de la cinemática directa e inversa mediante el uso de matrices de transformación homogénea, parámetros de Denavit–Hartenberg. Obtención de la matriz Jacobiana y análisis de singularidades.
+
+Modelado dinámico (ecuaciones de Euler–Lagrange o Newton–Euler) con las hipótesis adoptadas (ej. robot rígido, sin rozamiento, etc.).
+
+Representación clara de ecuaciones y, cuando sea útil, diagramas que apoyen la comprensión.
+    
+\section{Metodología de control y aprendizaje por refuerzo (RL)}
+Explicación de los esquemas de control diseñados: control clásico de referencia, control basado en RL, comparación, etc.
+
+Justificación de la elección de algoritmos de RL (ej.: PPO, SAC, DDPG), con breve descripción de su funcionamiento.
+
+Definición de recompensas, estados y acciones empleados en el entorno de simulación.
+
+\section{Entorno de simulación y herramientas utilizadas}
+Descripción de IsaacSim/IsaacLab: versiones empleadas, configuración inicial y librerías auxiliares. Recursos computacionales (hardware, GPU, sistema operativo).
+
+Configuración de escenarios de entrenamiento (robot, entorno, sensores virtuales, condiciones de interacción).
+
+\section{Procedimiento de experimentación / entrenamiento}
+Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
+
+Estrategia de comparación: métricas definidas (tiempo de convergencia, estabilidad, error en el seguimiento, etc.).
+
+Número de episodios, pruebas o repeticiones realizadas.
+
+\section{Programación}
+Diagramas de flujo o pseudocódigo de los programas implementados.
+
+%Incluye todas las secciones y subsecciones que tu proyecto necesite para poder entender el trabajo que has realizado

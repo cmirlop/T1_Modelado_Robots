@@ -1,0 +1,148 @@
+% ---------------------------------------------------------------------
+%                        Plantilla para la asignatura
+%                        Modelado y Control de Robots
+%                  Grado de Informática Industrial y Robótica
+%                     UNIVERSITAT POLITÈCNICA DE VALÈNCIA
+%                             CAMPUS D'ALCOI
+% ---------------------------------------------------------------------
+
+\documentclass[tfg, rm, castellano]{MCR}
+% ---------------------------------------------------------------------
+% Configuraciones presonalizadas 
+
+\input{./configuraciones/preambulo}
+\input{./configuraciones/preambulo_listings_LaTeX}
+
+% ---------------------------------------------------------------------
+% Configuración de la bibliografía
+
+\bibliography{./bibliografia.bib}
+
+% ---------------------------------------------------------------------
+% Las carpetas para los gráficos
+
+\graphicspath{
+	{./figuras/}
+	{./logos/}
+	}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+
+
+\Titulo{Título del Proyecto}
+\Alumnoa{Carlos Mira López \\ Nicolás Miró Mira \\ Vittorio Alessandro Esposito Ceballos}
+
+\Titulacion{Modelado y control de robots \\[2ex] Grado en Informática Industrial y Robótica}
+\Convocatoria{2025/2026}
+
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+
+\begin{document}
+
+% -------------------------------------------------------
+
+\frontmatter
+
+% -------------------------------------------------------
+% Página de título
+
+\maketitle
+% -------------------------------------------------------
+
+% -------------------------------------------------------
+% Resumen, prólogo o prefacio
+
+% El documento debe seguir con la página del resumen
+
+\cleardoublepage
+%\thispagestyle{empty}
+\phantomsection
+\addcontentsline{toc}{chapter}{\abstractname}
+
+\input{Capítulos/Cap00_Resumen}
+
+% -------------------------------------------------------
+% Agradecimientos
+
+\cleardoublepage
+\thispagestyle{empty}
+\phantomsection
+
+% -------------------------------------------------------
+% Índice: tabla de contenidos
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\contentsname}
+
+\tableofcontents
+
+% -------------------------------------------------------
+% Lista de figuras
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+
+\listoffigures
+
+% -------------------------------------------------------
+% Lista de tablas
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listtablename}
+
+\listoftables
+
+% -------------------------------------------------------
+% Numeración de páginas números arábicos
+% Primer capítulo en página 1
+
+\mainmatter
+
+% -------------------------------------------------------
+% -------------------------------------------------------
+% -------------------------------------------------------
+% Capítulos de la publicación
+
+\input{Capítulos/Cap1_Justificacion}
+
+\input{Capítulos/Cap2_Antecedentes}
+
+\input{Capítulos/Cap3_MaterialesMetodos}
+
+\input{Capítulos/Cap4_Resultados}
+
+\input{Capítulos/Cap5_Conclusiones_trabajoFuturo}
+
+% -------------------------------------------------------
+% -------------------------------------------------------
+% -------------------------------------------------------
+% Bibliografía
+
+\bibitemsep = 3ex
+\bibhang = 2em
+
+\printbibliography[heading=bibintoc,title=\bibname]
+
+
+% -------------------------------------------------------
+% Índice alfabético
+
+%\cleardoublepage
+%\phantomsection
+%\addcontentsline{toc}{chapter}{\indexname}
+%\printindex
+
+% -------------------------------------------------------
+% Fin del documento
+
+\end{document}
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
