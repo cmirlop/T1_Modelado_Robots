@@ -5,37 +5,37 @@
 \contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.7}%
 \contentsline {chapter}{\numberline {1}Introducción, objetivos y estructura del documento}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Introducción}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Objetivo general y objetivos específicos}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.2}Objetivo general y objetivos específicos}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Estructura del documento}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Antecedentes y estado del arte}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Fundamentos teóricos relevantes}{3}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Estado del arte en robótica y control}{3}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Herramientas y entornos de simulación}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Trabajos y resultados previos}{4}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Relación con el proyecto}{4}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Materiales y métodos}{5}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Modelado cinemático/dinámico del robot + tool (si aplica)}{5}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{5}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Recompensas, estados y acciones}{6}{subsection.3.2.1}%
-\contentsline {subsubsection}{recompensas}{6}{subsubsection*.9}%
-\contentsline {subsubsection}{Estados}{6}{subsubsection*.10}%
-\contentsline {subsubsection}{Acciones}{6}{subsubsection*.11}%
-\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{6}{section.3.3}%
-\contentsline {subsubsection}{Unity + Visual estudio}{6}{subsubsection*.12}%
-\contentsline {subsubsection}{Visual estudio code}{6}{subsubsection*.13}%
-\contentsline {subsubsection}{ROS 1}{6}{subsubsection*.14}%
-\contentsline {subsubsection}{robot}{6}{subsubsection*.15}%
-\contentsline {subsubsection}{Entorno}{6}{subsubsection*.16}%
-\contentsline {subsubsection}{Sensores virtuales}{6}{subsubsection*.17}%
-\contentsline {subsubsection}{Condiciones de iteraccion}{6}{subsubsection*.18}%
-\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{6}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Programación}{7}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Resultados}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Comparación de controladores}{8}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{9}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discusión crítica}{9}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{10}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{10}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{10}{section.5.2}%
+\contentsline {chapter}{\numberline {2}Antecedentes y estado del arte}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Fundamentos teóricos relevantes}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Estado del arte en robótica y control}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Herramientas y entornos de simulación}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Trabajos y resultados previos}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Relación con el proyecto}{5}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Materiales y métodos}{6}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modelado cinemático/dinámico del robot + tool (si aplica)}{6}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Recompensas, estados y acciones}{7}{subsection.3.2.1}%
+\contentsline {subsubsection}{recompensas}{7}{subsubsection*.9}%
+\contentsline {subsubsection}{Estados}{7}{subsubsection*.10}%
+\contentsline {subsubsection}{Acciones}{7}{subsubsection*.11}%
+\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{7}{section.3.3}%
+\contentsline {subsubsection}{Unity + Visual estudio}{7}{subsubsection*.12}%
+\contentsline {subsubsection}{Visual estudio code}{7}{subsubsection*.13}%
+\contentsline {subsubsection}{ROS 1}{7}{subsubsection*.14}%
+\contentsline {subsubsection}{robot}{7}{subsubsection*.15}%
+\contentsline {subsubsection}{Entorno}{7}{subsubsection*.16}%
+\contentsline {subsubsection}{Sensores virtuales}{7}{subsubsection*.17}%
+\contentsline {subsubsection}{Condiciones de iteraccion}{7}{subsubsection*.18}%
+\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{7}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Programación}{8}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparación de controladores}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{10}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discusión crítica}{10}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{11}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{11}{section.5.2}%

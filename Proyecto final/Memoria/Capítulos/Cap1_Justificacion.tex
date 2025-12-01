@@ -4,24 +4,92 @@
 \chapter{Introducción, objetivos y estructura del documento}\label{cap:Introducción}
 
 \begin{Resumen}
-Este capítulo debe situar al lector en el contexto general del proyecto y dejar claras las metas que se persiguen. Sirve como punto de partida para entender qué se va a hacer, por qué es relevante y qué se pretende conseguir.
+El presente proyecto aborda el desafío de la navegación autónoma en robótica móvil mediante 
+el uso de percepción visual. Se centra en el modelado y control del robot TurtleBot3 dentro 
+de un entorno de simulación de alta fidelidad (IsaacSim/IsaacLab). El objetivo fundamental es 
+desarrollar estrategias de control que permitan al robot alcanzar objetivos definidos utilizando 
+cámaras RGB/RGB-D, explorando tanto algoritmos de navegación clásicos como técnicas avanzadas de 
+Aprendizaje por Refuerzo (Reinforcement Learning), evaluando su desempeño en escenarios controlados.
 \end{Resumen}
 
 \section{Introducción}
-Presentación del tema: la importancia de la robótica en la industria, la investigación y la vida cotidiana.
 
-Justificación del proyecto: necesidad de comprender los fundamentos de cinemática, dinámica y control de robots para abordar retos actuales.
+La robótica móvil ha experimentado una transformación radical en la última década, 
+pasando de ser una curiosidad académica a convertirse en un pilar fundamental de 
+la Industria 4.0 y la logística moderna. Los robots móviles autónomos (AMR) son 
+hoy esenciales en tareas de transporte de materiales, inspección de infraestructuras 
+y robótica de servicios. Sin embargo, para que estos sistemas sean verdaderamente autónomos
+, deben poseer la capacidad de percibir su entorno, interpretarlo y tomar decisiones de navegación seguras y eficientes en tiempo real.
 
-Relevancia del uso de técnicas avanzadas como el aprendizaje por refuerzo en entornos de simulación realistas (IsaacLab/IsaacSim).
+Tradicionalmente, la navegación se ha resuelto mediante mapas estáticos y sensores 
+láser (LiDAR). No obstante, la tendencia actual se dirige hacia el uso de percepción 
+visual (cámaras RGB y de profundidad) y técnicas de inteligencia artificial, que permiten 
+obtener una información semántica del entorno mucho mejor y a un menor coste de hardware.
 
-Relación con el ámbito docente: adquisición de competencias en modelado matemático, simulación y control inteligente.
+Este proyecto surge de la necesidad de comprender y dominar las técnicas modernas de control 
+robótico. Específicamente, se justifica en la transición tecnológica actual que busca sustituir 
+o complementar la programación clásica con algoritmos de aprendizaje. El uso de herramientas de 
+simulación fotorrealista y física precisa, como NVIDIA IsaacSim e IsaacLab, permite entrenar 
+y validar estos sistemas en entornos virtuales seguros antes de su despliegue físico, reduciendo riesgos 
+y costes (concepto conocido como \textit{Sim-to-Real}).
+
+Desde una perspectiva docente y académica, este trabajo permite la adquisición de competencias transversales 
+en modelado cinemático, visión por computador, integración de sensores y, fundamentalmente, en la aplicación 
+de Deep Reinforcement Learning (Deep RL), una técnica que está redefiniendo el estado del arte en el control de robots dinámicos.
 
 \section{Objetivo general y objetivos específicos}
-Una frase clara que resuma la meta principal del proyecto.
 
-Listado numerado y concreto de metas parciales que permiten alcanzar el objetivo general.
+El \textbf{objetivo principal} de este proyecto es diseñar, implementar y validar un 
+sistema de control para la navegación autónoma del robot móvil TurtleBot3 en un entorno 
+simulado, capaz de localizar y alcanzar objetivos visuales utilizando información sensorial 
+proveniente de cámaras a bordo y algoritmos de inteligencia artificial.
+
+Para alcanzar esta meta, se han definido los siguientes objetivos específicos:
+
+\begin{enumerate}
+    \item \textbf{Modelado y configuración del entorno de simulación:} Importar y configurar 
+    el modelo cinemático y visual del TurtleBot3 en el entorno IsaacSim/IsaacLab, integrando 
+    sensores virtuales de visión (cámara RGB/RGB-D) y configurando escenarios con metas visuales específicas.
+    
+    \item \textbf{Desarrollo del sistema de percepción y navegación:} Implementar los 
+    algoritmos necesarios para procesar la información visual del robot y traducirla en 
+    comandos de velocidad (lineal y angular) que permitan la navegación hacia el objetivo.
+    
+    \item \textbf{Implementación de agentes de Aprendizaje por Refuerzo (RL):} Diseñar y 
+    entrenar un agente basado en RL (explorando arquitecturas con redes neuronales convolucionales 
+    - CNNs) capaz de aprender la política de navegación óptima mediante la interacción prueba-error con el entorno simulado.
+    
+    \item \textbf{Validación y análisis comparativo:} Evaluar el rendimiento del sistema 
+    en términos de tasa de éxito, tiempo de llegada y suavidad de la trayectoria, comparando 
+    la robustez de las soluciones frente a cambios en la posición del objetivo o del entorno.
+    
+    \item \textbf{Documentación y análisis crítico:} Analizar la viabilidad de la transferencia 
+    de estos algoritmos a robots de servicio reales y documentar el proceso técnico para futuras investigaciones.
+\end{enumerate}
 
 \section{Estructura del documento}
-Breve resumen del contenido de cada uno de los capítulos que consta la memoria.
 
+La presente memoria se organiza en cinco capítulos que detallan el desarrollo del proyecto desde su concepción 
+teórica hasta la validación de resultados:
+
+\begin{itemize}
+    \item \textbf{Capítulo 1: Introducción, objetivos y estructura.} Introduce el contexto del problema, 
+    justifica la elección del TurtleBot3 y las herramientas de simulación, y define las metas del proyecto.
+    
+    \item \textbf{Capítulo 2: Antecedentes y estado del arte.} Revisa los fundamentos teóricos de la robótica 
+    móvil diferencial, la percepción visual y el Aprendizaje por Refuerzo. Se analizan trabajos previos y se 
+    describen las herramientas utilizadas (ROS2, IsaacSim, PyTorch).
+    
+    \item \textbf{Capítulo 3: Materiales y métodos.} Detalla la metodología empleada, incluyendo el modelado 
+    matemático del robot, la configuración de los sensores en simulación, la arquitectura de las redes neuronales 
+    utilizadas y el diseño de la función de recompensa para el entrenamiento del agente.
+    
+    \item \textbf{Capítulo 4: Resultados.} Presenta las gráficas de entrenamiento, las métricas de desempeño 
+    obtenidas en las pruebas de navegación y una comparativa de los distintos controladores implementados. Se 
+    valida el cumplimiento de los objetivos.
+    
+    \item \textbf{Capítulo 5: Conclusiones y trabajo futuro.} Sintetiza los hallazgos principales, discute 
+    las limitaciones encontradas durante el desarrollo y propone líneas de investigación para continuar el 
+    trabajo, como la implementación en hardware real.
+\end{itemize}
     
