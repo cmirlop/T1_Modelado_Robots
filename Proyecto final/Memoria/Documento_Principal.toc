@@ -16,26 +16,35 @@
 \contentsline {chapter}{\numberline {3}Materiales y métodos}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Modelado cinemático/dinámico del robot + tool (si aplica)}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{6}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Recompensas, estados y acciones}{7}{subsection.3.2.1}%
-\contentsline {subsubsection}{recompensas}{7}{subsubsection*.9}%
-\contentsline {subsubsection}{Estados}{7}{subsubsection*.10}%
-\contentsline {subsubsection}{Acciones}{7}{subsubsection*.11}%
-\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{7}{section.3.3}%
-\contentsline {subsubsection}{Unity + Visual estudio}{7}{subsubsection*.12}%
-\contentsline {subsubsection}{Visual estudio code}{7}{subsubsection*.13}%
-\contentsline {subsubsection}{ROS 1}{7}{subsubsection*.14}%
-\contentsline {subsubsection}{robot}{7}{subsubsection*.15}%
-\contentsline {subsubsection}{Entorno}{7}{subsubsection*.16}%
-\contentsline {subsubsection}{Sensores virtuales}{7}{subsubsection*.17}%
-\contentsline {subsubsection}{Condiciones de iteraccion}{7}{subsubsection*.18}%
-\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{7}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Programación}{8}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Resultados}{9}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{9}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{9}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Comparación de controladores}{9}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{10}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discusión crítica}{10}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{11}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{11}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {3.2.1}Esquema de control}{7}{subsection.3.2.1}%
+\contentsline {subsubsection}{Control por LIDAR}{7}{subsubsection*.9}%
+\contentsline {subsubsection}{Control por RL}{7}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {3.2.2}Algoritmo RL PPO}{7}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Recompensas, estados y acciones}{7}{subsection.3.2.3}%
+\contentsline {subsubsection}{recompensas}{7}{subsubsection*.11}%
+\contentsline {subsubsection}{Estados}{8}{subsubsection*.12}%
+\contentsline {subsubsection}{Acciones}{8}{subsubsection*.13}%
+\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Unity + Visual estudio}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Visual estudio code}{9}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{9}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}KERAS + gym}{9}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}ROS 1}{9}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Turtle bot}{9}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Entorno}{9}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Sensores virtuales}{9}{subsection.3.3.8}%
+\contentsline {subsubsection}{LIDAR}{9}{subsubsection*.14}%
+\contentsline {subsection}{\numberline {3.3.9}Condiciones de iteraccion}{9}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{9}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{9}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{10}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Programación}{10}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{11}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{11}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{11}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Comparación de controladores}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Discusión crítica}{12}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{13}{section.5.2}%

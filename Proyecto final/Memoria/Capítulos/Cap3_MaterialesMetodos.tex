@@ -19,47 +19,110 @@ Representación clara de ecuaciones y, cuando sea útil, diagramas que apoyen la
     
 \section{Metodología de control y aprendizaje por refuerzo (RL)}
 Explicación de los esquemas de control diseñados: control clásico de referencia, control basado en RL, comparación, etc.
+\subsection{Esquema de control}
+\subsubsection{Control por LIDAR}
+
+\subsubsection{Control por RL}
+
 
 Justificación de la elección de algoritmos de RL (ej.: PPO, SAC, DDPG), con breve descripción de su funcionamiento.
+\subsection{Algoritmo RL PPO}
+
+
 
 Definición de recompensas, estados y acciones empleados en el entorno de simulación.
 
 \subsection{Recompensas, estados y acciones}
 \subsubsection{recompensas}
-Las recompensas que se le han as
+Las recompensas que se le han asignado al robot se basán en si se ha descubierto area o no dentro de la imagen de 
+la cámara. Se han definido zonas de distancia de LIDAR al robot para darle más recompensa o menos:
+\begin{itemize}
+    \item Distancia frontal libre(FRONT\_CLEAR) : cuando el lidar por delante detecta más de 10m
+    \item Distancia frontal peligrosa(FRONT\_DANGER) : Cuando la distancia frontal del LIDAR por delante baja de los 7m
+    \item Distancia muy peligrosa : Es la distancia antes del choque donde antes de chocarse prefiero que vaya hacia atrás el robot, 5.5m
+\end{itemize}
+Primero se comprueban las recompensas por alcanzar el objetivo, o por colisión:
+\begin{itemize}
+    \item Si se alcanza el objetivo : $+30.0$
+    \item Si se ha colisionado : $-8.0$
+\end{itemize}
+Si no se ha alcanzado el área mínima de 1000px, las recompensas son las siguientes:
+\begin{itemize}
+    \item Si delante es muy libre, es decir, por encima del umbral FRONT\_CLEAR, y el robot tiene la acción de ir hacia delante rapido o lento le damos $0.3$ por rápido, y $0.15$ por lento
+    \item Si delante esta por debajo del umbral FRONT\_DANGER y el robot tiene la accion de ir hacia delante, le quitamos $0.6$
+    \item Si delante está por debajo del FRONT\_CLEAR, y giramos hacia el lado que más depejado esta, le damos $0.4$, con esto lo que hacemos es que si por delante vemos una distancia donde no cabe el robot, es inecesario entrar
+    dentro de esa sala, es mejor girar
+\end{itemize}
 
 \subsubsection{Estados}
 
 \subsubsection{Acciones}
+\begin{itemize}
+    \item Moverse hacia delante rápido
+    \item Moverse hacia delante lento
+    \item Moverse fuerte hacia la derecha
+    \item Moverse suave hacia la derecha
+    \item Moverse fuerte hacia la izquierda
+    \item Moverse suave hacia la izquierda
+    \item Moverle lento hacia antrás
+\end{itemize}
 
 \section{Entorno de simulación y herramientas utilizadas}
 Descripción de IsaacSim/IsaacLab: versiones empleadas, configuración inicial y librerías auxiliares. Recursos computacionales (hardware, GPU, sistema operativo).
 
 Configuración de escenarios de entrenamiento (robot, entorno, sensores virtuales, condiciones de interacción).
 
-\subsubsection{Unity + Visual estudio}
+\subsection{Unity + Visual estudio}
+%ros-TCP-connector como libreria
 
-\subsubsection{Visual estudio code}
+\subsection{Visual estudio code}
 
-\subsubsection{ROS 1}
-
-\subsubsection{robot}
-
-
-\subsubsection{Entorno}
+\subsection{TensorFlow}
+TensorFlow Dashboard es una herramienta que a través de los logs que genera nuestro entramiento, va graficando 
+cada 4024 pasos, que son 256 por robot, se grafican los resultados.
 
 
-\subsubsection{Sensores virtuales}
+
+\subsection{KERAS + gym}
 
 
-\subsubsection{Condiciones de iteraccion}
+
+\subsection{ROS 1}
+Hemos empleado ROS1 como pasarela de comunicacion entre los robots y el master, que seria nuestro propio ordenador. Lo que hacemos es 
+que cada robot tiene unos topics propios, y sobre los cuales se envia y recibe la información
+
+
+
+
+\subsection{Turtle bot}
+
+
+
+\subsection{Entorno}
+
+
+
+\subsection{Sensores virtuales}
+\subsubsection{LIDAR}
+Hemos modelado un LIDAR que publica los valores en un topic de ros, es este colisionado
+es un codigo de Unity el cual genera una nube de puntos, y los publica todos a través del tópic
+
+\subsection{Condiciones de iteraccion}
 
 
 
 \section{Procedimiento de experimentación / entrenamiento}
 Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
+\subsection{Flujo de trabajo}
+Se probo primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruze ya alcanzaba
+el objetivo final. Esto se modificó y se hicieron 4 escenarios para el mismo entrenamiento, donde el objetivo estaba 
+en diferentes puntos.
 
 Estrategia de comparación: métricas definidas (tiempo de convergencia, estabilidad, error en el seguimiento, etc.).
+\subsection{Estrategia de comparacion}
+Se definio que cada 1000 pasos en cada robot, se realize una comparcion de modelo, pero se detendria
+el entrenamineto si la media de los ultimos 1000 episodios no mejoraba durante los 5 siguientes episodios.
+
 
 Número de episodios, pruebas o repeticiones realizadas.
 
