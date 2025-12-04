@@ -20,7 +20,12 @@ Representación clara de ecuaciones y, cuando sea útil, diagramas que apoyen la
 \section{Metodología de control y aprendizaje por refuerzo (RL)}
 Explicación de los esquemas de control diseñados: control clásico de referencia, control basado en RL, comparación, etc.
 \subsection{Esquema de control}
-\subsubsection{Control por LIDAR}
+\subsubsection{Control por LIDAR y cámara}
+Este control se basa en el guiado por el entorno basandose en al información recibida por el LIDAR, 
+basandose en los datos frontales y laterales que recibimos. Con la cámara lo que hacemos es buscar el color que
+tiene el objetivo, en nuestro caso es el color rojo, por lo que se va analizando la imagen constantemente, ya que si detectamos
+un área mínima del color del objetivo, extraemos cuanto estamos descentrados para poder centrarse y poder ir recto al 
+objetivo.
 
 \subsubsection{Control por RL}
 
