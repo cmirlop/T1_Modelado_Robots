@@ -16,8 +16,8 @@
 \contentsline {chapter}{\numberline {3}Materiales y métodos}{6}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Modelado cinemático/dinámico del robot + tool (si aplica)}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{6}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Esquema de control}{7}{subsection.3.2.1}%
-\contentsline {subsubsection}{Control por LIDAR}{7}{subsubsection*.9}%
+\contentsline {subsection}{\numberline {3.2.1}Esquema de control}{6}{subsection.3.2.1}%
+\contentsline {subsubsection}{Control por LIDAR y cámara}{6}{subsubsection*.9}%
 \contentsline {subsubsection}{Control por RL}{7}{subsubsection*.10}%
 \contentsline {subsection}{\numberline {3.2.2}Algoritmo RL PPO}{7}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Recompensas, estados y acciones}{7}{subsection.3.2.3}%
@@ -25,9 +25,9 @@
 \contentsline {subsubsection}{Estados}{8}{subsubsection*.12}%
 \contentsline {subsubsection}{Acciones}{8}{subsubsection*.13}%
 \contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{8}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Unity + Visual estudio}{9}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Visual estudio code}{9}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{9}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Unity + Visual estudio}{8}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Visual estudio code}{8}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{8}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}KERAS + gym}{9}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}ROS 1}{9}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}Turtle bot}{9}{subsection.3.3.6}%
