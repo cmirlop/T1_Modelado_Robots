@@ -11,6 +11,246 @@ En este capítulo se debe contextualizar el proyecto dentro del conocimiento exi
 \end{Resumen}
 
 \section{Fundamentos teóricos relevantes}
+\section{Cinemática de Robots: La Geometría del Movimiento}
+
+La cinemática es la rama de la mecánica que describe el movimiento de los puntos, cuerpos (objetos) y sistemas de cuerpos (grupos de objetos) sin considerar las fuerzas que causan el movimiento. En robótica, el estudio de la cinemática se centra en la relación geométrica entre las articulaciones del robot (espacio articular) y la posición y orientación de su efector final (espacio de tareas).
+
+\subsection{Cinemática Directa y la Convención Denavit-Hartenberg (DH)}
+
+La Cinemática Directa (FK, por sus siglas en inglés) resuelve la pregunta: \textit{"Dadas las posiciones de todas las articulaciones, ¿dónde está la mano del robot?"}. Para un manipulador serial, que consiste en una cadena de eslabones rígidos conectados por articulaciones, la posición del efector final se calcula mediante la composición de transformaciones homogéneas sucesivas.
+
+Para estandarizar este proceso y evitar ambigüedades en la definición de los sistemas de coordenadas locales de cada eslabón, se emplea universalmente la convención de parámetros de Denavit-Hartenberg (DH). Este método reduce la descripción de la geometría espacial de cualquier mecanismo serial a cuatro parámetros fundamentales por eslabón:
+
+\begin{itemize}
+    \item \textbf{Longitud del eslabón ($a_i$):} Distancia a lo largo del eje $x_i$ (la normal común) entre los ejes $z_{i-1}$ y $z_i$.
+    \item \textbf{Torsión del eslabón ($\alpha_i$):} Ángulo entre los ejes $z_{i-1}$ y $z_i$ medido alrededor del eje $x_i$.
+    \item \textbf{Desplazamiento del eslabón ($d_i$):} Distancia a lo largo del eje $z_{i-1}$ desde el origen del sistema de coordenadas $i-1$ hasta la intersección con el eje $x_i$. En articulaciones prismáticas, esta es la variable.
+    \item \textbf{Ángulo de la articulación ($\theta_i$):} Ángulo entre los ejes $x_{i-1}$ y $x_i$ medido alrededor del eje $z_{i-1}$. En articulaciones rotativas, esta es la variable.
+\end{itemize}
+
+La matriz de transformación homogénea ${}^{i-1}T_i$ que describe la posición y orientación del sistema de referencia $i$ con respecto al sistema $i-1$ se construye matemáticamente como:
+
+\begin{equation}
+{}^{i-1}T_i =
+\begin{bmatrix}
+\cos\theta_i & -\sin\theta_i \cos\alpha_i & \sin\theta_i \sin\alpha_i & a_i \cos\theta_i \\
+\sin\theta_i & \cos\theta_i \cos\alpha_i & -\cos\theta_i \sin\alpha_i & a_i \sin\theta_i \\
+0 & \sin\alpha_i & \cos\alpha_i & d_i \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+\end{equation}
+
+El modelo cinemático total del robot, que relaciona la base (sistema 0) con el efector final (sistema $n$), es el producto matricial de estas transformaciones individuales: 
+
+\[ {}^{0}T_n = \prod_{i=1}^{n} {}^{i-1}T_i \]
+
+Esta formulación matricial es crucial porque permite a los controladores computar la posición cartesiana en tiempo real con un costo computacional determinista y bajo.
+
+\subsection{Cinemática Inversa (IK): El Problema Mal Planteado}
+
+La Cinemática Inversa (IK) aborda el problema opuesto y mucho más complejo: \textit{"Dada una posición y orientación deseada del efector final, ¿qué valores deben tener las articulaciones ($q$)?"}. A diferencia de la FK, la IK no siempre tiene una solución única y cerrada.
+
+\begin{itemize}
+    \item \textbf{Soluciones Múltiples:} Para un brazo robótico antropomórfico típico de 6 grados de libertad (DoF), pueden existir hasta 16 soluciones teóricas para una misma pose final (ej. configuraciones de "codo arriba" vs. "codo abajo").
+    \item \textbf{Redundancia:} En robots con más de 6 DoF (robots redundantes), existen infinitas soluciones, lo que permite optimizar criterios secundarios como la evitación de obstáculos o la minimización de torques, pero complica enormemente la resolución matemática.
+    \item \textbf{Singularidades:} Existen configuraciones donde el robot pierde grados de libertad efectivos. Matemáticamente, esto ocurre cuando el determinante de la matriz Jacobiana se anula.
+\end{itemize}
+
+Los métodos numéricos iterativos, como el método de Newton-Raphson o la optimización basada en gradientes (Gradiente Descendente, Levenberg-Marquardt), son estándares en la robótica moderna para resolver la IK en tiempo real.
+
+\subsection{La Matriz Jacobiana: Velocidad y Estática}
+
+La matriz Jacobiana $J(q)$ es, quizás, la herramienta matemática más importante en el control de manipuladores. No solo relaciona las velocidades, sino que conecta dominios físicos dispares.
+
+\subsubsection*{Mapeo de Velocidades}
+Relaciona la velocidad articular $\dot{q}$ con la velocidad cartesiana del efector final $v$:
+
+\begin{equation}
+v = \begin{bmatrix} v_{lineal} \\ \omega_{angular} \end{bmatrix} = J(q)\dot{q}
+\end{equation}
+
+Esto permite controlar el movimiento suave del robot en el espacio cartesiano ajustando las velocidades de los motores.
+
+\subsubsection*{Mapeo de Fuerzas (Estática)}
+A través del principio del trabajo virtual, la Jacobiana transpuesta relaciona los torques en las articulaciones $\tau$ con las fuerzas y momentos $F$ aplicados en el efector final:
+
+\begin{equation}
+\tau = J^T(q)F
+\end{equation}
+
+Esta relación es fundamental para el control de impedancia y cumplimiento, permitiendo que un robot "sienta" fuerzas externas o aplique fuerzas precisas sin sensores de fuerza dedicados en cada articulación, basándose en la corriente de los motores.
+
+\section{Dinámica de Robots: Fuerzas y Energía}
+
+Mientras que la cinemática trata la geometría, la dinámica estudia las fuerzas necesarias para causar dichas aceleraciones. Un modelado dinámico preciso es esencial para el control de alta velocidad y para las simulaciones realistas necesarias en el aprendizaje por refuerzo.
+
+\subsection{Formulación Lagrangiana}
+
+El enfoque Lagrangiano se basa en el balance de energía del sistema. Se define el Lagrangiano $\mathcal{L}$ como la diferencia entre la energía cinética total $\mathcal{K}$ y la energía potencial total $\mathcal{P}$ del sistema ($\mathcal{L} = \mathcal{K} - \mathcal{P}$). Aplicando las ecuaciones de Euler-Lagrange:
+
+\begin{equation}
+\frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{q}_i} \right) - \frac{\partial \mathcal{L}}{\partial q_i} = \tau_i
+\end{equation}
+
+Se obtiene la ecuación dinámica cerrada estándar en robótica:
+
+\begin{equation}
+M(q)\ddot{q} + C(q,\dot{q})\dot{q} + g(q) + F_{fric}(\dot{q}) = \tau
+\end{equation}
+
+Donde cada término tiene una interpretación física crítica para el control:
+
+\begin{itemize}
+    \item \textbf{$M(q)$ (Matriz de Inercia):} Es simétrica y definida positiva. Representa la resistencia del robot a acelerar. A diferencia de una masa escalar constante, $M(q)$ cambia con la configuración del robot.
+    \item \textbf{$C(q,\dot{q})\dot{q}$ (Fuerzas de Coriolis y Centrípetas):} Representan fuerzas ficticias que surgen en sistemas de referencia rotatorios. Los términos centrípetos dependen de $\dot{q}_i^2$, mientras que los de Coriolis dependen del producto $\dot{q}_i \dot{q}_j$.
+    \item \textbf{$g(q)$ (Vector de Gravedad):} El torque necesario solo para mantener el robot estático contra la gravedad.
+\end{itemize}
+
+\subsection{Formulación Newton-Euler Recursiva (RNEA)}
+
+Aunque la formulación Lagrangiana es elegante analíticamente, es computacionalmente costosa ($O(n^4)$ o $O(n^3)$). Para la simulación y el control en tiempo real, se prefiere el algoritmo Newton-Euler Recursivo (RNEA), que tiene una complejidad lineal $O(n)$. RNEA funciona en dos pasadas:
+
+\begin{enumerate}
+    \item \textbf{Pasada hacia adelante (Forward Pass):} Calcula velocidades y aceleraciones de cada eslabón desde la base hasta el efector final.
+    \item \textbf{Pasada hacia atrás (Backward Pass):} Calcula las fuerzas y torques necesarios para crear esas aceleraciones, propagándolas desde el efector final hacia la base.
+\end{enumerate}
+
+\section{Teoría de Control Clásico}
+
+El control clásico se basa en modelos matemáticos explícitos para garantizar la estabilidad y el seguimiento de trayectorias.
+
+\subsection{Control PID (Proporcional-Integral-Derivativo)}
+
+El PID sigue siendo el caballo de batalla de la industria. Calcula la señal de control $u(t)$ basándose en el error $e(t) = r(t) - y(t)$:
+
+\begin{equation}
+u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau)d\tau + K_d \frac{de(t)}{dt}
+\end{equation}
+
+\begin{itemize}
+    \item \textbf{Proporcional ($K_p$):} Respuesta inmediata.
+    \item \textbf{Integral ($K_i$):} Elimina el error de estado estacionario.
+    \item \textbf{Derivativo ($K_d$):} Predice el error futuro (amortiguamiento).
+\end{itemize}
+
+\textbf{Limitaciones en Robótica:} El PID asume sistemas lineales e invariantes en el tiempo (LTI). Dado que los robots son altamente no lineales, a menudo se requiere "Gain Scheduling" o términos de "Feedforward" dinámico.
+
+\subsection{Control Predictivo Basado en Modelos (MPC)}
+
+El MPC utiliza un modelo dinámico del robot para predecir su comportamiento futuro en un horizonte de tiempo finito $H$ y optimizar las acciones de control. En cada paso de tiempo $t$, resuelve:
+
+\begin{equation}
+\min_{u_{t:t+H}} \sum_{k=0}^{H} \left( ||x_{t+k} - x_{ref}||^2_Q + ||u_{t+k}||^2_R \right)
+\end{equation}
+
+Sujeto a restricciones como la dinámica del robot ($x_{k+1} = f(x_k, u_k)$), límites de actuadores y evitación de colisiones. El MPC maneja explícitamente las restricciones físicas, siendo ideal para sistemas inestables como bípedos.
+
+\section{Fundamentos de Aprendizaje por Refuerzo (RL)}
+
+Cuando los modelos analíticos son insuficientes, el RL ofrece un marco para aprender el control a partir de la experiencia.
+
+\subsection{Procesos de Decisión de Markov (MDP)}
+El problema se formaliza como una tupla $(S, A, P, R, \gamma)$: Estado ($S$), Acción ($A$), Transición ($P(s'|s,a)$) y Recompensa ($R(s,a)$).
+
+\subsection{La Ecuación de Bellman}
+La base de la mayoría de los algoritmos de RL es la Ecuación de Bellman:
+
+\begin{equation}
+V(s) = \max_{a} \left( R(s,a) + \gamma \sum_{s'} P(s'|s,a)V(s') \right)
+\end{equation}
+
+Esta recursividad permite propagar recompensas futuras hacia atrás en el tiempo. En Deep RL, $V(s)$ o $Q(s,a)$ se aproximan mediante redes neuronales profundas.
+
+\section{Estado del arte en robótica y control}
+
+El estado del arte (SOTA) en robótica entre 2024 y 2025 se define por una transición acelerada desde sistemas rígidos basados en modelos analíticos hacia sistemas adaptativos basados en datos ("Data-Driven").
+
+\subsection{La Transición de Model-Based a Learning-Based}
+Tradicionalmente, se asumía que un modelo físico preciso (Matriz $M(q)$, $C(q,\dot{q})$) permitía un control perfecto. Sin embargo, dinámicas no modeladas (fricción, holguras) y la interacción con entornos no estructurados hacen que el Deep Reinforcement Learning (DRL) sea la solución dominante para aprender políticas robustas $\pi(a|s)$.
+
+\subsection{Algoritmos de Deep RL Dominantes en Robótica}
+
+\begin{itemize}
+    \item \textbf{Proximal Policy Optimization (PPO):} El estándar para locomoción (cuadrúpedos, humanoides). Es un método \textit{On-Policy} que utiliza una función objetivo "recortada" para evitar actualizaciones catastróficas.
+    \item \textbf{Soft Actor-Critic (SAC):} Preferido para manipulación y robots reales. Es \textit{Off-Policy} y maximiza la entropía:
+    
+    \[ J(\pi) = \sum_{t} \mathbb{E} [r(s_t, a_t) + \alpha H(\pi(\cdot|s_t))] \]
+    
+    \item \textbf{DDPG y TD3:} Gradualmente desplazados por SAC, aunque útiles en vehículos autónomos (políticas deterministas).
+\end{itemize}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Característica} & \textbf{PPO} & \textbf{SAC} & \textbf{DDPG / TD3} \\ \midrule
+Tipo & On-Policy & Off-Policy & Off-Policy \\
+Eficiencia Muestras & Baja & Alta & Media/Alta \\
+Estabilidad & Muy Alta & Alta (Entropía) & Media \\
+Aplicación & Locomoción & Manipulación, Real & Vehículos \\ \bottomrule
+\end{tabular}
+\caption{Comparativa de algoritmos de RL}
+\end{table}
+
+\subsection{El Desafío Sim-to-Real}
+
+Para cerrar la "Brecha de Realidad", se utilizan técnicas avanzadas:
+\begin{itemize}
+    \item \textbf{Domain Randomization (DR) y ADR:} Aleatorización de parámetros físicos y visuales para que el mundo real sea solo "una variación más".
+    \item \textbf{Adaptación Online (RMA):} Una red neuronal comprime el historial de observaciones en un vector latente que permite a la política adaptarse en tiempo real.
+    \item \textbf{Maestro-Estudiante:} Una política "Maestro" con información privilegiada entrena a una política "Estudiante" que solo usa sensores reales.
+\end{itemize}
+
+\subsection{Arquitecturas Híbridas y Casos de Estudio}
+\begin{itemize}
+    \item \textbf{Residual RL:} Combina un controlador clásico ($u_{base}$) con una corrección de RL ($u_{residual}$), ideal para ensamblajes de contacto rico.
+    \item \textbf{Manipulación Móvil Armónica:} Control de cuerpo completo (Whole-Body Control) mediante RL para coordinar base y brazo.
+    \item \textbf{Modelos VLA:} Integración de LLMs para razonamiento semántico ("recoge el animal extinto") junto con controladores de bajo nivel.
+\end{itemize}
+
+\section{Herramientas y entornos de simulación}
+
+\subsection{Motores de Física y Fidelidad}
+
+\subsubsection{NVIDIA Isaac Sim y PhysX 5}
+Estándar industrial (2024-2025). Utiliza Ray Tracing (RTX) para alta fidelidad visual y permite \textbf{Paralelismo Masivo}: A través de Isaac Lab (antes Orbit), simula miles de robots en una sola GPU, reduciendo tiempos de entrenamiento drásticamente.
+
+\subsubsection{MuJoCo}
+Estándar académico. Destaca por su estabilidad matemática en cadenas complejas.
+\textbf{MJX (2024 Update):} Permite ejecutar la física de MuJoCo directamente en TPUs y GPUs usando JAX, igualando velocidades con Isaac Sim.
+
+\subsubsection{Gazebo y PyBullet}
+Gazebo sigue siendo vital para la integración con ROS, mientras que PyBullet está siendo relegado al prototipado rápido.
+
+\subsection{Comparativa Técnica de Simuladores}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lllll@{}}
+\toprule
+\textbf{Característica} & \textbf{Isaac Sim / Lab} & \textbf{MuJoCo / MJX} & \textbf{Gazebo} & \textbf{PyBullet} \\ \midrule
+Motor Física & PhysX 5 (GPU) & General Coords & DART/ODE & Bullet (CPU) \\
+Enfoque & RL Masivo, Visión & Investigación & ROS, Sistema & Prototipado \\
+Paralelismo & Extremo (GPU) & Extremo (JAX) & Bajo & Medio \\
+Fidelidad Visual & Muy Alta (RTX) & Media & Media & Baja \\
+Sim-to-Real & Excelente & Excelente & Bueno & Moderado \\ \bottomrule
+\end{tabular}%
+}
+\caption{Comparativa de Simuladores en 2025}
+\end{table}
+
+\subsection{Tendencias Emergentes}
+\begin{itemize}
+    \item \textbf{Simulación Diferenciable (Brax, Dojo):} Permite propagar gradientes a través del motor físico para optimización analítica.
+    \item \textbf{Rendering Neuronal (NeRF/Gaussian Splatting):} Reconstrucción 3D basada en IA para crear entornos de simulación fotorrealistas a partir de escaneos del mundo real.
+\end{itemize}
+
+\section{Conclusiones y Perspectivas Futuras}
+
+La robótica actual combina los fundamentos teóricos ineludibles (cinemática y dinámica) con nuevas capas de decisión basadas en Aprendizaje por Refuerzo y Simulación Masiva. El futuro apunta a la convergencia de simulación fotorrealista y modelos fundacionales multimodales, permitiendo a los robots no solo moverse, sino comprender su entorno.
+\subsection{Principios Básicos del Aprendizaje por Refuerzo}
+
 Breve repaso de los conceptos esenciales de cinemática y dinámica de robots.
 
 Introducción a los esquemas de control clásicos (PID, control por realimentación, control óptimo, etc.).

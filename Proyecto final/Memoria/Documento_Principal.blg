@@ -1,9 +1,0 @@
-[0] Config.pm:328> INFO - This is Biber 2.21
-[0] Config.pm:331> INFO - Logfile is 'Documento_Principal.blg'
-[163] biber-MSWIN64:342> INFO - === 
-[207] Biber.pm:421> INFO - Reading 'Documento_Principal.bcf'
-[336] Biber.pm:1002> INFO - Found 0 citekeys in bib section 0
-[362] bbl.pm:676> INFO - Writing 'Documento_Principal.bbl' with encoding 'UTF-8'
-[363] bbl.pm:779> INFO - Output to Documento_Principal.bbl
-[363] Biber.pm:132> WARN - The file 'Documento_Principal.bcf' does not contain any citations!
-[363] Biber.pm:134> INFO - WARNINGS: 1
