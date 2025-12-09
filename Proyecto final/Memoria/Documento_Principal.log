@@ -1023,4 +1023,322 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float packag
+Package caption Info: float package is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+(C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/caption\ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)
+Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+Package biblatex Info: Trying to load language 'spanish' -> 'spanish-apa'...
+Package biblatex Info: ... file 'spanish-apa.lbx' found.
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex-apa\spanish-apa.lbx
+File: spanish-apa.lbx 2023/03/20 v9.17 APA biblatex localisation
+Package biblatex Info: Trying to load language 'spanish'...
+Package biblatex Info: ... file 'spanish.lbx' found.
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\spanish.lbx
+File: spanish.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'spanish'...
+Package biblatex Info: ... file 'spanish.lbx' found.
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\spanish.lbx
+File: spanish.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+))
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout3 = `Documento_Principal.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Documento_Principal.bbl' found.
+ (Documento_Principal.bbl)
+Package biblatex Info: Reference section=0 on input line 45.
+Package biblatex Info: Reference segment=0 on input line 45.
+Package hyperref Info: Link coloring ON on input line 45.
+\@outlinefile=\write5
+\openout5 = `Documento_Principal.out'.
+
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\translations-basic-dictionary-spanish.trsl
+File: translations-basic-dictionary-spanish.trsl (spanish translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `spanish'. on input line 45.
+\c@lstlisting=\count506
+ (configuraciones/referencias_cruzadas.tex)
+<./logos/UPV_Campus_Alcoi_val_HORI.pdf, id=3, 643.71742pt x 289.21411pt>
+File: ./logos/UPV_Campus_Alcoi_val_HORI.pdf Graphic file (type pdf)
+<use ./logos/UPV_Campus_Alcoi_val_HORI.pdf>
+Package pdftex.def Info: ./logos/UPV_Campus_Alcoi_val_HORI.pdf  used on input line 56.
+(pdftex.def)             Requested size: 170.71652pt x 76.69873pt.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <28> not available
+(Font)              size <29.86> substituted on input line 56.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/bx/it' in size <28> not available
+(Font)              size <29.86> substituted on input line 56.
+
+
+LaTeX Font Warning: Font shape `T1/cmss/bx/it' in size <28> not available
+(Font)              size <29.86> substituted on input line 56.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
+(C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+
+
+{C:/Users/carlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logos/UPV_Campus_Alcoi_val_HORI.pdf>] (Capítulos/Cap00_Resumen.tex)
+
+
+LaTeX Font Warning: Font shape `T1/cmss/m/sc' in size <9> not available
+(Font)              Font shape `T1/cmr/m/sc' tried instead on input line 72.
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.I}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.72 \cleardoublepage
+                      [1
+
+]
+
+LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <24> not available
+(Font)              size <24.88> substituted on input line 83.
+
+No file Documento_Principal.toc.
+\tf@toc=\write6
+\openout6 = `Documento_Principal.toc'.
+
+
+
+[2
+
+
+
+]
+No file Documento_Principal.lof.
+\tf@lof=\write7
+\openout7 = `Documento_Principal.lof'.
+
+
+
+[3
+
+
+]
+No file Documento_Principal.lot.
+\tf@lot=\write8
+\openout8 = `Documento_Principal.lot'.
+
+
+
+[4
+
+
+] (Capítulos/Cap1_Justificacion.tex
+Cap\'{\i }tulo 1.
+
+
+[1
+
+
+]
+
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+Package cleveref Info: loaded `spanish' language definitions on input line 82.
+[2]) (Capítulos/Cap2_Antecedentes.tex
+
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+Package cleveref Info: loaded `spanish' language definitions on input line 5.
+[3]
+Cap\'{\i }tulo 2.
+
+
+[4
+
+]
+
+LaTeX Info: Redefining \. on input line 61.
+LaTeX Info: Redefining \% on input line 61.
+Package cleveref Info: loaded `spanish' language definitions on input line 61.
+[5]
+
+LaTeX Info: Redefining \. on input line 87.
+LaTeX Info: Redefining \% on input line 87.
+Package cleveref Info: loaded `spanish' language definitions on input line 87.
+[6]
+
+LaTeX Info: Redefining \. on input line 118.
+LaTeX Info: Redefining \% on input line 118.
+Package cleveref Info: loaded `spanish' language definitions on input line 118.
+[7]
+
+LaTeX Info: Redefining \. on input line 152.
+LaTeX Info: Redefining \% on input line 152.
+Package cleveref Info: loaded `spanish' language definitions on input line 152.
+[8]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+LaTeX Info: Redefining \. on input line 195.
+LaTeX Info: Redefining \% on input line 195.
+Package cleveref Info: loaded `spanish' language definitions on input line 195.
+[9]
+
+LaTeX Info: Redefining \. on input line 218.
+LaTeX Info: Redefining \% on input line 218.
+Package cleveref Info: loaded `spanish' language definitions on input line 218.
+[10]
+
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
+Package cleveref Info: loaded `spanish' language definitions on input line 252.
+[11]) (Capítulos/Cap3_MaterialesMetodos.tex
+
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+Package cleveref Info: loaded `spanish' language definitions on input line 5.
+[12]
+Cap\'{\i }tulo 3.
+
+
+[13
+
+]
+
+LaTeX Info: Redefining \. on input line 60.
+LaTeX Info: Redefining \% on input line 60.
+Package cleveref Info: loaded `spanish' language definitions on input line 60.
+[14]
+
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+Package cleveref Info: loaded `spanish' language definitions on input line 91.
+[15]
+
+Capítulos/Cap3_MaterialesMetodos.tex:116: LaTeX Error: File `' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.116     \includegraphics[width=\linewidth]{}
+                                              
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Capítulos/Cap3_MaterialesMetodos.tex:121: LaTeX Error: File `' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.121     \includegraphics[width=\linewidth]{}
+                                              
+I could not locate the file with any of these extensions:
+.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+Package cleveref Info: loaded `spanish' language definitions on input line 143.
+[16]) (Capítulos/Cap4_Resultados.tex
+
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+Package cleveref Info: loaded `spanish' language definitions on input line 5.
+[17]
+Cap\'{\i }tulo 4.
+
+
+[18
+
+]) (Capítulos/Cap5_Conclusiones_trabajoFuturo.tex
+
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+Package cleveref Info: loaded `spanish' language definitions on input line 5.
+[19]
+Cap\'{\i }tulo 5.
+)
+
+LaTeX Warning: Empty bibliography on input line 130.
+
+
+
+[20
+
+] (Documento_Principal.aux
+LaTeX Info: Redefining \sptext on input line 12.
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
+Package cleveref Info: loaded `spanish' language definitions on input line 12.
+)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.86pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Documento_Principal.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Documento_Principal.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  46147A4251CF74FD047E1AAA10A7F277;8472.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                Documento_Principal
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'Documento_Principal.run.xml'.
+\openout1 = `Documento_Principal.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 31405 strings out of 473522
+ 611389 string characters out of 5714610
+ 1515821 words of memory out of 5000000
+ 54123 multiletter control sequences out of 15000+600000
+ 581776 words of font info for 78 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 85i,12n,93p,1327b,2815s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso2986.pk><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Documento_Principal.pdf (25 pages, 423961 bytes).
+PDF statistics:
+ 901 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+
