@@ -100,17 +100,39 @@ que cada robot tiene unos tópics propios, sobre los cuales envían y reciben la
 
 
 \subsection{Turtle bot}
-
+Aunque en nuestros resultados podemos observar que el robot es un cubo amarillo, lo que se esta haciendo es
+simular el comportamiento del turtle bot en un cubo con sus ecuaciones dinámicas
 
 
 \subsection{Entorno}
+Nuestro entorno es un laberito con paredes y pasillos por donde el robot deberá moverse y encontrar el
+objetivo de color rojo que puede estar en cualquier lado de la escena.
+Se diseñó un mismo entorno, donde en cada instancia el objetivo estaba en una posición diferente como vemos en 
+las siguientes imagenes.
+\begin{figure}[ht]
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{}
+    \caption{Imagen 1}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{}
+    \caption{Imagen 2}
+  \end{subfigure}
+  \caption{Dos imágenes lado a lado}
+\end{figure}
+
 
 
 
 \subsection{Sensores virtuales}
 \subsubsection{LIDAR}
 Hemos modelado un LIDAR que publica los valores en un topic de ros, es este colisionado
-es un codigo de Unity el cual genera una nube de puntos, y los publica todos a través del tópic
+es un codigo de Unity el cual genera una nube de puntos, y los publica todos a través del tópic. En nuestro código lo tratamos
+de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el minimo cada dos sectores.
+
 
 \subsection{Condiciones de iteraccion}
 
