@@ -6,7 +6,7 @@
 \begin{Resumen}
 El presente proyecto aborda el desafío de la navegación autónoma en robótica móvil mediante 
 el uso de percepción visual. Se centra en el modelado y control del robot TurtleBot3 dentro 
-de un entorno de simulación de alta fidelidad (IsaacSim/IsaacLab). El objetivo fundamental es 
+de un entorno de simulación de alta fidelidad (Unity). El objetivo fundamental es 
 desarrollar estrategias de control que permitan al robot alcanzar objetivos definidos utilizando 
 cámaras RGB/RGB-D, explorando tanto algoritmos de navegación clásicos como técnicas avanzadas de 
 Aprendizaje por Refuerzo (Reinforcement Learning), evaluando su desempeño en escenarios controlados.
@@ -48,7 +48,7 @@ Para alcanzar esta meta, se han definido los siguientes objetivos específicos:
 
 \begin{enumerate}
     \item \textbf{Modelado y configuración del entorno de simulación:} Importar y configurar 
-    el modelo cinemático y visual del TurtleBot3 en el entorno IsaacSim/IsaacLab, integrando 
+    el modelo cinemático y visual del TurtleBot3 en el entorno Unity, integrando 
     sensores virtuales de visión (cámara RGB/RGB-D) y configurando escenarios con metas visuales específicas.
     
     \item \textbf{Desarrollo del sistema de percepción y navegación:} Implementar los 
@@ -56,8 +56,7 @@ Para alcanzar esta meta, se han definido los siguientes objetivos específicos:
     comandos de velocidad (lineal y angular) que permitan la navegación hacia el objetivo.
     
     \item \textbf{Implementación de agentes de Aprendizaje por Refuerzo (RL):} Diseñar y 
-    entrenar un agente basado en RL (explorando arquitecturas con redes neuronales convolucionales 
-    - CNNs) capaz de aprender la política de navegación óptima mediante la interacción prueba-error con el entorno simulado.
+    entrenar un agente basado en RL (explorando arquitecturas con redes neuronales) capaz de aprender la política de navegación óptima mediante la interacción prueba-error con el entorno simulado.
     
     \item \textbf{Validación y análisis comparativo:} Evaluar el rendimiento del sistema 
     en términos de tasa de éxito, tiempo de llegada y suavidad de la trayectoria, comparando 
