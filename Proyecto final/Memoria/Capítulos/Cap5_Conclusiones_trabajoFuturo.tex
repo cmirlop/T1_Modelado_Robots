@@ -7,10 +7,27 @@
 
 \begin{Resumen}
 
-En este capítulo tendrás la oportunidad de realizar las conclusiones de tu proyecto, volviendo a señalar los aspectos más importantes que se puede ver en la memória, los logros conseguidos, etc. Además, deberás exponer aquellos aspectos en los que piensas que se podría trabajar de cara a ofrecer una mejor solución que la propuesta y/o ampliar la solución.
+En este capítulo tendrás la oportunidad de realizar las conclusiones de tu proyecto, volviendo a señalar los aspectos más 
+importantes que se puede ver en la memória, los logros conseguidos, etc. Además, deberás exponer aquellos aspectos en los 
+que piensas que se podría trabajar de cara a ofrecer una mejor solución que la propuesta y/o ampliar la solución.
 
 \end{Resumen}
 
 \section{Conclusiones}
+La realización de este proyecto ha permitido validar la integración efectiva de un entorno de simulación basado en Unity y ROS, 
+demostrando ser una plataforma viable para el prototipado de robótica móvil. Los resultados experimentales han arrojado una clara 
+distinción entre los enfoques evaluados: el control clásico, basado en reglas de percepción láser y visual, se consolidó como la 
+solución más robusta, logrando completar los objetivos de navegación sin colisiones gracias a la estricta gestión de los umbrales 
+de seguridad definidos.
+
+Por el contrario, la implementación del agente de Aprendizaje por Refuerzo mediante el algoritmo PPO evidenció las dificultades 
+inherentes al entrenamiento de redes neuronales en entornos complejos. Aunque el agente logró inferir una política de navegación 
+básica, no consiguió la convergencia necesaria para garantizar la seguridad del robot, resultando en choques frecuentes y bloqueos 
+en geometrías difíciles. Esto confirma que, si bien el RL ofrece una gran flexibilidad teórica, su implementación práctica requiere 
+un ajuste de hiperparámetros y un diseño de recompensas mucho más exigente que la programación algorítmica tradicional.
 
 \section{Trabajo futuro}
+Para superar las limitaciones actuales, la prioridad será migrar el entorno de entrenamiento a NVIDIA Isaac Sim e Isaac Lab. 
+Esta herramienta permitirá aprovechar la simulación masiva en paralelo en GPU, reduciendo drásticamente los tiempos de cálculo. 
+Además, se explorarán algoritmos más eficientes como SAC para mejorar la convergencia, con el objetivo final de transferir el modelo
+ aprendido al robot físico.
