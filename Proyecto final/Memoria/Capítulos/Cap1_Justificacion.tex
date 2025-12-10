@@ -4,91 +4,64 @@
 \chapter{Introducción, objetivos y estructura del documento}\label{cap:Introducción}
 
 \begin{Resumen}
-El presente proyecto aborda el desafío de la navegación autónoma en robótica móvil mediante 
-el uso de percepción visual. Se centra en el modelado y control del robot TurtleBot3 dentro 
-de un entorno de simulación de alta fidelidad (Unity). El objetivo fundamental es 
-desarrollar estrategias de control que permitan al robot alcanzar objetivos definidos utilizando 
-cámaras RGB/RGB-D, explorando tanto algoritmos de navegación clásicos como técnicas avanzadas de 
-Aprendizaje por Refuerzo (Reinforcement Learning), evaluando su desempeño en escenarios controlados.
+El presente proyecto aborda el desafío de la navegación autónoma en robótica móvil 
+mediante el uso de percepción visual. El trabajo se centra en el modelado y control 
+del robot TurtleBot3 dentro de un entorno de simulación desarrollado en \textbf{Unity}. 
+El objetivo fundamental es implementar estrategias de control que permitan al robot alcanzar 
+objetivos definidos utilizando cámaras RGB/RGB-D, explorando tanto algoritmos de navegación 
+clásicos como técnicas de Aprendizaje por Refuerzo (Reinforcement Learning), y evaluando su 
+desempeño en escenarios controlados.
 \end{Resumen}
 
 \section{Introducción}
 
-La robótica móvil ha experimentado una transformación radical en la última década, 
-pasando de ser una curiosidad académica a convertirse en un pilar fundamental de 
-la Industria 4.0 y la logística moderna. Los robots móviles autónomos (AMR) son 
-hoy esenciales en tareas de transporte de materiales, inspección de infraestructuras 
-y robótica de servicios. Sin embargo, para que estos sistemas sean verdaderamente autónomos
-, deben poseer la capacidad de percibir su entorno, interpretarlo y tomar decisiones de navegación seguras y eficientes en tiempo real.
+La robótica móvil ha evolucionado significativamente en los últimos años, consolidándose como 
+un elemento clave en la Industria 4.0 y la logística. Los robots móviles autónomos (AMR) son 
+esenciales para tareas de transporte, inspección y servicios. Sin embargo, para que estos sistemas 
+operen de forma efectiva, requieren la capacidad de percibir su entorno y tomar decisiones de navegación 
+en tiempo real. Tradicionalmente, la navegación se ha basado en mapas estáticos y sensores láser (LiDAR). 
+No obstante, existe una tendencia creciente hacia el uso de percepción visual y técnicas de inteligencia 
+artificial, lo cual permite obtener información semántica del entorno reduciendo la dependencia de sensores costosos.
 
-Tradicionalmente, la navegación se ha resuelto mediante mapas estáticos y sensores 
-láser (LiDAR). No obstante, la tendencia actual se dirige hacia el uso de percepción 
-visual (cámaras RGB y de profundidad) y técnicas de inteligencia artificial, que permiten 
-obtener una información semántica del entorno mucho mejor y a un menor coste de hardware.
+Este proyecto surge de la necesidad de aplicar técnicas modernas de control robótico. Se justifica en el interés 
+actual por complementar la programación clásica con algoritmos de aprendizaje. Para ello, se opta por el uso de 
+Unity como motor de simulación. Unity ofrece un entorno físico robusto y flexible que permite entrenar y validar 
+estos sistemas de forma segura antes de una eventual implementación física, reduciendo riesgos y costes asociados a las 
+pruebas en hardware real.
 
-Este proyecto surge de la necesidad de comprender y dominar las técnicas modernas de control 
-robótico. Específicamente, se justifica en la transición tecnológica actual que busca sustituir 
-o complementar la programación clásica con algoritmos de aprendizaje. El uso de herramientas de 
-simulación fotorrealista y física precisa, como NVIDIA IsaacSim e IsaacLab, permite entrenar 
-y validar estos sistemas en entornos virtuales seguros antes de su despliegue físico, reduciendo riesgos 
-y costes (concepto conocido como \textit{Sim-to-Real}).
-
-Desde una perspectiva docente y académica, este trabajo permite la adquisición de competencias transversales 
-en modelado cinemático, visión por computador, integración de sensores y, fundamentalmente, en la aplicación 
-de Deep Reinforcement Learning (Deep RL), una técnica que está redefiniendo el estado del arte en el control de robots dinámicos.
+Desde una perspectiva académica, este trabajo facilita la adquisición de competencias en modelado cinemático, visión por 
+computador y la aplicación de Deep Reinforcement Learning (Deep RL), permitiendo estudiar el comportamiento de agentes 
+autónomos en entornos virtuales complejos.
 
 \section{Objetivo general y objetivos específicos}
 
-El \textbf{objetivo principal} de este proyecto es diseñar, implementar y validar un 
-sistema de control para la navegación autónoma del robot móvil TurtleBot3 en un entorno 
-simulado, capaz de localizar y alcanzar objetivos visuales utilizando información sensorial 
-proveniente de cámaras a bordo y algoritmos de inteligencia artificial.
+El \textbf{objetivo principal} es diseñar, implementar y validar un sistema de control para la navegación autónoma del TurtleBot3 
+en un entorno simulado en Unity, capaz de localizar y alcanzar objetivos visuales utilizando información de cámaras a bordo.
 
-Para alcanzar esta meta, se han definido los siguientes objetivos específicos:
+Para alcanzar esta meta, se definen los siguientes objetivos específicos:
 
 \begin{enumerate}
-    \item \textbf{Modelado y configuración del entorno de simulación:} Importar y configurar 
-    el modelo cinemático y visual del TurtleBot3 en el entorno Unity, integrando 
-    sensores virtuales de visión (cámara RGB/RGB-D) y configurando escenarios con metas visuales específicas.
+    \item \textbf{Configuración del entorno de simulación:} Integrar el modelo cinemático y visual del TurtleBot3 en el motor Unity, incorporando sensores virtuales de visión y laser(LiDAR) y diseñando escenarios de prueba con metas específicas.
     
-    \item \textbf{Desarrollo del sistema de percepción y navegación:} Implementar los 
-    algoritmos necesarios para procesar la información visual del robot y traducirla en 
-    comandos de velocidad (lineal y angular) que permitan la navegación hacia el objetivo.
+    \item \textbf{Desarrollo del sistema de navegación:} Implementar los algoritmos de control necesarios para procesar la información visual y generar los comandos de velocidad (lineal y angular) para el desplazamiento del robot.
+        
+    \item \textbf{Validación y análisis:} Evaluar el rendimiento del sistema midiendo la tasa de éxito y la eficiencia de las trayectorias, comparando el comportamiento del robot ante diferentes configuraciones del entorno.
     
-    \item \textbf{Implementación de agentes de Aprendizaje por Refuerzo (RL):} Diseñar y 
-    entrenar un agente basado en RL (explorando arquitecturas con redes neuronales) capaz de aprender la política de navegación óptima mediante la interacción prueba-error con el entorno simulado.
-    
-    \item \textbf{Validación y análisis comparativo:} Evaluar el rendimiento del sistema 
-    en términos de tasa de éxito, tiempo de llegada y suavidad de la trayectoria, comparando 
-    la robustez de las soluciones frente a cambios en la posición del objetivo o del entorno.
-    
-    \item \textbf{Documentación y análisis crítico:} Analizar la viabilidad de la transferencia 
-    de estos algoritmos a robots de servicio reales y documentar el proceso técnico para futuras investigaciones.
+    \item \textbf{Documentación:} Registrar el proceso técnico, los problemas encontrados y las soluciones adoptadas, analizando la viabilidad de los algoritmos propuestos.
 \end{enumerate}
 
 \section{Estructura del documento}
 
-La presente memoria se organiza en cinco capítulos que detallan el desarrollo del proyecto desde su concepción 
-teórica hasta la validación de resultados:
+La memoria se organiza en cinco capítulos que cubren desde la teoría hasta los resultados experimentales:
 
 \begin{itemize}
-    \item \textbf{Capítulo 1: Introducción, objetivos y estructura.} Introduce el contexto del problema, 
-    justifica la elección del TurtleBot3 y las herramientas de simulación, y define las metas del proyecto.
+    \item \textbf{Capítulo 1: Introducción, objetivos y estructura.} Presenta el contexto del problema, justifica el uso de Unity y el TurtleBot3, y define las metas del trabajo.
     
-    \item \textbf{Capítulo 2: Antecedentes y estado del arte.} Revisa los fundamentos teóricos de la robótica 
-    móvil diferencial, la percepción visual y el Aprendizaje por Refuerzo. Se analizan trabajos previos y se 
-    describen las herramientas utilizadas (ROS2, IsaacSim, PyTorch).
+    \item \textbf{Capítulo 2: Antecedentes y estado del arte.} Revisa los fundamentos de la robótica diferencial y el Aprendizaje por Refuerzo. Se describen las herramientas clave utilizadas.
     
-    \item \textbf{Capítulo 3: Materiales y métodos.} Detalla la metodología empleada, incluyendo el modelado 
-    matemático del robot, la configuración de los sensores en simulación, la arquitectura de las redes neuronales 
-    utilizadas y el diseño de la función de recompensa para el entrenamiento del agente.
+    \item \textbf{Capítulo 3: Materiales y métodos.} Detalla la metodología, incluyendo el modelado del robot en Unity, la configuración de los sensores, la arquitectura de control y el diseño de la función de recompensa.
     
-    \item \textbf{Capítulo 4: Resultados.} Presenta las gráficas de entrenamiento, las métricas de desempeño 
-    obtenidas en las pruebas de navegación y una comparativa de los distintos controladores implementados. Se 
-    valida el cumplimiento de los objetivos.
+    \item \textbf{Capítulo 4: Resultados.} Muestra las métricas de desempeño obtenidas en las pruebas de navegación, gráficas de entrenamiento y una discusión sobre el comportamiento del robot.
     
-    \item \textbf{Capítulo 5: Conclusiones y trabajo futuro.} Sintetiza los hallazgos principales, discute 
-    las limitaciones encontradas durante el desarrollo y propone líneas de investigación para continuar el 
-    trabajo, como la implementación en hardware real.
+    \item \textbf{Capítulo 5: Conclusiones y trabajo futuro.} Sintetiza los logros del proyecto, discute las limitaciones detectadas y propone posibles mejoras o líneas de continuación.
 \end{itemize}
-    
