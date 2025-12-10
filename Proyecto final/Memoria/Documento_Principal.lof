@@ -2,7 +2,7 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Dos imágenes lado a lado}}{16}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema cinemático del robot diferencial (JetBot) con las variables de estado y parámetros geométricos.}}{13}{figure.caption.14}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Longitud media y recompensa media por episodio}}{19}{figure.caption.22}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Longitud media y recompensa media por episodio}}{20}{figure.caption.23}%
