@@ -67,11 +67,16 @@
 \contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{17}{subsection.3.4.2}%
 \contentsline {section}{\numberline {3.5}Programación}{17}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Resultados}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Validación del modelado matemático}{18}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Entrenamientos en IsaacLab/IsaacSim}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Comparación de controladores}{18}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Pruebas finales y validación del sistema}{19}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Discusión crítica}{19}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{20}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{20}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{20}{section.5.2}%
+\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{18}{section.4.1}%
+\contentsline {subsubsection}{Entrenamiento 1 en reinforce learning}{18}{subsubsection*.21}%
+\contentsline {subsubsection}{Entrenamiento 2 en reinforce learning}{20}{subsubsection*.24}%
+\contentsline {section}{\numberline {4.2}Comparación de controladores}{22}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{22}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{22}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{22}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{22}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Discusión crítica}{23}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{23}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{24}{section.5.2}%

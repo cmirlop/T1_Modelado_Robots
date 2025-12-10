@@ -271,6 +271,9 @@ INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.st
 INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
 INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex\latex\listings\lstmisc.sty
 INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex\latex\graphics\color.sty
+INPUT .\Documento_Principal.aux
+INPUT .\Documento_Principal.aux
+INPUT Documento_Principal.aux
 OUTPUT Documento_Principal.aux
 INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1200.tfm
 INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
@@ -390,6 +393,7 @@ INPUT .\Capítulos\Cap4_Resultados.tex
 INPUT .\Capítulos\Cap4_Resultados.tex
 INPUT .\Capítulos\Cap4_Resultados.tex
 INPUT Capítulos\Cap4_Resultados.tex
+INPUT C:\Users\carlo\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ectt1200.tfm
 INPUT .\Capítulos\Cap5_Conclusiones_trabajoFuturo.tex
 INPUT .\Capítulos\Cap5_Conclusiones_trabajoFuturo.tex
 INPUT .\Capítulos\Cap5_Conclusiones_trabajoFuturo.tex
@@ -399,6 +403,8 @@ INPUT Documento_Principal.aux
 INPUT .\Documento_Principal.out
 INPUT .\Documento_Principal.out
 OUTPUT Documento_Principal.run.xml
+INPUT C:\Users\carlo\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
+INPUT C:\Users\carlo\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk
 INPUT C:\Users\carlo\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk
 INPUT C:\Users\carlo\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0600.pk
 INPUT C:\Users\carlo\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0900.pk

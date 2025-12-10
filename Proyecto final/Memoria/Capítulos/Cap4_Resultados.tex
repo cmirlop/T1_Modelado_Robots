@@ -9,25 +9,71 @@
 En este capítulo se deben presentar y analizar los resultados obtenidos tras la implementación del proyecto. No se trata solo de mostrar datos, gráficos o tablas, sino de interpretarlos y relacionarlos con los objetivos planteados.
 
 \end{Resumen}
-
+\begin{comment}
 \section{Validación del modelado matemático}
 Comparación entre los resultados teóricos (cinemática y dinámica calculadas) y los obtenidos en simulación.
 
 Comprobación de trayectorias, posiciones finales y detección de posibles singularidades.
 
 Discusión sobre la precisión y las limitaciones del modelo.
+\end{comment}
+
 
 \section{Entrenamientos en Unity}
-Presentación de las curvas de aprendizaje (recompensa acumulada, convergencia del algoritmo).
+%Presentación de las curvas de aprendizaje (recompensa acumulada, convergencia del algoritmo).
+\subsubsection{Entrenamiento 1 en reinforce learning}
+Vamos a analizar las gráficas obtenidas por el entrenamiento que podemos observar más adelante (\ref{sec4:PF}).
+Podemos observar en la siguiente imagen (\ref{fig:Res1_1}) que conforme van haciendo más pasos, la longitud por episodio es mayor lo que significa que cada vez investiga 
+más el modelo, y a su vez se puede observar que la recompensa media por episodio va aumentando en cada paso, lo que nos indica que
+cada vez va haciendo pasos más correctos y chocandose menos.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../imgs_Carlos/Resultados1_PPO9.png}
+  \caption{Longitud media y recompensa media por episodio}
+  \label{fig:Res1_1}
+\end{figure}
+Como observamos en la siguiente gráfica, vemos que cada vez la ''Entropy loss '' es menor, lo que significa que el modelo cada
+vez toma acciones menos aleatorias, como también nos indica la grafica de la varianza, donde vemos que cada vez es mayor, y el 
+modelo cada vez entiende más el resultado, aunque no lo alcanze, ya que los valores recomdados son entre $0.8,0.9$ para que el 
+modelo entienda mejor. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../imgs_Carlos/Resultados2_PPO9.png}
+  \caption{Longitud media y recompensa media por episodio}
+  \label{fig:Res2_1}
+\end{figure}
+Con esto podemos pensar que el modelo comprende cada vez mejor el entorno y lo que tiene que realiar, aunque como veremos más 
+adelante, este no lo consigue, puede ser falta de entrenamiento, ya que no se llego a detener ni por pasos máximos, ni por early 
+stopping, sino porque llegadas casi las 2h de tener el ordenador bloqueado se tuvo que detener y coger un checkpoint que se van generado.
 
-Evaluación de los tiempos de entrenamiento y de la estabilidad de la política aprendida.
+\subsubsection{Entrenamiento 2 en reinforce learning}
+En este entrenamiento nos fijamos mirando las gráficas que a pesar de que la recompensa aumenta, la varianza deja de explicar el 
+modelo a los 24000 pasos, y al realizar la prueba con ese modelo, a pesar de que el early stopping salta a los 42000 pasos 
+, parece que es mejor modelo el de los 24000 que es el que se ha probado en el test que vemos más adelante. (\ref{sec4:PF})
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../imgs_Carlos/Resultados1_PPO12.png}
+  \caption{Longitud media y recompensa media por episodio}
+  \label{fig:Res1_2}
+\end{figure}
+¡ 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{../imgs_Carlos/Resultados2_PPO12.png}
+  \caption{Longitud media y recompensa media por episodio}
+  \label{fig:Res2_2}
+\end{figure}
 
-Análisis de hiperparámetros: cómo afectan al rendimiento y a la velocidad de convergencia.
+
+
+%Evaluación de los tiempos de entrenamiento y de la estabilidad de la política aprendida.
+
+%Análisis de hiperparámetros: cómo afectan al rendimiento y a la velocidad de convergencia.
 
 \section{Comparación de controladores}
 \subsection{Comparación control clásico vs control basado en RL}
 %Resultados de control clásico vs. control basado en RL.
-PONER VIDEOOOOO
+-NO ME HA DADO TIEMPO A EDITAR EL VIDEO-
 Como observamos en el siguiente video :   podemos observar en una pantalla el comportamiento del robot en 
 cuatro escenarios moviendose con el LIDAR, mientras que en la derecha vemos el robot intentando alcanzar
 un objetivo después de realizar un entrenamiento. Podemos observar que con el LIDAR no produce colisiones, ya que
@@ -38,9 +84,9 @@ la distancia con el lIDAR y se colisona.
 
 
 
-Métricas de desempeño: error en el seguimiento de trayectorias, suavidad de los movimientos, robustez frente a perturbaciones.
+%Métricas de desempeño: error en el seguimiento de trayectorias, suavidad de los movimientos, robustez frente a perturbaciones.
 
-Discusión sobre ventajas y limitaciones de cada enfoque.
+%Discusión sobre ventajas y limitaciones de cada enfoque.
 \subsection{Ventajas y limitaciones}
 Las ventajas del control por LIDAR, es que resuelve el escenario correctamente, ya que siempre irá apegado a la pared 
 izquierda, pero esto tiene un gran inconveniente y esque podria llegar a escanear todo el entorno  si el objetivo esta a la derecha y oculto,
@@ -49,11 +95,32 @@ apegado a la izquierda y poder hacer los movimientos más centrados.
 
 \section{Pruebas finales y validación del sistema}
 
-Ejemplos de simulaciones finales con el robot ejecutando las tareas propuestas.
+\subsection{Pruebas finales} \label{sec4:PF}
+Aqui dejo el enlace al video donde se ve a 4 robots resolviendo 4 escenarios donde el objetivo esta en diferentes posiciones:
+\href{https://media.upv.es/player/?id=7ff6de20-d5fe-11f0-8d76-294c6c265695}{ENLACE}. \\
 
-Posibles animaciones, capturas de pantalla o gráficas que ilustren los comportamientos logrados.
+Ahora dejamos varias pruebas que se han realizado para el reinforce learning con diferentes recompensas, os ponemos el video
+del entrenamiento con la grafica de recompensa media cada 4048 pasos de evaluación donde hay que tener en cuenta que no se han podido completar los 
+entrenamientos por duración, y se han detenido cuando llevavan aproximadamente 1h, aunque hay alguno que dura 2h, y otro que
+se detiene por early stopping.
+\begin{itemize}
+    \item \href{https://media.upv.es/player/?id=17c619b0-d603-11f0-b720-0d19322f070e}{Entrenamiento 1 16 instancias}.
+    \item \href{https://media.upv.es/player/?id=de1a8aa0-d604-11f0-b720-0d19322f070e}{Test 1 16 instancias}.
+    \item \href{https://media.upv.es/player/?id=17c619b0-d603-11f0-b720-0d19322f070e}{Entrenamiento 2 8 instancias}.
+    \item \href{https://media.upv.es/player/?id=de1a8aa0-d604-11f0-b720-0d19322f070e}{Test 2 8 instancias}.
+\end{itemize}
 
-Evaluación cualitativa (ej.: naturalidad de movimientos, respuesta a cambios en el entorno).
+
+
+
+
+
+
+%Ejemplos de simulaciones finales con el robot ejecutando las tareas propuestas.
+
+%Posibles animaciones, capturas de pantalla o gráficas que ilustren los comportamientos logrados.
+
+%Evaluación cualitativa (ej.: naturalidad de movimientos, respuesta a cambios en el entorno).
 
 \section{Discusión crítica}
 Relación de los resultados con los objetivos generales y específicos planteados en la introducción.
@@ -64,7 +131,10 @@ a los específicos, hemos intentado el del reinforce learning, consiguiendo entr
 desplazara por el laberinto aprendiendo la politica del robot con el LIDAR de seguir la paret izquierda, pero 
 se colisionaba alfinal sin conseguir alcanzar el objetivo final.
 
-
-Identificación de fortalezas, limitaciones y posibles mejoras del trabajo.
+\subsection{Fortalezas, limitaciones y mejoras}
+%Identificación de fortalezas, limitaciones y posibles mejoras del trabajo.
+Las fortalezas que tiene el proyecto, es que el control por cámara y LIDAR es muy robusto, porque tiene la politica 
+muy bien establecida de ir apegado a la izquierda y recto si no hay obtáculo, la límitiación que aparece es que hay caminos que muy probablemente se los deje 
+sin investigar o que tarde mucho en alcanzarlos ya que tiene que recorrer todo el recorrido.
 
 %Puedes poner todas las secciones y subsecciones que necesites para demostrar el funcionamiento de tu propuesta

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.1)  9 DEC 2025 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.1)  10 DEC 2025 21:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -948,7 +948,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 
 \@quotelevel=\count498
 \@quotereset=\count499
-No file Documento_Principal.aux.
+(Documento_Principal.aux)
 \openout1 = `Documento_Principal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -969,7 +969,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
 LaTeX Font Info:    ... okay on input line 45.
-(C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+ (C:\Users\carlo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count500
 \scratchdimen=\dimen286
@@ -1155,9 +1155,9 @@ Cap\'{\i }tulo 1.
 
 ]
 
-LaTeX Info: Redefining \. on input line 82.
-LaTeX Info: Redefining \% on input line 82.
-Package cleveref Info: loaded `spanish' language definitions on input line 82.
+LaTeX Info: Redefining \. on input line 81.
+LaTeX Info: Redefining \% on input line 81.
+Package cleveref Info: loaded `spanish' language definitions on input line 81.
 [2]) (Capítulos/Cap2_Antecedentes.tex
 
 LaTeX Info: Redefining \. on input line 5.
@@ -1271,15 +1271,112 @@ Package cleveref Info: loaded `spanish' language definitions on input line 5.
 [17]
 Cap\'{\i }tulo 4.
 
+LaTeX Warning: Reference `sec4:PF' on page 18 undefined on input line 25.
+
+
+LaTeX Warning: Reference `fig:Res1_1' on page 18 undefined on input line 26.
+
+
+LaTeX Warning: File `../imgs_Carlos/Resultados1_PPO9.png' not found on input line 31.
+
+
+Capítulos/Cap4_Resultados.tex:31: Package pdftex.def Error: File `../imgs_Carlos/Resultados1_PPO9.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 ...idth]{../imgs_Carlos/Resultados1_PPO9.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
 
 [18
 
-]) (Capítulos/Cap5_Conclusiones_trabajoFuturo.tex
+]
+
+LaTeX Warning: File `../imgs_Carlos/Resultados2_PPO9.png' not found on input line 41.
+
+
+Capítulos/Cap4_Resultados.tex:41: Package pdftex.def Error: File `../imgs_Carlos/Resultados2_PPO9.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.41 ...idth]{../imgs_Carlos/Resultados2_PPO9.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
+Package cleveref Info: loaded `spanish' language definitions on input line 45.
+[19]
+
+LaTeX Warning: Reference `sec4:PF' on page 20 undefined on input line 52.
+
+
+LaTeX Warning: File `../imgs_Carlos/Resultados1_PPO12.png' not found on input line 55.
+
+
+Capítulos/Cap4_Resultados.tex:55: Package pdftex.def Error: File `../imgs_Carlos/Resultados1_PPO12.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...dth]{../imgs_Carlos/Resultados1_PPO12.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
+Package cleveref Info: loaded `spanish' language definitions on input line 59.
+[20]
+
+LaTeX Warning: File `../imgs_Carlos/Resultados2_PPO12.png' not found on input line 62.
+
+
+Capítulos/Cap4_Resultados.tex:62: Package pdftex.def Error: File `../imgs_Carlos/Resultados2_PPO12.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...dth]{../imgs_Carlos/Resultados2_PPO12.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+Package cleveref Info: loaded `spanish' language definitions on input line 73.
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
+
+ []
+
+
+
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
+Package cleveref Info: loaded `spanish' language definitions on input line 125.
+[22]) (Capítulos/Cap5_Conclusiones_trabajoFuturo.tex
 
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
 Package cleveref Info: loaded `spanish' language definitions on input line 5.
-[19]
+[23]
 Cap\'{\i }tulo 5.
 )
 
@@ -1287,7 +1384,7 @@ LaTeX Warning: Empty bibliography on input line 130.
 
 
 
-[20
+[24
 
 ] (Documento_Principal.aux
 LaTeX Info: Redefining \sptext on input line 12.
@@ -1317,7 +1414,7 @@ Package rerunfilecheck Warning: File `Documento_Principal.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `Documento_Principal.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  46147A4251CF74FD047E1AAA10A7F277;8472.
+(rerunfilecheck)             After:  4974B9647BC504DA4A4EB1E12477A8A3;8149.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                Documento_Principal
@@ -1328,17 +1425,17 @@ Package logreq Info: Writing requests to 'Documento_Principal.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 31405 strings out of 473522
- 611389 string characters out of 5714610
- 1515821 words of memory out of 5000000
- 54123 multiletter control sequences out of 15000+600000
- 581776 words of font info for 78 fonts, out of 8000000 for 9000
+ 31556 strings out of 473522
+ 617472 string characters out of 5714610
+ 1515812 words of memory out of 5000000
+ 54258 multiletter control sequences out of 15000+600000
+ 582089 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,93p,1327b,2815s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso2986.pk><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Documento_Principal.pdf (25 pages, 423961 bytes).
+ 85i,13n,93p,1327b,2815s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\carlo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso2986.pk><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/carlo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Documento_Principal.pdf (29 pages, 444466 bytes).
 PDF statistics:
- 901 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
+ 970 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
