@@ -90,7 +90,7 @@ Donde:
     \item $\tau_R, \tau_L$: Pares aplicados por los motores derecho e izquierdo.
 \end{itemize}
 
-Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
+%Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
 
 \section{Modelado cinemático/dinámico del robot + tool (si aplica)}
 Descripción de los pasos seguidos para modelar el robot dentro del entorno de simulación. Si se ha realizado un modelado teórico, incorporar: Formulación de la cinemática directa e inversa mediante el uso de matrices de transformación homogénea, parámetros de Denavit–Hartenberg. Obtención de la matriz Jacobiana y análisis de singularidades.
@@ -238,7 +238,13 @@ el entrenamineto si la media de los ultimos 1000 episodios no mejoraba durante l
 
 Número de episodios, pruebas o repeticiones realizadas.
 
+\newpage
 \section{Programación}
-Diagramas de flujo o pseudocódigo de los programas implementados.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figuras_Nico/Diagrama_ctrl.png}
+    \caption{Diagrama de Flujo del control por LIDAR y cámara}
+    \label{fig:my_label}
+\end{figure}
 
 %Incluye todas las secciones y subsecciones que tu proyecto necesite para poder entender el trabajo que has realizado
