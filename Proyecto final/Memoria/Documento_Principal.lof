@@ -3,9 +3,10 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Esquema cinemático del robot diferencial (JetBot) con las variables de estado y parámetros geométricos.}}{13}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Diagrama de Flujo del control por LIDAR y cámara}}{19}{figure.caption.21}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Longitud media y recompensa media por episodio}}{19}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Longitud media y recompensa media por episodio}}{20}{figure.caption.23}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Longitud media y recompensa media por episodio}}{21}{figure.caption.25}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Longitud media y recompensa media por episodio}}{21}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Longitud media y recompensa media por episodio}}{20}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Longitud media y recompensa media por episodio}}{21}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Longitud media y recompensa media por episodio}}{21}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Longitud media y recompensa media por episodio}}{21}{figure.caption.27}%
 \addvspace {10\p@ }
