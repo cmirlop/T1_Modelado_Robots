@@ -10,6 +10,88 @@ La sección Materials and Methods (también llamada Methodology o Experimental S
 
 \end{Resumen}
 
+\section{Modelado Dinámico}
+
+El objetivo de esta sección es obtener las ecuaciones que gobiernan el movimiento del robot JetBot 3 relacionando los pares aplicados por los motores con las aceleraciones del sistema. Para ello, se utiliza el formalismo de \textbf{Euler-Lagrange}.
+
+\subsection{Hipótesis Adoptadas}
+Para la derivación del modelo matemático, se asumen las siguientes simplificaciones sobre la física del robot:
+\begin{itemize}
+    \item \textbf{Cuerpo Rígido:} El chasis y las ruedas son indeformables.
+    \item \textbf{Movimiento Plano:} El robot se desplaza sobre una superficie horizontal, por lo que la energía potencial gravitatoria es constante ($V=0$).
+    \item \textbf{Rodadura Pura:} Se asume la condición de no deslizamiento longitudinal ni lateral en las ruedas (restricción no holonómica).
+    \item \textbf{Simetría:} Se asume que el centro de masa (CoM) del robot se encuentra en el punto medio del eje que une las dos ruedas motrices.
+\end{itemize}
+
+\subsection{Definición de Coordenadas}
+La postura del robot en el entorno global se define mediante el vector de coordenadas generalizadas $q$:
+
+\begin{equation}
+    q = \begin{bmatrix} x \\ y \\ \theta \end{bmatrix}
+\end{equation}
+
+Donde $(x, y)$ representan la posición cartesiana del punto medio del eje de las ruedas y $\theta$ la orientación del chasis respecto al eje $X$ global.
+
+\begin{figure}[h]
+    \centering
+    % Aquí puedes insertar tu imagen: \includegraphics[width=0.6\textwidth]{esquema_jetbot.png}
+    \caption{Esquema cinemático del robot diferencial (JetBot) con las variables de estado y parámetros geométricos.}
+    \label{fig:robot_scheme}
+\end{figure}
+
+\subsection{Formulación de Euler-Lagrange}
+La función Lagrangiana $\mathcal{L}$ se define como la diferencia entre la energía cinética ($T$) y la energía potencial ($V$) del sistema:
+
+\begin{equation}
+    \mathcal{L}(q, \dot{q}) = T(q, \dot{q}) - V(q)
+\end{equation}
+
+Dado que el movimiento es plano ($V=0$), el Lagrangiano es igual a la energía cinética total, compuesta por la traslación lineal y la rotación angular:
+
+\begin{equation}
+    \mathcal{L} = \frac{1}{2} m (\dot{x}^2 + \dot{y}^2) + \frac{1}{2} I_z \dot{\theta}^2
+\end{equation}
+
+Siendo $m$ la masa total del robot e $I_z$ el momento de inercia respecto al eje vertical que pasa por el centro de masas.
+
+Las ecuaciones de movimiento se obtienen aplicando la ecuación de Euler-Lagrange:
+
+\begin{equation}
+    \frac{d}{dt} \left( \frac{\partial \mathcal{L}}{\partial \dot{q}} \right) - \frac{\partial \mathcal{L}}{\partial q} = B(q)\tau - A^T(q)\lambda
+\end{equation}
+
+Donde $\tau$ son las fuerzas generalizadas (pares de los motores), $B(q)$ es la matriz de transformación de entrada y $A^T(q)\lambda$ representa las fuerzas de restricción (fricción de rodadura lateral) que limitan el movimiento a la dirección de las ruedas.
+
+\subsection{Modelo Dinámico Resultante}
+Resolviendo las derivadas y considerando la relación cinemática entre la velocidad del robot y la velocidad angular de las ruedas ($\dot{\phi}_R, \dot{\phi}_L$), se llega a la forma compacta del modelo dinámico en el espacio de estados:
+
+\begin{equation}
+    \begin{bmatrix} 
+    m & 0 & 0 \\ 
+    0 & m & 0 \\ 
+    0 & 0 & I_z 
+    \end{bmatrix}
+    \begin{bmatrix} \ddot{x} \\ \ddot{y} \\ \ddot{\theta} \end{bmatrix}
+    + \mathbf{F}_{fric}(\dot{q}) 
+    = \frac{1}{R}
+    \begin{bmatrix} 
+    \cos\theta & \cos\theta \\ 
+    \sin\theta & \sin\theta \\ 
+    L/2 & -L/2 
+    \end{bmatrix}
+    \begin{bmatrix} \tau_R \\ \tau_L \end{bmatrix}
+    \label{eq:final_dynamic}
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $R$: Radio de las ruedas.
+    \item $L$: Distancia entre las ruedas (ancho de vía).
+    \item $\tau_R, \tau_L$: Pares aplicados por los motores derecho e izquierdo.
+\end{itemize}
+
+Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
+
 \section{Modelado cinemático/dinámico del robot + tool (si aplica)}
 Descripción de los pasos seguidos para modelar el robot dentro del entorno de simulación. Si se ha realizado un modelado teórico, incorporar: Formulación de la cinemática directa e inversa mediante el uso de matrices de transformación homogénea, parámetros de Denavit–Hartenberg. Obtención de la matriz Jacobiana y análisis de singularidades.
 
@@ -109,6 +191,7 @@ Nuestro entorno es un laberito con paredes y pasillos por donde el robot deberá
 objetivo de color rojo que puede estar en cualquier lado de la escena.
 Se diseñó un mismo entorno, donde en cada instancia el objetivo estaba en una posición diferente como vemos en 
 las siguientes imagenes.
+\begin{comment}
 \begin{figure}[ht]
   \centering
   \begin{subfigure}{0.48\textwidth}
@@ -123,6 +206,8 @@ las siguientes imagenes.
   \end{subfigure}
   \caption{Dos imágenes lado a lado}
 \end{figure}
+\end{comment}
+
 
 
 
@@ -141,7 +226,7 @@ de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el minimo c
 \section{Procedimiento de experimentación / entrenamiento}
 Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
 \subsection{Flujo de trabajo}
-Se probo primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruze ya alcanzaba
+Se probó primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruze ya alcanzaba
 el objetivo final. Esto se modificó y se hicieron 4 escenarios para el mismo entrenamiento, donde el objetivo estaba 
 en diferentes puntos.
 
