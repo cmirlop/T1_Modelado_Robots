@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber Documento_Principal"] 1765400656.25024 "Documento_Principal.bcf" "Documento_Principal.bbl" "Documento_Principal" 1765401148.89649 0
-  "Documento_Principal.bcf" 1765401148 133708 800f9a91da4b32f482712a46be167edc "pdflatex"
+["biber Documento_Principal"] 1765400656.25024 "Documento_Principal.bcf" "Documento_Principal.bbl" "Documento_Principal" 1765640473.95944 0
+  "Documento_Principal.bcf" 1765640472 133708 800f9a91da4b32f482712a46be167edc "pdflatex"
   (generated)
   "Documento_Principal.bbl"
   "Documento_Principal.blg"
   (rewritten before read)
-["makeindex Documento_Principal.idx"] 1765401079.67843 "Documento_Principal.idx" "Documento_Principal.ind" "Documento_Principal" 1765401148.89526 0
-  "Documento_Principal.idx" 1765401143 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex Documento_Principal.idx"] 1765401079.67843 "Documento_Principal.idx" "Documento_Principal.ind" "Documento_Principal" 1765640473.95796 0
+  "Documento_Principal.idx" 1765640468 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "Documento_Principal.ilg"
   "Documento_Principal.ind"
   (rewritten before read)
-["pdflatex"] 1765401141.66735 "c:/Users/carlo/OneDrive/Escritorio/uni/4A/Modelado de robots/Trabajo 1/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" "Documento_Principal.pdf" "Documento_Principal" 1765401148.89766 0
+["pdflatex"] 1765640467.00401 "c:/Users/carlo/OneDrive/Escritorio/uni/4A/Modelado de robots/Trabajo 1/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" "Documento_Principal.pdf" "Documento_Principal" 1765640473.96145 0
   "C:/Users/carlo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1764607225 81107 70b8516c68c2e617189c5e44bfd16b96 ""
   "C:/Users/carlo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1200.pk" 1764607232 42728 3ea523eb56299477e2b3e7d4bf9c9c3d ""
   "C:/Users/carlo/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1762448829 22504 fc25def52cd5e2c6567233b15fd75753 ""
@@ -207,26 +207,26 @@
   "Capítulos/Cap1_Justificacion.tex" 1765400480 5020 8ec3d4d4d80c2b1114f9e71a8c14eae0 ""
   "Capítulos/Cap2_Antecedentes.tex" 1765400480 17067 c1f467259161146a9bedb8b2b335be37 ""
   "Capítulos/Cap3_MaterialesMetodos.tex" 1765400480 12208 f5a9122e388de01afdbe592a374a8b3a ""
-  "Capítulos/Cap4_Resultados.tex" 1765401078 8416 63b0fab452dba532322c8a83aa00436c ""
+  "Capítulos/Cap4_Resultados.tex" 1765640465 10003 2d382cd766a6bf47ec1b4d1057c67415 ""
   "Capítulos/Cap5_Conclusiones_trabajoFuturo.tex" 1765400480 2532 7459c413b4bc2c65e98305d325a36f31 ""
-  "Documento_Principal.aux" 1765401148 15442 5a0c7ff88e237a8cf71bcce903f4ebd4 "pdflatex"
+  "Documento_Principal.aux" 1765640472 15671 03dccf32c614ab398fb45ffbb94f77ec "pdflatex"
   "Documento_Principal.bbl" 1765400663 486 76d65a242ec496c9b4361af646ff12cb "biber Documento_Principal"
   "Documento_Principal.ind" 1765401080 0 d41d8cd98f00b204e9800998ecf8427e "makeindex Documento_Principal.idx"
-  "Documento_Principal.lof" 1765401148 961 f996065d8fd1992ee842dbd372b2685d "pdflatex"
-  "Documento_Principal.lot" 1765401148 353 ff105eb722f00e74b2093b3d0430b30f "pdflatex"
-  "Documento_Principal.out" 1765401148 7391 c4223b9f6baec12b23c6956b5e421c27 "pdflatex"
-  "Documento_Principal.run.xml" 1765401148 2468 f2d6b618b0ae5bf04fa41df963c48f73 "pdflatex"
+  "Documento_Principal.lof" 1765640472 961 b60b20fe5b46905752105cb8a6656907 "pdflatex"
+  "Documento_Principal.lot" 1765640472 353 ff105eb722f00e74b2093b3d0430b30f "pdflatex"
+  "Documento_Principal.out" 1765640472 7391 c4223b9f6baec12b23c6956b5e421c27 "pdflatex"
+  "Documento_Principal.run.xml" 1765640472 2468 f2d6b618b0ae5bf04fa41df963c48f73 "pdflatex"
   "Documento_Principal.tex" 1765401140 4321 4ad9cd1317e2c65b34d699d7c6457e88 ""
-  "Documento_Principal.toc" 1765401148 7648 f22f028c06f5205f2615623aa92e28ff "pdflatex"
+  "Documento_Principal.toc" 1765640472 7678 aea4bb28ac66c5d6a83819a8ba7b3e63 "pdflatex"
   "MCR.cls" 1764605743 16530 e719a3a4cf67b89889bf9d3126b81496 ""
   "c:/Users/carlo/OneDrive/Escritorio/uni/4A/Modelado de robots/Trabajo 1/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" 1765401140 4321 4ad9cd1317e2c65b34d699d7c6457e88 ""
   "configuraciones/preambulo.tex" 1765218597 5454 ec35638e6a6d827271f123e4c1d8d045 ""
   "configuraciones/preambulo_listings_LaTeX.tex" 1764605743 3519 3897ac24e5446d58959bdc63916d7162 ""
   "configuraciones/referencias_cruzadas.tex" 1764605743 1224 1d25177ab1d0c4953c1a77b286b80187 ""
-  "figuras/../fig_Carlos/Resultados1_PPO12.png" 1765400935 37885 9b40a28c8877ce60695569593be67144 ""
-  "figuras/../fig_Carlos/Resultados1_PPO9.png" 1765401028 36967 336e6e47ea78f61cb85ecc37dc1b822c ""
-  "figuras/../fig_Carlos/Resultados2_PPO12.png" 1765400989 40230 db39d4dff4ebeb1e8a5c82168c2e8f55 ""
-  "figuras/../fig_Carlos/Resultados2_PPO9.png" 1765401010 38693 96eacbbb28d5000ccc02cdfdd6cace4e ""
+  "figuras/../fig_Carlos/Resultados1_PPO12_v2.png" 1765639364 62911 72fcf396be0eb1e3eb81ceffbe36b30f ""
+  "figuras/../fig_Carlos/Resultados1_PPO9_V2.png" 1765638353 66503 84566a5c70c651b3be22b143edf77c07 ""
+  "figuras/../fig_Carlos/Resultados2_PPO12_v2.png" 1765639539 60880 0450b5d8e5f5888fe6497bb539546fe3 ""
+  "figuras/../fig_Carlos/Resultados2_PPO9_v2.png" 1765639096 58106 3bd50455a042082b6f39b2cf34c2062a ""
   "figuras_Nico/Diagrama_ctrl.png" 1765400480 76034 32d8ec3bf24be0e9ff5de2855a9fd8ba ""
   "logos/UPV_Campus_Alcoi_val_HORI.pdf" 1764605743 44334 7808aac832daf4c244850879976e54ad ""
   (generated)
