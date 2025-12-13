@@ -17,28 +17,39 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Modelo matemático}{2}{section.3}\protected@file@percent }
 \newlabel{sec:modelo}{{3}{2}{Modelo matemático}{section.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Ejes del robot}}{2}{figure.caption.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Cinemática directa}{2}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:servo_to_theta}{{1}{2}{Modelo matemático}{equation.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Cinemática directa}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{eq:dh_matrix}{{2}{3}{Cinemática directa}{equation.2}{}}
+\newlabel{eq:T03}{{3}{3}{Cinemática directa}{equation.3}{}}
+\newlabel{eq:fk_xyz}{{4}{3}{Cinemática directa}{equation.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Cinemática inversa}{3}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Código e interfaz}{3}{section.4}\protected@file@percent }
-\newlabel{sec:código}{{4}{3}{Código e interfaz}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Código implementado en Arduino}{3}{subsection.4.1}\protected@file@percent }
-\newlabel{lst:vars}{{1}{3}{Configuración inicial y variables globales}{lstlisting.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Configuración inicial y variables globales.}}{3}{lstlisting.1}\protected@file@percent }
-\newlabel{lst:paso2}{{2}{4}{Función de Cinemática Inversa (ik\_RRR)}{lstlisting.2}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces Función de Cinemática Inversa (ik\_RRR).}}{4}{lstlisting.2}\protected@file@percent }
-\newlabel{lst:paso3}{{3}{5}{Funciones para manejo de matrices y DH}{lstlisting.3}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces Funciones para manejo de matrices y DH.}}{5}{lstlisting.3}\protected@file@percent }
-\newlabel{lst:paso4}{{4}{5}{Cálculo de la Cinemática Directa}{lstlisting.4}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}{\ignorespaces Cálculo de la Cinemática Directa.}}{5}{lstlisting.4}\protected@file@percent }
-\newlabel{lst:paso5}{{5}{6}{Configuración (Setup) y Bucle Principal (Loop)}{lstlisting.5}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}{\ignorespaces Configuración (Setup) y Bucle Principal (Loop).}}{6}{lstlisting.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Diagrama de funcionamiento}}{8}{figure.caption.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Interfaz de usuario}{8}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Interfaz de usuario}}{8}{figure.caption.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Pruebas y demostración}{9}{section.5}\protected@file@percent }
-\newlabel{sec:pruebas}{{5}{9}{Pruebas y demostración}{section.5}{}}
-\newlabel{LastPage}{{5}{9}{Pruebas y demostración}{page.9}{}}
-\gdef\lastpage@lastpage{9}
-\gdef\lastpage@lastpageHy{9}
+\newlabel{eq:ik_theta1}{{5}{3}{Cinemática inversa}{equation.5}{}}
+\newlabel{eq:ik_rz}{{6}{3}{Cinemática inversa}{equation.6}{}}
+\newlabel{eq:D}{{7}{4}{Cinemática inversa}{equation.7}{}}
+\newlabel{eq:reachability}{{8}{4}{Cinemática inversa}{equation.8}{}}
+\newlabel{eq:ik_theta3}{{9}{4}{Cinemática inversa}{equation.9}{}}
+\newlabel{eq:ik_theta2}{{10}{4}{Cinemática inversa}{equation.10}{}}
+\newlabel{eq:codo_invertido}{{11}{4}{Cinemática inversa}{equation.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Código e interfaz}{4}{section.4}\protected@file@percent }
+\newlabel{sec:código}{{4}{4}{Código e interfaz}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Código implementado en Arduino}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{lst:vars}{{1}{4}{Configuración inicial y variables globales}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}{\ignorespaces Configuración inicial y variables globales.}}{4}{lstlisting.1}\protected@file@percent }
+\newlabel{lst:paso2}{{2}{5}{Función de Cinemática Inversa (ik\_RRR)}{lstlisting.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {2}{\ignorespaces Función de Cinemática Inversa (ik\_RRR).}}{5}{lstlisting.2}\protected@file@percent }
+\newlabel{lst:paso3}{{3}{6}{Funciones para manejo de matrices y DH}{lstlisting.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3}{\ignorespaces Funciones para manejo de matrices y DH.}}{6}{lstlisting.3}\protected@file@percent }
+\newlabel{lst:paso4}{{4}{7}{Cálculo de la Cinemática Directa}{lstlisting.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {4}{\ignorespaces Cálculo de la Cinemática Directa.}}{7}{lstlisting.4}\protected@file@percent }
+\newlabel{lst:paso5}{{5}{7}{Configuración (Setup) y Bucle Principal (Loop)}{lstlisting.5}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {5}{\ignorespaces Configuración (Setup) y Bucle Principal (Loop).}}{7}{lstlisting.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Diagrama de funcionamiento}}{9}{figure.caption.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Interfaz de usuario}{9}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Interfaz de usuario}}{9}{figure.caption.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Pruebas y demostración}{10}{section.5}\protected@file@percent }
+\newlabel{sec:pruebas}{{5}{10}{Pruebas y demostración}{section.5}{}}
+\newlabel{LastPage}{{5}{10}{Pruebas y demostración}{page.10}{}}
+\gdef\lastpage@lastpage{10}
+\gdef\lastpage@lastpageHy{10}
 \abx@aux@read@bbl@mdfivesum{E75D7E0DB03F09D45B25DF2F538BB294}
-\gdef \@abspage@last{11}
+\gdef \@abspage@last{12}

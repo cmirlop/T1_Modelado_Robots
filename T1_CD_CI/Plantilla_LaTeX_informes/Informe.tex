@@ -105,9 +105,10 @@ optado por definir una posición conocida como es la [0,0,0], donde
 %------------------------------------------------------------------
 %------------------------------------------------------------------
 
+   
+
 \section{Modelo matemático}
 \label{sec:modelo}
-
 
 \begin{figure}[H]
     \centering
@@ -115,55 +116,148 @@ optado por definir una posición conocida como es la [0,0,0], donde
     \caption{Ejes del robot}
 \end{figure}
 
+Para describir la cinemática se emplea la convención de Denavit--Hartenberg (DH).
+Los parámetros geométricos del robot (según el firmware) son:\\
+\[
+d_1 \ \text{(offset/altura base)},\qquad d_2 \ \text{(longitud del primer eslabón)},\qquad d_3 \ \text{(longitud del segundo eslabón)}.
+\]
+
+La tabla DH usada para la cinemática directa es:\\
 \[
 \begin{array}{c|c|c|c|c}
 i & d_i & \theta_i & \alpha_i & a_i \\ \hline
-1 & d_1 & 0 & \tfrac{\pi}{2} & 0 \\
-2 & 0 & 0 & 0 & d_2 \\
-3 & 0 & 0 & 0 & d_3
+1 & d_1 & \theta_1 & \tfrac{\pi}{2} & 0 \\
+2 & 0   & \theta_2 & 0              & d_2 \\
+3 & 0   & \theta_3 & 0              & d_3
 \end{array}
 \]
 
+En la implementación, los ángulos se obtienen a partir de los servos (en grados) convirtiendo a radianes:\\
+\begin{equation}
+\theta_1 = \texttt{baseAngle}\,\frac{\pi}{180},\qquad
+\theta_2 = \texttt{brazoAngle}\,\frac{\pi}{180},\qquad
+\theta_3 = -\,\texttt{codoAngle}\,\frac{\pi}{180},
+\label{eq:servo_to_theta}
+\end{equation}
+donde el signo negativo en $\theta_3$ refleja la inversión mecánica del servo del codo respecto al sentido positivo del modelo.
+
 \subsection{Cinemática directa}
-La cinemática directa permite calcular la posición y orientación 
-del efector final (la pinza) a partir de los ángulos y 
-desplazamientos de las articulaciones del robot.
 
-En nuestro caso, el robot tiene 3 grados de libertad:
+La cinemática directa permite calcular la posición y orientación del efector final a partir de las articulaciones.
+En el modelo implementado se consideran 3 grados de libertad (3R):
 \begin{itemize}
-    \item Rotación en la base (eje X): permite girar todo el brazo alrededor de la base.
-    \item Movimiento horizontal en el eje Z: conseguido mediante un rodamiento implementado en la base, que desplaza el brazo a lo largo del eje Z.
-    \item Movimiento en el eje X del codo: logrado mediante otro rodamiento, que permite extender o retraer el brazo a lo largo del eje X desde el codo.
-
+    \item \textbf{Rotación de base} ($\theta_1$): orienta el brazo hacia una dirección en el plano $XY$.
+    \item \textbf{Rotación de hombro/brazo} ($\theta_2$): eleva o baja el primer eslabón.
+    \item \textbf{Rotación de codo} ($\theta_3$): flexiona/extiende el segundo eslabón.
 \end{itemize}
 
+Cada transformación elemental DH ${}^{i-1}\!T_i$ se construye con la matriz homogénea estándar:\\
+\begin{equation}
+{}^{i-1}\!T_i=
+\begin{bmatrix}
+\cos\theta_i & -\sin\theta_i\cos\alpha_i & \sin\theta_i\sin\alpha_i & a_i\cos\theta_i\\
+\sin\theta_i & \cos\theta_i\cos\alpha_i  & -\cos\theta_i\sin\alpha_i & a_i\sin\theta_i\\
+0            & \sin\alpha_i              & \cos\alpha_i              & d_i\\
+0            & 0                         & 0                         & 1
+\end{bmatrix}.
+\label{eq:dh_matrix}
+\end{equation}
 
+Con la tabla anterior, la transformación total es: \\
+\begin{equation}
+{}^{0}\!T_{3} = {}^{0}\!T_{1}\,{}^{1}\!T_{2}\,{}^{2}\!T_{3}.
+\label{eq:T03}
+\end{equation}
 
-La posición del efector final $(x,y,z)$ se calcula combinando 
-estas tres transformaciones mediante matrices de transformación 
-homogénea. Multiplicando las matrices correspondientes a cada 
-articulación se obtiene la matriz global $T_0^3$, de la que se 
-extraen las coordenadas de la pinza.
+Al multiplicar, la posición del efector final $(x,y,z)$ (columna de traslación de ${}^{0}\!T_{3}$) queda: \\
+\begin{equation}
+\boxed{
+\begin{aligned}
+x &= \big(d_2\cos\theta_2 + d_3\cos(\theta_2+\theta_3)\big)\cos\theta_1,\\
+y &= \big(d_2\cos\theta_2 + d_3\cos(\theta_2+\theta_3)\big)\sin\theta_1,\\
+z &= d_1 + d_2\sin\theta_2 + d_3\sin(\theta_2+\theta_3).
+\end{aligned}}
+\label{eq:fk_xyz}
+\end{equation}
+
+La orientación del efector está dada por la submatriz $3\times 3$ de rotación incluida en ${}^{0}\!T_{3}$ (parte superior izquierda de \eqref{eq:T03}).
 
 \subsection{Cinemática inversa}
-La cinemática inversa permite determinar los ángulos y 
-desplazamientos de las articulaciones necesarios para colocar 
-la pinza en una posición y orientación deseadas.
 
-Para nuestro robot:
+La cinemática inversa determina los ángulos articulares necesarios para alcanzar una posición deseada
+$p_d=(X,Y,Z)$.
+
+Primero se separa el problema en:
 \begin{itemize}
-    \item Debemos calcular la rotación de la base para orientar el brazo hacia el punto deseado.
-    \item Ajustar el desplazamiento horizontal en Z para posicionar la altura correcta.
-    \item Ajustar el movimiento en X del codo para llegar a la distancia correcta desde la base.
-
+    \item una rotación de base en el plano $XY$,
+    \item un problema planar 2R en el plano $(r,z)$, con $r=\sqrt{X^2+Y^2}$.
 \end{itemize}
 
 
-Se deben considerar posibles múltiples soluciones, así como 
-restricciones físicas de los rodillos y límites de las 
-articulaciones. La cinemática inversa asegura que el robot pueda 
-mover su efector a cualquier posición alcanzable dentro de su 
-espacio de trabajo.
+\begin{enumerate}
+    \item Rotación de base: Con la siguiente ecuación\\
+    \begin{equation}
+    \boxed{\theta_1=\operatorname{atan2}(Y,X)}.
+    \label{eq:ik_theta1}
+    \end{equation}
+   
+
+
+
+    \item Reducción al plano del brazo.
+    \\
+    \begin{equation}
+    \boxed{r=\sqrt{X^2+Y^2}},\qquad
+    \boxed{z=Z-d_1}.
+    \label{eq:ik_rz}
+    \end{equation}
+
+    \item Ley del coseno para el codo.
+    Definiendo\\
+    \begin{equation}
+    \boxed{D=\frac{r^2+z^2-d_2^2-d_3^2}{2d_2d_3}},
+    \label{eq:D}
+    \end{equation}
+    se tiene $D=\cos\theta_3$. Para que exista solución geométrica debe cumplirse:\\
+    \begin{equation}
+    \boxed{|D|\le 1}.
+    \label{eq:reachability}
+    \end{equation}
+
+    \item Dos soluciones posibles (codo arriba / codo abajo).
+    \\
+    \begin{equation}
+    \boxed{\theta_3=\operatorname{atan2}\!\Big(\pm\sqrt{1-D^2},\,D\Big)}.
+    \label{eq:ik_theta3}
+    \end{equation}
+    El signo $\pm$ determina la rama de solución (por ejemplo, codo arriba o codo abajo).
+
+    \item Cálculo del hombro.
+    \\
+    \begin{equation}
+    \boxed{
+    \theta_2=\operatorname{atan2}(z,r)-\operatorname{atan2}\!\Big(d_3\sin\theta_3,\;d_2+d_3\cos\theta_3\Big)}.
+    \label{eq:ik_theta2}
+    \end{equation}
+
+    \item Conversión a grados y adaptación a servos.
+\\
+En el control real (servos), se pasa a grado
+\[
+\theta[\text{deg}] = \theta[\text{rad}]\,\frac{180}{\pi},
+\]
+y se aplican límites físicos típicos:
+\[
+\theta_{\text{servo}} \in [0^\circ,180^\circ].
+\]
+Además, para ser coherente con la cinemática directa implementada en el firmware, el codo se invierte:
+\begin{equation}
+\boxed{\theta_{3,\text{servo}} = -\,\theta_3\;\;\text{(en grados)}}.
+\label{eq:codo_invertido}
+\end{equation}
+ \end{enumerate}
+Finalmente, se deben considerar restricciones mecánicas (límites de giro y colisiones) y la existencia de múltiples soluciones por \ref{eq:ik_theta3}, eligiendo la rama que sea físicamente realizable para el robot.
+
 
 %------------------------------------------------------------------
 %------------------------------------------------------------------
