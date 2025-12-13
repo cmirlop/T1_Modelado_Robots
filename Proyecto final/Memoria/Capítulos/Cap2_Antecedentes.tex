@@ -19,7 +19,7 @@ La cinemática es la rama de la mecánica que describe el movimiento de los punt
 
 La Cinemática Directa (FK, por sus siglas en inglés) resuelve la pregunta: \textit{"Dadas las posiciones de todas las articulaciones, ¿dónde está la mano del robot?"}. Para un manipulador serial, que consiste en una cadena de eslabones rígidos conectados por articulaciones, la posición del efector final se calcula mediante la composición de transformaciones homogéneas sucesivas.
 
-Para estandarizar este proceso y evitar ambigüedades en la definición de los sistemas de coordenadas locales de cada eslabón, se emplea universalmente la convención de parámetros de Denavit-Hartenberg (DH). Este método reduce la descripción de la geometría espacial de cualquier mecanismo serial a cuatro parámetros fundamentales por eslabón:
+Para estandarizar este proceso y evitar ambigüedades en la definición de los sistemas de coordenadas locales de cada eslabón, se emplea universalmente la convención de parámetros de Denavit-Hartenberg (DH)\cite{spong2020robot}. Este método reduce la descripción de la geometría espacial de cualquier mecanismo serial a cuatro parámetros fundamentales por eslabón:
 
 \begin{itemize}
     \item \textbf{Longitud del eslabón ($a_i$):} Distancia a lo largo del eje $x_i$ (la normal común) entre los ejes $z_{i-1}$ y $z_i$.
@@ -78,7 +78,7 @@ A través del principio del trabajo virtual, la Jacobiana transpuesta relaciona 
 \tau = J^T(q)F
 \end{equation}
 
-Esta relación es fundamental para el control de impedancia y cumplimiento, permitiendo que un robot "sienta" fuerzas externas o aplique fuerzas precisas sin sensores de fuerza dedicados en cada articulación, basándose en la corriente de los motores.
+Esta relación es fundamental para el control de impedancia y cumplimiento, permitiendo que un robot "sienta" fuerzas externas o aplique fuerzas precisas sin sensores de fuerza dedicados en cada articulación, basándose en la corriente de los motores.\cite{spong2020robot}
 
 \section{Dinámica de Robots: Fuerzas y Energía}
 
@@ -97,8 +97,8 @@ Se obtiene la ecuación dinámica cerrada estándar en robótica:
 \begin{equation}
 M(q)\ddot{q} + C(q,\dot{q})\dot{q} + g(q) + F_{fric}(\dot{q}) = \tau
 \end{equation}
-
-Donde cada término tiene una interpretación física crítica para el control:
+\noindent
+Esta formulación es la base para el análisis de estabilidad y diseño de controladores avanzados \cite{spong2020robot}. Donde cada término tiene una interpretación física crítica para el control:
 
 \begin{itemize}
     \item \textbf{$M(q)$ (Matriz de Inercia):} Es simétrica y definida positiva. Representa la resistencia del robot a acelerar. A diferencia de una masa escalar constante, $M(q)$ cambia con la configuración del robot.
@@ -147,7 +147,7 @@ Sujeto a restricciones como la dinámica del robot ($x_{k+1} = f(x_k, u_k)$), l�
 
 \section{Fundamentos de Aprendizaje por Refuerzo (RL)}
 
-Cuando los modelos analíticos son insuficientes, el RL ofrece un marco para aprender el control a partir de la experiencia.
+Cuando los modelos analíticos son insuficientes, el RL ofrece un marco para aprender el control a partir de la experiencia. Los conceptos fundamentales se detallan extensamente en \cite{sutton2018reinforcement}.
 
 \subsection{Procesos de Decisión de Markov (MDP)}
 El problema se formaliza como una tupla $(S, A, P, R, \gamma)$: Estado ($S$), Acción ($A$), Transición ($P(s'|s,a)$) y Recompensa ($R(s,a)$).
@@ -159,17 +159,17 @@ La base de la mayoría de los algoritmos de RL es la Ecuación de Bellman:
 V(s) = \max_{a} \left( R(s,a) + \gamma \sum_{s'} P(s'|s,a)V(s') \right)
 \end{equation}
 
-Esta recursividad permite propagar recompensas futuras hacia atrás en el tiempo. En Deep RL, $V(s)$ o $Q(s,a)$ se aproximan mediante redes neuronales profundas.
+Esta recursividad permite propagar recompensas futuras hacia atrás en el tiempo\cite{sutton2018reinforcement}. En Deep RL, $V(s)$ o $Q(s,a)$ se aproximan mediante redes neuronales profundas.
 
 \section{Estado del arte en robótica y control}
 
-El estado del arte (SOTA) en robótica entre 2024 y 2025 se define por una transición acelerada desde sistemas rígidos basados en modelos analíticos hacia sistemas adaptativos basados en datos ("Data-Driven").
+El estado del arte (SOTA) en robótica entre 2024 y 2025 se define por una transición acelerada hacia sistemas adaptativos basados en datos ("Data-Driven"), como se recoge en revisiones recientes sobre optimización en automatización \cite{farooq2025survey}.
 
 \subsection{La Transición de Model-Based a Learning-Based}
 Tradicionalmente, se asumía que un modelo físico preciso (Matriz $M(q)$, $C(q,\dot{q})$) permitía un control perfecto. Sin embargo, dinámicas no modeladas (fricción, holguras) y la interacción con entornos no estructurados hacen que el Deep Reinforcement Learning (DRL) sea la solución dominante para aprender políticas robustas $\pi(a|s)$.
 
 \subsection{Algoritmos de Deep RL Dominantes en Robótica}
-
+Existen diversos algoritmos con diferentes compromisos entre estabilidad y eficiencia de muestras, cuyo rendimiento ha sido evaluado en tareas de locomoción compleja \cite{akki2025benchmarking}.
 \begin{itemize}
     \item \textbf{Proximal Policy Optimization (PPO):} El estándar para locomoción (cuadrúpedos, humanoides). Es un método \textit{On-Policy} que utiliza una función objetivo "recortada" para evitar actualizaciones catastróficas.
     \item \textbf{Soft Actor-Critic (SAC):} Preferido para manipulación y robots reales. Es \textit{Off-Policy} y maximiza la entropía:
@@ -203,9 +203,9 @@ Para cerrar la "Brecha de Realidad", se utilizan técnicas avanzadas:
 
 \subsection{Arquitecturas Híbridas y Casos de Estudio}
 \begin{itemize}
-    \item \textbf{Residual RL:} Combina un controlador clásico ($u_{base}$) con una corrección de RL ($u_{residual}$), ideal para ensamblajes de contacto rico.
-    \item \textbf{Manipulación Móvil Armónica:} Control de cuerpo completo (Whole-Body Control) mediante RL para coordinar base y brazo.
-    \item \textbf{Modelos VLA:} Integración de LLMs para razonamiento semántico ("recoge el animal extinto") junto con controladores de bajo nivel.
+    \item \textbf{Residual RL:} Combina un controlador clásico ($u_{base}$) con una corrección de RL ($u_{residual}$), ideal para ensamblajes de contacto rico\cite{johannink2019residual}.
+    \item \textbf{Manipulación Móvil Armónica:} Control de cuerpo completo (Whole-Body Control) mediante RL para coordinar base y brazo \cite{yang2024harmonic}.
+    \item \textbf{Modelos VLA:} Integración de LLMs para razonamiento semántico ("recoge el animal extinto") junto con controladores de bajo nivel \cite{octo2024}.
 \end{itemize}
 
 \section{Herramientas y entornos de simulación}
@@ -217,13 +217,14 @@ Estándar industrial (2024-2025). Utiliza Ray Tracing (RTX) para alta fidelidad 
 
 \subsubsection{MuJoCo}
 Estándar académico. Destaca por su estabilidad matemática en cadenas complejas.
-\textbf{MJX (2024 Update):} Permite ejecutar la física de MuJoCo directamente en TPUs y GPUs usando JAX, igualando velocidades con Isaac Sim.
+\textbf{MJX (2024 Update):} Permite ejecutar la física de MuJoCo directamente en TPUs y GPUs usando JAX, igualando velocidades con Isaac Sim \cite{zakka2025mujoco}.
 
 \subsubsection{Gazebo y PyBullet}
 Gazebo sigue siendo vital para la integración con ROS, mientras que PyBullet está siendo relegado al prototipado rápido.
 
 \subsection{Comparativa Técnica de Simuladores}
 
+La capacidad de paralelismo masivo en simuladores modernos es clave para reducir los tiempos de entrenamiento de políticas complejas de días a minutos \cite{zakka2025mujoco, akki2025benchmarking}.
 \begin{table}[h]
 \centering
 \resizebox{\textwidth}{!}{%
