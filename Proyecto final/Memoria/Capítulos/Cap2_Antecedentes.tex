@@ -19,7 +19,7 @@ La cinemática es la rama de la mecánica que describe el movimiento de los punt
 
 La Cinemática Directa (FK, por sus siglas en inglés) resuelve la pregunta: \textit{"Dadas las posiciones de todas las articulaciones, ¿dónde está la mano del robot?"}. Para un manipulador serial, que consiste en una cadena de eslabones rígidos conectados por articulaciones, la posición del efector final se calcula mediante la composición de transformaciones homogéneas sucesivas.
 
-Para estandarizar este proceso y evitar ambigüedades en la definición de los sistemas de coordenadas locales de cada eslabón, se emplea universalmente la convención de parámetros de Denavit-Hartenberg (DH)\cite{spong2020robot}. Este método reduce la descripción de la geometría espacial de cualquier mecanismo serial a cuatro parámetros fundamentales por eslabón:
+Para estandarizar este proceso y evitar ambigüedades en la definición de los sistemas de coordenadas locales de cada eslabón, se emplea universalmente la convención de parámetros de Denavit-Hartenberg (DH) \cite{spong2020robot}. Este método reduce la descripción de la geometría espacial de cualquier mecanismo serial a cuatro parámetros fundamentales por eslabón:
 
 \begin{itemize}
     \item \textbf{Longitud del eslabón ($a_i$):} Distancia a lo largo del eje $x_i$ (la normal común) entre los ejes $z_{i-1}$ y $z_i$.
@@ -48,7 +48,7 @@ Esta formulación matricial es crucial porque permite a los controladores comput
 
 \subsection{Cinemática Inversa (IK): El Problema Mal Planteado}
 
-La Cinemática Inversa (IK) aborda el problema opuesto y mucho más complejo: \textit{"Dada una posición y orientación deseada del efector final, ¿qué valores deben tener las articulaciones ($q$)?"}. A diferencia de la FK, la IK no siempre tiene una solución única y cerrada.
+La Cinemática Inversa (IK) aborda el problema opuesto y mucho más complejo: \textit{"Dada una posición y orientación deseada del efector final, ¿qué valores deben tener las articulaciones ($q$)?"}. A diferencia de la FK, la IK no siempre tiene una solución única y cerrada \cite{spong2020robot}.
 
 \begin{itemize}
     \item \textbf{Soluciones Múltiples:} Para un brazo robótico antropomórfico típico de 6 grados de libertad (DoF), pueden existir hasta 16 soluciones teóricas para una misma pose final (ej. configuraciones de "codo arriba" vs. "codo abajo").
@@ -58,9 +58,9 @@ La Cinemática Inversa (IK) aborda el problema opuesto y mucho más complejo: \t
 
 Los métodos numéricos iterativos, como el método de Newton-Raphson o la optimización basada en gradientes (Gradiente Descendente, Levenberg-Marquardt), son estándares en la robótica moderna para resolver la IK en tiempo real.
 
-\subsection{La Matriz Jacobiana: Velocidad y Estática}
+\subsection{La Matriz Jacobiana: Velocidad}
 
-La matriz Jacobiana $J(q)$ es, quizás, la herramienta matemática más importante en el control de manipuladores. No solo relaciona las velocidades, sino que conecta dominios físicos dispares.
+La matriz Jacobiana $J(q)$ es, quizás, la herramienta matemática más importante en el control de manipuladores. No solo relaciona las velocidades, sino que conecta dominios físicos dispares \cite{spong2020robot}.
 
 \subsubsection*{Mapeo de Velocidades}
 Relaciona la velocidad articular $\dot{q}$ con la velocidad cartesiana del efector final $v$:
@@ -71,7 +71,12 @@ v = \begin{bmatrix} v_{lineal} \\ \omega_{angular} \end{bmatrix} = J(q)\dot{q}
 
 Esto permite controlar el movimiento suave del robot en el espacio cartesiano ajustando las velocidades de los motores.
 
-\subsubsection*{Mapeo de Fuerzas (Estática)}
+%% mapeo de fuerza desplazado a dinámica, pq es donde tiene sentido
+\section{Dinámica de Robots: Fuerzas y Energía}
+
+Mientras que la cinemática trata la geometría, la dinámica estudia las fuerzas necesarias para causar dichas aceleraciones. Un modelado dinámico preciso es esencial para el control de alta velocidad y para las simulaciones realistas necesarias en el aprendizaje por refuerzo.
+
+\subsubsection{Análisis Estático}
 A través del principio del trabajo virtual, la Jacobiana transpuesta relaciona los torques en las articulaciones $\tau$ con las fuerzas y momentos $F$ aplicados en el efector final:
 
 \begin{equation}
@@ -80,9 +85,6 @@ A través del principio del trabajo virtual, la Jacobiana transpuesta relaciona 
 
 Esta relación es fundamental para el control de impedancia y cumplimiento, permitiendo que un robot "sienta" fuerzas externas o aplique fuerzas precisas sin sensores de fuerza dedicados en cada articulación, basándose en la corriente de los motores.\cite{spong2020robot}
 
-\section{Dinámica de Robots: Fuerzas y Energía}
-
-Mientras que la cinemática trata la geometría, la dinámica estudia las fuerzas necesarias para causar dichas aceleraciones. Un modelado dinámico preciso es esencial para el control de alta velocidad y para las simulaciones realistas necesarias en el aprendizaje por refuerzo.
 
 \subsection{Formulación Lagrangiana}
 
@@ -98,7 +100,7 @@ Se obtiene la ecuación dinámica cerrada estándar en robótica:
 M(q)\ddot{q} + C(q,\dot{q})\dot{q} + g(q) + F_{fric}(\dot{q}) = \tau
 \end{equation}
 \noindent
-Esta formulación es la base para el análisis de estabilidad y diseño de controladores avanzados \cite{spong2020robot}. Donde cada término tiene una interpretación física crítica para el control:
+Esta formulación es la base para el análisis de estabilidad y diseño de controladores avanzados \cite{spong2020robot}. Donde cada término tiene una interpretación física crítica para el control \cite{spong2020robot}:
 
 \begin{itemize}
     \item \textbf{$M(q)$ (Matriz de Inercia):} Es simétrica y definida positiva. Representa la resistencia del robot a acelerar. A diferencia de una masa escalar constante, $M(q)$ cambia con la configuración del robot.
@@ -108,7 +110,7 @@ Esta formulación es la base para el análisis de estabilidad y diseño de contr
 
 \subsection{Formulación Newton-Euler Recursiva (RNEA)}
 
-Aunque la formulación Lagrangiana es elegante analíticamente, es computacionalmente costosa ($O(n^4)$ o $O(n^3)$). Para la simulación y el control en tiempo real, se prefiere el algoritmo Newton-Euler Recursivo (RNEA), que tiene una complejidad lineal $O(n)$. RNEA funciona en dos pasadas:
+Aunque la formulación Lagrangiana es elegante analíticamente, es computacionalmente costosa ($O(n^4)$ o $O(n^3)$). Para la simulación y el control en tiempo real, se prefiere el algoritmo Newton-Euler Recursivo (RNEA), que tiene una complejidad lineal $O(n)$. RNEA funciona en dos pasadas \cite{spong2020robot}:
 
 \begin{enumerate}
     \item \textbf{Pasada hacia adelante (Forward Pass):} Calcula velocidades y aceleraciones de cada eslabón desde la base hasta el efector final.
@@ -137,7 +139,7 @@ u(t) = K_p e(t) + K_i \int_{0}^{t} e(\tau)d\tau + K_d \frac{de(t)}{dt}
 
 \subsection{Control Predictivo Basado en Modelos (MPC)}
 
-El MPC utiliza un modelo dinámico del robot para predecir su comportamiento futuro en un horizonte de tiempo finito $H$ y optimizar las acciones de control. En cada paso de tiempo $t$, resuelve:
+El MPC utiliza un modelo dinámico del robot para predecir su comportamiento futuro en un horizonte de tiempo finito $H$ y optimizar las acciones de control. En cada paso de tiempo $t$ \cite{akki2025benchmarking}, resuelve:
 
 \begin{equation}
 \min_{u_{t:t+H}} \sum_{k=0}^{H} \left( ||x_{t+k} - x_{ref}||^2_Q + ||u_{t+k}||^2_R \right)
@@ -166,7 +168,7 @@ Esta recursividad permite propagar recompensas futuras hacia atrás en el tiempo
 El estado del arte (SOTA) en robótica entre 2024 y 2025 se define por una transición acelerada hacia sistemas adaptativos basados en datos ("Data-Driven"), como se recoge en revisiones recientes sobre optimización en automatización \cite{farooq2025survey}.
 
 \subsection{La Transición de Model-Based a Learning-Based}
-Tradicionalmente, se asumía que un modelo físico preciso (Matriz $M(q)$, $C(q,\dot{q})$) permitía un control perfecto. Sin embargo, dinámicas no modeladas (fricción, holguras) y la interacción con entornos no estructurados hacen que el Deep Reinforcement Learning (DRL) sea la solución dominante para aprender políticas robustas $\pi(a|s)$.
+Tradicionalmente, se asumía que un modelo físico preciso (Matriz $M(q)$, $C(q,\dot{q})$) permitía un control perfecto. Sin embargo, dinámicas no modeladas (fricción, holguras) y la interacción con entornos no estructurados hacen que el Deep Reinforcement Learning (DRL) sea la solución dominante para aprender políticas robustas $\pi(a|s)$ \cite{sutton2018reinforcement}.
 
 \subsection{Algoritmos de Deep RL Dominantes en Robótica}
 Existen diversos algoritmos con diferentes compromisos entre estabilidad y eficiencia de muestras, cuyo rendimiento ha sido evaluado en tareas de locomoción compleja \cite{akki2025benchmarking}.
@@ -215,7 +217,7 @@ Para cerrar la "Brecha de Realidad", se utilizan técnicas avanzadas:
 \subsubsection{NVIDIA Isaac Sim y PhysX 5}
 Estándar industrial (2024-2025). Utiliza Ray Tracing (RTX) para alta fidelidad visual y permite \textbf{Paralelismo Masivo}: A través de Isaac Lab (antes Orbit), simula miles de robots en una sola GPU, reduciendo tiempos de entrenamiento drásticamente.
 
-\subsubsection{MuJoCo}
+\subsubsection{MuJoCo (Multi-Joint dynamics with Contact)}
 Estándar académico. Destaca por su estabilidad matemática en cadenas complejas.
 \textbf{MJX (2024 Update):} Permite ejecutar la física de MuJoCo directamente en TPUs y GPUs usando JAX, igualando velocidades con Isaac Sim \cite{zakka2025mujoco}.
 
@@ -238,7 +240,7 @@ Fidelidad Visual & Muy Alta (RTX) & Media & Media & Baja \\
 Sim-to-Real & Excelente & Excelente & Bueno & Moderado \\ \bottomrule
 \end{tabular}%
 }
-\caption{Comparativa de Simuladores en 2025}
+\caption{Comparativa de Simuladores en 2025 basada en \cite{zakka2025mujoco}}
 \end{table}
 
 \subsection{Tendencias Emergentes}
@@ -252,6 +254,18 @@ Sim-to-Real & Excelente & Excelente & Bueno & Moderado \\ \bottomrule
 La robótica actual combina los fundamentos teóricos ineludibles (cinemática y dinámica) con nuevas capas de decisión basadas en Aprendizaje por Refuerzo y Simulación Masiva. El futuro apunta a la convergencia de simulación fotorrealista y modelos fundacionales multimodales, permitiendo a los robots no solo moverse, sino comprender su entorno.
 
 \section{Trabajos y resultados previos}
+\subsection{Detección de obstáculos y planificación de rutas para un vehículo autónomo \cite{alfaro2023deteccion}}
+La tesis detalla el desarrollo  de un sistema de navegación autónomo para un robot de tipo Ackermann-steering. El autor no utiliza la metodología tradicional en la que se separa la percepción del los algoritmos de planificación de rutas
+, este lo que plantea es utilizar "Deep Reinforcement Learning"(DRL), específicamente el algoritmo Deep-Q-Network (DQN). La meta es crear un sistema donde el robot aprenda a interpretar la información de los sensores para alcanzar su objetivo.
+
+\subsubsection{Hardware utilizado:}
+\begin{itemize}
+    \item Robot: Yahboom Rosmaster R2 con el Ackermann-steering
+    \item Sensores: LIDAR 2D (RPLIDAR A1M8) para medir distancia, y una cámara RGB-D (Intel Realsense D435) para medir la profundidad
+    \item Procesador: Raspberry Pi 4 y una Jetson Nano.
+    \item Simulación: Gazebo, para probar en un entorno en el que no se pudiera dañar el robot.
+\end{itemize}
+
 Ejemplos de investigaciones o proyectos similares que hayan aplicado RL en robótica.
 
 Limitaciones encontradas en esos trabajos y vacíos de investigación que motivan este proyecto.
