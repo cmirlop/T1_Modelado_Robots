@@ -16,5 +16,893 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{akki2025benchmarking}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f244b0730131e11463e9ce147acb2ae7}{%
+           family={Akki},
+           familyi={A\bibinitperiod},
+           given={Shivayogi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Tan},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{fullhash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{fullhashraw}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{bibnamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorbibnamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authornamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorfullhash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorfullhashraw}{7af197065f2805ecf66e4ec3526c048d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2501.16590}
+      \field{title}{Benchmarking Model Predictive Control and Reinforcement Learning Based Control for Legged Robot Locomotion in MuJoCo Simulation}
+      \field{year}{2025}
+    \endentry
+    \entry{alfaro2023deteccion}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0263b20ddef38681cd06dd7bc4658a4e}{%
+           family={Alfaro\bibnamedelima López},
+           familyi={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Roberto\bibnamedelimb de\bibnamedelima Jesús},
+           giveni={R\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidad Autónoma de Querétaro}%
+      }
+      \list{location}{1}{%
+        {Querétaro, México}%
+      }
+      \strng{namehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{fullhash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{fullhashraw}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{bibnamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorbibnamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authornamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorfullhash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorfullhashraw}{0263b20ddef38681cd06dd7bc4658a4e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{note}{Facultad de Ingeniería}
+      \field{title}{Detección de Obstáculos y Planeación de Ruta para un Vehículo Autónomo}
+      \field{type}{Tesis de Maestría}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://ri-ng.uaq.mx/handle/123456789/10478
+      \endverb
+      \verb{url}
+      \verb https://ri-ng.uaq.mx/handle/123456789/10478
+      \endverb
+    \endentry
+    \entry{farooq2025survey}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=251eef8c0102a25e547103c8ce4c6b79}{%
+           family={Farooq},
+           familyi={F\bibinitperiod},
+           given={Ahmad},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=80d08b226e39b4272fe392130306d119}{%
+           family={Iqbal},
+           familyi={I\bibinitperiod},
+           given={Kamran},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{fullhash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{fullhashraw}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{bibnamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorbibnamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authornamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorfullhash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorfullhashraw}{869d83cb9d8b4d731d29e174ed446c5b}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2502.09417}
+      \field{note}{Comprehensive survey on RL in Robotics and Manufacturing}
+      \field{title}{A Survey of Reinforcement Learning for Optimization in Automation}
+      \field{year}{2025}
+    \endentry
+    \entry{Gandara2020}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d5a61ab7c40f9f60d25471dc2c0e3c43}{%
+           family={Gándara\bibnamedelima Vega},
+           familyi={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidad Militar Nueva Granada}%
+      }
+      \list{location}{1}{%
+        {Bogotá, Colombia}%
+      }
+      \strng{namehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{fullhash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{fullhashraw}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{bibnamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorbibnamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authornamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorfullhash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorfullhashraw}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Desarrollo de un algoritmo para la evasión de obstáculos dinámicos con un robot móvil con técnica de aprendizaje por refuerzo}
+      \field{type}{Trabajo de grado de Ingeniería Mecatrónica}
+      \field{year}{2020}
+    \endentry
+    \entry{johannink2019residual}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=43e22a5e18e3d9bff2018574b3ad472b}{%
+           family={Johannink},
+           familyi={J\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7584772dcf4aadad2e9ba78e7cb4412}{%
+           family={Bahl},
+           familyi={B\bibinitperiod},
+           given={Shikhar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{fullhash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{fullhashraw}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{bibnamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorbibnamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authornamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorfullhash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorfullhashraw}{523ce6ff250de13af3bd52d2adaffea6}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2019 International Conference on Robotics and Automation (ICRA)}
+      \field{title}{Residual Reinforcement Learning for Robot Control}
+      \field{year}{2019}
+      \field{pages}{6023\bibrangedash 6029}
+      \range{pages}{7}
+    \endentry
+    \entry{octo2024}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1e3f6e03ffd1b4484f76f099c9769b33}{%
+           family={{Octo Model Team}},
+           familyi={O\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=92eee54389de5c6dbc9362d731bd7bd9}{%
+           family={Ghosh},
+           familyi={G\bibinitperiod},
+           given={Dibya},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=09dab768f8b4d56d2d6ffacf7930c72a}{%
+           family={Walke},
+           familyi={W\bibinitperiod},
+           given={Homer},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d64b87667f94ed3e1f7d14c80f34f01a}
+      \strng{fullhash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{fullhashraw}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{bibnamehash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authorbibnamehash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authornamehash}{d64b87667f94ed3e1f7d14c80f34f01a}
+      \strng{authorfullhash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authorfullhashraw}{0c1be8ba7e83a969599b1be441a64f0e}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Robotics: Science and Systems (RSS)}
+      \field{title}{Octo: An Open-Source Generalist Robot Policy}
+      \field{year}{2024}
+    \endentry
+    \entry{siegwart2011intro}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6ee8958bbf32527489012d8ca7c95ee3}{%
+           family={Siegwart},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43a2e4df07c5c4e4eb90b1e11bfd57b6}{%
+           family={Nourbakhsh},
+           familyi={N\bibinitperiod},
+           given={Illah\bibnamedelima R.},
+           giveni={I\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac21ab4ede215439fcc6b051be53a11}{%
+           family={Scaramuzza},
+           familyi={S\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{fullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{fullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{bibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorbibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Introduction to Autonomous Mobile Robots}
+      \field{year}{2011}
+    \endentry
+    \entry{spong2020robot}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1e0c4c9e500fcb5128a2bb73fbbe891a}{%
+           family={Spong},
+           familyi={S\bibinitperiod},
+           given={Mark\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8346db44e6189448a4dff197f5bc47bb}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7175c3321a0269f1e715675f8629352e}{%
+           family={Vidyasagar},
+           familyi={V\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{b5ad2c58063fcf28fcb75b0e7b029eba}
+      \strng{fullhash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{fullhashraw}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{bibnamehash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authorbibnamehash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authornamehash}{b5ad2c58063fcf28fcb75b0e7b029eba}
+      \strng{authorfullhash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authorfullhashraw}{d6482215384c9e79f8244e09185e7fc5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Robot Modeling and Control}
+      \field{year}{2020}
+    \endentry
+    \entry{sutton2018reinforcement}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=eb920e5277d3d5fd0903f3cd41e11871}{%
+           family={Sutton},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32a0a208f8bcf56a13b0a8e618aa806a}{%
+           family={Barto},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{fullhash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{fullhashraw}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{bibnamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorbibnamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authornamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorfullhash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorfullhashraw}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Reinforcement Learning: An Introduction}
+      \field{year}{2018}
+    \endentry
+    \entry{yang2024harmonic}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=530994f35dcd3db12eeca41b0a54f76e}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Ruihan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91e41f579e043b64ae40c9873e480cdf}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yejin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b63cd3af4373f98299bbc85f1ed8438}{%
+           family={Hendrix},
+           familyi={H\bibinitperiod},
+           given={Rose},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d025c5904626f59c3130bcda8ef9f453}{%
+           family={Kembhavi},
+           familyi={K\bibinitperiod},
+           given={Aniruddha},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=84a57ab121539e94069a33b4d40492c1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaolong},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de3565c2e23b7fec25bd2da3c08f6b21}{%
+           family={Ehsani},
+           familyi={E\bibinitperiod},
+           given={Kiana},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ba67f9bceb5926c8ad725bf5d3f4535e}
+      \strng{fullhash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{fullhashraw}{d73beba2e2066388648ae3a7aec30371}
+      \strng{bibnamehash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authorbibnamehash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authornamehash}{ba67f9bceb5926c8ad725bf5d3f4535e}
+      \strng{authorfullhash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authorfullhashraw}{d73beba2e2066388648ae3a7aec30371}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
+      \field{note}{Best Paper Award on Mobile Manipulation}
+      \field{title}{Harmonic Mobile Manipulation}
+      \field{year}{2024}
+    \endentry
+    \entry{zakka2025mujoco}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=079406e74075774f3657f1b9c1e3e379}{%
+           family={Zakka},
+           familyi={Z\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{fullhash}{aa2616616eedb58f60e10c627104647c}
+      \strng{fullhashraw}{aa2616616eedb58f60e10c627104647c}
+      \strng{bibnamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorbibnamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authornamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorfullhash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorfullhashraw}{aa2616616eedb58f60e10c627104647c}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2502.08844}
+      \field{title}{MuJoCo Playground: An Open-Source Framework for GPU-Accelerated Robot Learning}
+      \field{year}{2025}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{akki2025benchmarking}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f244b0730131e11463e9ce147acb2ae7}{%
+           family={Akki},
+           familyi={A\bibinitperiod},
+           given={Shivayogi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Tan},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{fullhash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{fullhashraw}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{bibnamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorbibnamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authornamehash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorfullhash}{7af197065f2805ecf66e4ec3526c048d}
+      \strng{authorfullhashraw}{7af197065f2805ecf66e4ec3526c048d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2501.16590}
+      \field{title}{Benchmarking Model Predictive Control and Reinforcement Learning Based Control for Legged Robot Locomotion in MuJoCo Simulation}
+      \field{year}{2025}
+    \endentry
+    \entry{alfaro2023deteccion}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=0263b20ddef38681cd06dd7bc4658a4e}{%
+           family={Alfaro\bibnamedelima López},
+           familyi={A\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Roberto\bibnamedelimb de\bibnamedelima Jesús},
+           giveni={R\bibinitperiod\bibinitdelim d\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidad Autónoma de Querétaro}%
+      }
+      \list{location}{1}{%
+        {Querétaro, México}%
+      }
+      \strng{namehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{fullhash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{fullhashraw}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{bibnamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorbibnamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authornamehash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorfullhash}{0263b20ddef38681cd06dd7bc4658a4e}
+      \strng{authorfullhashraw}{0263b20ddef38681cd06dd7bc4658a4e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{note}{Facultad de Ingeniería}
+      \field{title}{Detección de Obstáculos y Planeación de Ruta para un Vehículo Autónomo}
+      \field{type}{Tesis de Maestría}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://ri-ng.uaq.mx/handle/123456789/10478
+      \endverb
+      \verb{url}
+      \verb https://ri-ng.uaq.mx/handle/123456789/10478
+      \endverb
+    \endentry
+    \entry{farooq2025survey}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=251eef8c0102a25e547103c8ce4c6b79}{%
+           family={Farooq},
+           familyi={F\bibinitperiod},
+           given={Ahmad},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=80d08b226e39b4272fe392130306d119}{%
+           family={Iqbal},
+           familyi={I\bibinitperiod},
+           given={Kamran},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{fullhash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{fullhashraw}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{bibnamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorbibnamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authornamehash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorfullhash}{869d83cb9d8b4d731d29e174ed446c5b}
+      \strng{authorfullhashraw}{869d83cb9d8b4d731d29e174ed446c5b}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2502.09417}
+      \field{note}{Comprehensive survey on RL in Robotics and Manufacturing}
+      \field{title}{A Survey of Reinforcement Learning for Optimization in Automation}
+      \field{year}{2025}
+    \endentry
+    \entry{Gandara2020}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=d5a61ab7c40f9f60d25471dc2c0e3c43}{%
+           family={Gándara\bibnamedelima Vega},
+           familyi={G\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Lucas},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Universidad Militar Nueva Granada}%
+      }
+      \list{location}{1}{%
+        {Bogotá, Colombia}%
+      }
+      \strng{namehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{fullhash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{fullhashraw}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{bibnamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorbibnamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authornamehash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorfullhash}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \strng{authorfullhashraw}{d5a61ab7c40f9f60d25471dc2c0e3c43}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Desarrollo de un algoritmo para la evasión de obstáculos dinámicos con un robot móvil con técnica de aprendizaje por refuerzo}
+      \field{type}{Trabajo de grado de Ingeniería Mecatrónica}
+      \field{year}{2020}
+    \endentry
+    \entry{johannink2019residual}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=43e22a5e18e3d9bff2018574b3ad472b}{%
+           family={Johannink},
+           familyi={J\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7584772dcf4aadad2e9ba78e7cb4412}{%
+           family={Bahl},
+           familyi={B\bibinitperiod},
+           given={Shikhar},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{fullhash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{fullhashraw}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{bibnamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorbibnamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authornamehash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorfullhash}{523ce6ff250de13af3bd52d2adaffea6}
+      \strng{authorfullhashraw}{523ce6ff250de13af3bd52d2adaffea6}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2019 International Conference on Robotics and Automation (ICRA)}
+      \field{title}{Residual Reinforcement Learning for Robot Control}
+      \field{year}{2019}
+      \field{pages}{6023\bibrangedash 6029}
+      \range{pages}{7}
+    \endentry
+    \entry{octo2024}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1e3f6e03ffd1b4484f76f099c9769b33}{%
+           family={{Octo Model Team}},
+           familyi={O\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=92eee54389de5c6dbc9362d731bd7bd9}{%
+           family={Ghosh},
+           familyi={G\bibinitperiod},
+           given={Dibya},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=09dab768f8b4d56d2d6ffacf7930c72a}{%
+           family={Walke},
+           familyi={W\bibinitperiod},
+           given={Homer},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{d64b87667f94ed3e1f7d14c80f34f01a}
+      \strng{fullhash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{fullhashraw}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{bibnamehash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authorbibnamehash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authornamehash}{d64b87667f94ed3e1f7d14c80f34f01a}
+      \strng{authorfullhash}{0c1be8ba7e83a969599b1be441a64f0e}
+      \strng{authorfullhashraw}{0c1be8ba7e83a969599b1be441a64f0e}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Robotics: Science and Systems (RSS)}
+      \field{title}{Octo: An Open-Source Generalist Robot Policy}
+      \field{year}{2024}
+    \endentry
+    \entry{siegwart2011intro}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6ee8958bbf32527489012d8ca7c95ee3}{%
+           family={Siegwart},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43a2e4df07c5c4e4eb90b1e11bfd57b6}{%
+           family={Nourbakhsh},
+           familyi={N\bibinitperiod},
+           given={Illah\bibnamedelima R.},
+           giveni={I\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac21ab4ede215439fcc6b051be53a11}{%
+           family={Scaramuzza},
+           familyi={S\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{fullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{fullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{bibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorbibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Introduction to Autonomous Mobile Robots}
+      \field{year}{2011}
+    \endentry
+    \entry{spong2020robot}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=1e0c4c9e500fcb5128a2bb73fbbe891a}{%
+           family={Spong},
+           familyi={S\bibinitperiod},
+           given={Mark\bibnamedelima W.},
+           giveni={M\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8346db44e6189448a4dff197f5bc47bb}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7175c3321a0269f1e715675f8629352e}{%
+           family={Vidyasagar},
+           familyi={V\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{b5ad2c58063fcf28fcb75b0e7b029eba}
+      \strng{fullhash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{fullhashraw}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{bibnamehash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authorbibnamehash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authornamehash}{b5ad2c58063fcf28fcb75b0e7b029eba}
+      \strng{authorfullhash}{d6482215384c9e79f8244e09185e7fc5}
+      \strng{authorfullhashraw}{d6482215384c9e79f8244e09185e7fc5}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Robot Modeling and Control}
+      \field{year}{2020}
+    \endentry
+    \entry{sutton2018reinforcement}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=eb920e5277d3d5fd0903f3cd41e11871}{%
+           family={Sutton},
+           familyi={S\bibinitperiod},
+           given={Richard\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=32a0a208f8bcf56a13b0a8e618aa806a}{%
+           family={Barto},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima G.},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{fullhash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{fullhashraw}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{bibnamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorbibnamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authornamehash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorfullhash}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \strng{authorfullhashraw}{c6212f1a1407d96a3d9f4fefbb07eade}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Reinforcement Learning: An Introduction}
+      \field{year}{2018}
+    \endentry
+    \entry{yang2024harmonic}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=530994f35dcd3db12eeca41b0a54f76e}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Ruihan},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=91e41f579e043b64ae40c9873e480cdf}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Yejin},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4b63cd3af4373f98299bbc85f1ed8438}{%
+           family={Hendrix},
+           familyi={H\bibinitperiod},
+           given={Rose},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d025c5904626f59c3130bcda8ef9f453}{%
+           family={Kembhavi},
+           familyi={K\bibinitperiod},
+           given={Aniruddha},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=84a57ab121539e94069a33b4d40492c1}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xiaolong},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=de3565c2e23b7fec25bd2da3c08f6b21}{%
+           family={Ehsani},
+           familyi={E\bibinitperiod},
+           given={Kiana},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ba67f9bceb5926c8ad725bf5d3f4535e}
+      \strng{fullhash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{fullhashraw}{d73beba2e2066388648ae3a7aec30371}
+      \strng{bibnamehash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authorbibnamehash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authornamehash}{ba67f9bceb5926c8ad725bf5d3f4535e}
+      \strng{authorfullhash}{d73beba2e2066388648ae3a7aec30371}
+      \strng{authorfullhashraw}{d73beba2e2066388648ae3a7aec30371}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}
+      \field{note}{Best Paper Award on Mobile Manipulation}
+      \field{title}{Harmonic Mobile Manipulation}
+      \field{year}{2024}
+    \endentry
+    \entry{zakka2025mujoco}{article}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=079406e74075774f3657f1b9c1e3e379}{%
+           family={Zakka},
+           familyi={Z\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{fullhash}{aa2616616eedb58f60e10c627104647c}
+      \strng{fullhashraw}{aa2616616eedb58f60e10c627104647c}
+      \strng{bibnamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorbibnamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authornamehash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorfullhash}{aa2616616eedb58f60e10c627104647c}
+      \strng{authorfullhashraw}{aa2616616eedb58f60e10c627104647c}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2502.08844}
+      \field{title}{MuJoCo Playground: An Open-Source Framework for GPU-Accelerated Robot Learning}
+      \field{year}{2025}
+    \endentry
+  \enddatalist
+  \missing{Alfaro2023}
+\endrefsection
 \endinput
 

@@ -12,8 +12,9 @@
 \contentsline {subsection}{\numberline {2.1.1}Cinemática de Robots: La Geometría del Movimiento}{3}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Cinemática Directa y la Convención Denavit-Hartenberg (DH)}{3}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Cinemática Inversa (IK): El Problema Mal Planteado}{4}{subsection.2.1.3}%
-\contentsline {subsection}{\numberline {2.1.4}La Matriz Jacobiana: Velocidad y Estática}{5}{subsection.2.1.4}%
-\contentsline {section}{\numberline {2.2}Dinámica de Robots: Fuerzas y Energía}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.1.4}La Matriz Jacobiana: Velocidad}{5}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Dinámica de Robots: Fuerzas y Energía}{5}{section.2.2}%
+\contentsline {subsubsection}{Análisis Estático}{5}{subsubsection*.9}%
 \contentsline {subsection}{\numberline {2.2.1}Formulación Lagrangiana}{6}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Formulación Newton-Euler Recursiva (RNEA)}{6}{subsection.2.2.2}%
 \contentsline {section}{\numberline {2.3}Teoría de Control Clásico}{7}{section.2.3}%
@@ -27,58 +28,64 @@
 \contentsline {subsection}{\numberline {2.5.2}Algoritmos de Deep RL Dominantes en Robótica}{8}{subsection.2.5.2}%
 \contentsline {subsection}{\numberline {2.5.3}El Desafío Sim-to-Real}{9}{subsection.2.5.3}%
 \contentsline {subsection}{\numberline {2.5.4}Arquitecturas Híbridas y Casos de Estudio}{9}{subsection.2.5.4}%
-\contentsline {section}{\numberline {2.6}Herramientas y entornos de simulación}{9}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Motores de Física y Fidelidad}{9}{subsection.2.6.1}%
-\contentsline {subsubsection}{NVIDIA Isaac Sim y PhysX 5}{9}{subsubsection*.10}%
-\contentsline {subsubsection}{MuJoCo}{10}{subsubsection*.11}%
-\contentsline {subsubsection}{Gazebo y PyBullet}{10}{subsubsection*.12}%
+\contentsline {section}{\numberline {2.6}Herramientas y entornos de simulación}{10}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Motores de Física y Fidelidad}{10}{subsection.2.6.1}%
+\contentsline {subsubsection}{NVIDIA Isaac Sim y PhysX 5}{10}{subsubsection*.11}%
+\contentsline {subsubsection}{MuJoCo (Multi-Joint dynamics with Contact)}{10}{subsubsection*.12}%
+\contentsline {subsubsection}{Gazebo y PyBullet}{10}{subsubsection*.13}%
 \contentsline {subsection}{\numberline {2.6.2}Comparativa Técnica de Simuladores}{10}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Tendencias Emergentes}{10}{subsection.2.6.3}%
-\contentsline {section}{\numberline {2.7}Conclusiones y Perspectivas Futuras}{10}{section.2.7}%
+\contentsline {subsection}{\numberline {2.6.3}Tendencias Emergentes}{11}{subsection.2.6.3}%
+\contentsline {section}{\numberline {2.7}Conclusiones y Perspectivas Futuras}{11}{section.2.7}%
 \contentsline {section}{\numberline {2.8}Trabajos y resultados previos}{11}{section.2.8}%
-\contentsline {section}{\numberline {2.9}Relación con el proyecto}{11}{section.2.9}%
-\contentsline {chapter}{\numberline {3}Materiales y métodos}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Modelado Dinámico}{12}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Hipótesis Adoptadas}{12}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Definición de Coordenadas}{13}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Formulación de Euler-Lagrange}{13}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Modelo Dinámico Resultante}{14}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}Modelado cinemático/dinámico del robot + tool (si aplica)}{14}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Metodología de control y aprendizaje por refuerzo (RL)}{14}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Esquema de control}{15}{subsection.3.3.1}%
-\contentsline {subsubsection}{Control por LIDAR y cámara}{15}{subsubsection*.15}%
-\contentsline {subsubsection}{Control por RL}{15}{subsubsection*.16}%
-\contentsline {subsection}{\numberline {3.3.2}Algoritmo RL PPO}{15}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Recompensas, estados y acciones}{15}{subsection.3.3.3}%
-\contentsline {subsubsection}{recompensas}{15}{subsubsection*.17}%
-\contentsline {subsubsection}{Estados}{16}{subsubsection*.18}%
-\contentsline {subsubsection}{Acciones}{16}{subsubsection*.19}%
-\contentsline {section}{\numberline {3.4}Entorno de simulación y herramientas utilizadas}{16}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Unity + Visual estudio}{17}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Visual estudio code}{17}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}TensorFlow}{17}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}KERAS + gym}{17}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}ROS 1}{17}{subsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.4.6}Turtle bot}{17}{subsection.3.4.6}%
-\contentsline {subsection}{\numberline {3.4.7}Entorno}{17}{subsection.3.4.7}%
-\contentsline {subsection}{\numberline {3.4.8}Sensores virtuales}{17}{subsection.3.4.8}%
-\contentsline {subsubsection}{LIDAR}{17}{subsubsection*.20}%
-\contentsline {subsection}{\numberline {3.4.9}Condiciones de iteraccion}{18}{subsection.3.4.9}%
-\contentsline {section}{\numberline {3.5}Procedimiento de experimentación / entrenamiento}{18}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Flujo de trabajo}{18}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Estrategia de comparacion}{18}{subsection.3.5.2}%
-\contentsline {section}{\numberline {3.6}Programación}{19}{section.3.6}%
-\contentsline {chapter}{\numberline {4}Resultados}{20}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{20}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{20}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{21}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Comparación de controladores}{23}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{23}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{23}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{23}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{23}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Discusión crítica}{24}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{24}{subsection.4.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{25}{section.5.2}%
+\contentsline {subsection}{\numberline {2.8.1}Detección de obstáculos y planificación de rutas para un vehículo autónomo \blx@tocontentsinit {0}\cite {alfaro2023deteccion}}{11}{subsection.2.8.1}%
+\contentsline {subsubsection}{Hardware utilizado:}{11}{subsubsection*.15}%
+\contentsline {subsection}{\numberline {2.8.2}Evasión de obstáculos con DRL}{12}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Relación con trabajos previos y justificación metodológica}{13}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Plataforma y Entorno de Simulación (Relación con \blx@tocontentsinit {0}\cite {Gandara2020})}{13}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Fusión de Sensores y Espacio de Observación (Relación con \blx@tocontentsinit {0}\cite {alfaro2023deteccion})}{13}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Algoritmos de Aprendizaje: Evolución hacia PPO}{14}{subsection.2.9.3}%
+\contentsline {chapter}{\numberline {3}Materiales y métodos}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Modelado Dinámico}{15}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Hipótesis Adoptadas}{15}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Definición de Coordenadas}{16}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Formulación de Euler-Lagrange}{16}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Modelo Dinámico Resultante}{17}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Esquema de control}{17}{subsection.3.2.1}%
+\contentsline {subsubsection}{Control por LIDAR y cámara}{17}{subsubsection*.17}%
+\contentsline {subsubsection}{Control por RL}{18}{subsubsection*.18}%
+\contentsline {subsection}{\numberline {3.2.2}Algoritmo RL PPO}{18}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Recompensas, estados y acciones}{18}{subsection.3.2.3}%
+\contentsline {subsubsection}{recompensas}{18}{subsubsection*.19}%
+\contentsline {subsubsection}{Estados}{19}{subsubsection*.20}%
+\contentsline {subsubsection}{Acciones}{19}{subsubsection*.21}%
+\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{19}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Unity + Visual estudio}{19}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Visual estudio code}{19}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{19}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}KERAS + gym}{19}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}ROS 1}{19}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}Turtle bot}{20}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}Entorno}{20}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Sensores virtuales}{20}{subsection.3.3.8}%
+\contentsline {subsubsection}{LIDAR}{20}{subsubsection*.22}%
+\contentsline {subsection}{\numberline {3.3.9}Condiciones de iteraccion}{20}{subsection.3.3.9}%
+\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{21}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Programación}{22}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{23}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{23}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{24}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Comparación de controladores}{26}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{26}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{26}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{26}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{26}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Discusión crítica}{27}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{27}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{28}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{28}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{28}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{29}{chapter*.28}%

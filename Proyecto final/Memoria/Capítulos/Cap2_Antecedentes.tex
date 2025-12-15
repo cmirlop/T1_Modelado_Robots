@@ -6,9 +6,9 @@
 
 \begin{Resumen}
 
-En este capítulo se debe contextualizar el proyecto dentro del conocimiento existente. No se trata de hacer un simple resumen, sino de demostrar que se entiende qué se ha hecho ya en el área, qué problemas siguen abiertos y qué aporta vuestro trabajo en ese contexto.
-
-\end{Resumen}
+    Este capítulo contextualiza el proyecto dentro de la robótica móvil y el Aprendizaje por Refuerzo Profundo (Deep RL). Se revisan los fundamentos teóricos (cinemática, dinámica, control) y la evolución del estado del arte hacia algoritmos basados en datos como PPO. A través del análisis crítico de trabajos previos como \cite{Gandara2020} y \cite{Alfaro2023}, se identifican limitaciones en la estabilidad de métodos anteriores (NEAT, DQN) y en la percepción del entorno. Esto justifica nuestra propuesta: un sistema de navegación \textit{end-to-end} en Unity con fusión de sensores (LIDAR y cámara) para optimizar la toma de decisiones del agente.
+    
+    \end{Resumen}
 
 \section{Fundamentos teóricos relevantes}
 \subsection{Cinemática de Robots: La Geometría del Movimiento}
@@ -266,15 +266,60 @@ La tesis detalla el desarrollo  de un sistema de navegación autónomo para un r
     \item Simulación: Gazebo, para probar en un entorno en el que no se pudiera dañar el robot.
 \end{itemize}
 
-Ejemplos de investigaciones o proyectos similares que hayan aplicado RL en robótica.
+\subsection{Evasión de obstáculos con DRL}
+En el trabajo de grado desarrollado por \cite{Gandara2020}, se aborda la problemática de la navegación autónoma en entornos con obstáculos dinámicos imprevistos. El objetivo principal fue diseñar una estrategia híbrida que integrara un planificador de trayectoria global con un algoritmo de inteligencia artificial para la toma de decisiones reactiva.
 
-Limitaciones encontradas en esos trabajos y vacíos de investigación que motivan este proyecto.
+\subsection*{Selección de Plataforma y Herramientas}
+Para la validación experimental, el autor seleccionó la plataforma móvil \textit{Turtlebot 3 Burger} debido a su compatibilidad nativa con ROS (Robot Operating System) y la inclusión de un sensor LIDAR de 360 grados, esencial para la percepción del entorno. Se descartaron opciones como el \textit{Bioloid} o el \textit{Pioneer P3-DX} por limitaciones en el control de actuadores o tamaño excesivo para el entorno de pruebas.
 
-\section{Relación con el proyecto}
-Identificación de qué aspectos se tomarán como base para el trabajo (ej. modelado cinemático/dinámico tradicional).
+\subsection*{Metodología Híbrida}
+El sistema propuesto se divide en dos niveles de control:
+\begin{itemize}
+    \item \textbf{Planeación Global ($A^*$):} Se implementó el algoritmo determinista $A^*$ para calcular la ruta óptima en un mapa estático conocido, debido a su eficiencia frente a métodos probabilísticos como RRT.
+    \item \textbf{Evasión Reactiva (IA):} Se compararon dos enfoques de aprendizaje automático para tomar el control del robot cuando aparecen obstáculos no mapeados:
+    \begin{enumerate}
+        \item \textbf{NEAT (Neuroevolution of Augmenting Topologies):} Evolución de redes neuronales mediante algoritmos genéticos.
+        \item \textbf{DRL (Deep Reinforcement Learning):} Específicamente aprendizaje profundo por refuerzo, utilizando una arquitectura de red densa.
+    \end{enumerate}
+\end{itemize}
 
-Qué parte supone un reto o innovación (ej. implementación de RL en IsaacLab).
-%Tantas secciones y subsecciones como te sea necesario
+\subsection*{Entrenamiento y Resultados}
+Los experimentos se realizaron en un entorno simulado (Gazebo) discretizado en celdas. Se definieron tres tipos de obstáculos dinámicos con comportamientos predefinidos (estáticos sorpresivos, movimiento constante y movimiento variable).
+
+Los resultados mostraron que el algoritmo \textbf{NEAT} presentó dificultades significativas para generalizar ante obstáculos móviles, fallando en las pruebas de tipo 2 y 3. Por otro lado, el enfoque basado en \textbf{DRL} demostró ser superior, logrando evadir obstáculos dinámicos y retomar la trayectoria. 
+
+Es importante destacar que el autor aplicó \textit{Curriculum Learning} (aprendizaje curricular) para el entrenamiento del agente DRL, aumentando gradualmente la dificultad del entorno, lo cual fue determinante para evitar el estancamiento y lograr la convergencia del modelo.
+
+\section{Relación con trabajos previos y justificación metodológica}
+
+El presente proyecto se fundamenta en la evolución de técnicas de navegación autónoma exploradas en la literatura reciente, situándose en la intersección de las metodologías propuestas por \cite{Gandara2020} y \cite{alfaro2023deteccion}. A continuación, se detalla la relación directa de estos trabajos con la propuesta actual de navegación en entornos virtuales mediante el algoritmo PPO.
+
+\subsection{Plataforma y Entorno de Simulación (Relación con \cite{Gandara2020})}
+Al igual que en el trabajo de \cite{Gandara2020}, este proyecto selecciona al \textbf{Turtlebot 3} como la plataforma robótica de experimentación debido a su compatibilidad con sensores LIDAR y su versatilidad para la investigación académica.
+
+Sin embargo, existen diferencias clave en la metodología de navegación:
+\begin{itemize}
+    \item \textbf{Enfoque Híbrido vs. End-to-End:} \cite{Gandara2020} implementó un sistema híbrido donde la planeación global se realizaba mediante algoritmos clásicos como $A^{*}$, delegando al Aprendizaje por Refuerzo Profundo (DRL) únicamente la tarea reactiva de evasión de obstáculos dinámicos. En contraste, nuestro proyecto propone un enfoque de aprendizaje \textit{end-to-end} donde el algoritmo PPO gestiona tanto la navegación hacia el objetivo como la evasión, basándose en recompensas.
+    \item \textbf{Simulación:} Mientras \cite{Gandara2020} validó sus modelos en \textbf{Gazebo} integrado con ROS, nuestro trabajo traslada la experimentación al motor \textbf{Unity}, aprovechando sus capacidades gráficas avanzadas para simular la entrada de visión artificial requerida.
+\end{itemize}
+
+\subsection{Fusión de Sensores y Espacio de Observación (Relación con \cite{alfaro2023deteccion})}
+La relación más fuerte con el trabajo de \cite{alfaro2023deteccion} radica en la \textbf{fusión sensorial}. El autor demostró que el uso exclusivo de LIDAR 2D limita la percepción del entorno, proponiendo la integración de una cámara RGB-D para complementar la detección de obstáculos y la orientación.
+
+Nuestro proyecto adopta una estrategia similar al definir el espacio de observación:
+\begin{itemize}
+    \item \textbf{Inputs Multimodales:} Al igual que \cite{alfaro2023deteccion}, quien combinó mediciones de láser y ángulos de orientación en una red neuronal con ramas distintas, nuestro agente utiliza tanto la entrada del LIDAR como la información visual de la cámara frontal para detectar el objetivo y orientarse.
+    \item \textbf{Diseño de Recompensas:} \cite{alfaro2023deteccion} estructuró una función de recompensa compuesta por incentivos de velocidad, castigos por cercanía a obstáculos y premios por orientación hacia la meta. Esta estructura sirve de base teórica para nuestra política de recompensas, adaptándola para que el agente aprenda a interpretar las imágenes de la cámara como señales de ``meta''.
+\end{itemize}
+
+\subsection{Algoritmos de Aprendizaje: Evolución hacia PPO}
+Existe una progresión algorítmica clara al comparar los tres trabajos:
+\begin{enumerate}
+    \item \textbf{NEAT (\cite{Gandara2020}):} Utilizó algoritmos genéticos para evolucionar la topología de redes neuronales, aunque presentó problemas de estabilidad y convergencia en escenarios complejos.
+    \item \textbf{DQN (\cite{alfaro2023deteccion}):} Implementó \textit{Deep Q-Network}, un método basado en valores (\textit{Value-based}) que aprende una función $Q$ para estimar la calidad de las acciones.
+    \item \textbf{PPO (Nuestro Proyecto):} Nuestro trabajo da el siguiente paso utilizando \textbf{Proximal Policy Optimization (PPO)}. A diferencia del DQN usado por \cite{alfaro2023deteccion}, PPO es un algoritmo de gradiente de política (\textit{Policy-based}) que suele ofrecer mayor estabilidad y facilidad de ajuste en entornos con espacios de acción continuos o complejos, siendo ideal para la navegación suave que requiere el Turtlebot 3 en los laberintos de Unity.
+\end{enumerate}
+
 
 
 

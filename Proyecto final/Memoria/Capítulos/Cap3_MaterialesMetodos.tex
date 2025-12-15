@@ -15,7 +15,7 @@ La sección Materials and Methods (también llamada Methodology o Experimental S
 El objetivo de esta sección es obtener las ecuaciones que gobiernan el movimiento del robot JetBot 3 relacionando los pares aplicados por los motores con las aceleraciones del sistema. Para ello, se utiliza el formalismo de \textbf{Euler-Lagrange}.
 
 \subsection{Hipótesis Adoptadas}
-Para la derivación del modelo matemático, se asumen las siguientes simplificaciones sobre la física del robot:
+Para la derivación del modelo matemático, se asumen las siguientes simplificaciones sobre la física del robot, basadas en el modelo estándar de robot diferencial descrito en \cite{siegwart2011intro}:
 \begin{itemize}
     \item \textbf{Cuerpo Rígido:} El chasis y las ruedas son indeformables.
     \item \textbf{Movimiento Plano:} El robot se desplaza sobre una superficie horizontal, por lo que la energía potencial gravitatoria es constante ($V=0$).
@@ -34,7 +34,7 @@ Donde $(x, y)$ representan la posición cartesiana del punto medio del eje de la
 
 \begin{figure}[h]
     \centering
-    % Aquí puedes insertar tu imagen: \includegraphics[width=0.6\textwidth]{esquema_jetbot.png}
+    % Aquí insertas tu diagrama generado con TikZ o la imagen
     \caption{Esquema cinemático del robot diferencial (JetBot) con las variables de estado y parámetros geométricos.}
     \label{fig:robot_scheme}
 \end{figure}
@@ -90,15 +90,9 @@ Donde:
     \item $\tau_R, \tau_L$: Pares aplicados por los motores derecho e izquierdo.
 \end{itemize}
 
+Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
 %Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
 
-\section{Modelado cinemático/dinámico del robot + tool (si aplica)}
-Descripción de los pasos seguidos para modelar el robot dentro del entorno de simulación. Si se ha realizado un modelado teórico, incorporar: Formulación de la cinemática directa e inversa mediante el uso de matrices de transformación homogénea, parámetros de Denavit–Hartenberg. Obtención de la matriz Jacobiana y análisis de singularidades.
-
-Modelado dinámico (ecuaciones de Euler–Lagrange o Newton–Euler) con las hipótesis adoptadas (ej. robot rígido, sin rozamiento, etc.).
-
-Representación clara de ecuaciones y, cuando sea útil, diagramas que apoyen la comprensión.
-    
 \section{Metodología de control y aprendizaje por refuerzo (RL)}
 Explicación de los esquemas de control diseñados: control clásico de referencia, control basado en RL, comparación, etc.
 \subsection{Esquema de control}
@@ -153,6 +147,7 @@ Si no se ha alcanzado el área mínima de 1000px, las recompensas son las siguie
     \item Moverse suave hacia la izquierda
     \item Moverle lento hacia antrás
 \end{itemize}
+
 
 \section{Entorno de simulación y herramientas utilizadas}
 Descripción de IsaacSim/IsaacLab: versiones empleadas, configuración inicial y librerías auxiliares. Recursos computacionales (hardware, GPU, sistema operativo).
@@ -242,7 +237,7 @@ Número de episodios, pruebas o repeticiones realizadas.
 \section{Programación}
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.4\textwidth]{figuras_Nico/Diagrama_ctrl.png}
+    \includegraphics[width=0.6\textwidth]{figuras_Nico/Diagrama_ctrl.png}
     \caption{Diagrama de Flujo del control por LIDAR y cámara}
     \label{fig:my_label}
 \end{figure}
