@@ -233,10 +233,10 @@ simular el comportamiento del JetBot \cite{nvidia_jetbot} en un cubo con sus ecu
 
 
 \subsection{Entorno}
-Nuestro entorno es un laberito con paredes y pasillos por donde el robot deberá moverse y encontrar el
+Nuestro entorno es un laberinto con paredes y pasillos por donde el robot deberá moverse y encontrar el
 objetivo de color rojo que puede estar en cualquier lado de la escena.
 Se diseñó un mismo entorno, donde en cada instancia el objetivo estaba en una posición diferente como vemos en 
-las siguientes imagenes.
+las siguientes imágenes.
 
 \begin{figure}[H]
     \centering
@@ -261,20 +261,20 @@ las siguientes imagenes.
 \subsection{Sensores virtuales}
 \subsubsection{LIDAR}
 Hemos modelado un LIDAR que publica los valores en un topic de ros, es este colisionado
-es un codigo de Unity el cual genera una nube de puntos, y los publica todos a través del tópic. En nuestro código lo tratamos
-de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el minimo cada dos sectores.
+es un código de Unity el cual genera una nube de puntos, y los publica todos a través del tópic. En nuestro código lo tratamos
+de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el mínimo cada dos sectores.
 
 
 
 \section{Procedimiento de experimentación / entrenamiento}
 Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
 \subsection{Flujo de trabajo}
-Se probó primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruze ya alcanzaba
+Se probó primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruce ya alcanzaba
 el objetivo final. Esto se modificó y se hicieron 4 escenarios para el mismo entrenamiento, donde el objetivo estaba 
 en diferentes puntos.
 
 \subsection{Estrategia de comparacion}
-Se definió que cada 1000 pasos en cada robot, se realize una comparcion de modelo, pero se detendria
+Se definió que cada 1000 pasos en cada robot, se realize una comparación de modelo, pero se detendría
 el entrenamineto si la media de los ultimos 1000 episodios no mejoraba durante los 5 siguientes episodios.
 
 \newpage
