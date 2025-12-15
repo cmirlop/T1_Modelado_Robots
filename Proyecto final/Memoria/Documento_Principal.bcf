@@ -3111,6 +3111,12 @@
     <bcf:citekey order="38" intorder="1">alfaro2023deteccion</bcf:citekey>
     <bcf:citekey order="39" intorder="1">siegwart2011intro</bcf:citekey>
     <bcf:citekey order="40" intorder="1">siegwart2011intro</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">schulman2017proximal</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">unity3d</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">abadi2016tensorflow</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">chollet2015keras</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">quigley2009ros</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">nvidia_jetbot</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

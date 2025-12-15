@@ -19,92 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{apa/apasortcite//global/global/global}
-    \entry{abadi2016tensorflow}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=9a04ae935da573a7aa9c83afdf2fd845}{%
-           family={Abadi},
-           familyi={A\bibinitperiod},
-           given={Martín},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=08cf514c08137f94d73b590060797f5b}{%
-           family={Barham},
-           familyi={B\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=1,uniquepart=given,hash=f756003cc97f5981d94995af3bd6862b}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Jianmin},
-           giveni={J\bibinitperiod},
-           givenun=1}}%
-        {{un=1,uniquepart=given,hash=c0d10aaf985cebf8d0497e1828f9313f}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhifeng},
-           giveni={Z\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=a4c859221cc41e2db6d63b486f955ba2}{%
-           family={Davis},
-           familyi={D\bibinitperiod},
-           given={Andy},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4aecfb0cc2e1e3b7899129fa2a94e2b8}{%
-           family={Dean},
-           familyi={D\bibinitperiod},
-           given={Jeffrey},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bd7f88635b51bc5abb3d5a2cab967724}{%
-           family={Devin},
-           familyi={D\bibinitperiod},
-           given={Matthieu},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=193bcec5240237591ad8fb697869f013}{%
-           family={Ghemawat},
-           familyi={G\bibinitperiod},
-           given={Sanjay},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=edc6964c6549e1839ca94d3d61e03f76}{%
-           family={Irving},
-           familyi={I\bibinitperiod},
-           given={Geoffrey},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3b62e7eedeec9f7a7f7f3c3ec88637f1}{%
-           family={Isard},
-           familyi={I\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{24b1e0a436b566c814359b41f12b3ce3}
-      \strng{fullhash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{fullhashraw}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{bibnamehash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authorbibnamehash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authornamehash}{24b1e0a436b566c814359b41f12b3ce3}
-      \strng{authorfullhash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authorfullhashraw}{8b4244f50cc7c80638762e50c304b93e}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{12th USENIX symposium on operating systems design and implementation (OSDI 16)}
-      \field{title}{TensorFlow: A System for Large-Scale Machine Learning}
-      \field{year}{2016}
-      \field{pages}{265\bibrangedash 283}
-      \range{pages}{19}
-    \endentry
     \entry{akki2025benchmarking}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=f244b0730131e11463e9ce147acb2ae7}{%
@@ -113,12 +27,12 @@
            given={Shivayogi},
            giveni={S\bibinitperiod},
            givenun=0}}%
-        {{un=1,uniquepart=given,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
+        {{un=0,uniquepart=base,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
            family={Chen},
            familyi={C\bibinitperiod},
            given={Tan},
            giveni={T\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
       }
       \strng{namehash}{7af197065f2805ecf66e4ec3526c048d}
       \strng{fullhash}{7af197065f2805ecf66e4ec3526c048d}
@@ -321,32 +235,6 @@
       \field{pages}{6023\bibrangedash 6029}
       \range{pages}{7}
     \endentry
-    \entry{nvidia_jetbot}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9ad14fae09b617d96cb4af76c555b394}{%
-           family={{NVIDIA Corporation}},
-           familyi={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{fullhash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{fullhashraw}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{bibnamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorbibnamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authornamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorfullhash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorfullhashraw}{9ad14fae09b617d96cb4af76c555b394}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/NVIDIA-AI-IOT/jetbot}}
-      \field{note}{Accedido: 2024-05-20}
-      \field{title}{JetBot: An open-source robot based on NVIDIA Jetson Nano}
-      \field{year}{2019}
-    \endentry
     \entry{octo2024}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -385,80 +273,6 @@
       \field{journaltitle}{Robotics: Science and Systems (RSS)}
       \field{title}{Octo: An Open-Source Generalist Robot Policy}
       \field{year}{2024}
-    \endentry
-    \entry{quigley2009ros}{article}{}{}
-      \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=9404eebbe5c52f5580a6f6515ebcbb80}{%
-           family={Quigley},
-           familyi={Q\bibinitperiod},
-           given={Morgan},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=03be3bc097356f7d1ec26652c7045241}{%
-           family={Conley},
-           familyi={C\bibinitperiod},
-           given={Ken},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a8ad4a5f43253f69552460c946e34e49}{%
-           family={Gerkey},
-           familyi={G\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=960c70f75f497debf10c247f8076241e}{%
-           family={Faust},
-           familyi={F\bibinitperiod},
-           given={Josh},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0d11ace6e44e4742ea1692d7ddf4819e}{%
-           family={Foote},
-           familyi={F\bibinitperiod},
-           given={Tully},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fae0a680822c97400d0807bb44b87838}{%
-           family={Leibs},
-           familyi={L\bibinitperiod},
-           given={Jeremy},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1afca7d350a45f78259bb8af3f168e7d}{%
-           family={Wheeler},
-           familyi={W\bibinitperiod},
-           given={Rob},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
-           family={Ng},
-           familyi={N\bibinitperiod},
-           given={Andrew\bibnamedelima Y},
-           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{b774a9d43f5be3e4c87661f157618116}
-      \strng{fullhash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{fullhashraw}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{bibnamehash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authorbibnamehash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authornamehash}{b774a9d43f5be3e4c87661f157618116}
-      \strng{authorfullhash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authorfullhashraw}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \field{sortinit}{Q}
-      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{ICRA workshop on open source software}
-      \field{number}{3.2}
-      \field{title}{ROS: an open-source Robot Operating System}
-      \field{volume}{3}
-      \field{year}{2009}
-      \field{pages}{5}
-      \range{pages}{1}
     \endentry
     \entry{siegwart2011intro}{book}{}{}
       \name{author}{3}{}{%
@@ -585,32 +399,6 @@
       \field{edition}{2nd}
       \field{title}{Reinforcement Learning: An Introduction}
       \field{year}{2018}
-    \endentry
-    \entry{unity3d}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3f56ad8f8e05fcad24de3fcf878fb50b}{%
-           family={{Unity Technologies}},
-           familyi={U\bibinitperiod}}}%
-      }
-      \strng{namehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{fullhash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{fullhashraw}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{bibnamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorbibnamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authornamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorfullhash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorfullhashraw}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \field{sortinit}{U}
-      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://unity.com/}}
-      \field{note}{Versión 2022.3 LTS}
-      \field{title}{Unity Real-Time Development Platform}
-      \field{year}{2022}
     \endentry
     \entry{yang2024harmonic}{article}{}{}
       \name{author}{6}{}{%
@@ -703,92 +491,6 @@
     \endentry
   \enddatalist
   \datalist[entry]{apa/global//global/global/global}
-    \entry{abadi2016tensorflow}{article}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{10}{}{%
-        {{un=0,uniquepart=base,hash=9a04ae935da573a7aa9c83afdf2fd845}{%
-           family={Abadi},
-           familyi={A\bibinitperiod},
-           given={Martín},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=08cf514c08137f94d73b590060797f5b}{%
-           family={Barham},
-           familyi={B\bibinitperiod},
-           given={Paul},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=1,uniquepart=given,hash=f756003cc97f5981d94995af3bd6862b}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Jianmin},
-           giveni={J\bibinitperiod},
-           givenun=1}}%
-        {{un=1,uniquepart=given,hash=c0d10aaf985cebf8d0497e1828f9313f}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Zhifeng},
-           giveni={Z\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=a4c859221cc41e2db6d63b486f955ba2}{%
-           family={Davis},
-           familyi={D\bibinitperiod},
-           given={Andy},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4aecfb0cc2e1e3b7899129fa2a94e2b8}{%
-           family={Dean},
-           familyi={D\bibinitperiod},
-           given={Jeffrey},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bd7f88635b51bc5abb3d5a2cab967724}{%
-           family={Devin},
-           familyi={D\bibinitperiod},
-           given={Matthieu},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=193bcec5240237591ad8fb697869f013}{%
-           family={Ghemawat},
-           familyi={G\bibinitperiod},
-           given={Sanjay},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=edc6964c6549e1839ca94d3d61e03f76}{%
-           family={Irving},
-           familyi={I\bibinitperiod},
-           given={Geoffrey},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3b62e7eedeec9f7a7f7f3c3ec88637f1}{%
-           family={Isard},
-           familyi={I\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{24b1e0a436b566c814359b41f12b3ce3}
-      \strng{fullhash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{fullhashraw}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{bibnamehash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authorbibnamehash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authornamehash}{24b1e0a436b566c814359b41f12b3ce3}
-      \strng{authorfullhash}{8b4244f50cc7c80638762e50c304b93e}
-      \strng{authorfullhashraw}{8b4244f50cc7c80638762e50c304b93e}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{12th USENIX symposium on operating systems design and implementation (OSDI 16)}
-      \field{title}{TensorFlow: A System for Large-Scale Machine Learning}
-      \field{year}{2016}
-      \field{pages}{265\bibrangedash 283}
-      \range{pages}{19}
-    \endentry
     \entry{akki2025benchmarking}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=f244b0730131e11463e9ce147acb2ae7}{%
@@ -797,12 +499,12 @@
            given={Shivayogi},
            giveni={S\bibinitperiod},
            givenun=0}}%
-        {{un=1,uniquepart=given,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
+        {{un=0,uniquepart=base,hash=132729906be2af3a2d1d3f90d1a8cf2e}{%
            family={Chen},
            familyi={C\bibinitperiod},
            given={Tan},
            giveni={T\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
       }
       \strng{namehash}{7af197065f2805ecf66e4ec3526c048d}
       \strng{fullhash}{7af197065f2805ecf66e4ec3526c048d}
@@ -1005,32 +707,6 @@
       \field{pages}{6023\bibrangedash 6029}
       \range{pages}{7}
     \endentry
-    \entry{nvidia_jetbot}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9ad14fae09b617d96cb4af76c555b394}{%
-           family={{NVIDIA Corporation}},
-           familyi={N\bibinitperiod}}}%
-      }
-      \strng{namehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{fullhash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{fullhashraw}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{bibnamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorbibnamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authornamehash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorfullhash}{9ad14fae09b617d96cb4af76c555b394}
-      \strng{authorfullhashraw}{9ad14fae09b617d96cb4af76c555b394}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://github.com/NVIDIA-AI-IOT/jetbot}}
-      \field{note}{Accedido: 2024-05-20}
-      \field{title}{JetBot: An open-source robot based on NVIDIA Jetson Nano}
-      \field{year}{2019}
-    \endentry
     \entry{octo2024}{article}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -1069,80 +745,6 @@
       \field{journaltitle}{Robotics: Science and Systems (RSS)}
       \field{title}{Octo: An Open-Source Generalist Robot Policy}
       \field{year}{2024}
-    \endentry
-    \entry{quigley2009ros}{article}{}{}
-      \name{author}{8}{}{%
-        {{un=0,uniquepart=base,hash=9404eebbe5c52f5580a6f6515ebcbb80}{%
-           family={Quigley},
-           familyi={Q\bibinitperiod},
-           given={Morgan},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=03be3bc097356f7d1ec26652c7045241}{%
-           family={Conley},
-           familyi={C\bibinitperiod},
-           given={Ken},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a8ad4a5f43253f69552460c946e34e49}{%
-           family={Gerkey},
-           familyi={G\bibinitperiod},
-           given={Brian},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=960c70f75f497debf10c247f8076241e}{%
-           family={Faust},
-           familyi={F\bibinitperiod},
-           given={Josh},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0d11ace6e44e4742ea1692d7ddf4819e}{%
-           family={Foote},
-           familyi={F\bibinitperiod},
-           given={Tully},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fae0a680822c97400d0807bb44b87838}{%
-           family={Leibs},
-           familyi={L\bibinitperiod},
-           given={Jeremy},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1afca7d350a45f78259bb8af3f168e7d}{%
-           family={Wheeler},
-           familyi={W\bibinitperiod},
-           given={Rob},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=49e889356ff39df159461bc2895c7e16}{%
-           family={Ng},
-           familyi={N\bibinitperiod},
-           given={Andrew\bibnamedelima Y},
-           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{b774a9d43f5be3e4c87661f157618116}
-      \strng{fullhash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{fullhashraw}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{bibnamehash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authorbibnamehash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authornamehash}{b774a9d43f5be3e4c87661f157618116}
-      \strng{authorfullhash}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \strng{authorfullhashraw}{a91a45c430d95c385cb29e58b6b9fd6e}
-      \field{sortinit}{Q}
-      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{ICRA workshop on open source software}
-      \field{number}{3.2}
-      \field{title}{ROS: an open-source Robot Operating System}
-      \field{volume}{3}
-      \field{year}{2009}
-      \field{pages}{5}
-      \range{pages}{1}
     \endentry
     \entry{siegwart2011intro}{book}{}{}
       \name{author}{3}{}{%
@@ -1270,32 +872,6 @@
       \field{title}{Reinforcement Learning: An Introduction}
       \field{year}{2018}
     \endentry
-    \entry{unity3d}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3f56ad8f8e05fcad24de3fcf878fb50b}{%
-           family={{Unity Technologies}},
-           familyi={U\bibinitperiod}}}%
-      }
-      \strng{namehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{fullhash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{fullhashraw}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{bibnamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorbibnamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authornamehash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorfullhash}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \strng{authorfullhashraw}{3f56ad8f8e05fcad24de3fcf878fb50b}
-      \field{sortinit}{U}
-      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://unity.com/}}
-      \field{note}{Versión 2022.3 LTS}
-      \field{title}{Unity Real-Time Development Platform}
-      \field{year}{2022}
-    \endentry
     \entry{yang2024harmonic}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=530994f35dcd3db12eeca41b0a54f76e}{%
@@ -1387,7 +963,6 @@
     \endentry
   \enddatalist
   \missing{Alfaro2023}
-  \missing{schulman2017proximal}
 \endrefsection
 \endinput
 

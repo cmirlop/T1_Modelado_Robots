@@ -1,19 +1,20 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'Documento_Principal.blg'
-[122] biber-MSWIN64:342> INFO - === 
-[179] Biber.pm:421> INFO - Reading 'Documento_Principal.bcf'
-[335] Biber.pm:1002> INFO - Found 12 citekeys in bib section 0
-[356] Biber.pm:4487> INFO - Processing section 0
-[367] Biber.pm:4678> INFO - Looking for bibtex file './bibliografia.bib' for section 0
-[440] bibtex.pm:1713> INFO - LaTeX decoding ...
-[453] bibtex.pm:1519> INFO - Found BibTeX data source './bibliografia.bib'
-[552] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[553] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[553] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[579] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[579] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[579] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[598] bbl.pm:676> INFO - Writing 'Documento_Principal.bbl' with encoding 'UTF-8'
-[613] bbl.pm:779> INFO - Output to Documento_Principal.bbl
-[614] Biber.pm:132> WARN - I didn't find a database entry for 'Alfaro2023' (section 0)
-[614] Biber.pm:134> INFO - WARNINGS: 1
+[106] biber-MSWIN64:342> INFO - === 
+[154] Biber.pm:421> INFO - Reading 'Documento_Principal.bcf'
+[289] Biber.pm:1002> INFO - Found 18 citekeys in bib section 0
+[309] Biber.pm:4487> INFO - Processing section 0
+[321] Biber.pm:4678> INFO - Looking for bibtex file './bibliografia.bib' for section 0
+[389] bibtex.pm:1713> INFO - LaTeX decoding ...
+[407] bibtex.pm:1519> INFO - Found BibTeX data source './bibliografia.bib'
+[530] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[530] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[530] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[565] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[565] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[565] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[585] bbl.pm:676> INFO - Writing 'Documento_Principal.bbl' with encoding 'UTF-8'
+[608] bbl.pm:779> INFO - Output to Documento_Principal.bbl
+[608] Biber.pm:132> WARN - I didn't find a database entry for 'Alfaro2023' (section 0)
+[608] Biber.pm:132> WARN - I didn't find a database entry for 'schulman2017proximal' (section 0)
+[609] Biber.pm:134> INFO - WARNINGS: 2

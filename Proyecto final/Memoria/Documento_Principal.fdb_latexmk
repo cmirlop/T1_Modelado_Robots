@@ -1,18 +1,18 @@
 # Fdb version 4
-["biber Documento_Principal"] 1765793375.6996 "Documento_Principal.bcf" "Documento_Principal.bbl" "Documento_Principal" 1765793714.6573 0
-  "./bibliografia.bib" 1765791452 3167 65d6feaf8f7bd5ae9f70fe7e27519b25 ""
-  "Documento_Principal.bcf" 1765793714 136798 7268745ea47359f85b58db64a0272eb4 "pdflatex"
+["biber Documento_Principal"] 1765800599.08847 "Documento_Principal.bcf" "Documento_Principal.bbl" "Documento_Principal" 1765800609.2559 0
+  "./bibliografia.bib" 1765800527 4749 9faef53f70d3e15125fe2917d3ae5d08 ""
+  "Documento_Principal.bcf" 1765800608 137223 4787462eb0ffcb339b8b9dd18d51f2c8 "pdflatex"
   (generated)
   "Documento_Principal.bbl"
   "Documento_Principal.blg"
   (rewritten before read)
-["makeindex Documento_Principal.idx"] 1765793371.81637 "Documento_Principal.idx" "Documento_Principal.ind" "Documento_Principal" 1765793714.65693 0
-  "Documento_Principal.idx" 1765793712 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex Documento_Principal.idx"] 1765800593.00096 "Documento_Principal.idx" "Documento_Principal.ind" "Documento_Principal" 1765800609.25547 0
+  "Documento_Principal.idx" 1765800606 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "Documento_Principal.ilg"
   "Documento_Principal.ind"
   (rewritten before read)
-["pdflatex"] 1765793711.36465 "c:/Users/Usuario/Desktop/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" "Documento_Principal.pdf" "Documento_Principal" 1765793714.65792 0
+["pdflatex"] 1765800605.04283 "c:/Users/Usuario/Desktop/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" "Documento_Principal.pdf" "Documento_Principal" 1765800609.25659 0
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1765640236 81107 70b8516c68c2e617189c5e44bfd16b96 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1200.pk" 1760431314 42728 106e9edaa09c34514907c66c6994fbb2 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx0900.pk" 1760431305 22504 a5dd8a55bad19e6d843a98e120614012 ""
@@ -32,7 +32,9 @@
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecss0900.pk" 1760431309 17932 83c331b3f66f808debb73195eeb78b09 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecsx1440.pk" 1765010585 34676 41b8634b293e84b95fb384d2aaab8373 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecti1200.pk" 1760431315 39120 4bddfe2cf7ed73564a36f619c21563f6 ""
+  "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1200.pk" 1760431308 24152 5a21ca5e554945626c109cdc6a4b7523 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecxc1200.pk" 1760431299 33548 b6e2b895cb11ee6153210bf350c60dcb ""
+  "C:/Users/Usuario/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1765799517 14064 36f6fd56b9b753e32a5a5308a99c2d45 ""
   "C:/Users/Usuario/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1760430994 13322632 a793f51153805ecfbf8f4e7d0c20b9e5 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbi1200.tfm" 993061910 2892 f5de7a62f7c1551b663588ecf7265280 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecbi2986.tfm" 993061918 2900 23ab0076b6c65e57acc5aab997d1fcea ""
@@ -57,7 +59,9 @@
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecss1200.tfm" 993062236 3176 f34de6d605be5cc6bf472e93240318a5 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecsx1440.tfm" 993062278 3184 a2316cf01357d42f7e6290f93e150975 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecti1200.tfm" 993062324 2832 28bbd97ca29f46e76c87a158a9915203 ""
+  "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ectt1200.tfm" 993062344 1348 c48a0620e07683860afba1730adf9e53 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecxc1200.tfm" 993062448 2856 56e086eeea88f7ac50ae4cba2c489b0e ""
+  "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1200.tfm" 993062508 1444 95ffe0f19b974d50849790c8225c7ef7 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -202,19 +206,19 @@
   "C:/Users/Usuario/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "Capítulos/Cap00_Resumen.tex" 1765642555 1036 892d492679b9412908c51a01d40e93c9 ""
   "Capítulos/Cap1_Justificacion.tex" 1765642555 4428 9b05b4fa388e868edeffb3dcc784477c ""
-  "Capítulos/Cap2_Antecedentes.tex" 1765793006 25843 8be965de0667e00ad71913ccb26fd512 ""
-  "Capítulos/Cap3_MaterialesMetodos.tex" 1765793704 11744 38b8bf18a5f083d97c0d4593373cbdd4 ""
+  "Capítulos/Cap2_Antecedentes.tex" 1765798361 25833 76c2e522561e9d16ed83b053a2f92501 ""
+  "Capítulos/Cap3_MaterialesMetodos.tex" 1765800574 16226 ffd9a587977ed20a668a503aa9bb29a4 ""
   "Capítulos/Cap4_Resultados.tex" 1765642555 10003 2d382cd766a6bf47ec1b4d1057c67415 ""
   "Capítulos/Cap5_Conclusiones_trabajoFuturo.tex" 1765399416 2532 7459c413b4bc2c65e98305d325a36f31 ""
-  "Documento_Principal.aux" 1765793714 25991 359fd8355d30f0fbed726b737d0a464a "pdflatex"
-  "Documento_Principal.bbl" 1765793378 38739 6f4133827c678288fddab997098863bf "biber Documento_Principal"
-  "Documento_Principal.ind" 1765793372 0 d41d8cd98f00b204e9800998ecf8427e "makeindex Documento_Principal.idx"
-  "Documento_Principal.lof" 1765793714 961 dca11a271e17fa9d5811066d8389e83d "pdflatex"
-  "Documento_Principal.lot" 1765793714 411 55377e972df5eca2821be4871e926547 "pdflatex"
-  "Documento_Principal.out" 1765793714 7289 57303a69fd2ed1d835206d0a0f740373 "pdflatex"
-  "Documento_Principal.run.xml" 1765793714 2468 f2d6b618b0ae5bf04fa41df963c48f73 "pdflatex"
+  "Documento_Principal.aux" 1765800608 28455 976cf3b7e5aa786a98b00e4760d44709 "pdflatex"
+  "Documento_Principal.bbl" 1765800601 59247 67f1776a8ffa9515928369e0019c76a7 "biber Documento_Principal"
+  "Documento_Principal.ind" 1765800593 0 d41d8cd98f00b204e9800998ecf8427e "makeindex Documento_Principal.idx"
+  "Documento_Principal.lof" 1765800608 1147 1cef4742e2615f206aa19c5838d95e6e "pdflatex"
+  "Documento_Principal.lot" 1765800608 411 55377e972df5eca2821be4871e926547 "pdflatex"
+  "Documento_Principal.out" 1765800608 7289 cb1bc449d6e221b75a17eef47550557e "pdflatex"
+  "Documento_Principal.run.xml" 1765800608 2468 f2d6b618b0ae5bf04fa41df963c48f73 "pdflatex"
   "Documento_Principal.tex" 1765642243 4322 fef96d39ca1b6383db9a20fde4b949f3 ""
-  "Documento_Principal.toc" 1765793714 8595 ec15962ff0e73e9b750ed7f46535b0dc "pdflatex"
+  "Documento_Principal.toc" 1765800608 8754 f259444f5a87fc67872cb908f2442370 "pdflatex"
   "MCR.cls" 1764848198 16530 e719a3a4cf67b89889bf9d3126b81496 ""
   "c:/Users/Usuario/Desktop/T1_Modelado_Robots/Proyecto final/Memoria/Documento_Principal.tex" 1765642243 4322 fef96d39ca1b6383db9a20fde4b949f3 ""
   "configuraciones/preambulo.tex" 1765723973 5454 ec35638e6a6d827271f123e4c1d8d045 ""
@@ -225,6 +229,8 @@
   "figuras/../fig_Carlos/Resultados2_PPO12_v2.png" 1765642555 60880 0450b5d8e5f5888fe6497bb539546fe3 ""
   "figuras/../fig_Carlos/Resultados2_PPO9_v2.png" 1765642555 58106 3bd50455a042082b6f39b2cf34c2062a ""
   "figuras_Nico/Diagrama_ctrl.png" 1765398985 76034 32d8ec3bf24be0e9ff5de2855a9fd8ba ""
+  "figuras_Nico/img_1_.jpg" 1765794171 16840 ed069c5b63b574326b9bba37568d3365 ""
+  "figuras_Nico/img_2.jpg" 1765794190 14486 567210f3dab04e0db4cc260daa04615a ""
   "logos/UPV_Campus_Alcoi_val_HORI.pdf" 1764848198 44334 7808aac832daf4c244850879976e54ad ""
   (generated)
   "Documento_Principal.aux"

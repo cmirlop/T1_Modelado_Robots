@@ -295,7 +295,7 @@ Es importante destacar que el autor aplicó \textit{Curriculum Learning} (aprend
 El presente proyecto se fundamenta en la evolución de técnicas de navegación autónoma exploradas en la literatura reciente, situándose en la intersección de las metodologías propuestas por \cite{Gandara2020} y \cite{alfaro2023deteccion}. A continuación, se detalla la relación directa de estos trabajos con la propuesta actual de navegación en entornos virtuales mediante el algoritmo PPO.
 
 \subsection{Plataforma y Entorno de Simulación (Relación con \cite{Gandara2020})}
-Al igual que en el trabajo de \cite{Gandara2020}, este proyecto selecciona al \textbf{Turtlebot 3} como la plataforma robótica de experimentación debido a su compatibilidad con sensores LIDAR y su versatilidad para la investigación académica.
+Al igual que en el trabajo de \cite{Gandara2020}, este proyecto selecciona al \textbf{JetBot} como la plataforma robótica de experimentación debido a su compatibilidad con sensores LIDAR y su versatilidad para la investigación académica.
 
 Sin embargo, existen diferencias clave en la metodología de navegación:
 \begin{itemize}
@@ -317,7 +317,7 @@ Existe una progresión algorítmica clara al comparar los tres trabajos:
 \begin{enumerate}
     \item \textbf{NEAT (\cite{Gandara2020}):} Utilizó algoritmos genéticos para evolucionar la topología de redes neuronales, aunque presentó problemas de estabilidad y convergencia en escenarios complejos.
     \item \textbf{DQN (\cite{alfaro2023deteccion}):} Implementó \textit{Deep Q-Network}, un método basado en valores (\textit{Value-based}) que aprende una función $Q$ para estimar la calidad de las acciones.
-    \item \textbf{PPO (Nuestro Proyecto):} Nuestro trabajo da el siguiente paso utilizando \textbf{Proximal Policy Optimization (PPO)}. A diferencia del DQN usado por \cite{alfaro2023deteccion}, PPO es un algoritmo de gradiente de política (\textit{Policy-based}) que suele ofrecer mayor estabilidad y facilidad de ajuste en entornos con espacios de acción continuos o complejos, siendo ideal para la navegación suave que requiere el Turtlebot 3 en los laberintos de Unity.
+    \item \textbf{PPO (Nuestro Proyecto):} Nuestro trabajo da el siguiente paso utilizando \textbf{Proximal Policy Optimization (PPO)}. A diferencia del DQN usado por \cite{alfaro2023deteccion}, PPO es un algoritmo de gradiente de política (\textit{Policy-based}) que suele ofrecer mayor estabilidad y facilidad de ajuste en entornos con espacios de acción continuos o complejos, siendo ideal para la navegación suave que requiere el JetBot en los laberintos de Unity.
 \end{enumerate}
 
 

@@ -6,8 +6,8 @@
 
 \begin{Resumen}
 
-La sección Materials and Methods (también llamada Methodology o Experimental Section, según la disciplina) es una parte esencial de artículos y memorias de ámbito académico/docente. Su objetivo principal es que otro estudiante, profesor, investigador, ingeniero, etc., pueda reproducir el trabajo siguiendo las descripciones dadas.
-
+    En este capítulo se describe la metodología integral adoptada para el desarrollo del sistema de navegación autónoma. En primer lugar, se presenta el **modelado dinámico** del robot diferencial utilizando el formalismo de Euler-Lagrange para obtener las ecuaciones de movimiento. Seguidamente, se detalla la estrategia de control basada en **Aprendizaje por Refuerzo Profundo (Deep Reinforcement Learning)**, definiendo la arquitectura del agente, el diseño de la función de recompensa y el procesamiento de la información sensorial (LIDAR y visión). A continuación, se describen las herramientas de **simulación e integración** empleadas (Unity, ROS, Keras/TensorFlow) para crear un entorno de entrenamiento realista. Finalmente, se expone el **procedimiento experimental**, incluyendo el diseño de escenarios y los criterios de validación de las políticas aprendidas.
+    
 \end{Resumen}
 
 \section{Modelado Dinámico}
@@ -103,37 +103,87 @@ tiene el objetivo, en nuestro caso es el color rojo, por lo que se va analizando
 un área mínima del color del objetivo, extraemos cuanto estamos descentrados para poder centrarse y poder ir recto al 
 objetivo.
 
-\subsubsection{Control por RL}
-
-
-Justificación de la elección de algoritmos de RL (ej.: PPO, SAC, DDPG), con breve descripción de su funcionamiento.
 \subsection{Algoritmo RL PPO}
 
+\subsection{Algoritmo RL: PPO (Proximal Policy Optimization)}
 
+\subsection*{Definición del Entorno y Agente}
 
-Definición de recompensas, estados y acciones empleados en el entorno de simulación.
+El sistema implementado utiliza un enfoque de aprendizaje por refuerzo profundo (\textit{Deep Reinforcement Learning}). El agente, basado en el algoritmo PPO (Proximal Policy Optimization) \cite{schulman2017proximal}, interactúa con el entorno a través de un Modelo de Decisión de Markov (MDP). A diferencia de enfoques como DQN, PPO opera bajo una arquitectura Actor-Crítico, optimizando la política de control de manera iterativa y estable.
 
-\subsection{Recompensas, estados y acciones}
-\subsubsection{recompensas}
-Las recompensas que se le han asignado al robot se basán en si se ha descubierto area o no dentro de la imagen de 
-la cámara. Se han definido zonas de distancia de LIDAR al robot para darle más recompensa o menos:
+A continuación se detallan los tres componentes principales del MDP diseñado:
+
+\subsubsection{Espacio de Acciones}
+El control del robot se ha discretizado para facilitar el aprendizaje de la red neuronal. El espacio de acciones $\mathcal{A}$ consta de 7 comandos posibles, definidos por pares de velocidad lineal ($v$) y angular ($w$):
+
 \begin{itemize}
-    \item Distancia frontal libre(FRONT\_CLEAR) : cuando el lidar por delante detecta más de 10m
-    \item Distancia frontal peligrosa(FRONT\_DANGER) : Cuando la distancia frontal del LIDAR por delante baja de los 7m
-    \item Distancia muy peligrosa : Es la distancia antes del choque donde antes de chocarse prefiero que vaya hacia atrás el robot, 5.5m
+    \item \textbf{Avance:}
+    \begin{itemize}
+        \item \texttt{forward}: Avance rápido ($v=3.0$ m/s, $w=0.0$ rad/s).
+        \item \texttt{slow}: Avance lento ($v=1.0$ m/s, $w=0.0$ rad/s).
+    \end{itemize}
+    \item \textbf{Giros Estáticos:}
+    \begin{itemize}
+        \item \texttt{left}: Giro a la izquierda ($v=0.0$, $w=-1.0$).
+        \item \texttt{right}: Giro a la derecha ($v=0.0$, $w=1.0$).
+    \end{itemize}
+    \item \textbf{Giros Suaves (Curvas):}
+    \begin{itemize}
+        \item \texttt{left\_soft}: Giro suave izquierda ($v=0.0$, $w=-0.5$).
+        \item \texttt{right\_soft}: Giro suave derecha ($v=0.0$, $w=0.5$).
+    \end{itemize}
+    \item \textbf{Retroceso:}
+    \begin{itemize}
+        \item \texttt{back}: Maniobra de recuperación ($v=-0.1$, $w=0.0$).
+    \end{itemize}
 \end{itemize}
-Primero se comprueban las recompensas por alcanzar el objetivo, o por colisión:
+
+\subsubsection{Espacio de Observación (Estados)}
+El vector de estado $s_t$ proporciona al agente una visión multimodal del entorno. Las observaciones se normalizan y concatenan para formar un vector de entrada de dimensión aproximada 188, compuesto por:
+
+\begin{enumerate}
+    \item \textbf{LiDAR ($L$):} Lecturas de distancia de 180 sectores. Los valores se normalizan al rango $[0, 1]$ dividiéndolos por la distancia máxima de recorte (\texttt{CLIP\_DIST} $= 30$ m).
+    \item \textbf{Visión ($V$):} Información extraída del procesamiento de imagen para el objetivo rojo:
+    \begin{itemize}
+        \item \textit{Bearing} (Orientación): Valor continuo en $[-1, 1]$ indicando la desviación horizontal del objetivo respecto al centro.
+        \item \textit{Área}: Tamaño relativo del objeto detectado, normalizado en $[0, 1]$.
+    \end{itemize}
+    \item \textbf{Flags de Bloqueo ($F$):} Indicadores binarios que alertan de obstáculos cercanos (distancia $< 5$ m) en las zonas frontal y laterales.
+    \item \textbf{Odometría ($P$):} Coordenadas globales $(x, y, z)$ del robot.
+\end{enumerate}
+
+\subsubsection{Función de Recompensa}
+La función de recompensa $R(s, a, s')$ es densa e incluye lógica basada en umbrales de seguridad definidos por el sensor LiDAR. 
+
+\paragraph{Zonas de Seguridad (LiDAR)}
+Se han definido tres zonas críticas basadas en la distancia frontal detectada:
 \begin{itemize}
-    \item Si se alcanza el objetivo : $+30.0$
-    \item Si se ha colisionado : $-8.0$
+    \item \texttt{FRONT\_CLEAR} ($> 10$ m): Espacio frontal libre para navegar a alta velocidad.
+    \item \texttt{FRONT\_DANGER} ($< 7$ m): Zona de precaución donde el avance es peligroso.
+    \item \texttt{CRITICAL} ($< 5.5$ m): Distancia inminente de choque; se prioriza el retroceso.
 \end{itemize}
-Si no se ha alcanzado el área mínima de 1000px, las recompensas son las siguientes:
-\begin{itemize}
-    \item Si delante es muy libre, es decir, por encima del umbral FRONT\_CLEAR, y el robot tiene la acción de ir hacia delante rapido o lento le damos $0.3$ por rápido, y $0.15$ por lento
-    \item Si delante esta por debajo del umbral FRONT\_DANGER y el robot tiene la accion de ir hacia delante, le quitamos $0.6$
-    \item Si delante está por debajo del FRONT\_CLEAR, y giramos hacia el lado que más depejado esta, le damos $0.4$, con esto lo que hacemos es que si por delante vemos una distancia donde no cabe el robot, es inecesario entrar
-    dentro de esa sala, es mejor girar
-\end{itemize}
+
+\paragraph{Cálculo de Recompensas}
+La recompensa total se asigna según la siguiente lógica priorizada:
+
+\begin{enumerate}
+    \item \textbf{Eventos Terminales:}
+    \begin{itemize}
+        \item \textbf{Éxito:} Si se alcanza el objetivo (área visual mínima detectada): $+30.0$.
+        \item \textbf{Colisión:} Si el robot choca con un obstáculo: $-8.0$.
+    \end{itemize}
+    
+    \item \textbf{Navegación y Exploración (si no hay evento terminal):}
+    \begin{itemize}
+        \item \textbf{Avance en zona libre:} Si la distancia supera \texttt{FRONT\_CLEAR}:
+        \begin{itemize}
+            \item Acción \texttt{forward}: $+0.3$.
+            \item Acción \texttt{slow}: $+0.15$.
+        \end{itemize}
+        \item \textbf{Penalización por riesgo:} Si la distancia es menor a \texttt{FRONT\_DANGER} y el robot intenta avanzar (\texttt{forward} o \texttt{slow}): $-0.6$.
+        \item \textbf{Evasión inteligente:} Si el espacio frontal está bloqueado (menor a \texttt{FRONT\_CLEAR}) y el robot gira hacia el lado con mayor espacio libre: $+0.4$. Esto incentiva evitar "callejones sin salida" antes de entrar en ellos.
+    \end{itemize}
+\end{enumerate}
 
 \subsubsection{Estados}
 
@@ -154,31 +204,32 @@ Descripción de IsaacSim/IsaacLab: versiones empleadas, configuración inicial y
 
 Configuración de escenarios de entrenamiento (robot, entorno, sensores virtuales, condiciones de interacción).
 
-\subsection{Unity + Visual estudio}
-%ros-TCP-connector como libreria
+\subsection{Unity + Visual studio}
+El desarrollo del entorno virtual se fundamenta en la integración de Unity \cite{unity3d} y Visual Studio Code \cite{}. Mientras que Unity gestiona la representación visual y las colisiones físicas del entorno, VS Code se utiliza para implementar los scripts de comportamiento de los agentes. Para integrar esta simulación en el ecosistema robótico, se emplea el paquete ROS-TCP-Connector, el cual permite que Unity funcione como un nodo de simulación capaz de publicar datos de sensores y suscribirse a comandos de velocidad desde ROS en tiempo real, superando la barrera de compatibilidad entre el entorno .NET de Unity y el ecosistema Linux de ROS.
 
-\subsection{Visual estudio code}
+\subsection{Visual studio code}
+Visual studio code es una IDE de programación de la que hemos hecho uso para realizar el código del trabajo.
 
 \subsection{TensorFlow}
-TensorFlow Dashboard es una herramienta que a través de los logs que genera nuestro entrenamiento, va graficando 
+TensorFlow Dashboard \cite{abadi2016tensorflow} es una herramienta que a través de los logs que genera nuestro entrenamiento, va graficando 
 cada 4024 pasos, que son 256 por robot, se grafican los resultados.
 
 
 
-\subsection{KERAS + gym}
-
+\subsection{KERAS}
+Keras es una biblioteca de código abierto escrita por \cite{chollet2015keras} en Python diseñada para la implementación rápida y eficiente de redes neuronales profundas (Deep Learning). Funciona como una interfaz de alto nivel (API) que se ejecuta sobre frameworks de cálculo tensorial más complejos, principalmente TensorFlow. En este proyecto, Keras ha sido fundamental para simplificar el diseño, entrenamiento y validación de los modelos de aprendizaje utilizados en el JetBot , permitiendo una experimentación ágil gracias a su arquitectura modular.
 
 
 \subsection{ROS 1}
-Hemos empleado ROS1 como pasarela de comunicación entre los robots y el máster, que sería nuestro propio ordenador. Lo que hacemos es 
+Hemos empleado ROS1 \cite{quigley2009ros} como pasarela de comunicación entre los robots y el máster, que sería nuestro propio ordenador. Lo que hacemos es 
 que cada robot tiene unos tópics propios, sobre los cuales envían y reciben la información.
 
 
 
 
-\subsection{Turtle bot}
+\subsection{JetBot}
 Aunque en nuestros resultados podemos observar que el robot es un cubo amarillo, lo que se esta haciendo es
-simular el comportamiento del turtle bot en un cubo con sus ecuaciones dinámicas
+simular el comportamiento del JetBot \cite{nvidia_jetbot} en un cubo con sus ecuaciones dinámicas
 
 
 \subsection{Entorno}
@@ -186,22 +237,22 @@ Nuestro entorno es un laberito con paredes y pasillos por donde el robot deberá
 objetivo de color rojo que puede estar en cualquier lado de la escena.
 Se diseñó un mismo entorno, donde en cada instancia el objetivo estaba en una posición diferente como vemos en 
 las siguientes imagenes.
-\begin{comment}
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{0.48\textwidth}
+
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\linewidth]{}
-    \caption{Imagen 1}
-  \end{subfigure}\hfill
-  \begin{subfigure}{0.48\textwidth}
-    \centering
-    \includegraphics[width=\linewidth]{}
-    \caption{Imagen 2}
-  \end{subfigure}
-  \caption{Dos imágenes lado a lado}
+    \includegraphics[width=0.8\textwidth]{./figuras_Nico/img_1_.jpg}
+    \caption{Escenario 1}
+    \label{fig:img1}
 \end{figure}
-\end{comment}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./figuras_Nico/img_2.jpg}
+    \caption{Escenario 2}
+    \label{fig:img2}
+\end{figure}
+
+
 
 
 
@@ -214,9 +265,6 @@ es un codigo de Unity el cual genera una nube de puntos, y los publica todos a t
 de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el minimo cada dos sectores.
 
 
-\subsection{Condiciones de iteraccion}
-
-
 
 \section{Procedimiento de experimentación / entrenamiento}
 Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
@@ -225,13 +273,9 @@ Se probó primero definiendo un escenario muy sencillo, donde si el robot giraba
 el objetivo final. Esto se modificó y se hicieron 4 escenarios para el mismo entrenamiento, donde el objetivo estaba 
 en diferentes puntos.
 
-Estrategia de comparación: métricas definidas (tiempo de convergencia, estabilidad, error en el seguimiento, etc.).
 \subsection{Estrategia de comparacion}
 Se definió que cada 1000 pasos en cada robot, se realize una comparcion de modelo, pero se detendria
 el entrenamineto si la media de los ultimos 1000 episodios no mejoraba durante los 5 siguientes episodios.
-
-
-Número de episodios, pruebas o repeticiones realizadas.
 
 \newpage
 \section{Programación}
