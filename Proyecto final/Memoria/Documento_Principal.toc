@@ -74,8 +74,9 @@
 \contentsline {subsection}{\numberline {3.3.4}KERAS}{23}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}ROS 1}{23}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}JetBot}{23}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}Entorno}{23}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Sensores virtuales}{25}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.7}GitHub}{23}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Entorno}{23}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Sensores virtuales}{25}{subsection.3.3.9}%
 \contentsline {subsubsection}{LIDAR}{25}{subsubsection*.31}%
 \contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{25}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{25}{subsection.3.4.1}%
@@ -94,5 +95,5 @@
 \contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{31}{subsection.4.4.1}%
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{32}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusiones}{32}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{32}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{33}{chapter*.37}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{33}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{34}{chapter*.37}%
