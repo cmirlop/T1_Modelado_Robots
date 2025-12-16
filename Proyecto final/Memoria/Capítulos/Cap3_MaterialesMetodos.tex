@@ -183,8 +183,6 @@ La recompensa total se asigna según la siguiente lógica priorizada:
     \end{itemize}
 \end{enumerate}
 
-\subsubsection{Estados}
-
 \subsubsection{Acciones}
 \begin{itemize}
     \item Moverse hacia delante rápido
@@ -198,12 +196,8 @@ La recompensa total se asigna según la siguiente lógica priorizada:
 
 
 \section{Entorno de simulación y herramientas utilizadas}
-Descripción de IsaacSim/IsaacLab: versiones empleadas, configuración inicial y librerías auxiliares. Recursos computacionales (hardware, GPU, sistema operativo).
-
-Configuración de escenarios de entrenamiento (robot, entorno, sensores virtuales, condiciones de interacción).
-
 \subsection{Unity + Visual studio}
-El desarrollo del entorno virtual se fundamenta en la integración de Unity \cite{unity3d} y Visual Studio Code \cite{}. Mientras que Unity gestiona la representación visual y las colisiones físicas del entorno, VS Code se utiliza para implementar los scripts de comportamiento de los agentes. Para integrar esta simulación en el ecosistema robótico, se emplea el paquete ROS-TCP-Connector, el cual permite que Unity funcione como un nodo de simulación capaz de publicar datos de sensores y suscribirse a comandos de velocidad desde ROS en tiempo real, superando la barrera de compatibilidad entre el entorno .NET de Unity y el ecosistema Linux de ROS.
+El desarrollo del entorno virtual se fundamenta en la integración de \cite{unity3d} y Visual Studio Code \cite{vscode}. Mientras que Unity gestiona la representación visual y las colisiones físicas del entorno, VS Code se utiliza para implementar los scripts de comportamiento de los agentes. Para integrar esta simulación en el ecosistema robótico, se emplea el paquete ROS-TCP-Connector, el cual permite que Unity funcione como un nodo de simulación capaz de publicar datos de sensores y suscribirse a comandos de velocidad desde ROS en tiempo real, superando la barrera de compatibilidad entre el entorno .NET de Unity y el ecosistema Linux de ROS.
 
 \subsection{Visual studio code}
 Visual studio code es una IDE de programación de la que hemos hecho uso para realizar el código del trabajo.
@@ -265,7 +259,6 @@ de manera que lo separamos en 180 sectores, esto lo hacemos cogiendo el mínimo 
 
 
 \section{Procedimiento de experimentación / entrenamiento}
-Explicación del flujo de trabajo seguido: preparación de modelos, definición de hiperparámetros, duración de entrenamientos, validación de políticas aprendidas.
 \subsection{Flujo de trabajo}
 Se probó primero definiendo un escenario muy sencillo, donde si el robot giraba en el primer cruce ya alcanzaba
 el objetivo final. Esto se modificó y se hicieron 4 escenarios para el mismo entrenamiento, donde el objetivo estaba 

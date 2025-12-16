@@ -59,8 +59,7 @@
 \contentsline {subsubsection}{Función de Recompensa}{19}{subsubsection*.20}%
 \contentsline {paragraph}{Zonas de Seguridad (LiDAR)}{19}{paragraph*.21}%
 \contentsline {paragraph}{Cálculo de Recompensas}{19}{paragraph*.22}%
-\contentsline {subsubsection}{Estados}{20}{subsubsection*.23}%
-\contentsline {subsubsection}{Acciones}{20}{subsubsection*.24}%
+\contentsline {subsubsection}{Acciones}{20}{subsubsection*.23}%
 \contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{20}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Unity + Visual studio}{20}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Visual studio code}{21}{subsection.3.3.2}%
@@ -70,7 +69,7 @@
 \contentsline {subsection}{\numberline {3.3.6}JetBot}{21}{subsection.3.3.6}%
 \contentsline {subsection}{\numberline {3.3.7}Entorno}{21}{subsection.3.3.7}%
 \contentsline {subsection}{\numberline {3.3.8}Sensores virtuales}{23}{subsection.3.3.8}%
-\contentsline {subsubsection}{LIDAR}{23}{subsubsection*.27}%
+\contentsline {subsubsection}{LIDAR}{23}{subsubsection*.26}%
 \contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{23}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{23}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{23}{subsection.3.4.2}%
@@ -89,4 +88,4 @@
 \contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{30}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusiones}{30}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Trabajo futuro}{30}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{31}{chapter*.33}%
+\contentsline {chapter}{Bibliografía}{31}{chapter*.32}%

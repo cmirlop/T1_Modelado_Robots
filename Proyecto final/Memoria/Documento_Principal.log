@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.14)  16 DEC 2025 09:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.14)  16 DEC 2025 09:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1072,13 +1072,6 @@ Package biblatex Warning: The following entry could not be found
 (biblatex)                Please verify the spelling and rerun
 (biblatex)                LaTeX afterwards.
 
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                schulman2017proximal
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
 )
 Package biblatex Info: Reference section=0 on input line 45.
 Package biblatex Info: Reference segment=0 on input line 45.
@@ -1286,10 +1279,6 @@ LaTeX Info: Redefining \% on input line 106.
 Package cleveref Info: loaded `spanish' language definitions on input line 106.
 [17]
 
-LaTeX Warning: Citation 'schulman2017proximal' on page 18 undefined on input line 110.
-
-
-
 LaTeX Info: Redefining \. on input line 139.
 LaTeX Info: Redefining \% on input line 139.
 Package cleveref Info: loaded `spanish' language definitions on input line 139.
@@ -1304,45 +1293,42 @@ Overfull \hbox (4.55348pt too wide) in paragraph at lines 182--183
  []
 
 
-LaTeX Warning: Citation '' on page 20 undefined on input line 206.
 
-
-
-LaTeX Info: Redefining \. on input line 208.
-LaTeX Info: Redefining \% on input line 208.
-Package cleveref Info: loaded `spanish' language definitions on input line 208.
+LaTeX Info: Redefining \. on input line 202.
+LaTeX Info: Redefining \% on input line 202.
+Package cleveref Info: loaded `spanish' language definitions on input line 202.
 [20]
-<./figuras_Nico/img_1_.jpg, id=474, 497.86pt x 370.38374pt>
+<./figuras_Nico/img_1_.jpg, id=477, 497.86pt x 370.38374pt>
 File: ./figuras_Nico/img_1_.jpg Graphic file (type jpg)
 <use ./figuras_Nico/img_1_.jpg>
-Package pdftex.def Info: ./figuras_Nico/img_1_.jpg  used on input line 241.
+Package pdftex.def Info: ./figuras_Nico/img_1_.jpg  used on input line 235.
 (pdftex.def)             Requested size: 364.19667pt x 270.94868pt.
 
 
-LaTeX Info: Redefining \. on input line 245.
-LaTeX Info: Redefining \% on input line 245.
-Package cleveref Info: loaded `spanish' language definitions on input line 245.
+LaTeX Info: Redefining \. on input line 239.
+LaTeX Info: Redefining \% on input line 239.
+Package cleveref Info: loaded `spanish' language definitions on input line 239.
 [21]
-<./figuras_Nico/img_2.jpg, id=489, 431.6125pt x 383.4325pt>
+<./figuras_Nico/img_2.jpg, id=492, 431.6125pt x 383.4325pt>
 File: ./figuras_Nico/img_2.jpg Graphic file (type jpg)
 <use ./figuras_Nico/img_2.jpg>
-Package pdftex.def Info: ./figuras_Nico/img_2.jpg  used on input line 248.
+Package pdftex.def Info: ./figuras_Nico/img_2.jpg  used on input line 242.
 (pdftex.def)             Requested size: 364.19667pt x 323.54962pt.
 
 
-LaTeX Info: Redefining \. on input line 259.
-LaTeX Info: Redefining \% on input line 259.
-Package cleveref Info: loaded `spanish' language definitions on input line 259.
+LaTeX Info: Redefining \. on input line 253.
+LaTeX Info: Redefining \% on input line 253.
+Package cleveref Info: loaded `spanish' language definitions on input line 253.
 [22 <./figuras_Nico/img_1_.jpg> <./figuras_Nico/img_2.jpg>]
 
-LaTeX Info: Redefining \. on input line 278.
-LaTeX Info: Redefining \% on input line 278.
-Package cleveref Info: loaded `spanish' language definitions on input line 278.
+LaTeX Info: Redefining \. on input line 271.
+LaTeX Info: Redefining \% on input line 271.
+Package cleveref Info: loaded `spanish' language definitions on input line 271.
 [23]
-<figuras_Nico/Diagrama_ctrl.png, id=502, 500.87125pt x 1144.275pt>
+<figuras_Nico/Diagrama_ctrl.png, id=505, 500.87125pt x 1144.275pt>
 File: figuras_Nico/Diagrama_ctrl.png Graphic file (type png)
 <use figuras_Nico/Diagrama_ctrl.png>
-Package pdftex.def Info: figuras_Nico/Diagrama_ctrl.png  used on input line 282.
+Package pdftex.def Info: figuras_Nico/Diagrama_ctrl.png  used on input line 275.
 (pdftex.def)             Requested size: 273.14923pt x 624.04529pt.
 ) (Capítulos/Cap4_Resultados.tex
 
@@ -1351,12 +1337,12 @@ LaTeX Info: Redefining \% on input line 5.
 Package cleveref Info: loaded `spanish' language definitions on input line 5.
 [24 <./figuras_Nico/Diagrama_ctrl.png>]
 Cap\'{\i }tulo 4.
-<./figuras/../fig_Carlos/Resultados1_PPO9_V2.png, id=511, 461.92575pt x 193.9245pt>
+<./figuras/../fig_Carlos/Resultados1_PPO9_V2.png, id=514, 461.92575pt x 193.9245pt>
 File: ./figuras/../fig_Carlos/Resultados1_PPO9_V2.png Graphic file (type png)
 <use ./figuras/../fig_Carlos/Resultados1_PPO9_V2.png>
 Package pdftex.def Info: ./figuras/../fig_Carlos/Resultados1_PPO9_V2.png  used on input line 32.
 (pdftex.def)             Requested size: 455.24411pt x 191.12474pt.
-<./figuras/../fig_Carlos/Resultados2_PPO9_v2.png, id=512, 454.0965pt x 173.448pt>
+<./figuras/../fig_Carlos/Resultados2_PPO9_v2.png, id=515, 454.0965pt x 173.448pt>
 File: ./figuras/../fig_Carlos/Resultados2_PPO9_v2.png Graphic file (type png)
 <use ./figuras/../fig_Carlos/Resultados2_PPO9_v2.png>
 Package pdftex.def Info: ./figuras/../fig_Carlos/Resultados2_PPO9_v2.png  used on input line 42.
@@ -1366,7 +1352,7 @@ Package pdftex.def Info: ./figuras/../fig_Carlos/Resultados2_PPO9_v2.png  used o
 [25
 
  <./figuras/../fig_Carlos/Resultados1_PPO9_V2.png>]
-<./figuras/../fig_Carlos/Resultados1_PPO12_v2.png, id=523, 473.3685pt x 198.7425pt>
+<./figuras/../fig_Carlos/Resultados1_PPO12_v2.png, id=526, 473.3685pt x 198.7425pt>
 File: ./figuras/../fig_Carlos/Resultados1_PPO12_v2.png Graphic file (type png)
 <use ./figuras/../fig_Carlos/Resultados1_PPO12_v2.png>
 Package pdftex.def Info: ./figuras/../fig_Carlos/Resultados1_PPO12_v2.png  used on input line 58.
@@ -1377,7 +1363,7 @@ LaTeX Info: Redefining \. on input line 62.
 LaTeX Info: Redefining \% on input line 62.
 Package cleveref Info: loaded `spanish' language definitions on input line 62.
 [26 <./figuras/../fig_Carlos/Resultados2_PPO9_v2.png>]
-<./figuras/../fig_Carlos/Resultados2_PPO12_v2.png, id=530, 478.1865pt x 158.994pt>
+<./figuras/../fig_Carlos/Resultados2_PPO12_v2.png, id=533, 478.1865pt x 158.994pt>
 File: ./figuras/../fig_Carlos/Resultados2_PPO12_v2.png Graphic file (type png)
 <use ./figuras/../fig_Carlos/Resultados2_PPO12_v2.png>
 Package pdftex.def Info: ./figuras/../fig_Carlos/Resultados2_PPO12_v2.png  used on input line 68.
@@ -1433,23 +1419,23 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.86pt have occurred.
 
 Package rerunfilecheck Info: File `Documento_Principal.out' has not changed.
-(rerunfilecheck)             Checksum: CB1BC449D6E221B75A17EEF47550557E;7289.
+(rerunfilecheck)             Checksum: 1E4CF45F4A6C8EB34BE1CE5EE3E09DED;7289.
 Package logreq Info: Writing requests to 'Documento_Principal.run.xml'.
 \openout1 = `Documento_Principal.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32001 strings out of 468080
- 626143 string characters out of 5424799
- 1532856 words of memory out of 5000000
- 60083 multiletter control sequences out of 15000+600000
+ 32016 strings out of 468080
+ 626668 string characters out of 5424799
+ 1532974 words of memory out of 5000000
+ 60097 multiletter control sequences out of 15000+600000
  652152 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,13n,93p,1281b,3534s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0600.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbi1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss0900.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecxc1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\eccc0900.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsi1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1200.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso1440.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecsx1440.pk> <C:\Users\Usuario\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecso2986.pk><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Usuario/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Documento_Principal.pdf (38 pages, 772830 bytes).
+Output written on Documento_Principal.pdf (38 pages, 772438 bytes).
 PDF statistics:
- 1401 PDF objects out of 1440 (max. 8388607)
- 189 named destinations out of 1000 (max. 500000)
+ 1403 PDF objects out of 1440 (max. 8388607)
+ 190 named destinations out of 1000 (max. 500000)
  305 words of extra memory for PDF output out of 10000 (max. 10000000)
 
