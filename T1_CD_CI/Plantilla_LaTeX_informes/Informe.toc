@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
 \contentsline {section}{\numberline {2}Descripción del diseño mecánico y electrónico}{1}{section.2}%
 \contentsline {section}{\numberline {3}Modelo matemático}{2}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Cinemática directa}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Cinemática directa}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Cinemática inversa}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Código e interfaz}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Código implementado en Arduino}{4}{subsection.4.1}%
