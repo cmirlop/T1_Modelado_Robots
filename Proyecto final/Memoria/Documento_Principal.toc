@@ -53,8 +53,7 @@
 \contentsline {section}{\numberline {3.2}Metodología de control y aprendizaje por refuerzo (RL)}{17}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Esquema de control}{17}{subsection.3.2.1}%
 \contentsline {subsubsection}{Control por LIDAR y cámara}{17}{subsubsection*.17}%
-\contentsline {subsection}{\numberline {3.2.2}Algoritmo RL PPO}{18}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Algoritmo RL: PPO (Proximal Policy Optimization)}{18}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.2}Algoritmo RL: PPO (Proximal Policy Optimization)}{18}{subsection.3.2.2}%
 \contentsline {subsubsection}{Espacio de Acciones}{18}{subsubsection*.18}%
 \contentsline {subsubsection}{Espacio de Observación (Estados)}{19}{subsubsection*.19}%
 \contentsline {subsubsection}{Función de Recompensa}{19}{subsubsection*.20}%
