@@ -71,29 +71,29 @@
 \contentsline {subsection}{\numberline {3.3.1}Unity + Visual studio}{23}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Visual studio code}{24}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}TensorFlow}{24}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}KERAS}{24}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.4}Stable Baselines3}{24}{subsection.3.3.4}%
 \contentsline {subsection}{\numberline {3.3.5}ROS 1}{24}{subsection.3.3.5}%
 \contentsline {subsection}{\numberline {3.3.6}JetBot}{24}{subsection.3.3.6}%
 \contentsline {subsection}{\numberline {3.3.7}GitHub}{24}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Entorno}{25}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.8}Entorno}{24}{subsection.3.3.8}%
 \contentsline {subsection}{\numberline {3.3.9}Sensores virtuales}{26}{subsection.3.3.9}%
 \contentsline {subsubsection}{LIDAR}{26}{subsubsection*.33}%
 \contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{26}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{26}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{27}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Programación}{28}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Resultados}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{29}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{29}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{30}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Comparación de controladores}{32}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{32}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{32}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{32}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{32}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Discusión crítica}{33}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{33}{subsection.4.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{34}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{34}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{35}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{36}{chapter*.39}%
+\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{26}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Programación}{27}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{28}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{28}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{29}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Comparación de controladores}{31}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{31}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{31}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{31}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{31}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Discusión crítica}{32}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{32}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{33}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{34}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{35}{chapter*.39}%

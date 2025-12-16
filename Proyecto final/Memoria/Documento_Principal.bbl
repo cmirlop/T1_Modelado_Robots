@@ -323,36 +323,6 @@
       \field{pages}{82\bibrangedash 90}
       \range{pages}{9}
     \endentry
-    \entry{chollet2015keras}{misc}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=14134a39113404b1f80969c9ccc1f71e}{%
-           family={Chollet},
-           familyi={C\bibinitperiod},
-           given={François},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{fullhash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{fullhashraw}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{bibnamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorbibnamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authornamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorfullhash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorfullhashraw}{2f3cf4de7406c8a08275677188d056f8}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://keras.io}}
-      \field{title}{Keras}
-      \field{year}{2015}
-    \endentry
     \entry{farooq2025survey}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=251eef8c0102a25e547103c8ce4c6b79}{%
@@ -664,6 +634,74 @@
       \field{year}{2009}
       \field{pages}{5}
       \range{pages}{1}
+    \endentry
+    \entry{stable_baselines3}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=646dfae388f2fca3d68ff9214acd722c}{%
+           family={Raffin},
+           familyi={R\bibinitperiod},
+           given={Antonin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=165a914db6ae4e223ac87e4baef87090}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Ashley},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f443af3aea10cb9b968ba9d4c0dcbd0d}{%
+           family={Gleave},
+           familyi={G\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c6bdcb44a478971ad9b3b007535f034}{%
+           family={Kanervisto},
+           familyi={K\bibinitperiod},
+           given={Anssi},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b76527a76a4bb1c475b635a35021d0ef}{%
+           family={Ernestus},
+           familyi={E\bibinitperiod},
+           given={Maximilian},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfc1b2bcb8937cfd9453ed45243e18f2}{%
+           family={Dormann},
+           familyi={D\bibinitperiod},
+           given={Noah},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5044a4768c7fc20f25fb680bb11f4aaf}
+      \strng{fullhash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{fullhashraw}{e3c43789f8de334374c8e95d9d514552}
+      \strng{bibnamehash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authorbibnamehash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authornamehash}{5044a4768c7fc20f25fb680bb11f4aaf}
+      \strng{authorfullhash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authorfullhashraw}{e3c43789f8de334374c8e95d9d514552}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{268}
+      \field{title}{Stable-Baselines3: Reliable Reinforcement Learning Implementations}
+      \field{volume}{22}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb http://jmlr.org/papers/v22/20-1364.html
+      \endverb
+      \verb{url}
+      \verb http://jmlr.org/papers/v22/20-1364.html
+      \endverb
     \endentry
     \entry{schulman2017proximal}{article}{}{}
       \name{author}{5}{}{%
@@ -1311,36 +1349,6 @@
       \field{pages}{82\bibrangedash 90}
       \range{pages}{9}
     \endentry
-    \entry{chollet2015keras}{misc}{}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=14134a39113404b1f80969c9ccc1f71e}{%
-           family={Chollet},
-           familyi={C\bibinitperiod},
-           given={François},
-           giveni={F\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{fullhash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{fullhashraw}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{bibnamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorbibnamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authornamehash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorfullhash}{2f3cf4de7406c8a08275677188d056f8}
-      \strng{authorfullhashraw}{2f3cf4de7406c8a08275677188d056f8}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://keras.io}}
-      \field{title}{Keras}
-      \field{year}{2015}
-    \endentry
     \entry{farooq2025survey}{article}{}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=251eef8c0102a25e547103c8ce4c6b79}{%
@@ -1652,6 +1660,74 @@
       \field{year}{2009}
       \field{pages}{5}
       \range{pages}{1}
+    \endentry
+    \entry{stable_baselines3}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=646dfae388f2fca3d68ff9214acd722c}{%
+           family={Raffin},
+           familyi={R\bibinitperiod},
+           given={Antonin},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=165a914db6ae4e223ac87e4baef87090}{%
+           family={Hill},
+           familyi={H\bibinitperiod},
+           given={Ashley},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f443af3aea10cb9b968ba9d4c0dcbd0d}{%
+           family={Gleave},
+           familyi={G\bibinitperiod},
+           given={Adam},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c6bdcb44a478971ad9b3b007535f034}{%
+           family={Kanervisto},
+           familyi={K\bibinitperiod},
+           given={Anssi},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b76527a76a4bb1c475b635a35021d0ef}{%
+           family={Ernestus},
+           familyi={E\bibinitperiod},
+           given={Maximilian},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cfc1b2bcb8937cfd9453ed45243e18f2}{%
+           family={Dormann},
+           familyi={D\bibinitperiod},
+           given={Noah},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5044a4768c7fc20f25fb680bb11f4aaf}
+      \strng{fullhash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{fullhashraw}{e3c43789f8de334374c8e95d9d514552}
+      \strng{bibnamehash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authorbibnamehash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authornamehash}{5044a4768c7fc20f25fb680bb11f4aaf}
+      \strng{authorfullhash}{e3c43789f8de334374c8e95d9d514552}
+      \strng{authorfullhashraw}{e3c43789f8de334374c8e95d9d514552}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{268}
+      \field{title}{Stable-Baselines3: Reliable Reinforcement Learning Implementations}
+      \field{volume}{22}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{urlraw}
+      \verb http://jmlr.org/papers/v22/20-1364.html
+      \endverb
+      \verb{url}
+      \verb http://jmlr.org/papers/v22/20-1364.html
+      \endverb
     \endentry
     \entry{schulman2017proximal}{article}{}{}
       \name{author}{5}{}{%
