@@ -94,14 +94,63 @@ Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores 
 %Esta ecuación (\ref{eq:final_dynamic}) describe cómo los pares de los motores aceleran al robot, sujeto a su masa e inercia \cite{siegwart2011intro}.
 
 \section{Metodología de control y aprendizaje por refuerzo (RL)}
-Explicación de los esquemas de control diseñados: control clásico de referencia, control basado en RL, comparación, etc.
-\subsection{Esquema de control}
-\subsubsection{Control por LIDAR y cámara}
-Este control se basa en el guiado por el entorno basandose en al información recibida por el LIDAR, 
-basandose en los datos frontales y laterales que recibimos. Con la cámara lo que hacemos es buscar el color que
-tiene el objetivo, en nuestro caso es el color rojo, por lo que se va analizando la imagen constantemente, ya que si detectamos
-un área mínima del color del objetivo, extraemos cuanto estamos descentrados para poder centrarse y poder ir recto al 
-objetivo.
+
+\subsection{Algoritmo de control por LIDAR y cámara}
+
+El software desarrollado implementa un controlador reactivo para un robot móvil diferencial operado bajo el middleware ROS (Robot Operating System) \cite{quigley2009ros}. El sistema integra capacidades de percepción multimodal (LiDAR y visión artificial) para la navegación autónoma en laberintos y la localización de objetivos visuales, siguiendo un paradigma de comportamiento basado en prioridades \cite{arkin1998behavior}.
+
+\subsubsection{Arquitectura del Sistema}
+El script utiliza la librería \texttt{multiprocessing} para instanciar múltiples procesos de control de forma paralela. Esto permite simular o controlar varios agentes simultáneamente, donde cada proceso ejecuta una instancia de la clase \texttt{MazeLidarRedController}. Esta arquitectura modular facilita la escalabilidad y el aislamiento de fallos entre agentes.
+
+\subsection{Procesamiento de Percepción}
+
+\subsubsection{Visión Artificial (Detección de Objetivo)}
+El procesamiento de imágenes se realiza en la función \texttt{extrae\_objetivo\_rojo}, utilizando la librería OpenCV \cite{bradski2008learning}. El flujo de trabajo es el siguiente:
+
+\begin{enumerate}
+    \item \textbf{Preprocesamiento y Cambio de Espacio de Color:} La imagen recibida se redimensiona a 320 px y se convierte del espacio BGR al espacio HSV (Hue, Saturation, Value). El uso de HSV es preferible en robótica móvil ya que separa la información cromática (Matiz) de la intensidad luminosa (Valor), haciendo la detección más robusta a sombras y cambios de luz \cite{siegwart2011introduction}.
+    
+    \item \textbf{Segmentación de Color:} Se aplican máscaras de umbralización para aislar el color rojo. Dado que el matiz rojo en HSV envuelve el espectro ($0^\circ$ y $180^\circ$), se combinan dos rangos:
+    \begin{itemize}
+        \item Rango bajo: $H \in [0, 10]$
+        \item Rango alto: $H \in [170, 180]$
+    \end{itemize}
+    
+    \item \textbf{Filtrado Morfológico:} Se aplican operaciones de apertura y cierre (\textit{morphological opening/closing}) para eliminar el ruido impulsivo y conectar componentes disjuntos del objeto detectado \cite{gonzalez2008digital}.
+    
+    \item \textbf{Cálculo de Error:} Se extrae el contorno de mayor área. Si supera el umbral $\texttt{AREA\_MIN}$, se calcula el centroide $(c_x, c_y)$ y el error de orientación normalizado (\textit{bearing}):
+    \begin{equation}
+        \text{bearing} = \frac{c_x - \frac{W}{2}}{\frac{W}{2}} \quad \in [-1, 1]
+    \end{equation}
+    Este valor es fundamental para el lazo de control visual o \textit{Visual Servoing} \cite{chaumette2006visual}.
+\end{enumerate}
+
+\subsubsection{Lectura del LIDAR}
+El sensor láser se utiliza para obtener distancias de seguridad mediante la función \texttt{min\_range\_at\_angle}. Esta función procesa la nube de puntos del \texttt{LaserScan} y aplica un filtro de media en ventanas angulares específicas para reducir el ruido de medida del sensor:
+\begin{itemize}
+    \item \textbf{Frontal ($0$ rad):} Detección de colisiones inminentes.
+    \item \textbf{Laterales ($\pm\pi/2$ rad):} Navegación y seguimiento de paredes.
+\end{itemize}
+
+\subsection{Lógica de Control Reactivo}
+El controlador opera en un bucle de 10 Hz, implementando una arquitectura de subsunción simplificada donde las capas inferiores (seguridad) pueden inhibir a las superiores (navegación) \cite{brooks1986robust}:
+
+\subsubsection{Prioridad 1: Evasión de Colisiones (Seguridad)}
+Independientemente del objetivo, si la distancia frontal es inferior a $\texttt{dist\_wall\_close}$, el robot entra en estado de evasión. Se detiene el avance lineal ($v=0$) y se aplica una velocidad angular $\omega$ hacia la dirección con mayor espacio libre (izquierda o derecha).
+
+\subsubsection{Prioridad 2: Navegación Visual (Visual Servoing)}
+Si el entorno es seguro y se detecta el objetivo, el robot cambia a un control basado en visión:
+\begin{itemize}
+    \item \textbf{Control Angular:} Se aplica un controlador proporcional (P) para centrar el objetivo en la imagen:
+    \begin{equation}
+        \omega_{cmd} = K_{ang} \cdot \text{bearing}
+    \end{equation}
+    Donde $K_{ang}$ es la ganancia proporcional. Se incluye saturación y zona muerta para proteger los actuadores.
+    \item \textbf{Control Lineal:} La velocidad se reduce a medida que el área del objetivo (proxy de la distancia) aumenta. Si el área supera $\texttt{AREA\_GOAL}$ y $|\text{bearing}| < \texttt{CENTER\_THRESH}$, el robot se detiene, considerando la meta alcanzada.
+\end{itemize}
+
+\subsubsection{Prioridad 3: Exploración (Seguimiento de Pared)}
+En ausencia de estímulos visuales o peligros inmediatos, el robot ejecuta un algoritmo de seguimiento de pared derecha (\textit{Wall Following}). Este comportamiento permite recorrer el laberinto manteniendo una distancia constante a la pared, garantizando la cobertura del espacio sin necesidad de un mapa global \cite{siegwart2011introduction}.
 
 \subsection{Algoritmo RL: PPO (Proximal Policy Optimization)}
 

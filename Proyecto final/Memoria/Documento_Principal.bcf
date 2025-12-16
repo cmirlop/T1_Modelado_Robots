@@ -3111,13 +3111,21 @@
     <bcf:citekey order="38" intorder="1">alfaro2023deteccion</bcf:citekey>
     <bcf:citekey order="39" intorder="1">siegwart2011intro</bcf:citekey>
     <bcf:citekey order="40" intorder="1">siegwart2011intro</bcf:citekey>
-    <bcf:citekey order="41" intorder="1">schulman2017proximal</bcf:citekey>
-    <bcf:citekey order="42" intorder="1">unity3d</bcf:citekey>
-    <bcf:citekey order="43" intorder="1">vscode</bcf:citekey>
-    <bcf:citekey order="44" intorder="1">abadi2016tensorflow</bcf:citekey>
-    <bcf:citekey order="45" intorder="1">chollet2015keras</bcf:citekey>
-    <bcf:citekey order="46" intorder="1">quigley2009ros</bcf:citekey>
-    <bcf:citekey order="47" intorder="1">nvidia_jetbot</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">quigley2009ros</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">arkin1998behavior</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">bradski2008learning</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">siegwart2011introduction</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">gonzalez2008digital</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">chaumette2006visual</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">brooks1986robust</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">siegwart2011introduction</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">schulman2017proximal</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">unity3d</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">vscode</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">abadi2016tensorflow</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">chollet2015keras</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">quigley2009ros</bcf:citekey>
+    <bcf:citekey order="55" intorder="1">nvidia_jetbot</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

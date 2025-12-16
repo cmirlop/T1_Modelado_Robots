@@ -181,6 +181,148 @@
       \verb https://ri-ng.uaq.mx/handle/123456789/10478
       \endverb
     \endentry
+    \entry{arkin1998behavior}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e1e9ddfffc3d8d6d90b73c0a54c1c19d}{%
+           family={Arkin},
+           familyi={A\bibinitperiod},
+           given={Ronald\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{fullhash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{fullhashraw}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{bibnamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorbibnamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authornamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorfullhash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorfullhashraw}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Behavior-based robotics}
+      \field{year}{1998}
+    \endentry
+    \entry{bradski2008learning}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
+           family={Bradski},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=656736e2b93f260c9619384b02d7cdf4}{%
+           family={Kaehler},
+           familyi={K\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {"O'Reilly Media, Inc."}%
+      }
+      \strng{namehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhashraw}{28773b192aefb3555440671fe8536f6c}
+      \strng{bibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorbibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authornamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhashraw}{28773b192aefb3555440671fe8536f6c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Learning OpenCV: Computer vision with the OpenCV library}
+      \field{year}{2008}
+    \endentry
+    \entry{brooks1986robust}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5572a6f2e05a08f36cab3bae8fdb643}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Rodney\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{fullhash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{fullhashraw}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{bibnamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorbibnamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authornamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorfullhash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorfullhashraw}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE journal of robotics and automation}
+      \field{number}{1}
+      \field{title}{A robust layered control system for a mobile robot}
+      \field{volume}{2}
+      \field{year}{1986}
+      \field{pages}{14\bibrangedash 23}
+      \range{pages}{10}
+    \endentry
+    \entry{chaumette2006visual}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c411c5fc2e856c5798beac39ee2fcb79}{%
+           family={Chaumette},
+           familyi={C\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8346db44e6189448a4dff197f5bc47bb}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{fullhash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{fullhashraw}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{bibnamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorbibnamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authornamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorfullhash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorfullhashraw}{d3ede61a6b2f10dd842afe97603173d6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics \& Automation Magazine}
+      \field{number}{4}
+      \field{title}{Visual servo control. I. Basic approaches}
+      \field{volume}{13}
+      \field{year}{2006}
+      \field{pages}{82\bibrangedash 90}
+      \range{pages}{9}
+    \endentry
     \entry{chollet2015keras}{misc}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -279,6 +421,43 @@
       \field{title}{Desarrollo de un algoritmo para la evasión de obstáculos dinámicos con un robot móvil con técnica de aprendizaje por refuerzo}
       \field{type}{Trabajo de grado de Ingeniería Mecatrónica}
       \field{year}{2020}
+    \endentry
+    \entry{gonzalez2008digital}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=07713b8c79fe78ffaf9ab728a5f3ce88}{%
+           family={Gonzalez},
+           familyi={G\bibinitperiod},
+           given={Rafael\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7e4f4ce32d8e1ac04f7ee5eefcabe8f}{%
+           family={Woods},
+           familyi={W\bibinitperiod},
+           given={Richard\bibnamedelima E},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{fullhash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{fullhashraw}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{bibnamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorbibnamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authornamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorfullhash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorfullhashraw}{629c2754a63b62c1f205866b8ab085f9}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Digital Image Processing}
+      \field{year}{2008}
     \endentry
     \entry{johannink2019residual}{article}{}{}
       \true{moreauthor}
@@ -573,8 +752,10 @@
       \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
       \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
       \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{extraname}{1}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -582,6 +763,51 @@
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
       \field{title}{Introduction to Autonomous Mobile Robots}
+      \field{year}{2011}
+    \endentry
+    \entry{siegwart2011introduction}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6ee8958bbf32527489012d8ca7c95ee3}{%
+           family={Siegwart},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43a2e4df07c5c4e4eb90b1e11bfd57b6}{%
+           family={Nourbakhsh},
+           familyi={N\bibinitperiod},
+           given={Illah\bibnamedelima R},
+           giveni={I\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac21ab4ede215439fcc6b051be53a11}{%
+           family={Scaramuzza},
+           familyi={S\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{fullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{fullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{bibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorbibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to autonomous mobile robots}
       \field{year}{2011}
     \endentry
     \entry{spong2020robot}{book}{}{}
@@ -943,6 +1169,148 @@
       \verb https://ri-ng.uaq.mx/handle/123456789/10478
       \endverb
     \endentry
+    \entry{arkin1998behavior}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=e1e9ddfffc3d8d6d90b73c0a54c1c19d}{%
+           family={Arkin},
+           familyi={A\bibinitperiod},
+           given={Ronald\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{fullhash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{fullhashraw}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{bibnamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorbibnamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authornamehash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorfullhash}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \strng{authorfullhashraw}{e1e9ddfffc3d8d6d90b73c0a54c1c19d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Behavior-based robotics}
+      \field{year}{1998}
+    \endentry
+    \entry{bradski2008learning}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a780b2fbd99e4f7ce78d33324e39d4c2}{%
+           family={Bradski},
+           familyi={B\bibinitperiod},
+           given={Gary},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=656736e2b93f260c9619384b02d7cdf4}{%
+           family={Kaehler},
+           familyi={K\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {"O'Reilly Media, Inc."}%
+      }
+      \strng{namehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{fullhashraw}{28773b192aefb3555440671fe8536f6c}
+      \strng{bibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorbibnamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authornamehash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhash}{28773b192aefb3555440671fe8536f6c}
+      \strng{authorfullhashraw}{28773b192aefb3555440671fe8536f6c}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Learning OpenCV: Computer vision with the OpenCV library}
+      \field{year}{2008}
+    \endentry
+    \entry{brooks1986robust}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5572a6f2e05a08f36cab3bae8fdb643}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Rodney\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{fullhash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{fullhashraw}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{bibnamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorbibnamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authornamehash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorfullhash}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \strng{authorfullhashraw}{c5572a6f2e05a08f36cab3bae8fdb643}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE journal of robotics and automation}
+      \field{number}{1}
+      \field{title}{A robust layered control system for a mobile robot}
+      \field{volume}{2}
+      \field{year}{1986}
+      \field{pages}{14\bibrangedash 23}
+      \range{pages}{10}
+    \endentry
+    \entry{chaumette2006visual}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=c411c5fc2e856c5798beac39ee2fcb79}{%
+           family={Chaumette},
+           familyi={C\bibinitperiod},
+           given={François},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8346db44e6189448a4dff197f5bc47bb}{%
+           family={Hutchinson},
+           familyi={H\bibinitperiod},
+           given={Seth},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{fullhash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{fullhashraw}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{bibnamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorbibnamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authornamehash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorfullhash}{d3ede61a6b2f10dd842afe97603173d6}
+      \strng{authorfullhashraw}{d3ede61a6b2f10dd842afe97603173d6}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Robotics \& Automation Magazine}
+      \field{number}{4}
+      \field{title}{Visual servo control. I. Basic approaches}
+      \field{volume}{13}
+      \field{year}{2006}
+      \field{pages}{82\bibrangedash 90}
+      \range{pages}{9}
+    \endentry
     \entry{chollet2015keras}{misc}{}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -1041,6 +1409,43 @@
       \field{title}{Desarrollo de un algoritmo para la evasión de obstáculos dinámicos con un robot móvil con técnica de aprendizaje por refuerzo}
       \field{type}{Trabajo de grado de Ingeniería Mecatrónica}
       \field{year}{2020}
+    \endentry
+    \entry{gonzalez2008digital}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=07713b8c79fe78ffaf9ab728a5f3ce88}{%
+           family={Gonzalez},
+           familyi={G\bibinitperiod},
+           given={Rafael\bibnamedelima C},
+           giveni={R\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f7e4f4ce32d8e1ac04f7ee5eefcabe8f}{%
+           family={Woods},
+           familyi={W\bibinitperiod},
+           given={Richard\bibnamedelima E},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{fullhash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{fullhashraw}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{bibnamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorbibnamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authornamehash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorfullhash}{629c2754a63b62c1f205866b8ab085f9}
+      \strng{authorfullhashraw}{629c2754a63b62c1f205866b8ab085f9}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Digital Image Processing}
+      \field{year}{2008}
     \endentry
     \entry{johannink2019residual}{article}{}{}
       \true{moreauthor}
@@ -1335,8 +1740,10 @@
       \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
       \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
       \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{extraname}{1}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{1}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1344,6 +1751,51 @@
       \field{labeltitlesource}{title}
       \field{edition}{2nd}
       \field{title}{Introduction to Autonomous Mobile Robots}
+      \field{year}{2011}
+    \endentry
+    \entry{siegwart2011introduction}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=6ee8958bbf32527489012d8ca7c95ee3}{%
+           family={Siegwart},
+           familyi={S\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=43a2e4df07c5c4e4eb90b1e11bfd57b6}{%
+           family={Nourbakhsh},
+           familyi={N\bibinitperiod},
+           given={Illah\bibnamedelima R},
+           giveni={I\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac21ab4ede215439fcc6b051be53a11}{%
+           family={Scaramuzza},
+           familyi={S\bibinitperiod},
+           given={Davide},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT press}%
+      }
+      \strng{namehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{fullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{fullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{bibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorbibnamehash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authornamehash}{5d9ef354cd4bda2a3935c6909059aea8}
+      \strng{authorfullhash}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \strng{authorfullhashraw}{2ce77ae90cdcaea9f60cf7424394cb04}
+      \field{extraname}{2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to autonomous mobile robots}
       \field{year}{2011}
     \endentry
     \entry{spong2020robot}{book}{}{}
