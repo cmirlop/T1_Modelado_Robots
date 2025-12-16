@@ -67,33 +67,33 @@
 \contentsline {paragraph}{Zonas de Seguridad (LiDAR)}{21}{paragraph*.26}%
 \contentsline {paragraph}{Cálculo de Recompensas}{21}{paragraph*.27}%
 \contentsline {subsubsection}{Acciones}{22}{subsubsection*.28}%
-\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{22}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Unity + Visual studio}{22}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Visual studio code}{22}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{22}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}KERAS}{23}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}ROS 1}{23}{subsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.3.6}JetBot}{23}{subsection.3.3.6}%
-\contentsline {subsection}{\numberline {3.3.7}GitHub}{23}{subsection.3.3.7}%
-\contentsline {subsection}{\numberline {3.3.8}Entorno}{23}{subsection.3.3.8}%
-\contentsline {subsection}{\numberline {3.3.9}Sensores virtuales}{25}{subsection.3.3.9}%
-\contentsline {subsubsection}{LIDAR}{25}{subsubsection*.31}%
-\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{25}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{25}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{25}{subsection.3.4.2}%
-\contentsline {section}{\numberline {3.5}Programación}{26}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Resultados}{27}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{27}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{27}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{28}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Comparación de controladores}{30}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{30}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{30}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{30}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{30}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Discusión crítica}{31}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{31}{subsection.4.4.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{32}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusiones}{32}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trabajo futuro}{33}{section.5.2}%
-\contentsline {chapter}{Bibliografía}{34}{chapter*.37}%
+\contentsline {section}{\numberline {3.3}Entorno de simulación y herramientas utilizadas}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Unity + Visual studio}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Visual studio code}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}TensorFlow}{24}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}KERAS}{24}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}ROS 1}{24}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.6}JetBot}{24}{subsection.3.3.6}%
+\contentsline {subsection}{\numberline {3.3.7}GitHub}{24}{subsection.3.3.7}%
+\contentsline {subsection}{\numberline {3.3.8}Entorno}{25}{subsection.3.3.8}%
+\contentsline {subsection}{\numberline {3.3.9}Sensores virtuales}{26}{subsection.3.3.9}%
+\contentsline {subsubsection}{LIDAR}{26}{subsubsection*.33}%
+\contentsline {section}{\numberline {3.4}Procedimiento de experimentación / entrenamiento}{26}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Flujo de trabajo}{26}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Estrategia de comparacion}{27}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Programación}{28}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Resultados}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Entrenamientos en Unity}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Entrenamiento 1 en reinforce learning}{29}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Entrenamiento 2 en reinforce learning}{30}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Comparación de controladores}{32}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Comparación control clásico vs control basado en RL}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Ventajas y limitaciones}{32}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Pruebas finales y validación del sistema}{32}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pruebas finales}{32}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Discusión crítica}{33}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Fortalezas, limitaciones y mejoras}{33}{subsection.4.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{34}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusiones}{34}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trabajo futuro}{35}{section.5.2}%
+\contentsline {chapter}{Bibliografía}{36}{chapter*.39}%

@@ -1,20 +1,20 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'Documento_Principal.blg'
-[105] biber-MSWIN64:342> INFO - === 
-[148] Biber.pm:421> INFO - Reading 'Documento_Principal.bcf'
-[287] Biber.pm:1002> INFO - Found 25 citekeys in bib section 0
-[307] Biber.pm:4487> INFO - Processing section 0
-[318] Biber.pm:4678> INFO - Looking for bibtex file './bibliografia.bib' for section 0
-[388] bibtex.pm:1713> INFO - LaTeX decoding ...
-[412] bibtex.pm:1519> INFO - Found BibTeX data source './bibliografia.bib'
-[566] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[566] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[566] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[613] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
-[613] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[613] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
-[638] bbl.pm:676> INFO - Writing 'Documento_Principal.bbl' with encoding 'UTF-8'
-[668] bbl.pm:779> INFO - Output to Documento_Principal.bbl
-[668] Biber.pm:132> WARN - Duplicate entry key: 'quigley2009ros' in file './bibliografia.bib', skipping ...
-[668] Biber.pm:132> WARN - I didn't find a database entry for 'Alfaro2023' (section 0)
-[668] Biber.pm:134> INFO - WARNINGS: 2
+[190] biber-MSWIN64:342> INFO - === 
+[260] Biber.pm:421> INFO - Reading 'Documento_Principal.bcf'
+[486] Biber.pm:1002> INFO - Found 25 citekeys in bib section 0
+[520] Biber.pm:4487> INFO - Processing section 0
+[541] Biber.pm:4678> INFO - Looking for bibtex file './bibliografia.bib' for section 0
+[617] bibtex.pm:1713> INFO - LaTeX decoding ...
+[656] bibtex.pm:1519> INFO - Found BibTeX data source './bibliografia.bib'
+[947] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[947] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[947] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[1033] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1034] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1034] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[1083] bbl.pm:676> INFO - Writing 'Documento_Principal.bbl' with encoding 'UTF-8'
+[1142] bbl.pm:779> INFO - Output to Documento_Principal.bbl
+[1142] Biber.pm:132> WARN - Duplicate entry key: 'quigley2009ros' in file './bibliografia.bib', skipping ...
+[1143] Biber.pm:132> WARN - I didn't find a database entry for 'Alfaro2023' (section 0)
+[1143] Biber.pm:134> INFO - WARNINGS: 2
