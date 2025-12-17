@@ -1,0 +1,62 @@
+
+ \begin{comment}
+\section{Modelo matemático}
+\label{sec:modelo}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figuras/imagen_ejes.jpeg}
+    \caption{Ejes del robot}
+\end{figure}
+
+\[
+\begin{array}{c|c|c|c|c}
+i & d_i & \theta_i & \alpha_i & a_i \\ \hline
+1 & d_1 & 0 & \tfrac{\pi}{2} & 0 \\
+2 & 0 & 0 & 0 & d_2 \\
+3 & 0 & 0 & 0 & d_3
+\end{array}
+\]
+
+\subsection{Cinemática directa}
+La cinemática directa permite calcular la posición y orientación 
+del efector final (la pinza) a partir de los ángulos y 
+desplazamientos de las articulaciones del robot.
+
+En nuestro caso, el robot tiene 3 grados de libertad:
+\begin{itemize}
+    \item Rotación en la base (eje X): permite girar todo el brazo alrededor de la base.
+    \item Movimiento horizontal en el eje Z: conseguido mediante un rodamiento implementado en la base, que desplaza el brazo a lo largo del eje Z.
+    \item Movimiento en el eje X del codo: logrado mediante otro rodamiento, que permite extender o retraer el brazo a lo largo del eje X desde el codo.
+
+\end{itemize}
+
+
+
+La posición del efector final $(x,y,z)$ se calcula combinando 
+estas tres transformaciones mediante matrices de transformación 
+homogénea. Multiplicando las matrices correspondientes a cada 
+articulación se obtiene la matriz global $T_0^3$, de la que se 
+extraen las coordenadas de la pinza.
+
+\subsection{Cinemática inversa}
+La cinemática inversa permite determinar los ángulos y 
+desplazamientos de las articulaciones necesarios para colocar 
+la pinza en una posición y orientación deseadas.
+
+Para nuestro robot:
+\begin{itemize}
+    \item Debemos calcular la rotación de la base para orientar el brazo hacia el punto deseado.
+    \item Ajustar el desplazamiento horizontal en Z para posicionar la altura correcta.
+    \item Ajustar el movimiento en X del codo para llegar a la distancia correcta desde la base.
+
+\end{itemize}
+
+
+Se deben considerar posibles múltiples soluciones, así como 
+restricciones físicas de los rodillos y límites de las 
+articulaciones. La cinemática inversa asegura que el robot pueda 
+mover su efector a cualquier posición alcanzable dentro de su 
+espacio de trabajo.
+\end{comment}
